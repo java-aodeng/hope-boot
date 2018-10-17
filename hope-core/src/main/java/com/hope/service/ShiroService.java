@@ -1,0 +1,35 @@
+package com.hope.service;
+
+import com.hope.beans.SysUser;
+
+import java.util.Map;
+
+/**
+ * @program:hope-plus
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @微信公众号:低调小熊猫
+ * @create:2018-10-17 13:25
+ **/
+public interface ShiroService {
+    /***
+     * 初始化权限
+     * @return
+     */
+    Map<String,String> loadFilterChainDefinitions();
+    /***
+     * 重新加载权限
+     */
+    void updatePermission();
+    /***
+     * 重新加载用户权限
+     * @param sysUser
+     */
+    void reloadAuthorizingByUserId(SysUser sysUser);
+
+    /***
+     * 重新加载所有拥有roleId角色的用户权限
+     * @param roleId
+     */
+    void reloadAuthorizingByRoleId(Integer roleId);
+}

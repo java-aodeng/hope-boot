@@ -1,0 +1,56 @@
+server:
+  port: 8080
+  tomcat:
+      uri-encoding: utf-8
+  # HTTP请求和响应头的最大量，以字节为单位，默认值为4096字节,超过此长度的部分不予处理,一般8K。解决java.io.EOFException: null问题
+  max-http-header-size: 8192
+  use-forward-headers: true
+spring:
+  thymeleaf:
+    # 配置thymeleaf修改页面不重启生效
+    prefix: file:src/main/resources/templates/
+    cache: false
+    mode: LEGACYHTML5
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/hope?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+      initial-size: 1
+      minIdle: 3
+      maxActive: 20
+      maxWait: 60000
+      filters: stat,wall,slf4j
+  application:
+      name: hope-admin
+mybatis:
+    type-aliases-package: com.hope.beans
+    mapper-locations: classpath:/mybatis/*.xml
+mapper:
+    mappers:
+        - com.hope.mybatis.mapper.BaseMapper
+    not-empty: false
+    identity: MYSQL
+pagehelper:
+    helper-dialect: mysql
+    reasonable: true
+    support-methods-arguments: true
+    params: count=countSql
+logging:
+    file: ./logs/log.log
+################################### hope-plus自定义配置 ###################################
+hope:
+    druid:
+        # druid访问用户名（默认：hope-druid）
+        username: hope-druid
+        # druid访问密码（默认：hope-druid）
+        password: hope-druid
+        # druid访问地址（默认：/druid/*）
+        servletPath: /druid/*
+        # 启用重置功能（默认false）
+        resetEnable: false
+        # 白名单(非必填)， list
+        allowIps[0]:
+        # 黑名单(非必填)， list
+        denyIps[0]:

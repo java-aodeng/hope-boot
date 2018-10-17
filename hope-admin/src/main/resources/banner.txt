@@ -1,0 +1,13 @@
+
+88                                                                  88
+88                                                                  88
+88                                                                  88
+88,dPPYba,   ,adPPYba,  8b,dPPYba,   ,adPPYba,          8b,dPPYba,  88 88       88 ,adPPYba,
+88P'    "8a a8"     "8a 88P'    "8a a8P_____88 aaaaaaaa 88P'    "8a 88 88       88 I8[    ""
+88       88 8b       d8 88       d8 8PP""""""" """""""" 88       d8 88 88       88  `"Y8ba,
+88       88 "8a,   ,a8" 88b,   ,a8" "8b,   ,aa          88b,   ,a8" 88 "8a,   ,a88 aa    ]8I
+88       88  `"YbbdP"'  88`YbbdP"'   `"Ybbd8"'          88`YbbdP"'  88  `"YbbdP'Y8 `"YbbdP"'
+                        88                              88
+                        88                              88
+
+Hello,Welcome to hope-plus.框架使用最新版本SpringBoot：${spring-boot.version} 低调小熊猫个人博客：https://aodeng.cc 微信公众号：低调小熊猫

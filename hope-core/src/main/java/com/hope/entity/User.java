@@ -2,6 +2,7 @@ package com.hope.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hope.beans.SysUser;
+import org.springframework.util.StringUtils;
 
 /**
  * @program:hope-plus
@@ -21,6 +22,18 @@ public class User {
         this.sysUser=sysUser;
     }
 
+    public User(String loginname, String password) {
+        this();
+        setUsername(loginname);
+        if (!StringUtils.isEmpty(password)) {
+            try {
+                //setPassword(PasswordUtil.encrypt(password, loginname));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @JsonIgnore
     public SysUser getSysUser() {
         return sysUser;
@@ -28,5 +41,13 @@ public class User {
 
     public void setSysUser(SysUser sysUser) {
         this.sysUser = sysUser;
+    }
+
+    public void setUsername(String username) {
+        this.sysUser.setUsername(username);
+    }
+
+    public void setPassword(String password) {
+        this.sysUser.setPassword(password);
     }
 }

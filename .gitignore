@@ -1,4 +1,6 @@
 /target/
+/logs/
+/hope-admin/logs/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###

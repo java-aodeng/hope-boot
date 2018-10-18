@@ -2,7 +2,7 @@ package com.hope.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
 
-/**
+/**数据对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

@@ -3,7 +3,7 @@ package com.hope.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hope.beans.SysUserRole;
 
-/**
+/**业务对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

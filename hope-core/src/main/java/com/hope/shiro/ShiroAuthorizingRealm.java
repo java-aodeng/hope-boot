@@ -8,6 +8,7 @@ import com.hope.service.SysUserService;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -51,8 +52,11 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //获取用户账号
         String sysusername=(String) authenticationToken.getPrincipal();
-        //User User=new User(sysusername);
-        //SysUser sysUser=sysUserService.selectOne(sysusername);
+        User user=sysUserService.getByUserName(sysusername);
+        if (user == null){
+            throw new UnknownAccountException("帐号不存在！");
+        }
+        //if (user.getStatus())
         return null;
     }
 }

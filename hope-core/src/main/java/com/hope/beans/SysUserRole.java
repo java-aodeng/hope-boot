@@ -4,7 +4,7 @@ import com.hope.mybatis.pojo.CommonEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-/**
+/**数据对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

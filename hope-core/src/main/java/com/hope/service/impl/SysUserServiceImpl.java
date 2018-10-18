@@ -1,6 +1,6 @@
 package com.hope.service.impl;
 
-import com.hope.beans.SysUser;
+import com.hope.entity.User;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;
 import org.springframework.stereotype.Service;
@@ -13,5 +13,15 @@ import org.springframework.stereotype.Service;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysUserService{
+public class SysUserServiceImpl extends BaseServiceImpl<User> implements SysUserService{
+    /***
+     * 根据用户名查询
+     * @param username
+     * @return
+     */
+    @Override
+    public User getByUserName(String username) {
+        User user=new User(username,"");
+        return selectOne(user);
+    }
 }

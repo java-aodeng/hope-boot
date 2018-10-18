@@ -1,6 +1,8 @@
 package com.hope.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**数据对象类
  * @program:hope-plus
@@ -9,7 +11,8 @@ import com.hope.mybatis.pojo.CommonEntity;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 10:51
  **/
-
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class SysRole extends CommonEntity{
     /**---------------数据对象---------------**/
     /**装逼的id**/

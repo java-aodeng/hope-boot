@@ -21,6 +21,7 @@ public class User {
     public User(){
         this.sysUser=new SysUser();
     }
+
     public User(SysUser sysUser){
         this.sysUser=sysUser;
     }
@@ -130,6 +131,7 @@ public class User {
     public void setLastLoginTime(Date lastLoginTime) {
         this.sysUser.setLastLoginTime(lastLoginTime);
     }
+
     public Integer getId() {
         return this.sysUser.getId();
     }

@@ -3,6 +3,8 @@ package com.hope.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hope.beans.SysRoleResource;
 
+import java.util.Date;
+
 /**业务对象类
  * @program:hope-plus
  * @author:aodeng
@@ -17,16 +19,57 @@ public class RoleResource {
     public RoleResource() {
          this.sysRoleResource=new SysRoleResource();
     }
+
     public RoleResource(SysRoleResource sysRoleResource){
         this.sysRoleResource=sysRoleResource;
     }
 
+    /***
+     * 封装时还需要将公共实体类的属性封装
+     * @return
+     */
     @JsonIgnore
     public SysRoleResource getSysRoleResource() {
-        return sysRoleResource;
+        return this.sysRoleResource;
     }
 
-    public void setSysRoleResource(SysRoleResource sysRoleResource) {
-        this.sysRoleResource = sysRoleResource;
+    public String getRoleId() {
+        return this.sysRoleResource.getRoleId();
+    }
+
+    public void setRoleId(String roleId) {
+        this.sysRoleResource.setRoleId(roleId);
+    }
+
+    public String getResourceId() {
+        return this.sysRoleResource.getResourceId();
+    }
+
+    public void setResourceId(String resourceId) {
+        this.sysRoleResource.setResourceId(resourceId);
+    }
+
+    public Integer getId() {
+        return this.sysRoleResource.getId();
+    }
+
+    public void setId(Integer id) {
+        this.sysRoleResource.setId(id);
+    }
+
+    public Date getCreatetime() {
+        return this.sysRoleResource.getCreatetime();
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.sysRoleResource.setCreatetime(createtime);
+    }
+
+    public Date getUpdatetime() {
+        return this.sysRoleResource.getUpdatetime();
+    }
+
+    public void setUpdatetime(Date updatetime) {
+        this.sysRoleResource.setUpdatetime(updatetime);
     }
 }

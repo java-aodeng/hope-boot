@@ -14,7 +14,9 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
+import org.apache.shiro.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -51,36 +53,16 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
         }
         //赋予角色权限
         List<Resource> resourceList=sysResourceService.listResourcesByUserId();
-        return null;
-    }
-/*
-*
-* @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        // 权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
-        Long userId = (Long) SecurityUtils.getSubject().getPrincipal();
-
-        // 赋予角色
-        List<Role> roleList = roleService.listRolesByUserId(userId);
-        for (Role role : roleList) {
-            info.addRole(role.getName());
-        }
-
-        // 赋予权限
-        List<Resources> resourcesList = resourcesService.listByUserId(userId);
-        if (!CollectionUtils.isEmpty(resourcesList)) {
-            for (Resources resources : resourcesList) {
-                String permission = resources.getPermission();
-                System.out.println(resources.getName() + "   " + permission);
-                if (!StringUtils.isEmpty(permission)) {
-                    info.addStringPermission(permission);
+        if (!CollectionUtils.isEmpty(resourceList)){
+            for (Resource resource:resourceList){
+                String permission=resource.getPermission();
+                if (!StringUtils.isEmpty((permission))){
+                    simpleAuthorizationInfo.addStringPermission(permission);
                 }
             }
         }
-        return info;
-    }*/
+        return simpleAuthorizationInfo;
+    }
     /***
      * 提供账户信息，返回认证用户的角色信息
      * @param authenticationToken

@@ -5,6 +5,8 @@ import com.hope.mybatis.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @program:hope-plus
  * @author:aodeng
@@ -13,4 +15,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface SysUserMapper extends BaseMapper<SysUser>{
+    List<SysUser> listUsersByRoleId(Integer roleId);
 }

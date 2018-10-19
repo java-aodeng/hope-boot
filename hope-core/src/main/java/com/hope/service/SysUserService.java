@@ -4,6 +4,8 @@ import com.hope.beans.SysUser;
 import com.hope.entity.User;
 import com.hope.mybatis.service.BaseService;
 
+import java.util.List;
+
 /**
  * @program:hope-plus
  * @author:aodeng
@@ -18,4 +20,10 @@ public interface SysUserService extends BaseService<User>{
      * @return
      */
     User getByUserName(String username);
+
+    /***
+     * 根据角色id查询用户列表
+     * @return
+     */
+    List<User> listUsersByRoleId(Integer roleId);
 }

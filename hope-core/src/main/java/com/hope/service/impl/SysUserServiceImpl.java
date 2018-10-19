@@ -2,8 +2,10 @@ package com.hope.service.impl;
 
 import com.hope.beans.SysUser;
 import com.hope.entity.User;
+import com.hope.mapper.SysUserMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -19,6 +21,9 @@ import java.util.List;
  **/
 @Service
 public class SysUserServiceImpl extends BaseServiceImpl<User> implements SysUserService{
+
+    @Autowired
+    private SysUserMapper sysUserMapper;
 
     /***
      * 数据类型转换为业务类型
@@ -45,5 +50,10 @@ public class SysUserServiceImpl extends BaseServiceImpl<User> implements SysUser
     public User getByUserName(String username) {
         User user=new User(username,"");
         return selectOne(user);
+    }
+
+    @Override
+    public List<User> listUsersByRoleId(Integer roleId) {
+        return getUsers(sysUserMapper.listUsersByRoleId(roleId));
     }
 }

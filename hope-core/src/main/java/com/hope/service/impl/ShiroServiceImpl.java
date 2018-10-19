@@ -3,13 +3,18 @@ package com.hope.service.impl;
 import com.hope.beans.SysResource;
 import com.hope.beans.SysUser;
 import com.hope.entity.Resource;
+import com.hope.entity.User;
 import com.hope.holder.SpringContextHolder;
 import com.hope.service.ShiroService;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
+import com.hope.shiro.ShiroAuthorizingRealm;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.subject.SimplePrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 import org.apache.shiro.web.filter.mgt.DefaultFilterChainManager;
 import org.apache.shiro.web.filter.mgt.PathMatchingFilterChainResolver;
@@ -19,13 +24,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jca.context.SpringContextResourceAdapter;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
+/**Shiro-实现类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -106,22 +112,19 @@ public class ShiroServiceImpl implements ShiroService{
 
     /***
      * 重新加载用户权限
-     * @param sysUser
+     * @param user
      */
     @Override
-    public void reloadAuthorizingByUserId(SysUser sysUser) {
+    public void reloadAuthorizingByUserId(User user) {
         RealmSecurityManager realmSecurityManager=(RealmSecurityManager) SecurityUtils.getSecurityManager();
-        //ShiroRea
-/*
-        ShiroRealm shiroRealm = (ShiroRealm) rsm.getRealms().iterator().next();
-        Subject subject = SecurityUtils.getSubject();
-        String realmName = subject.getPrincipals().getRealmNames().iterator().next();
-        SimplePrincipalCollection principals = new SimplePrincipalCollection(user.getId(), realmName);
-        subject.runAs(principals);
-        shiroRealm.getAuthorizationCache().remove(subject.getPrincipals());
+        ShiroAuthorizingRealm shiroAuthorizingRealm=(ShiroAuthorizingRealm)realmSecurityManager.getRealms().iterator().next();
+        Subject subject=SecurityUtils.getSubject();
+        String realmName=subject.getPrincipals().getRealmNames().iterator().next();
+        SimplePrincipalCollection simplePrincipalCollection=new SimplePrincipalCollection(user.getId(),realmName);
+        subject.runAs(simplePrincipalCollection);
+        shiroAuthorizingRealm.getAuthorizationCache().remove(subject.getPrincipals());
         subject.releaseRunAs();
-
-        LOG.info("用户[{}]的权限更新成功！！", user.getUsername());*/
+        log.info("[以下用户权限更新成功！]-[{}]",user.getUsername());
     }
 
     /***
@@ -130,6 +133,12 @@ public class ShiroServiceImpl implements ShiroService{
      */
     @Override
     public void reloadAuthorizingByRoleId(Integer roleId) {
-
+        List<User> userList=sysUserService.listUsersByRoleId(roleId);
+        if (CollectionUtils.isEmpty(userList)){
+            return;
+        }
+        for (User user:userList){
+            reloadAuthorizingByUserId(user);
+        }
     }
 }

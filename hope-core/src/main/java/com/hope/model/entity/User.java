@@ -1,7 +1,7 @@
-package com.hope.entity;
+package com.hope.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hope.beans.SysUser;
+import com.hope.model.beans.SysUser;
 import com.hope.util.UsingAesHopeUtil;
 import org.springframework.util.StringUtils;
 

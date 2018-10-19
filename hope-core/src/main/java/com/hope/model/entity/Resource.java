@@ -1,7 +1,7 @@
-package com.hope.entity;
+package com.hope.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.hope.beans.SysResource;
+import com.hope.model.beans.SysResource;
 
 import java.util.Date;
 

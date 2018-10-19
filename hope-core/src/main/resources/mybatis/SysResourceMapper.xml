@@ -3,10 +3,10 @@
 <mapper namespace="com.hope.mapper.SysResourceMapper">
     <!--低调小熊猫专用-->
     <!--selectAlls测试-->
-    <select id="selectAlls" resultType="com.hope.beans.SysResource">
+    <select id="selectAlls" resultType="com.hope.model.beans.SysResource">
         SELECT  *  FROM sys_resource
     </select>
-    <select id="listUrlAndPermission" resultType="com.hope.beans.SysResource">
+    <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
 
     </select>
 </mapper>

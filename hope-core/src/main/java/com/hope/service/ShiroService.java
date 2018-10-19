@@ -1,7 +1,6 @@
 package com.hope.service;
 
-import com.hope.beans.SysUser;
-import com.hope.entity.User;
+import com.hope.model.entity.User;
 
 import java.util.Map;
 

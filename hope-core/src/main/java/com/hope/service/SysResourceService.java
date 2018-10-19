@@ -1,7 +1,7 @@
 package com.hope.service;
 
-import com.hope.beans.SysResource;
-import com.hope.entity.Resource;
+import com.hope.model.beans.SysResource;
+import com.hope.model.entity.Resource;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysResourceService extends BaseService<Resource> {
+public interface SysResourceService extends BaseService<SysResource> {
     /***
      * 测试
      * @return

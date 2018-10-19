@@ -1,6 +1,6 @@
 package com.hope.mapper;
 
-import com.hope.beans.SysUser;
+import com.hope.model.beans.SysUser;
 import com.hope.mybatis.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

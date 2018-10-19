@@ -1,7 +1,6 @@
 package com.hope.mapper;
 
-import com.hope.beans.SysRole;
-import com.hope.entity.Role;
+import com.hope.model.beans.SysRole;
 import com.hope.mybatis.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;

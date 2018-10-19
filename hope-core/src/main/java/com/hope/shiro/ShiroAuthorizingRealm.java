@@ -1,9 +1,9 @@
 package com.hope.shiro;
 
-import com.hope.entity.Resource;
-import com.hope.entity.Role;
-import com.hope.entity.User;
-import com.hope.enums.SysUserStatusEnum;
+import com.hope.model.entity.Resource;
+import com.hope.model.entity.Role;
+import com.hope.model.entity.User;
+import com.hope.model.enums.SysUserStatusEnum;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;

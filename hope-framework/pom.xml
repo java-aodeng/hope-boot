@@ -25,4 +25,12 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+<!--	<dependencies>
+		&lt;!&ndash;依赖core模板&ndash;&gt;
+		<dependency>
+			<groupId>com.hope</groupId>
+			<artifactId>hope-core</artifactId>
+		</dependency>
+	</dependencies>-->
 </project>

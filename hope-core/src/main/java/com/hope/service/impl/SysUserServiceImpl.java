@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
-import com.hope.beans.SysUser;
-import com.hope.entity.User;
+import com.hope.model.beans.SysUser;
+import com.hope.model.entity.User;
 import com.hope.mapper.SysUserMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;
@@ -12,7 +12,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -20,7 +20,7 @@ import java.util.List;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysUserServiceImpl extends BaseServiceImpl<User> implements SysUserService{
+public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysUserService{
 
     @Autowired
     private SysUserMapper sysUserMapper;
@@ -49,7 +49,8 @@ public class SysUserServiceImpl extends BaseServiceImpl<User> implements SysUser
     @Override
     public User getByUserName(String username) {
         User user=new User(username,"");
-        return selectOne(user);
+        SysUser sysUser=selectOne(user.getSysUser());
+        return null == sysUser ? null : new User(sysUser);
     }
 
     @Override

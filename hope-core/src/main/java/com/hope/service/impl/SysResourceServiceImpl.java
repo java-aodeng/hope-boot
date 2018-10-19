@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
-import com.hope.beans.SysResource;
-import com.hope.entity.Resource;
+import com.hope.model.beans.SysResource;
+import com.hope.model.entity.Resource;
 import com.hope.mapper.SysResourceMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysResourceService;
@@ -12,7 +12,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -20,7 +20,7 @@ import java.util.List;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysResourceServiceImpl extends BaseServiceImpl<Resource> implements SysResourceService{
+public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> implements SysResourceService{
 
     @Autowired
     SysResourceMapper sysResourceMapper;

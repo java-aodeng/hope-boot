@@ -1,6 +1,7 @@
 package com.hope.service;
 
-import com.hope.entity.Role;
+import com.hope.model.beans.SysRole;
+import com.hope.model.entity.Role;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysRoleService extends BaseService<Role>{
+public interface SysRoleService extends BaseService<SysRole>{
     /***
      * 根据用户id查询角色列表
      * @param userId

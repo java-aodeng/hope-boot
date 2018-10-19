@@ -1,4 +1,4 @@
-package com.hope.beans;
+package com.hope.model.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
 import lombok.Data;

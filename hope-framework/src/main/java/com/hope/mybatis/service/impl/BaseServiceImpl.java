@@ -6,8 +6,10 @@ import org.apache.ibatis.exceptions.TooManyResultsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +20,6 @@ import java.util.List;
  **/
 @Service
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
-
     @Autowired(required = false)
     private BaseMapper<T> baseMapper;
 

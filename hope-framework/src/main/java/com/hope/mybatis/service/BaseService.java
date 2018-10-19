@@ -98,4 +98,6 @@ public interface BaseService<T> {
      * @return 查询结果
      */
     T findByExample(Example example);
+
+
 }

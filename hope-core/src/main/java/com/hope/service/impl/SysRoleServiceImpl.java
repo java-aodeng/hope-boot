@@ -1,10 +1,7 @@
 package com.hope.service.impl;
 
-import com.hope.beans.SysResource;
-import com.hope.beans.SysRole;
-import com.hope.entity.Resource;
-import com.hope.entity.Role;
-import com.hope.entity.User;
+import com.hope.model.beans.SysRole;
+import com.hope.model.entity.Role;
 import com.hope.mapper.SysRoleMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysRoleService;
@@ -15,7 +12,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -23,7 +20,7 @@ import java.util.List;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysRoleServiceImpl extends BaseServiceImpl<Role> implements SysRoleService{
+public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysRoleService{
 
     @Autowired
     private SysRoleMapper sysRoleMapper;

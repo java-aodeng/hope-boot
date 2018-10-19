@@ -1,7 +1,7 @@
 package com.hope.service;
 
-import com.hope.beans.SysUser;
-import com.hope.entity.User;
+import com.hope.model.beans.SysUser;
+import com.hope.model.entity.User;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysUserService extends BaseService<User>{
+public interface SysUserService extends BaseService<SysUser>{
     /***
      * 根据用户名查询
      * @param username

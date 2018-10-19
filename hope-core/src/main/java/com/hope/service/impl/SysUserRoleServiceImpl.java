@@ -1,9 +1,14 @@
 package com.hope.service.impl;
 
+import com.hope.beans.SysUserRole;
 import com.hope.entity.UserRole;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserRoleService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @program:hope-plus
@@ -14,4 +19,20 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class SysUserRoleServiceImpl extends BaseServiceImpl<UserRole> implements SysUserRoleService{
+
+    /***
+     * 数据类型转换为业务类型
+     * @param sysUserRoles
+     * @return
+     */
+    private List<UserRole> getUserRoles(List<SysUserRole> sysUserRoles){
+        if (CollectionUtils.isEmpty(sysUserRoles)){
+            return null;
+        }
+        List<UserRole> userRoleList=new ArrayList<>();
+        for (SysUserRole sysUserRole:sysUserRoles){
+            userRoleList.add(new UserRole(sysUserRole));
+        }
+        return userRoleList;
+    }
 }

@@ -94,7 +94,7 @@ CREATE TABLE `sys_user` (
   `phone` varchar(50) DEFAULT NULL COMMENT '联系方式',
   `sex` int(1) DEFAULT NULL COMMENT '性别：1男2女3变态',
   `age` int(3) DEFAULT NULL COMMENT '年龄',
-  `status` int(1) NOT NULL COMMENT '用户状态：1有效2删除',
+  `status` int(1) NOT NULL COMMENT '用户状态：1有效2删除0禁止',
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   `last_login_time` datetime DEFAULT NULL COMMENT '最后登陆时间',

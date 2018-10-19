@@ -1,6 +1,6 @@
 package com.hope.service;
 
-import com.hope.beans.SysUserRole;
+import com.hope.entity.UserRole;
 import com.hope.mybatis.service.BaseService;
 
 /**
@@ -10,5 +10,5 @@ import com.hope.mybatis.service.BaseService;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:11
  **/
-public interface SysUserRoleService extends BaseService<SysUserRole>{
+public interface SysUserRoleService extends BaseService<UserRole>{
 }

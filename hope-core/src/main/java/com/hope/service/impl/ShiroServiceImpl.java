@@ -2,6 +2,7 @@ package com.hope.service.impl;
 
 import com.hope.beans.SysResource;
 import com.hope.beans.SysUser;
+import com.hope.entity.Resource;
 import com.hope.holder.SpringContextHolder;
 import com.hope.service.ShiroService;
 import com.hope.service.SysResourceService;
@@ -61,15 +62,15 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/error","anon");
         filterChainDefinitionMap.put("/hope-static/**","anon");
         //加载数据库中配置的资源权限列表
-        List<SysResource> sysResourcesList=sysResourceService.listUrlAndPermission();
-        for(SysResource sysResource:sysResourcesList){
-            if(!StringUtils.isEmpty(sysResource.getUrl()) && !StringUtils.isEmpty(sysResource.getPermission())){
-                String permission ="perms["+sysResource.getPermission()+"]";
-                filterChainDefinitionMap.put(sysResource.getUrl(),permission);
+        List<Resource> resourcesList=sysResourceService.listUrlAndPermission();
+        for(Resource resource:resourcesList){
+            if(!StringUtils.isEmpty(resource.getUrl()) && !StringUtils.isEmpty(resource.getPermission())){
+                String permission ="perms["+resource.getPermission()+"]";
+                filterChainDefinitionMap.put(resource.getUrl(),permission);
             }
         }
         filterChainDefinitionMap.put("/**","user");
-        log.info("[hope初始化权限成功,数据库资源条数]-[{}]",sysResourcesList.size());
+        log.info("[hope初始化权限成功,数据库资源条数]-[{}]",resourcesList.size());
         return filterChainDefinitionMap;
     }
 

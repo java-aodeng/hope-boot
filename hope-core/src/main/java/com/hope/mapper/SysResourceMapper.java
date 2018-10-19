@@ -18,4 +18,6 @@ public interface SysResourceMapper extends BaseMapper<SysResource>{
     List<SysResource> selectAlls();
 
     List<SysResource> listUrlAndPermission();
+
+    List<SysResource> listResourcesByUserId();
 }

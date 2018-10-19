@@ -1,20 +1,22 @@
 package com.hope.shiro;
 
-import com.hope.beans.SysUser;
+import com.hope.entity.Resource;
+import com.hope.entity.Role;
 import com.hope.entity.User;
+import com.hope.enums.SysUserStatusEnum;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
+import java.util.List;
 
 /**Shiro-授权领域
  * @program:hope-plus
@@ -25,71 +27,35 @@ import javax.annotation.Resource;
  **/
 public class ShiroAuthorizingRealm extends AuthorizingRealm{
 
-    @Autowired(required = false)
+    @Autowired
     private SysUserService sysUserService;
-    @Autowired(required = false)
+    @Autowired
     private SysResourceService sysResourceService;
-    @Autowired(required = false)
+    @Autowired
     private SysRoleService sysRoleService;
 
     /***
-     * 提供账户信息，返回认证信息
+     * 权限认证，为当前登陆的用户授予权限
      * @param principalCollection
      * @return
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
-    }
-
-    /***
-     * 提供账户信息，返回认证信息
-     * @param authenticationToken
-     * @return
-     * @throws AuthenticationException
-     */
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        //获取用户账号
-        String sysusername=(String) authenticationToken.getPrincipal();
-        User user=sysUserService.getByUserName(sysusername);
-        if (user == null){
-            throw new UnknownAccountException("帐号不存在！");
+        //权限信息对象，保存用户的角色和资源信息
+        SimpleAuthorizationInfo simpleAuthorizationInfo=new SimpleAuthorizationInfo();
+        Integer userId=(Integer) SecurityUtils.getSubject().getPrincipal();
+        //赋予角色名称
+        List<Role> roleList=sysRoleService.listRolesByUserId(userId);
+        for (Role role:roleList){
+            simpleAuthorizationInfo.addRole(role.getRole());
         }
-        //if (user.getStatus())
+        //赋予角色权限
+        List<Resource> resourceList=sysResourceService.listResourcesByUserId();
         return null;
     }
-}
 /*
 *
-
-    @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        //获取用户的输入的账号.
-        String username = (String) token.getPrincipal();
-        User user = userService.getByUserName(username);
-        if (user == null) {
-            throw new UnknownAccountException("账号不存在！");
-        }
-        if (user.getStatus() != null && UserStatusEnum.DISABLE.getCode().equals(user.getStatus())) {
-            throw new LockedAccountException("帐号已被锁定，禁止登录！");
-        }
-
-        // principal参数使用用户Id，方便动态刷新用户权限
-        return new SimpleAuthenticationInfo(
-                user.getId(),
-                user.getPassword(),
-                ByteSource.Util.bytes(username),
-                getName()
-        );
-    }
-
-    */
-/**
-     * 权限认证，为当前登录的Subject授予角色和权限（角色的权限信息集合）
-     *//*
-
-    @Override
+* @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         // 权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
@@ -114,6 +80,29 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
             }
         }
         return info;
+    }*/
+    /***
+     * 提供账户信息，返回认证用户的角色信息
+     * @param authenticationToken
+     * @return
+     * @throws AuthenticationException
+     */
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        //获取用户账号
+        String sysusername=(String) authenticationToken.getPrincipal();
+        User user=sysUserService.getByUserName(sysusername);
+        if (user == null){
+            throw new UnknownAccountException("帐号不存在！");
+        }
+        if (null != user.getStatus() && SysUserStatusEnum.DISABLE.getCode().equals(user.getStatus())){
+            throw new LockedAccountException("账号锁定，禁止登录hope，自己好好想想为什么吧！");
+        }
+        return new SimpleAuthenticationInfo(
+                user.getId(),
+                user.getPassword(),
+                ByteSource.Util.bytes(sysusername),
+                getName()
+        );
     }
-
-}*/
+}

@@ -1,6 +1,6 @@
 package com.hope.service.impl;
 
-import com.hope.beans.SysUserRole;
+import com.hope.entity.UserRole;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserRoleService;
 import org.springframework.stereotype.Service;
@@ -13,5 +13,5 @@ import org.springframework.stereotype.Service;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> implements SysUserRoleService{
+public class SysUserRoleServiceImpl extends BaseServiceImpl<UserRole> implements SysUserRoleService{
 }

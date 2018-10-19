@@ -1,12 +1,15 @@
 package com.hope.service.impl;
 
 import com.hope.beans.SysResource;
+import com.hope.entity.Resource;
 import com.hope.mapper.SysResourceMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysResourceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,17 +20,39 @@ import java.util.List;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> implements SysResourceService{
+public class SysResourceServiceImpl extends BaseServiceImpl<Resource> implements SysResourceService{
 
     @Autowired
     SysResourceMapper sysResourceMapper;
-    @Override
-    public List<SysResource> selectAlls() {
-        return sysResourceMapper.selectAlls();
+
+    /***
+     * 数据类型转换为业务类型
+     * @param sysResources
+     * @return
+     */
+    private List<Resource> getResources(List<SysResource> sysResources){
+        if (CollectionUtils.isEmpty(sysResources)){
+            return null;
+        }
+        List<Resource> resourceList=new ArrayList<>();
+        for (SysResource sysResource:sysResources){
+            resourceList.add(new Resource(sysResource));
+        }
+        return resourceList;
     }
 
     @Override
-    public List<SysResource> listUrlAndPermission() {
-        return sysResourceMapper.listUrlAndPermission();
+    public List<Resource> selectAlls() {
+        return getResources(sysResourceMapper.selectAlls());
+    }
+
+    @Override
+    public List<Resource> listUrlAndPermission() {
+        return getResources(sysResourceMapper.listUrlAndPermission());
+    }
+
+    @Override
+    public List<Resource> listResourcesByUserId() {
+        return getResources(sysResourceMapper.listResourcesByUserId());
     }
 }

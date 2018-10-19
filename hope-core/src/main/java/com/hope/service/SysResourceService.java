@@ -13,8 +13,22 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysResourceService extends BaseService<SysResource> {
-    List<SysResource> selectAlls();
+public interface SysResourceService extends BaseService<Resource> {
+    /***
+     * 测试
+     * @return
+     */
+    List<Resource> selectAlls();
 
-    List<SysResource> listUrlAndPermission();
+    /***
+     * 获取url和permission
+     * @return
+     */
+    List<Resource> listUrlAndPermission();
+
+    /***
+     *获取用户关联的所有资源
+     * @return
+     */
+    List<Resource> listResourcesByUserId();
 }

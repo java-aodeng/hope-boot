@@ -1,8 +1,7 @@
 package com.hope.model.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 /**数据对象类
  * @program:hope-plus
@@ -13,6 +12,9 @@ import lombok.EqualsAndHashCode;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class SysResource extends CommonEntity{
     /**---------------数据对象---------------**/
     /**装逼的id**/

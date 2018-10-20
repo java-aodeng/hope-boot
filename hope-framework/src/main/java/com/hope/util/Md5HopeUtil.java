@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.security.MessageDigest;
 
-/**
+/**Md5Hope工具类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

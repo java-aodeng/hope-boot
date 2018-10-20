@@ -6,7 +6,7 @@ import com.hope.holder.SpringContextHolder;
 import com.hope.service.ShiroService;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
-import com.hope.shiro.ShiroAuthorizingRealm;
+import com.hope.shiro.realm.ShiroAuthorizingRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

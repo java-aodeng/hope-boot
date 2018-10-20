@@ -1,4 +1,4 @@
-package com.hope.shiro;
+package com.hope.shiro.realm;
 
 import com.hope.model.entity.Resource;
 import com.hope.model.entity.Role;

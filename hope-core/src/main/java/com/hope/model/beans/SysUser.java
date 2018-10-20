@@ -1,10 +1,7 @@
 package com.hope.model.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
@@ -18,6 +15,7 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class SysUser extends CommonEntity {
     /**---------------数据对象---------------**/

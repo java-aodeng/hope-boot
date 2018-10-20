@@ -1,14 +1,15 @@
 package com.hope.util;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import org.apache.tomcat.util.codec.binary.Base64;
 
-/**
+/**AesHope工具类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

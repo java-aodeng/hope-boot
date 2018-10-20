@@ -25,7 +25,7 @@ spring:
   application:
       name: hope-admin
 mybatis:
-    type-aliases-package: com.hope.beans
+    type-aliases-package: com.hope.model.beans
     mapper-locations: classpath:/mybatis/*.xml
 mapper:
     mappers:

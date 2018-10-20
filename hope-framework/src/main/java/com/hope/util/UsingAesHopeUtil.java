@@ -2,7 +2,7 @@ package com.hope.util;
 
 import com.hope.consts.CommonConst;
 
-/**
+/**UsingAesHope工具类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

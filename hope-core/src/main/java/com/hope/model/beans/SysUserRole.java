@@ -13,7 +13,6 @@ import lombok.*;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class SysUserRole extends CommonEntity{
     /**---------------数据对象---------------**/

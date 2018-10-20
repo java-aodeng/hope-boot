@@ -13,7 +13,6 @@ import lombok.*;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class SysResource extends CommonEntity{
     /**---------------数据对象---------------**/

@@ -15,7 +15,6 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 public class SysUser extends CommonEntity {
     /**---------------数据对象---------------**/

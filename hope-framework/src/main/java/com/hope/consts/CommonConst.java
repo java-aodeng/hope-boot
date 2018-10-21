@@ -39,4 +39,9 @@ public class CommonConst {
      * 程序成功状态码
      */
     public static final int DEFAULT_SUCCESS_CODE=200;
+
+    /***
+     * session key
+     */
+    public static final String USER_SESSION_KEY="user";
 }

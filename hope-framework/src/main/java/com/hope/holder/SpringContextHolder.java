@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-/**这个类可以直接获取spring 配置文件中 所有引用（注入）到的bean对象。nice
+/**这个类可以直接获取spring 配置文件中 所有引用（注入）到的bean对象
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

@@ -2,6 +2,8 @@ package com.hope.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hope.model.beans.SysUser;
+import com.hope.mybatis.pojo.CommonEntity;
+import com.hope.mybatis.pojo.CommonSerializable;
 import com.hope.util.UsingAesHopeUtil;
 import org.springframework.util.StringUtils;
 
@@ -14,7 +16,7 @@ import java.util.Date;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 11:19
  **/
-public class User {
+public class User extends CommonSerializable{
     /**---------------业务对象---------------**/
     private SysUser sysUser;
 

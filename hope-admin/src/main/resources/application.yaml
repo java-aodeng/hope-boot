@@ -22,6 +22,21 @@ spring:
       maxActive: 20
       maxWait: 60000
       filters: stat,wall,slf4j
+  # Redis
+  redis:
+      database: 1
+      host: localhost
+      port: 6379
+      password:
+      pool: #star
+      maxActive: 8
+      maxWait: -1
+      maxIdle: 8
+      minIdle: 0 #end
+      # 连接超时时间（毫秒）
+        timeout:  0
+      # 默认的数据过期时间，主要用于shiro权限管理
+      expire: 2592000
   application:
       name: hope-admin
 mybatis:

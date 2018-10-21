@@ -1,4 +1,4 @@
-package com.hope.config;
+package com.hope.properties;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,15 +16,19 @@ import java.util.List;
  * @create:2018-10-17 11:35
  **/
 @Configuration
-@ConfigurationProperties(prefix = "hope.druid")
+@ConfigurationProperties(prefix = "spring.redis")
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Order(-1)
-public class DruidProperties {
-    private String username;
+public class RedisProperties {
+
+    private Integer database;
+    private String host;
+    private Integer port;
     private String password;
-    private String servletPath="/druid/*";
-    private Boolean resetEnable=false;
-    private List<String> allowIps;
-    private List<String> denyIps;
+    /**链接超时(毫秒)**/
+    private Integer timeout;
+    /**数据过期时间，默认30天**/
+    private Integer expire=2592000;
+
 }

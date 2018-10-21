@@ -57,4 +57,14 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
     public List<User> listUsersByRoleId(Integer roleId) {
         return getUsers(sysUserMapper.listUsersByRoleId(roleId));
     }
+
+    @Override
+    public User getByPrimaryKey(Integer integer) {
+        return new User(sysUserMapper.selectByPrimaryKey(integer));
+    }
+
+    @Override
+    public User updateUserLastLoginInfo(User user) {
+        return null;
+    }
 }

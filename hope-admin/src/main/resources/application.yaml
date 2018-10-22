@@ -8,7 +8,6 @@ server:
 spring:
   thymeleaf:
     # 配置thymeleaf修改页面不重启生效
-    prefix: file:src/main/resources/templates/
     cache: false
     mode: LEGACYHTML5
   datasource:

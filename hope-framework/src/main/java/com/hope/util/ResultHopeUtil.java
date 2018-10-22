@@ -1,10 +1,14 @@
 package com.hope.util;
 
+import com.github.pagehelper.PageInfo;
 import com.hope.consts.CommonConst;
 import com.hope.enums.ResponseStatusEnum;
+import com.hope.vo.PageResultVo;
 import com.hope.vo.ResponseVo;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**接口返回工具
@@ -58,5 +62,17 @@ public class ResultHopeUtil {
 
     public static ResponseVo success(ResponseStatusEnum statusEnum){
         return vo(statusEnum.getCode(),statusEnum.getMessage(),null);
+    }
+
+    /**PageResultVo**/
+    public static PageResultVo tablePage(Long total, List<?> list){
+        return new PageResultVo(total,list);
+    }
+
+    public static PageResultVo tablePage(PageInfo pageInfo){
+        if (pageInfo == null){
+            return new PageResultVo(0L,new ArrayList());
+        }
+        return tablePage(pageInfo.getTotal(),pageInfo.getList());
     }
 }

@@ -17,7 +17,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Shiro-密码验证管理
+ * Shiro-密码验证管理-登录错误计数
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

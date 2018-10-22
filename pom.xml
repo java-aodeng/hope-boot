@@ -100,10 +100,17 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!--springboot 集成Mybatis所需jar配置 end -->
+		<!--druid-->
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>0.2.26</version>
+		</dependency>
+		<!--fastjson-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.32</version>
 		</dependency>
 		<!--shiro-->
 		<dependency>
@@ -139,5 +146,11 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.7</version>
 		</dependency>
+        <!--hutool-->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.1.7</version>
+        </dependency>
 	</dependencies>
 </project>

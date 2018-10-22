@@ -19,7 +19,7 @@
  */
 package com.hope.consts;
 
-/**公用常量类
+/**hope公用常量类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

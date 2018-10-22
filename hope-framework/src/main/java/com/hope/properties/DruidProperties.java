@@ -8,7 +8,7 @@ import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
-/**
+/**druidProperties类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

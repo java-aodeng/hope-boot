@@ -61,7 +61,7 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/hope/login","anon");
         filterChainDefinitionMap.put("/hope/signin","anon");
         filterChainDefinitionMap.put("/error","anon");
-        filterChainDefinitionMap.put("/hope-static/**","anon");
+        filterChainDefinitionMap.put("/hope/**","anon");
         //加载数据库中配置的资源权限列表
         List<Resource> resourcesList=sysResourceService.listUrlAndPermission();
         for(Resource resource:resourcesList){

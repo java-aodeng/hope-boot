@@ -29,14 +29,16 @@ spring:
       port: 6379
       password:
       pool: #star
-      maxActive: 8
-      maxWait: -1
-      maxIdle: 8
-      minIdle: 0 #end
+        maxActive: 8
+        maxWait: -1
+        maxIdle: 8
+        minIdle: 0 #end
       # 连接超时时间（毫秒）
-        timeout:  0
+      timeout:  0
       # 默认的数据过期时间，主要用于shiro权限管理
       expire: 2592000
+  profiles:
+    active: dev
   application:
       name: hope-admin
 mybatis:

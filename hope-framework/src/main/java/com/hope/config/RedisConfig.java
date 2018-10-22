@@ -56,11 +56,11 @@ public class RedisConfig extends CachingConfigurerSupport {
     @Bean
     CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
         //user信息缓存配置
-        RedisCacheConfiguration userCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(30)).disableCachingNullValues().prefixKeysWith("role");
+        RedisCacheConfiguration userCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(30)).disableCachingNullValues().prefixKeysWith("hope");
         //product信息缓存配置
         RedisCacheConfiguration productCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig().entryTtl(Duration.ofMinutes(10)).disableCachingNullValues().prefixKeysWith("test");
         Map<String, RedisCacheConfiguration> redisCacheConfigurationMap = new HashMap<>();
-        redisCacheConfigurationMap.put("role", userCacheConfiguration);
+        redisCacheConfigurationMap.put("hope", userCacheConfiguration);
         redisCacheConfigurationMap.put("test", productCacheConfiguration);
         //初始化一个RedisCacheWriter
         RedisCacheWriter redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(connectionFactory);

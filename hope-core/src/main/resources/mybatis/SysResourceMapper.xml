@@ -7,6 +7,6 @@
         SELECT  *  FROM sys_resource
     </select>
     <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
-
+        select url,permission from sys_resource where url is not null ORDER by priority ASC
     </select>
 </mapper>

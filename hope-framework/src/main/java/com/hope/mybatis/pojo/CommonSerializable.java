@@ -10,6 +10,6 @@ import java.io.Serializable;
  * @create:2018-10-21 14:26
  **/
 public class CommonSerializable implements Serializable{
-
+    /**默认1L，hope使用自动生成**/
     private static final long serialVersionUID = 290239157285409600L;
 }

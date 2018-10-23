@@ -33,4 +33,10 @@ public class HopeController {
         System.out.println("120");
         return ResultHopeUtil.view("admin/index");
     }
+    @RequestMapping("/index_v1")
+    public ModelAndView index_v1(Model model){
+        log.info("[hope-index_v1-page]-[{}]","测试");
+        System.out.println("120");
+        return ResultHopeUtil.view("admin/index_v1");
+    }
 }

@@ -61,7 +61,14 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/hope/login","anon");
         filterChainDefinitionMap.put("/hope/signin","anon");
         filterChainDefinitionMap.put("/error","anon");
-        filterChainDefinitionMap.put("/hope/**","anon");
+        /**开放hope资源文件star**/
+        filterChainDefinitionMap.put("/css/**","anon");
+        filterChainDefinitionMap.put("/docs/**","anon");
+        filterChainDefinitionMap.put("/fonts/**","anon");
+        filterChainDefinitionMap.put("/img/**","anon");
+        filterChainDefinitionMap.put("/js/**","anon");
+        filterChainDefinitionMap.put("/plugins/**","anon");
+        /**开放hope资源文件end**/
         filterChainDefinitionMap.put("/druid/**","anon");//druid,hope默认开放
         //加载数据库中配置的资源权限列表
         List<Resource> resourcesList=sysResourceService.listUrlAndPermission();

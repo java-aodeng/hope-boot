@@ -41,4 +41,9 @@ public class HopeController {
         log.info("[hope-index_v2-page]-[{}]","测试140");
         return ResultHopeUtil.view("admin/index_v2");
     }
+    @RequestMapping("/error1")
+    public ModelAndView error1(Model model){
+        log.info("[hope-404-page]-[{}]","测试150");
+        return ResultHopeUtil.view("common/error/404");
+    }
 }

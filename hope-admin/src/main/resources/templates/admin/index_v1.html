@@ -1,69 +1,55 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--360浏览器优先以webkit内核解析-->
-
-
-    <title>H+ 后台主题UI框架 - 主页示例</title>
-
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
-
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
-    
-
-</head>
-
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/include :: header"></head>
 <body class="gray-bg">
     <div class="row  border-bottom white-bg dashboard-header">
         <div class="col-sm-12">
-            <blockquote class="text-warning" style="font-size:14px">您是否需要自己做一款后台、会员中心等等的，但是又缺乏html等前端知识…
-                <br>您是否一直在苦苦寻找一款适合自己的后台主题…
-                <br>您是否想做一款自己的web应用程序…
+            <blockquote class="text-warning" style="font-size:14px">您是否需要自己做一款后台、会员中心等等的，但是又缺乏java等后端知识…
+                <br>您是否一直在苦苦寻找一款适合自己的后台管理系统…
+                <br>您是否想做一款自己的应用程序…
                 <br>…………
-                <h4 class="text-danger">那么，现在H+来了</h4>
+                <h4 class="text-danger">那么，现在Hope-plus来了</h4>
             </blockquote>
 
             <hr>
         </div>
         <div class="col-sm-3">
-            <h2>Hello,Guest</h2>
+            <h3>微信公众号：低调小熊猫</h3>
             <small>移动设备访问请扫描以下二维码：</small>
             <br>
             <br>
-            <img src="img/qr_code.png" width="100%" style="max-width:264px;">
+            <img th:src="@{/img/a1.jpg}" width="100%" style="max-width:264px;">
             <br>
         </div>
         <div class="col-sm-5">
             <h2>
-                            H+ 后台主题UI框架
+                            Hope-plus 后台管理系统
                         </h2>
-            <p>H+是一个完全响应式，基于Bootstrap3.3.6最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术，她提供了诸多的强大的可以重新组合的UI组件，并集成了最新的jQuery版本(v2.1.4)，当然，也集成了很多功能强大，用途广泛的jQuery插件，她可以用于所有的Web应用程序，如<b>网站管理后台</b>，<b>网站会员中心</b>，<b>CMS</b>，<b>CRM</b>，<b>OA</b>等等，当然，您也可以对她进行深度定制，以做出更强系统。</p>
+            <p>Hope-plus是一个nice的系统，基于Springboot2.0.5最新版本框架开发的后台系统，她采用了主流的Springboot框架，使用了mybatis+shiro+reids+thymeleaf等行业流行技术，模板使用了h+，她提供了诸多的强大的可以重新组合的UI组件，并集成了最新的jQuery版本(v2.1.4)，当然，也集成了很多功能强大，用途广泛的jQuery插件，她可以用于所有的Web应用程序，如<b>网站管理系统后台</b>，<b>CMS</b>，<b>CRM</b>，<b>OA</b>等等，当然，您也可以对她进行深度定制，以做出更强系统。</p>
             <p>
-                <b>当前版本：</b>v4.1.0
+                <b>当前版本：</b>v0.1.8
             </p>
             <p>
-                <b>定价：</b><span class="label label-warning">&yen;988（不开发票，不议价）</span>
+                <b>定价：</b><span class="label label-warning">&yen;0（开源项目，目前免费）</span>
             </p>
             <br>
             <p>
-                <a class="btn btn-success btn-outline" href="http://wpa.qq.com/msgrd?v=3&uin=516477188&site=qq&menu=yes" target="_blank">
-                    <i class="fa fa-qq"> </i> 联系我
+                <a class="btn btn-success btn-outline" href="https://jq.qq.com/?_wv=1027&k=5rwpGXz" target="_blank">
+                    <i class="fa fa-qq"> </i> qq群联系我
                 </a>
-                <a class="btn btn-white btn-bitbucket" href="http://www.zi-han.net" target="_blank">
+                <a class="btn btn-white btn-bitbucket" href="https://aodeng.cc" target="_blank">
                     <i class="fa fa-home"></i> 访问博客
                 </a>
             </p>
         </div>
         <div class="col-sm-4">
-            <h4>H+具有以下特点：</h4>
+            <h4>Hope-plus具有以下特点：</h4>
             <ol>
+                <li>Springboot框架最新版本</li>
+                <li>Mybatis数据操作</li>
+                <li>Shiro权限</li>
+                <li>Redis缓存</li>
+                <li>Thymelead流行模板引擎</li>
                 <li>完全响应式布局（支持电脑、平板、手机等所有主流设备）</li>
                 <li>基于最新版本的Bootstrap 3.3.6</li>
                 <li>提供3套不同风格的皮肤</li>
@@ -608,17 +594,6 @@
             </div>
         </div>
     </script>
-
-    <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-    <script src="js/plugins/layer/layer.min.js"></script>
-
-    <!-- 自定义js -->
-    <script src="js/content.js"></script>
-
-    <!-- 欢迎信息 -->
-    <script src="js/welcome.js"></script>
 </body>
 
 </html>

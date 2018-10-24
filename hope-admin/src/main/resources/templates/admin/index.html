@@ -1,26 +1,6 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="renderer" content="webkit">
-
-    <title>H+ 后台主题UI框架 - 主页</title>
-
-    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
-
-    <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html" />
-    <![endif]-->
-
-    <link rel="shortcut icon" href="favicon.ico"> <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
-    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/style.css?v=4.1.0" rel="stylesheet">
-</head>
-
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/include :: header"></head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
     <div id="wrapper">
         <!--左侧导航开始-->
@@ -31,10 +11,10 @@
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element">
-                            <span><img alt="image" class="img-circle" src="img/profile_small.jpg" /></span>
+                            <span><img alt="image" class="img-circle" th:src="@{/img/profile_small.jpg}" /></span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
-                               <span class="block m-t-xs"><strong class="font-bold">Beaut-zihan</strong></span>
+                               <span class="block m-t-xs"><strong class="font-bold">Hope-plus</strong></span>
                                 <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
                                 </span>
                             </a>
@@ -63,10 +43,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" href="index_v1.html" data-index="0">主页示例一</a>
+                                <a class="J_menuItem" th:href="@{/hope/index_v1}" data-index="0">主页示例一</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v2.html">主页示例二</a>
+                                <a class="J_menuItem" th:href="@{/hope/index_v2}">主页示例二</a>
                             </li>
                             <li>
                                 <a class="J_menuItem" href="index_v3.html">主页示例三</a>
@@ -497,7 +477,7 @@
                 <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
             </div>
             <div class="row J_mainContent" id="content-main">
-                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="/hope/index_v1" frameborder="0" data-id="index_v1.html" seamless></iframe>
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" th:src="@{/hope/index_v1}" frameborder="0" data-id="index_v1.html" seamless></iframe>
             </div>
             <div class="footer">
                 <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
@@ -915,20 +895,6 @@
         </div>
         <!--mini聊天窗口结束-->
     </div>
-
-    <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
-    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="js/plugins/layer/layer.min.js"></script>
-
-    <!-- 自定义js -->
-    <script src="js/hplus.js?v=4.1.0"></script>
-    <script type="text/javascript" src="js/contabs.js"></script>
-
-    <!-- 第三方插件 -->
-    <script src="js/plugins/pace/pace.min.js"></script>
 
 </body>
 

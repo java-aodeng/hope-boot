@@ -9,6 +9,7 @@ spring:
   thymeleaf:
     # 配置thymeleaf修改页面不重启生效
     cache: false
+    encoding: utf-8
     mode: LEGACYHTML5
   datasource:
       driverClassName: com.mysql.jdbc.Driver

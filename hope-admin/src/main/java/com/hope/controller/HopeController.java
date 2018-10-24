@@ -23,20 +23,22 @@ public class HopeController {
 
     @RequestMapping("/login")
     public ModelAndView login(Model model){
-        log.info("[hope-login-page]-[{}]","测试");
-        System.out.println("110");
+        log.info("[hope-login-page]-[{}]","测试110");
         return ResultHopeUtil.view("admin/login");
     }
     @RequestMapping("/index")
-    public ModelAndView index(Model model){
-        log.info("[hope-index-page]-[{}]","测试");
-        System.out.println("120");
-        return ResultHopeUtil.view("admin/index");
+    public String index(Model model){
+        log.info("[hope-index-page]-[{}]","测试120");
+        return "admin/index";
     }
     @RequestMapping("/index_v1")
     public ModelAndView index_v1(Model model){
-        log.info("[hope-index_v1-page]-[{}]","测试");
-        System.out.println("120");
+        log.info("[hope-index_v1-page]-[{}]","测试130");
         return ResultHopeUtil.view("admin/index_v1");
+    }
+    @RequestMapping("/index_v2")
+    public ModelAndView index_v2(Model model){
+        log.info("[hope-index_v2-page]-[{}]","测试140");
+        return ResultHopeUtil.view("admin/index_v2");
     }
 }

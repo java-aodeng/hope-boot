@@ -1,14 +1,15 @@
-<head th:fragment="header">
+<head th:fragment="header" xmlns:th="http://www.springframework.org/schema/jdbc">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hope-plus后台管理 低调小熊猫（https://aodeng.cc）</title>
     <meta name="keywords" content="hope-plus后台管理 低调小熊猫（https://aodeng.cc）">
     <meta name="description" content="hope-plus后台管理 低调小熊猫（https://aodeng.cc）">
-    <link th:href="@{/img/favicon.ico}" rel="shortcut icon">
+    <link th:href="@{/img/hope-plus.ico}" rel="shortcut icon">
     <link th:href="@{/css/bootstrap.min.css?v=3.3.6}" rel="stylesheet">
     <link th:href="@{/css/font-awesome.min.css?v=4.4.0}" rel="stylesheet">
     <link th:href="@{/css/animate.css}" rel="stylesheet">
     <link th:href="@{/css/style.css?v=4.1.0}" rel="stylesheet">
+    <link th:href="@{/js/plugins/ruoyi/css/ry-ui.css}" rel="stylesheet">
     <!-- 全局js -->
     <script th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
     <script th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
@@ -23,4 +24,13 @@
     <script th:src="@{/js/welcome.js}"></script>
     <!-- 第三方插件 -->
     <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+    <script th:src="@{/js/plugins/layui/layui.js}"></script>
+    <script th:src="@{/js/plugins/ruoyi/js/common.js}"></script>
+    <script th:src="@{/js/plugins/ruoyi/index.js}"></script>
+    <!-- Bootstrap table -->
+    <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <!-- Peity -->
+    <script th:src="@{/js/demo/bootstrap-table-demo.js}"></script>
 </head>

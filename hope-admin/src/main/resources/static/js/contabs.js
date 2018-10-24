@@ -306,5 +306,4 @@ $(function () {
         });
         $('.page-tabs-content').css("margin-left", "0");
     });
-
 });

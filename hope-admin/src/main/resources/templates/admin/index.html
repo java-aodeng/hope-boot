@@ -43,19 +43,29 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" th:href="@{/hope/index_v1}" data-index="0">了解hope-plus</a>
+                                <a class="J_menuItem" th:href="@{/hope/index_v1}" data-index="0">hope-plus</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" th:href="@{/hope/index_v2}">主页示例二</a>
+                                <a class="J_menuItem" href="https://aodeng.cc/p/about" data-index="0">低调小熊猫</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">权限管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" th:href="@{/hope/index_v1}" data-index="0">用户管理</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v3.html">主页示例三</a>
+                                <a class="J_menuItem" th:href="@{/hope/index_v2}">角色管理</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="index_v4.html">主页示例四</a>
-                            </li>
-                            <li>
-                                <a class="J_menuItem" data-index="8" href="index_v5.html">主页示例五</a>
+                                <a class="J_menuItem" href="index_v3.html">资源管理</a>
                             </li>
                         </ul>
 
@@ -372,7 +382,7 @@
                                 <li class="m-t-xs">
                                     <div class="dropdown-messages-box">
                                         <a href="profile.html" class="pull-left">
-                                            <img alt="image" class="img-circle" src="img/a7.jpg">
+                                            <img alt="image" class="img-circle" th:src="@{/img/a7.jpg}">
                                         </a>
                                         <div class="media-body">
                                             <small class="pull-right">46小时前</small>

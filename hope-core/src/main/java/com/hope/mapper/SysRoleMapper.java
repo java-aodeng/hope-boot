@@ -1,6 +1,7 @@
 package com.hope.mapper;
 
 import com.hope.model.beans.SysRole;
+import com.hope.model.vo.RoleConditionVo;
 import com.hope.mybatis.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -16,4 +17,5 @@ import java.util.List;
 @Repository
 public interface SysRoleMapper extends BaseMapper<SysRole>{
     List<SysRole> listRolesByUserId(Integer userId);
+    List<SysRole> findPageBreakByCondition(RoleConditionVo vo);
 }

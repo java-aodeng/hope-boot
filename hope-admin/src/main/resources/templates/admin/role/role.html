@@ -56,6 +56,60 @@
         </div>
     </div>
 </div>
+<script th:inline="javascript">
+    $(function() {
+        var options = {
+            url:"/role/list",
 
+            sortName: "id",
+            modalName: "角色",
+            search: false,
+            showExport: false,
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field: 'roleUuid',
+                    title: 'uuid'
+                },
+                {
+                    field: 'id',
+                    title: '角色编号'
+                },
+                {
+                    field: 'role',
+                    title: '角色名称'
+                },
+                {
+                    field: 'description',
+                    title: '角色描述'
+                },
+                {
+                    field: 'status',
+                    title: '角色状态'
+                },
+                {
+                    field: 'createtime',
+                    title: '创建时间'
+                },
+                {
+                    field: 'updatetime',
+                    title: '修改时间'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs " href="#" ><i class="fa fa-check-square-o"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-primary btn-xs " href="#" ><i class="fa fa-check-square-o"></i>数据权限</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs " href="#" ><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+        };
+        $.table.init(options);
+    });
+</script>
 </body>
 </html>

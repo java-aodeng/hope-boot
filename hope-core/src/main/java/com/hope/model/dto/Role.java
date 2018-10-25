@@ -58,7 +58,7 @@ public class Role {
     }
 
     public String getStatus() {
-        return this.sysRole.getRole();
+        return this.sysRole.getStatus();
     }
 
     public void setStatus(String status) {

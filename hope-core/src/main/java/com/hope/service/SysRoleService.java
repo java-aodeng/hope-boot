@@ -1,7 +1,9 @@
 package com.hope.service;
 
+import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysRole;
 import com.hope.model.dto.Role;
+import com.hope.model.vo.RoleConditionVo;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
@@ -20,4 +22,11 @@ public interface SysRoleService extends BaseService<SysRole>{
      * @return
      */
     List<Role> listRolesByUserId(Integer userId);
+
+    /***
+     * 分页查询，使用分页插件
+     * @param vo
+     * @return
+     */
+    PageInfo<Role> findPageBreakByCondition(RoleConditionVo vo);
 }

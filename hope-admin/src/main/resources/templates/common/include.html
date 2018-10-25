@@ -10,6 +10,7 @@
     <link th:href="@{/css/animate.css}" rel="stylesheet">
     <link th:href="@{/css/style.css?v=4.1.0}" rel="stylesheet">
     <link th:href="@{/js/plugins/ruoyi/css/ry-ui.css}" rel="stylesheet">
+    <link th:href="@{/css/plugins/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet"/>
     <!-- 全局js -->
     <script th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
     <script th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
@@ -26,11 +27,13 @@
     <script th:src="@{/js/plugins/pace/pace.min.js}"></script>
     <script th:src="@{/js/plugins/layui/layui.js}"></script>
     <script th:src="@{/js/plugins/ruoyi/js/common.js}"></script>
+    <script th:src="@{/js/plugins/ruoyi/js/ry-ui.js}"></script>
     <script th:src="@{/js/plugins/ruoyi/index.js}"></script>
     <!-- Bootstrap table -->
     <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
     <script th:src="@{/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js}"></script>
     <script th:src="@{/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <script th:src="@{/js/plugins/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js}"></script>
     <!-- Peity -->
-    <script th:src="@{/js/demo/bootstrap-table-demo.js}"></script>
+    <script th:inline="javascript"> var ctx = [[@{/}]]; </script>
 </head>

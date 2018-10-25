@@ -58,12 +58,12 @@
             },
             // 请求获取数据后处理回调函数
             responseHandler: function(res) {
-                if (res.code == 0) {
+                /*if (res.code == 0) {*/
                     return { rows: res.rows, total: res.total };
-                } else {
+               /* } else {
                 	$.modal.alertWarning(res.msg);
                 	return { rows: [], total: 0 };
-                }
+                }*/
             },
             // 搜索
             search: function(formId) {
@@ -428,11 +428,11 @@
             		title: $.table._option.modalName + "详细",
             		content: _url,
             		btn: ['<i class="fa fa-close"></i> 关闭'],
-            	    // 弹层外区域关闭
-            		shadeClose: true,
-            	    cancel: function(index) {
-            	        return true;
-            	    }
+                    // 弹层外区域关闭
+                    shadeClose: true,
+                    cancel: function(index) {
+                        return true;
+                    }
             	});
             },
             // 删除信息

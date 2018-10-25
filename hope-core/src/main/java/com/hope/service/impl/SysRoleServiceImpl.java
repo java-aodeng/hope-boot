@@ -1,8 +1,11 @@
 package com.hope.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysRole;
 import com.hope.model.dto.Role;
 import com.hope.mapper.SysRoleMapper;
+import com.hope.model.vo.RoleConditionVo;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +47,17 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
     @Override
     public List<Role> listRolesByUserId(Integer userId) {
         return getRoles(sysRoleMapper.listRolesByUserId(userId));
+    }
+
+    @Override
+    public PageInfo<Role> findPageBreakByCondition(RoleConditionVo vo) {
+        PageHelper.startPage(vo.getPageNumber(),vo.getPageSize());
+        List<SysRole> sysRoles=sysRoleMapper.findPageBreakByCondition(vo);
+        if (CollectionUtils.isEmpty(sysRoles)){
+            return null;
+        }
+        PageInfo list=new PageInfo<SysRole>(sysRoles);
+        list.setList(getRoles(sysRoles));
+        return list;
     }
 }

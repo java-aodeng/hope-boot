@@ -1,6 +1,6 @@
 package com.hope.service;
 
-import com.hope.model.entity.User;
+import com.hope.model.dto.User;
 
 import java.util.Map;
 

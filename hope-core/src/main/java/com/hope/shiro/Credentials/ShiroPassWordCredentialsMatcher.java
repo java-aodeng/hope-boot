@@ -1,7 +1,7 @@
 package com.hope.shiro.Credentials;
 
 import com.hope.consts.CommonConst;
-import com.hope.model.entity.User;
+import com.hope.model.dto.User;
 import com.hope.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AccountException;

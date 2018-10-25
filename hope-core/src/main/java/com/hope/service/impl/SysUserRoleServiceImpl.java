@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
 import com.hope.model.beans.SysUserRole;
-import com.hope.model.entity.UserRole;
+import com.hope.model.dto.UserRole;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserRoleService;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.hope.vo;
+package com.hope.object;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;

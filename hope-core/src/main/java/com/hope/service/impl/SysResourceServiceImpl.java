@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
 import com.hope.model.beans.SysResource;
-import com.hope.model.entity.Resource;
+import com.hope.model.dto.Resource;
 import com.hope.mapper.SysResourceMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysResourceService;

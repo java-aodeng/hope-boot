@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
 import com.hope.model.beans.SysUser;
-import com.hope.model.entity.User;
+import com.hope.model.dto.User;
 import com.hope.mapper.SysUserMapper;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;

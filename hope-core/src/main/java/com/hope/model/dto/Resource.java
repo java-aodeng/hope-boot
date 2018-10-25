@@ -1,4 +1,4 @@
-package com.hope.model.entity;
+package com.hope.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hope.model.beans.SysResource;

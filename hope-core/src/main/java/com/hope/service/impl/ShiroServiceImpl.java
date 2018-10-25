@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
-import com.hope.model.entity.Resource;
-import com.hope.model.entity.User;
+import com.hope.model.dto.Resource;
+import com.hope.model.dto.User;
 import com.hope.holder.SpringContextHolder;
 import com.hope.service.ShiroService;
 import com.hope.service.SysResourceService;
@@ -64,6 +64,7 @@ public class ShiroServiceImpl implements ShiroService{
         /**开发环境开放star**/
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
+        filterChainDefinitionMap.put("/favicon/**","anon");
         /**开发环境开放end**/
         /**开放hope资源文件star**/
         filterChainDefinitionMap.put("/css/**","anon");

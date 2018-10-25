@@ -73,7 +73,7 @@ public class ShiroConfig {
         //设置securityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/hope/login/");
+        shiroFilterFactoryBean.setLoginUrl("/hope/login");
         //登陆成功跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面

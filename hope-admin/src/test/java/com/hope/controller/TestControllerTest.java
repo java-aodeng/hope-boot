@@ -1,7 +1,7 @@
 package com.hope.controller;
 
 import com.hope.model.beans.SysResource;
-import com.hope.model.entity.Resource;
+import com.hope.model.dto.Resource;
 import com.hope.service.SysResourceService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

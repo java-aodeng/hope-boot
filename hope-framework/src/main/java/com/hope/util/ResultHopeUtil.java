@@ -3,8 +3,8 @@ package com.hope.util;
 import com.github.pagehelper.PageInfo;
 import com.hope.consts.CommonConst;
 import com.hope.enums.ResponseStatusEnum;
-import com.hope.vo.PageResultVo;
-import com.hope.vo.ResponseVo;
+import com.hope.object.PageResultVo;
+import com.hope.object.ResponseVo;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;

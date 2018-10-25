@@ -1,7 +1,7 @@
 package com.hope.service.impl;
 
 import com.hope.model.beans.SysRoleResource;
-import com.hope.model.entity.RoleResource;
+import com.hope.model.dto.RoleResource;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysRoleResourceService;
 import org.springframework.stereotype.Service;

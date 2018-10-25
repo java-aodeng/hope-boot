@@ -1,7 +1,7 @@
 package com.hope.service;
 
 import com.hope.model.beans.SysRole;
-import com.hope.model.entity.Role;
+import com.hope.model.dto.Role;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;

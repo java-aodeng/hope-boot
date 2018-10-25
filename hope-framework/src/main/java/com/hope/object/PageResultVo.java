@@ -1,4 +1,4 @@
-package com.hope.vo;
+package com.hope.object;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

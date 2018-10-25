@@ -1,7 +1,7 @@
 package com.hope.service;
 
 import com.hope.model.beans.SysResource;
-import com.hope.model.entity.Resource;
+import com.hope.model.dto.Resource;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;

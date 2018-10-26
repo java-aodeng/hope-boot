@@ -37,16 +37,16 @@
         </div>
 
         <div class="btn-group-sm hidden-xs" id="toolbar" role="group">
-            <a class="btn btn-success" >
+            <a class="btn btn-success" onclick="$.operate.add()">
                 <i class="fa fa-plus"></i> 新增
             </a>
-            <a class="btn btn-primary btn-edit disabled" >
+            <a class="btn btn-primary btn-edit disabled" onclick="$.operate.edit()">
                 <i class="fa fa-edit"></i> 修改
             </a>
-            <a class="btn btn-danger btn-del disabled" >
+            <a class="btn btn-danger btn-del disabled" onclick="$.operate.removeAll()">
                 <i class="fa fa-remove"></i> 删除
             </a>
-            <a class="btn btn-warning" >
+            <a class="btn btn-warning" onclick="$.table.exportExcel()">
                 <i class="fa fa-download"></i> 导出
             </a>
         </div>
@@ -59,8 +59,9 @@
 <script th:inline="javascript">
     $(function() {
         var options = {
-            url:"/role/list",
-
+            url:ctx + "role/list",
+            createUrl:ctx + "role/add",
+            updateUrl: ctx + "role/edit",
             sortName: "id",
             modalName: "角色",
             search: false,
@@ -101,7 +102,7 @@
                     align: 'center',
                     formatter: function(value, row, index) {
                         var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs " href="#" ><i class="fa fa-check-square-o"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-success btn-xs " href="#" onclick="$.operate.edit()"><i class="fa fa-check-square-o"></i>编辑</a> ');
                         actions.push('<a class="btn btn-primary btn-xs " href="#" ><i class="fa fa-check-square-o"></i>数据权限</a> ');
                         actions.push('<a class="btn btn-danger btn-xs " href="#" ><i class="fa fa-remove"></i>删除</a>');
                         return actions.join('');

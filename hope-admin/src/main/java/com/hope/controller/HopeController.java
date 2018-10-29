@@ -1,7 +1,7 @@
 package com.hope.controller;
 
 import com.hope.object.ResponseVo;
-import com.hope.util.ResultHopeUtil;
+import com.hope.utils.ResultHopeUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;

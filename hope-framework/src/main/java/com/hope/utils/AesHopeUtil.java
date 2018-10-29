@@ -1,4 +1,4 @@
-package com.hope.util;
+package com.hope.utils;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 

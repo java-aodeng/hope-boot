@@ -2,11 +2,10 @@ package com.hope.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysRole;
-import com.hope.model.dto.Role;
 import com.hope.model.vo.RoleConditionVo;
 import com.hope.object.PageResultVo;
 import com.hope.service.SysRoleService;
-import com.hope.util.ResultHopeUtil;
+import com.hope.utils.ResultHopeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

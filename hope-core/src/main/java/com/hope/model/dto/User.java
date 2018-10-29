@@ -3,7 +3,7 @@ package com.hope.model.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hope.model.beans.SysUser;
 import com.hope.mybatis.pojo.CommonSerializable;
-import com.hope.util.UsingAesHopeUtil;
+import com.hope.utils.UsingAesHopeUtil;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;

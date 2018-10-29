@@ -1,4 +1,4 @@
-package com.hope.util;
+package com.hope.utils;
 
 import com.github.pagehelper.PageInfo;
 import com.hope.consts.CommonConst;

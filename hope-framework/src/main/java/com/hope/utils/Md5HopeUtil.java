@@ -1,4 +1,4 @@
-package com.hope.util;
+package com.hope.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

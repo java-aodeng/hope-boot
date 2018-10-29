@@ -19,19 +19,19 @@ public interface SysResourceService extends BaseService<SysResource> {
      * 测试
      * @return
      */
-    List<Resource> selectAlls();
+    List<SysResource> selectAlls();
 
     /***
      * 获取url和permission
      * @return
      */
-    List<Resource> listUrlAndPermission();
+    List<SysResource> listUrlAndPermission();
 
     /***
      *获取用户关联的所有资源
      * @return
      */
-    List<Resource> listResourcesByUserId();
+    List<SysResource> listResourcesByUserId();
 
     /**
      * 根据用户id查询权限集合

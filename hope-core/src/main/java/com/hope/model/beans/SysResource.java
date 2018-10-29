@@ -3,7 +3,7 @@ package com.hope.model.beans;
 import com.hope.mybatis.pojo.CommonEntity;
 import lombok.*;
 
-/**数据对象类
+/**资源数据对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -12,10 +12,7 @@ import lombok.*;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
-@AllArgsConstructor
 public class SysResource extends CommonEntity{
-    /**---------------数据对象---------------**/
     /**装逼的id**/
     private String uresourceUuid;
     /**资源名称**/

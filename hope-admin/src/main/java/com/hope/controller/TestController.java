@@ -1,5 +1,6 @@
 package com.hope.controller;
 
+import com.hope.model.dto.User;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,4 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class TestController {
+    public static void main(String[] args) {
+        User user=new User("admin","123456");
+        System.out.println(user.getUsername()+user.getPassword());
+    }
 }

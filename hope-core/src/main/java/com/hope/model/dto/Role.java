@@ -5,7 +5,7 @@ import com.hope.model.beans.SysRole;
 
 import java.util.Date;
 
-/**业务对象类
+/**角色业务对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

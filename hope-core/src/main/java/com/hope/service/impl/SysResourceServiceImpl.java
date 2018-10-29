@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
+/**
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -27,7 +27,7 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
     SysResourceMapper sysResourceMapper;
 
     /***
-     * 数据类型转换为业务类型
+     * 数据类型转换
      * @param sysResources
      * @return
      */
@@ -43,18 +43,18 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
     }
 
     @Override
-    public List<Resource> selectAlls() {
-        return getResources(sysResourceMapper.selectAlls());
+    public List<SysResource> selectAlls() {
+        return sysResourceMapper.selectAlls();
     }
 
     @Override
-    public List<Resource> listUrlAndPermission() {
-        return getResources(sysResourceMapper.listUrlAndPermission());
+    public List<SysResource> listUrlAndPermission() {
+        return sysResourceMapper.listUrlAndPermission();
     }
 
     @Override
-    public List<Resource> listResourcesByUserId() {
-        return getResources(sysResourceMapper.listResourcesByUserId());
+    public List<SysResource> listResourcesByUserId() {
+        return sysResourceMapper.listResourcesByUserId();
     }
 
     @Override

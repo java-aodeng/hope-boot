@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS=0;
 DROP TABLE IF EXISTS `sys_resource`;
 CREATE TABLE `sys_resource` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号，主键，资源表',
-  `uresource_uuid` varchar(20) NOT NULL COMMENT '装逼的id',
+  `resourceId` varchar(20) NOT NULL COMMENT '装逼的id',
   `name` varchar(100) NOT NULL COMMENT '资源名称',
   `description` varchar(255) DEFAULT NULL COMMENT '权限描述',
   `url` varchar(255) DEFAULT NULL COMMENT '权限访问路径',
@@ -48,7 +48,7 @@ INSERT INTO `sys_resource` VALUES ('2', '2', '权限管理', '权限管理', '',
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号，主键，角色表',
-  `role_uuid` varchar(20) NOT NULL COMMENT '装逼的id',
+  `roleId` varchar(20) NOT NULL COMMENT '装逼的id',
   `role` varchar(100) NOT NULL COMMENT '角色名称',
   `description` varchar(100) NOT NULL COMMENT '角色描述',
   `status` int(1) NOT NULL COMMENT '是否可用：1有效2删除',
@@ -86,7 +86,7 @@ INSERT INTO `sys_role_resource` VALUES ('2', '1', '2');
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号，主键,用户表',
-  `user_uuid` varchar(20) NOT NULL COMMENT '装逼的id',
+  `userId` varchar(20) NOT NULL COMMENT '装逼的id',
   `username` varchar(100) NOT NULL COMMENT '用户名',
   `password` varchar(100) NOT NULL COMMENT '密码',
   `salt` varchar(50) DEFAULT NULL COMMENT '盐',

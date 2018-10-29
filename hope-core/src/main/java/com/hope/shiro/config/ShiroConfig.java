@@ -2,8 +2,8 @@ package com.hope.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
-import com.hope.service.ShiroService;
-import com.hope.shiro.Credentials.ShiroPassWordCredentialsMatcher;
+import com.hope.shiro.service.ShiroService;
+import com.hope.shiro.Credentials.RetryLimitCredentialsMatcher;
 import com.hope.shiro.filter.KickoutSessionControlFilter;
 import com.hope.shiro.realm.HopeShiroReam;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -125,6 +125,9 @@ public class ShiroConfig {
     @Bean
     public HopeShiroReam hopeShiroReam(){
         HopeShiroReam hopeShiroReam=new HopeShiroReam();
+        //匹配器，credentialsMatcher使用RetryLimitCredentialsMatcher
+        //hashedCredentialsMatcher使用HashedCredentialsMatcher
+        //这里简介使用hashedCredentialsMatcher
         hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
         return hopeShiroReam;
     }
@@ -217,8 +220,8 @@ public class ShiroConfig {
     }
 
     @Bean(name = "credentialsMatcher")
-    public ShiroPassWordCredentialsMatcher credentialsMatcher(){
-        return new ShiroPassWordCredentialsMatcher();
+    public RetryLimitCredentialsMatcher credentialsMatcher(){
+        return new RetryLimitCredentialsMatcher();
     }
 
     /**

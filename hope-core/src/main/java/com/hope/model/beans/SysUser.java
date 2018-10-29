@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.Date;
 
-/**数据对象类
+/**用户数据对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -14,10 +14,7 @@ import java.util.Date;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-@NoArgsConstructor
-@AllArgsConstructor
 public class SysUser extends CommonEntity {
-    /**---------------数据对象---------------**/
     /**装逼的id**/
     private String userUuid;
     /**用户名**/

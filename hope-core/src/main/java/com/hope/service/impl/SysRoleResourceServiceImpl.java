@@ -10,7 +10,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
+/**
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -21,7 +21,7 @@ import java.util.List;
 public class SysRoleResourceServiceImpl extends BaseServiceImpl<SysRoleResource> implements SysRoleResourceService{
 
     /***
-     * 数据类型转换为业务类型
+     * 数据类型转换
      * @param sysRoleResources
      * @return
      */

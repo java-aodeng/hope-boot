@@ -1,6 +1,7 @@
 package com.hope.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.hope.model.beans.SysRole;
 import com.hope.model.dto.Role;
 import com.hope.model.vo.RoleConditionVo;
 import com.hope.object.PageResultVo;
@@ -40,7 +41,7 @@ public class RoleController {
     @PostMapping("/list")
     @ResponseBody
     public PageResultVo list(RoleConditionVo vo){
-        PageInfo<Role> pageInfo=sysRoleService.findPageBreakByCondition(vo);
+        PageInfo<SysRole> pageInfo=sysRoleService.findPageBreakByCondition(vo);
         log.info("[role-list-page]-[{}]","测试200");
         return ResultHopeUtil.tablePage(pageInfo);
     }

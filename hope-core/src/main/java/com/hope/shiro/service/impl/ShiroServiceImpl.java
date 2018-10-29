@@ -1,13 +1,12 @@
-package com.hope.service.impl;
+package com.hope.shiro.service.impl;
 
-import com.hope.model.dto.Resource;
-import com.hope.model.dto.User;
+import com.hope.model.beans.SysResource;
+import com.hope.model.beans.SysUser;
 import com.hope.holder.SpringContextHolder;
-import com.hope.service.ShiroService;
+import com.hope.shiro.service.ShiroService;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
 import com.hope.shiro.realm.HopeShiroReam;
-import com.hope.shiro.realm.ShiroAuthorizingRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -77,8 +76,8 @@ public class ShiroServiceImpl implements ShiroService{
         /**开放hope资源文件end**/
         filterChainDefinitionMap.put("/druid/**","anon");//druid,hope默认开放
         //加载数据库中配置的资源权限列表
-        List<Resource> resourcesList=sysResourceService.listUrlAndPermission();
-        for(Resource resource:resourcesList){
+        List<SysResource> resourcesList=sysResourceService.listUrlAndPermission();
+        for(SysResource resource:resourcesList){
             if(!StringUtils.isEmpty(resource.getUrl()) && !StringUtils.isEmpty(resource.getPermission())){
                 String permission ="perms["+resource.getPermission()+"]";
                 filterChainDefinitionMap.put(resource.getUrl(),permission);
@@ -124,7 +123,7 @@ public class ShiroServiceImpl implements ShiroService{
      * @param user
      */
     @Override
-    public void reloadAuthorizingByUserId(User user) {
+    public void reloadAuthorizingByUserId(SysUser user) {
         RealmSecurityManager realmSecurityManager=(RealmSecurityManager) SecurityUtils.getSecurityManager();
         HopeShiroReam hopeShiroReam=(HopeShiroReam)realmSecurityManager.getRealms().iterator().next();
         Subject subject=SecurityUtils.getSubject();
@@ -142,11 +141,11 @@ public class ShiroServiceImpl implements ShiroService{
      */
     @Override
     public void reloadAuthorizingByRoleId(Integer roleId) {
-        List<User> userList=sysUserService.listUsersByRoleId(roleId);
+        List<SysUser> userList=sysUserService.listUsersByRoleId(roleId);
         if (CollectionUtils.isEmpty(userList)){
             return;
         }
-        for (User user:userList){
+        for (SysUser user:userList){
             reloadAuthorizingByUserId(user);
         }
     }

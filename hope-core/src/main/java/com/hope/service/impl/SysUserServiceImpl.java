@@ -7,12 +7,13 @@ import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
+/**
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -49,22 +50,23 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
     @Override
     public User getByUserName(String username) {
         User user=new User(username,"");
+        Assert.notNull(user, "User不可为空！");
         SysUser sysUser=selectOne(user.getSysUser());
         return null == sysUser ? null : new User(sysUser);
     }
 
     @Override
-    public List<User> listUsersByRoleId(Integer roleId) {
-        return getUsers(sysUserMapper.listUsersByRoleId(roleId));
+    public List<SysUser> listUsersByRoleId(Integer roleId) {
+        return sysUserMapper.listUsersByRoleId(roleId);
     }
 
     @Override
-    public User getByPrimaryKey(Integer integer) {
-        return new User(sysUserMapper.selectByPrimaryKey(integer));
+    public SysUser getByPrimaryKey(Integer integer) {
+        return sysUserMapper.selectByPrimaryKey(integer);
     }
 
     @Override
-    public User updateUserLastLoginInfo(User user) {
+    public SysUser updateUserLastLoginInfo(SysUser sysuser) {
         return null;
     }
 }

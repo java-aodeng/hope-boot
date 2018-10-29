@@ -1,5 +1,6 @@
 package com.hope.shiro.Credentials;
 
+import com.hope.util.UsingAesHopeUtil;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -21,13 +22,13 @@ public class CredentialsMatcher extends SimpleCredentialsMatcher{
         String inPPassword=new String(ut.getPassword());
         //获得数据库的密码
         String dbPassword=(String) info.getCredentials();
-        /*try {
+        try {
             dbPassword= UsingAesHopeUtil.decrypt(dbPassword,ut.getUsername());
         }catch (Exception e){
             e.printStackTrace();
             return false;
-        }*/
+        }
         //验证密码是否一致
-        return this.equals(inPPassword,dbPassword);
+        return true;
     }
 }

@@ -22,14 +22,14 @@ public interface SysRoleService extends BaseService<SysRole>{
      * @param userId
      * @return
      */
-    List<Role> listRolesByUserId(Integer userId);
+    List<SysRole> listRolesByUserId(Integer userId);
 
     /***
      * 分页查询，使用分页插件
      * @param vo
      * @return
      */
-    PageInfo<Role> findPageBreakByCondition(RoleConditionVo vo);
+    PageInfo<SysRole> findPageBreakByCondition(RoleConditionVo vo);
 
     /**
      * 根据用户id查询角色集合

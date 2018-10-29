@@ -8,7 +8,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.Date;
 
-/**业务对象类
+/**用户业务对象类
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -32,8 +32,8 @@ public class User extends CommonSerializable{
         setUsername(loginname);
         if (!StringUtils.isEmpty(password)) {
             try {
-                setPassword(password);
-                /*setPassword(UsingAesHopeUtil.encrypt(password, loginname));*/
+                //setPassword(password);
+                setPassword(UsingAesHopeUtil.encrypt(password, loginname));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -156,15 +156,5 @@ public class User extends CommonSerializable{
 
     public void setUpdatetime(Date updatetime) {
         this.sysUser.setUpdatetime(updatetime);
-    }
-    /**
-     *
-     * 重写获取盐值方法，自定义realm使用
-     * Gets credentials salt.
-     *
-     * @return the credentials salt
-     */
-    public String getCredentialsSalt() {
-        return this.sysUser.getUsername() + "nbclass.com" + this.sysUser.getSalt();
     }
 }

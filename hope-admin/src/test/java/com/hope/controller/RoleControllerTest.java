@@ -1,6 +1,7 @@
 package com.hope.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.hope.model.beans.SysRole;
 import com.hope.model.dto.Role;
 import com.hope.model.vo.RoleConditionVo;
 import com.hope.service.SysRoleService;
@@ -21,6 +22,6 @@ public class RoleControllerTest {
 
     @Test
     public void list(RoleConditionVo vo) {
-        PageInfo<Role> pageInfo=sysRoleService.findPageBreakByCondition(vo);
+        PageInfo<SysRole> pageInfo=sysRoleService.findPageBreakByCondition(vo);
     }
 }

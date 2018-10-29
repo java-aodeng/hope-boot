@@ -1,5 +1,6 @@
-package com.hope.service;
+package com.hope.shiro.service;
 
+import com.hope.model.beans.SysUser;
 import com.hope.model.dto.User;
 
 import java.util.Map;
@@ -25,7 +26,7 @@ public interface ShiroService {
      * 重新加载用户权限
      * @param user
      */
-    void reloadAuthorizingByUserId(User user);
+    void reloadAuthorizingByUserId(SysUser user);
 
     /***
      * 重新加载所有拥有roleId角色的用户权限

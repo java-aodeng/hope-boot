@@ -1,6 +1,7 @@
 package com.hope.shiro.realm;
 
 import com.hope.enums.SysUserStatusEnum;
+import com.hope.model.beans.SysUser;
 import com.hope.model.dto.User;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysRoleService;
@@ -75,12 +76,13 @@ public class HopeShiroReam extends AuthorizingRealm{
         if (null != user.getStatus() && SysUserStatusEnum.DISABLE.getCode().equals(user.getStatus())){
             throw new LockedAccountException("账号锁定，禁止登录hope，自己好好想想为什么吧！");
         }
-        return new SimpleAuthenticationInfo(
-                user.getId(),
+        SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(
+                user,
                 user.getPassword(),
-                ByteSource.Util.bytes(user.getCredentialsSalt()),
+                ByteSource.Util.bytes(username),
                 getName()
         );
+        return authenticationInfo;
     }
 
     /***

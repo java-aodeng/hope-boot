@@ -1,6 +1,7 @@
 package com.hope.shiro.Credentials;
 
 import com.hope.consts.CommonConst;
+import com.hope.model.beans.SysUser;
 import com.hope.model.dto.User;
 import com.hope.service.SysUserService;
 import org.apache.shiro.SecurityUtils;
@@ -17,16 +18,16 @@ import org.springframework.data.redis.core.ValueOperations;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Shiro-密码验证管理-登录错误计数
+ * Shiro-密码验证管理-登录错误计数,(使用HashedCredentialsMatcher也行)
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
  * @create:2018-10-21 13:19
  **/
-public class ShiroPassWordCredentialsMatcher extends CredentialsMatcher{
+public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
 
-    private static final Logger log= LoggerFactory.getLogger(ShiroPassWordCredentialsMatcher.class);
+    private static final Logger log= LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
 
     /**
      * 用户登录次数计数  redisKey 前缀
@@ -45,7 +46,7 @@ public class ShiroPassWordCredentialsMatcher extends CredentialsMatcher{
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
         Integer userId=(Integer) info.getPrincipals().getPrimaryPrincipal();
-        User user=sysUserService.getByPrimaryKey(userId);
+        SysUser user=sysUserService.getByPrimaryKey(userId);
         String username=user.getUsername();
         //访问计数
         ValueOperations<String,String> valueOperations=redisTemplate.opsForValue();

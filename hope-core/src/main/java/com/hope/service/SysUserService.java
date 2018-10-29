@@ -25,19 +25,19 @@ public interface SysUserService extends BaseService<SysUser>{
      * 根据角色id查询用户列表
      * @return
      */
-    List<User> listUsersByRoleId(Integer roleId);
+    List<SysUser> listUsersByRoleId(Integer roleId);
 
     /***
      * 根据主键查询
      * @param integer
      * @return
      */
-    User getByPrimaryKey(Integer integer);
+    SysUser getByPrimaryKey(Integer integer);
 
     /***
      * 更新用户的最后一次的登录状态
-     * @param user
+     * @param sysUser
      * @return
      */
-    User updateUserLastLoginInfo(User user);
+    SysUser updateUserLastLoginInfo(SysUser sysUser);
 }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
+/**
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -30,7 +30,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
     private SysRoleMapper sysRoleMapper;
 
     /***
-     * 数据类型转换为业务类型
+     * 数据类型转换
      * @param sysRoles
      * @return
      */
@@ -46,12 +46,12 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
     }
 
     @Override
-    public List<Role> listRolesByUserId(Integer userId) {
-        return getRoles(sysRoleMapper.listRolesByUserId(userId));
+    public List<SysRole> listRolesByUserId(Integer userId) {
+        return sysRoleMapper.listRolesByUserId(userId);
     }
 
     @Override
-    public PageInfo<Role> findPageBreakByCondition(RoleConditionVo vo) {
+    public PageInfo<SysRole> findPageBreakByCondition(RoleConditionVo vo) {
         PageHelper.startPage(vo.getPageNumber(),vo.getPageSize());
         List<SysRole> sysRoles=sysRoleMapper.findPageBreakByCondition(vo);
         if (CollectionUtils.isEmpty(sysRoles)){

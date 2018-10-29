@@ -3,6 +3,8 @@ package com.hope.controller;
 import com.hope.object.ResponseVo;
 import com.hope.util.ResultHopeUtil;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -10,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -38,19 +41,19 @@ public class HopeController {
      * @param s
      * @return
      */
-    @RequestMapping("/inlogin")
+    @PostMapping("/inlogin")
     public ResponseVo inlogin(String username,String password,boolean rememberMe,String s){
         UsernamePasswordToken token=new UsernamePasswordToken(username,password);
         Subject subject= SecurityUtils.getSubject();
         try {
             subject.login(token);
-            //log.info("[hope-login-success]-[{}]",username);
             return ResultHopeUtil.success("登录成功！");
-        }catch (Exception e){
-            log.error("[hope-login-error]-[{}]",username,e);
-            e.printStackTrace();
+        }catch (LockedAccountException e){
             token.clear();
-            return ResultHopeUtil.error(e.getMessage());
+            return ResultHopeUtil.error("用户已经被锁定不能登录，请联系管理员！");
+        }catch (AuthenticationException e){
+            token.clear();
+            return ResultHopeUtil.error("用户名或者密码错误！");
         }
     }
     @RequestMapping("/index")

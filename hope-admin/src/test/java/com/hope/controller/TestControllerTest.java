@@ -25,7 +25,7 @@ public class TestControllerTest{
 
     @Test
     public void test(){
-        List<Resource> list=sysResourceService.selectAlls();
+        List<SysResource> list=sysResourceService.selectAlls();
         List<SysResource> list1=sysResourceService.listAll();
         log.info("[资源名字]-[{}]",list.get(1).getName());
         log.info("[数据]-[{}]",list1.get(0).getName());

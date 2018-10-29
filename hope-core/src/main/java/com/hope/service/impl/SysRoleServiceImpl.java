@@ -14,6 +14,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
  * @program:hope-plus
@@ -59,5 +60,10 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
         PageInfo list=new PageInfo<SysRole>(sysRoles);
         list.setList(getRoles(sysRoles));
         return list;
+    }
+
+    @Override
+    public Set<String> findRoleByUserId(String userId) {
+        return sysRoleMapper.findRoleByUserId(userId);
     }
 }

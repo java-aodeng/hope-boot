@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @program:hope-plus
@@ -20,4 +21,10 @@ public interface SysResourceMapper extends BaseMapper<SysResource>{
     List<SysResource> listUrlAndPermission();
 
     List<SysResource> listResourcesByUserId();
+    /**
+     * 根据用户id查询权限集合
+     * @param userId 状态
+     * @return set
+     */
+    Set<String> findPermsByUserId(String userId);
 }

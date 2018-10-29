@@ -5,6 +5,7 @@ import com.hope.model.dto.Resource;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @program:hope-plus
@@ -31,4 +32,11 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @return
      */
     List<Resource> listResourcesByUserId();
+
+    /**
+     * 根据用户id查询权限集合
+     * @param userId
+     * @return set
+     */
+    Set<String> findPermsByUserId(String userId);
 }

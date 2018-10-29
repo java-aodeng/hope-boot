@@ -1,24 +1,25 @@
 package com.hope.shiro.realm;
 
-import com.hope.enums.SysUserStatusEnum;
+/*import com.hope.enums.SysUserStatusEnum;
 import com.hope.model.dto.Resource;
 import com.hope.model.dto.Role;
 import com.hope.model.dto.User;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
-import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.SecurityUtils;*/
 import org.apache.shiro.authc.*;
-import org.apache.shiro.authz.AuthorizationInfo;
+/*import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.apache.shiro.util.CollectionUtils;
+import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
-import java.util.List;
+import java.util.List;*/
 
 /**Shiro-授权领域
  * @program:hope-plus
@@ -27,20 +28,22 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-17 15:23
  **/
-public class ShiroAuthorizingRealm extends AuthorizingRealm{
+public class ShiroAuthorizingRealm /*extends AuthorizingRealm*/{
 
-    @Autowired
+    /*@Autowired
     private SysUserService sysUserService;
     @Autowired
     private SysResourceService sysResourceService;
     @Autowired
     private SysRoleService sysRoleService;
+    @Autowired
+    private RedisSessionDAO redisSessionDAO;
 
-    /***
-     * 权限认证，为当前登陆的用户授予权限
+    *//***
+     * 授权，为当前登陆的用户授予权限
      * @param principalCollection
      * @return
-     */
+     *//*
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) throws AuthenticationException {
         //权限信息对象，保存用户的角色和资源信息
@@ -63,12 +66,12 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
         }
         return simpleAuthorizationInfo;
     }
-    /***
-     * 提供账户信息，返回认证用户的角色信息
+    *//***
+     * 认证，提供账户信息，返回认证用户的角色信息
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
-     */
+     *//*
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         //获取用户账号
@@ -86,5 +89,5 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
                 ByteSource.Util.bytes(user),
                 getName()
         );
-    }
+    }*/
 }

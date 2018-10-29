@@ -1,6 +1,5 @@
 package com.hope.shiro.Credentials;
 
-import com.hope.util.UsingAesHopeUtil;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;

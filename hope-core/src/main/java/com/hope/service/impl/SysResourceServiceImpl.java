@@ -11,6 +11,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**业务实现类，注意：使用通用实现类需用数据对象(原因蛋痛)
  * @program:hope-plus
@@ -54,5 +55,10 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
     @Override
     public List<Resource> listResourcesByUserId() {
         return getResources(sysResourceMapper.listResourcesByUserId());
+    }
+
+    @Override
+    public Set<String> findPermsByUserId(String userId) {
+        return sysResourceMapper.findPermsByUserId(userId);
     }
 }

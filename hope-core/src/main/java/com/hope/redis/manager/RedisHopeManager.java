@@ -3,7 +3,7 @@ package com.hope.redis.manager;
 import org.crazycake.shiro.RedisManager;
 
 /**自定义org.crazycake.shiro.RedisManager扩展的功能，
- * 好出是可以使用指定的Database，Hope暂时使用默认的
+ * 好出是可以使用指定的Database，Hope暂时使用默认的,redis最新版默认有了,可忽略
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

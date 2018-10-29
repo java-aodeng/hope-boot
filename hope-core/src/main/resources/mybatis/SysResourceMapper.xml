@@ -9,4 +9,10 @@
     <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
         select url,permission from sys_resource where url is not null ORDER by priority ASC
     </select>
+    <select id="findPermsByUserId" resultType="java.lang.String">
+        select DISTINCT r.permission from sys_resource r
+			 LEFT JOIN sys_role_resource rr ON r.uresource_uuid=rr.resourceId
+			 LEFT JOIN sys_user_role ur on rr.roleId = ur.roleId
+			 WHERE ur.userId=#{userId} and r.permission is not null and r.permission!='' and r.status=1
+    </select>
 </mapper>

@@ -14,4 +14,9 @@
     <select id="findPageBreakByCondition" parameterType="com.hope.model.vo.RoleConditionVo" resultMap="roleMap">
       select * from sys_role
     </select>
+    <select id="findRoleByUserId" resultType="java.lang.String">
+        select r.role_uuid from sys_role r
+			LEFT JOIN sys_user_role ur on r.role_uuid = ur.roleId
+			where ur.userId=#{userId}
+    </select>
 </mapper>

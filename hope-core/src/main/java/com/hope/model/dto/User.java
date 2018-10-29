@@ -157,4 +157,14 @@ public class User extends CommonSerializable{
     public void setUpdatetime(Date updatetime) {
         this.sysUser.setUpdatetime(updatetime);
     }
+    /**
+     *
+     * 重写获取盐值方法，自定义realm使用
+     * Gets credentials salt.
+     *
+     * @return the credentials salt
+     */
+    public String getCredentialsSalt() {
+        return this.sysUser.getUsername() + "nbclass.com" + this.sysUser.getSalt();
+    }
 }

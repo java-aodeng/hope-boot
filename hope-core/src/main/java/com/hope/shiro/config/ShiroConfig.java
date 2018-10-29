@@ -4,7 +4,9 @@ import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
 import com.hope.service.ShiroService;
 import com.hope.shiro.Credentials.ShiroPassWordCredentialsMatcher;
-import com.hope.shiro.realm.ShiroAuthorizingRealm;
+import com.hope.shiro.filter.KickoutSessionControlFilter;
+import com.hope.shiro.realm.HopeShiroReam;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -19,7 +21,6 @@ import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -91,7 +92,8 @@ public class ShiroConfig {
         //自定义拦截器
         Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
         //限制同一个账号同时在线的个数
-        //filterMap.put("kickout",Kick)
+        filterMap.put("kickout",kickoutSessionControlFilter());
+        shiroFilterFactoryBean.setFilters(filterMap);
         //配置数据库中的resource
         Map<String,String> map=shiroService.loadFilterChainDefinitions();
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
@@ -107,10 +109,11 @@ public class ShiroConfig {
     }
 
     @Bean(name="securityManager")
-    public SecurityManager securityManager(@Qualifier("shiroRealm") ShiroAuthorizingRealm realm){
+    public SecurityManager securityManager(){
         DefaultWebSecurityManager defaultWebSecurityManager=new DefaultWebSecurityManager();
         //设置realm
-        defaultWebSecurityManager.setRealm(realm);
+        defaultWebSecurityManager.setRealm(hopeShiroReam());
+        // 自定义缓存实现 使用redis
         defaultWebSecurityManager.setCacheManager(redisCacheManager());
         //使用redis自定义session管理
         defaultWebSecurityManager.setSessionManager(sessionManager());
@@ -119,11 +122,23 @@ public class ShiroConfig {
         return defaultWebSecurityManager;
     }
 
-    @Bean(name = "shiroRealm")
-    public ShiroAuthorizingRealm shiroRealm(@Qualifier("credentialsMatcher") ShiroPassWordCredentialsMatcher matcher){
-        ShiroAuthorizingRealm shiroRealm=new ShiroAuthorizingRealm();
-        shiroRealm.setCredentialsMatcher(credentialsMatcher());
-        return shiroRealm;
+    @Bean
+    public HopeShiroReam hopeShiroReam(){
+        HopeShiroReam hopeShiroReam=new HopeShiroReam();
+        hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
+        return hopeShiroReam;
+    }
+    /**
+     * 凭证匹配器
+     * ）
+     * @return
+     */
+    @Bean
+    public HashedCredentialsMatcher hashedCredentialsMatcher(){
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");
+        hashedCredentialsMatcher.setHashIterations(2);
+        return hashedCredentialsMatcher;
     }
     /***
      * cacheManager 缓存 redis实现
@@ -220,5 +235,17 @@ public class ShiroConfig {
         return authorizationAttributeSourceAdvisor;
     }
 
-    //public Kic
+    /***
+     * 限制同一账号，登录人数的控制
+     * @return
+     */
+    public KickoutSessionControlFilter kickoutSessionControlFilter(){
+        KickoutSessionControlFilter kickoutSessionControlFilter=new KickoutSessionControlFilter();
+        kickoutSessionControlFilter.setCacheManager(redisCacheManager());
+        kickoutSessionControlFilter.setSessionManager(sessionManager());
+        kickoutSessionControlFilter.setKickoutAfter(false);
+        kickoutSessionControlFilter.setMaxSession(5);
+        kickoutSessionControlFilter.setKickoutUrl("/kickout");
+        return kickoutSessionControlFilter;
+    }
 }

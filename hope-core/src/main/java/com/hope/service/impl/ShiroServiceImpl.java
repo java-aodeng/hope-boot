@@ -6,6 +6,7 @@ import com.hope.holder.SpringContextHolder;
 import com.hope.service.ShiroService;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
+import com.hope.shiro.realm.HopeShiroReam;
 import com.hope.shiro.realm.ShiroAuthorizingRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
@@ -26,7 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**Shiro-实现类
+/**Shiro-实现类(加强版)
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -125,12 +126,12 @@ public class ShiroServiceImpl implements ShiroService{
     @Override
     public void reloadAuthorizingByUserId(User user) {
         RealmSecurityManager realmSecurityManager=(RealmSecurityManager) SecurityUtils.getSecurityManager();
-        ShiroAuthorizingRealm shiroAuthorizingRealm=(ShiroAuthorizingRealm)realmSecurityManager.getRealms().iterator().next();
+        HopeShiroReam hopeShiroReam=(HopeShiroReam)realmSecurityManager.getRealms().iterator().next();
         Subject subject=SecurityUtils.getSubject();
         String realmName=subject.getPrincipals().getRealmNames().iterator().next();
         SimplePrincipalCollection simplePrincipalCollection=new SimplePrincipalCollection(user.getId(),realmName);
         subject.runAs(simplePrincipalCollection);
-        shiroAuthorizingRealm.getAuthorizationCache().remove(subject.getPrincipals());
+        hopeShiroReam.getAuthorizationCache().remove(subject.getPrincipals());
         subject.releaseRunAs();
         log.info("[以下用户权限更新成功！]-[{}]",user.getUsername());
     }

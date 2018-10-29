@@ -7,6 +7,7 @@ import com.hope.model.vo.RoleConditionVo;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @program:hope-plus
@@ -29,4 +30,11 @@ public interface SysRoleService extends BaseService<SysRole>{
      * @return
      */
     PageInfo<Role> findPageBreakByCondition(RoleConditionVo vo);
+
+    /**
+     * 根据用户id查询角色集合
+     * @param userId
+     * @return set
+     */
+    Set<String> findRoleByUserId(String userId);
 }

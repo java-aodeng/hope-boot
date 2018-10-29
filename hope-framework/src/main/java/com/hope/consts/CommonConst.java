@@ -30,7 +30,7 @@ public class CommonConst {
     /***
      *uuid盐,hope专用
      */
-    public static final String ZYD_SECURITY_KEY="ac53ce11a2a84a18bdbf1b63fd47b17b";
+    public static final String ZYD_SECURITY_KEY="929123f8f17944e8b0a531045453e1f1";
     /***
      *程序错误状态码
      */

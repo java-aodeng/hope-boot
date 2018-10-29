@@ -42,7 +42,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
      * @return
      */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) throws AuthenticationException {
         //权限信息对象，保存用户的角色和资源信息
         SimpleAuthorizationInfo simpleAuthorizationInfo=new SimpleAuthorizationInfo();
         Integer userId=(Integer) SecurityUtils.getSubject().getPrincipal();
@@ -83,7 +83,7 @@ public class ShiroAuthorizingRealm extends AuthorizingRealm{
         return new SimpleAuthenticationInfo(
                 user.getId(),
                 user.getPassword(),
-                ByteSource.Util.bytes(sysusername),
+                ByteSource.Util.bytes(user),
                 getName()
         );
     }

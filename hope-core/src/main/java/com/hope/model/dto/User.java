@@ -32,7 +32,8 @@ public class User extends CommonSerializable{
         setUsername(loginname);
         if (!StringUtils.isEmpty(password)) {
             try {
-                setPassword(UsingAesHopeUtil.encrypt(password, loginname));
+                setPassword(password);
+                /*setPassword(UsingAesHopeUtil.encrypt(password, loginname));*/
             } catch (Exception e) {
                 e.printStackTrace();
             }

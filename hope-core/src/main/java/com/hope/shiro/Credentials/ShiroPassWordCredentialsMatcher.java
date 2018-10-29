@@ -28,9 +28,13 @@ public class ShiroPassWordCredentialsMatcher extends CredentialsMatcher{
 
     private static final Logger log= LoggerFactory.getLogger(ShiroPassWordCredentialsMatcher.class);
 
-    /**用户登陆次数**/
-    private static final String SHIRO_LOGIN_COUNT="shiro_login_count_";
-    /**用户登陆是否被锁定**/
+    /**
+     * 用户登录次数计数  redisKey 前缀
+     */
+    private static final String SHIRO_LOGIN_COUNT = "shiro_login_count_";
+    /**
+     * 用户登录是否被锁定    一小时 redisKey 前缀
+     */
     private static final String SHIRO_IS_LOCK = "shiro_is_lock_";
 
     @Autowired
@@ -45,8 +49,8 @@ public class ShiroPassWordCredentialsMatcher extends CredentialsMatcher{
         String username=user.getUsername();
         //访问计数
         ValueOperations<String,String> valueOperations=redisTemplate.opsForValue();
-        String loginCountKey=SHIRO_LOGIN_COUNT+username;
-        String isLockKey=SHIRO_IS_LOCK+username;
+        String loginCountKey = SHIRO_LOGIN_COUNT + username;
+        String isLockKey = SHIRO_IS_LOCK + username;
         valueOperations.increment(loginCountKey,1);
         //如果禁止登陆，提示
         if (redisTemplate.hasKey(isLockKey)){

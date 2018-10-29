@@ -1,5 +1,6 @@
 package com.hope.shiro.config;
 
+import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
 import com.hope.service.ShiroService;
 import com.hope.shiro.Credentials.ShiroPassWordCredentialsMatcher;
@@ -25,6 +26,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.annotation.Order;
 
+import javax.servlet.Filter;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**Shiro-配置类
@@ -52,6 +55,13 @@ public class ShiroConfig {
         return factoryBean;
     }
 
+    /***
+     * 为了在thymeleaf引擎中使用shiro的标签bean
+     * @return
+     */
+    public ShiroDialect shiroDialect(){
+        return new ShiroDialect();
+    }
 
     @Bean(name = "lifecycleBeanPostProcessor")
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
@@ -78,6 +88,10 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面
         shiroFilterFactoryBean.setUnauthorizedUrl("/error/403");
+        //自定义拦截器
+        Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
+        //限制同一个账号同时在线的个数
+        //filterMap.put("kickout",Kick)
         //配置数据库中的resource
         Map<String,String> map=shiroService.loadFilterChainDefinitions();
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
@@ -205,4 +219,6 @@ public class ShiroConfig {
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
     }
+
+    //public Kic
 }

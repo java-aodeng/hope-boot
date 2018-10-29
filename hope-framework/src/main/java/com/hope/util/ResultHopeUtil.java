@@ -47,7 +47,7 @@ public class ResultHopeUtil {
         return vo(statusEnum.getCode(),statusEnum.getMessage(),null);
     }
 
-    public static ResponseVo error(String message,Object data){
+    public static ResponseVo error(String message){
         return vo(CommonConst.DEFAULT_ERROR_CODE,message,null);
     }
 

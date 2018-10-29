@@ -47,13 +47,14 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <form method="post" th:action="@{/hope/index}">
+                <form method="post" th:action="@{/hope/inlogin}">
                     <h4 class="no-margins">登录：</h4>
                     <p class="m-t-md">我们不改变世界，我们跟着世界改变</p>
-                    <input type="text" class="form-control uname" placeholder="用户名" />
-                    <input type="password" class="form-control pword m-b" placeholder="密码" />
+                    <input type="text" class="form-control uname" placeholder="用户名" name="username" />
+                    <input type="password" class="form-control pword m-b" placeholder="密码" name="password"/>
 
                     <a th:href="@{/#}">忘记密码了？</a>
+                    <input class="i-checks" type="checkbox" name="rememberme" />&nbsp;&nbsp;记住我
                     <button class="btn btn-success btn-block">登录</button>
                 </form>
             </div>

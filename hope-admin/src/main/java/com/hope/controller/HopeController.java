@@ -1,6 +1,10 @@
 package com.hope.controller;
 
+import com.hope.object.ResponseVo;
 import com.hope.util.ResultHopeUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -21,10 +25,33 @@ import org.springframework.web.servlet.ModelAndView;
 public class HopeController {
     private static final Logger log= LoggerFactory.getLogger(HopeController.class);
 
-    @RequestMapping("/login")
-    public ModelAndView login(Model model){
-        log.info("[hope-login-page]-[{}]","测试110");
+    @GetMapping("/login")
+    public ModelAndView login(Model model) {
         return ResultHopeUtil.view("admin/login");
+    }
+
+    /***
+     * 登录
+     * @param username
+     * @param password
+     * @param rememberMe
+     * @param s
+     * @return
+     */
+    @RequestMapping("/inlogin")
+    public ResponseVo inlogin(String username,String password,boolean rememberMe,String s){
+        UsernamePasswordToken token=new UsernamePasswordToken(username,password);
+        Subject subject= SecurityUtils.getSubject();
+        try {
+            subject.login(token);
+            //log.info("[hope-login-success]-[{}]",username);
+            return ResultHopeUtil.success("登录成功！");
+        }catch (Exception e){
+            log.error("[hope-login-error]-[{}]",username,e);
+            e.printStackTrace();
+            token.clear();
+            return ResultHopeUtil.error(e.getMessage());
+        }
     }
     @RequestMapping("/index")
     public String index(Model model){

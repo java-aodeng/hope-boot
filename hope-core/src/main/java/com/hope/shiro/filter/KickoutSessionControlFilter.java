@@ -1,5 +1,6 @@
 package com.hope.shiro.filter;
 
+import com.hope.model.beans.SysUser;
 import com.hope.model.dto.User;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
@@ -58,8 +59,8 @@ public class KickoutSessionControlFilter extends AccessControlFilter{
         }
 
         Session session=subject.getSession();
-        User user=(User)subject.getPrincipal();
-        String username=user.getUsername();
+        SysUser sysuser=(SysUser)subject.getPrincipal();
+        String username=sysuser.getUsername();
         Serializable sessionId=session.getId();
 
         //读取缓存 没有就存入

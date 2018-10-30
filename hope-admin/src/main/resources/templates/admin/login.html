@@ -13,15 +13,17 @@
     <link th:href="@{/css/animate.css}" rel="stylesheet">
     <link th:href="@{/css/style.css}" rel="stylesheet">
     <link th:href="@{/css/login.css}" rel="stylesheet">
+    <link th:href="@{/js/plugins/iCheck/custom.css}" rel="stylesheet"/>
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
-    <script>
-        if (window.top !== window.self) {
-            window.top.location = window.location;
+    <style>
+        .code{
+            background: #fff no-repeat 95% center;
+            color: #333;
+            margin: 0 0 15px 0;
         }
-    </script>
-
+    </style>
 </head>
 
 <body class="signin">
@@ -47,15 +49,23 @@
                 </div>
             </div>
             <div class="col-sm-5">
-                <form method="post" th:action="@{/hope/inlogin}">
+                <form id="HopeLogin">
                     <h4 class="no-margins">登录：</h4>
                     <p class="m-t-md">我们不改变世界，我们跟着世界改变</p>
                     <input type="text" class="form-control uname" placeholder="用户名" name="username" />
                     <input type="password" class="form-control pword m-b" placeholder="密码" name="password"/>
-
-                    <a th:href="@{/#}">忘记密码了？</a>
-                    <input class="i-checks" type="checkbox" name="rememberme" />&nbsp;&nbsp;记住我
-                    <button class="btn btn-success btn-block">登录</button>
+                    <div class="row">
+                        <div class="col-xs-6" style="margin-top: -15px">
+                            <input id="bg" type="text" name="verification" class="form-control code" placeholder="验证码" maxlength="6">
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="javascript:void(0);" title="点击更换验证码">
+                                <img src="/verificationCode" class="imgcode"  width="85%"/>
+                            </a>
+                        </div>
+                    </div>
+                    <input class="i-checks" type="checkbox" name="rememberme" checked value="1"/>&nbsp;&nbsp;记住我
+                    <button class="btn btn-success btn-block" id="btnSubmits" data-loading="正在验证登录，请稍后...">登录</button>
                 </form>
             </div>
         </div>
@@ -65,6 +75,61 @@
             </div>
         </div>
     </div>
-</body>
 
+</body>
+<script th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
+<script th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
+<script th:src="@{/js/plugins/layer/layer.min.js}"></script>
+<!-- jquery-validate 表单验证插件 -->
+<script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+<script th:src="@{/js/plugins/validate/messages_zh.min.js}"></script>
+<script th:src="@{/js/plugins/hope/validate/jquery.validate.extend.js}"></script>
+<script th:src="@{/js/plugins/iCheck/icheck.min.js}"></script>
+<script th:inline="javascript"> var ctx = [[@{/}]]; </script>
 </html>
+<script>
+    $(function () {
+        $("#btnSubmits").on('click', function () {
+            validateLogin();
+            $.ajax({
+                type: "POST",
+                url: ctx + "hope/login",
+                data: $("#HopeLogin").serialize(),
+                dataType: "json",
+                success: function(data) {
+                    if (data.status == 200) {
+                        layer.msg(data.message, {
+                            offset: '30%',
+                            time: 800
+                        }, function () {
+                            window.location.href = "/";
+                        });
+                    }else{
+                        layer.msg(data.msg, {
+                            icon: 2,
+                            offset: '30%',
+                            time: 2000
+                        });
+                       /* $(".imgcode").click();*/
+                    }
+                }
+            });
+        });
+        /*$(".imgcode").on('click', function () {
+            $(this).attr('src', '/verificationCode?' + Math.floor(Math.random() * 100));
+        });
+        $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});*/
+    });
+    function validateLogin() {
+        $("#HopeLogin").validate({
+            rules:{
+                username:{required:true},
+                password:{required:true}
+            },
+            messages:{
+                username:{required:"<i class='fa fa-times-circle'></i>请输入你的用户名！"},
+                password:{required:"<i class='fa fa-times-circle'></i>请输入你的密码！"}
+            }
+        })
+    }
+</script>

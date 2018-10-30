@@ -36,4 +36,14 @@ public class SysUser extends CommonEntity {
     /**最后登陆时间**/
     private Date lastLoginTime;
 
+    /**
+     *
+     * 重写获取盐值方法，自定义realm使用
+     * Gets credentials salt.
+     *
+     * @return the credentials salt
+     */
+    public String getCredentialsSalt() {
+        return username + "nbclass.com" + salt;
+    }
 }

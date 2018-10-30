@@ -64,7 +64,7 @@ public class ShiroConfig {
         return new ShiroDialect();
     }
 
-    @Bean(name = "lifecycleBeanPostProcessor")
+    @Bean(name ="lifecycleBeanPostProcessor" )
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
         return new LifecycleBeanPostProcessor();
     }
@@ -78,13 +78,13 @@ public class ShiroConfig {
      * 2、当设置多个过滤器时，全部验证通过，才视为通过
      * 3、部分过滤器可指定参数，如perms，roles
      */
-    @Bean("shiroFilter")
+    @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean=new ShiroFilterFactoryBean();
         //设置securityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/hope/login");
+        shiroFilterFactoryBean.setLoginUrl("/hope/login/");
         //登陆成功跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面
@@ -160,13 +160,12 @@ public class ShiroConfig {
      * @return
      */
     public RedisManager redisManager() {
-        //可以使用自定义的CustomRedisManager,好出是可以使用指定的Database，Hope暂时使用默认
         RedisManager redisManager =new RedisManager();
         //配置地址，端口
         redisManager.setHost(redisProperties.getHost());
         redisManager.setPort(redisProperties.getPort());
         //配置缓存过期时间
-        redisManager.setExpire(redisProperties.getExpire());
+        redisManager.setDatabase(redisProperties.getDatabase());
         redisManager.setTimeout(redisProperties.getTimeout());
         //配置密码
         redisManager.setPassword(redisProperties.getPassword());
@@ -215,7 +214,7 @@ public class ShiroConfig {
         //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
         SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
         //cookie生效时间30天，单位秒，注释，默认永久不过期
-        //simpleCookie.setMaxAge(redisProperties.getExpire());
+        simpleCookie.setMaxAge(redisProperties.getExpire());
         return simpleCookie;
     }
 

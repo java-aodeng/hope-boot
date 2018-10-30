@@ -69,17 +69,18 @@ public class HopeShiroReam extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         //获取用户账号
         String username=(String) token.getPrincipal();
-        User user=sysUserService.getByUserName(username);
-        if (user == null){
+        SysUser sysuser=sysUserService.getByUserName(username);
+        if (sysuser == null){
             throw new UnknownAccountException("帐号不存在！");
         }
-        if (null != user.getStatus() && SysUserStatusEnum.DISABLE.getCode().equals(user.getStatus())){
+        if (null != sysuser.getStatus() && SysUserStatusEnum.DISABLE.getCode().equals(sysuser.getStatus())){
             throw new LockedAccountException("账号锁定，禁止登录hope，自己好好想想为什么吧！");
         }
+        //此处有坑，我搞了几天，如果认证报错了 https://blog.csdn.net/tom9238/article/details/79711651 推荐看看这篇文章，然后debug吧
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(
-                user,
-                user.getPassword(),
-                ByteSource.Util.bytes(username),
+                sysuser,
+                sysuser.getPassword(),
+                ByteSource.Util.bytes(sysuser.getCredentialsSalt()),
                 getName()
         );
         return authenticationInfo;

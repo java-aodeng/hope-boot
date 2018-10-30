@@ -62,9 +62,10 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/hope/signin","anon");
         filterChainDefinitionMap.put("/error","anon");
         /**开发环境开放star**/
+/*
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
-        filterChainDefinitionMap.put("/favicon/**","anon");
+*/
         /**开发环境开放end**/
         /**开放hope资源文件star**/
         filterChainDefinitionMap.put("/css/**","anon");
@@ -73,6 +74,8 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/img/**","anon");
         filterChainDefinitionMap.put("/js/**","anon");
         filterChainDefinitionMap.put("/plugins/**","anon");
+        filterChainDefinitionMap.put("/favicon.ico", "anon");
+        filterChainDefinitionMap.put("/verificationCode", "anon");
         /**开放hope资源文件end**/
         filterChainDefinitionMap.put("/druid/**","anon");//druid,hope默认开放
         //加载数据库中配置的资源权限列表
@@ -80,10 +83,10 @@ public class ShiroServiceImpl implements ShiroService{
         for(SysResource resource:resourcesList){
             if(!StringUtils.isEmpty(resource.getUrl()) && !StringUtils.isEmpty(resource.getPermission())){
                 String permission ="perms["+resource.getPermission()+"]";
-                filterChainDefinitionMap.put(resource.getUrl(),permission);
+                filterChainDefinitionMap.put(resource.getUrl(),permission+",kickout");
             }
         }
-        filterChainDefinitionMap.put("/**","user");
+        filterChainDefinitionMap.put("/**","user,kickout");
         log.info("[hope初始化权限成功,数据库资源条数]-[{}]",resourcesList.size());
         return filterChainDefinitionMap;
     }
@@ -128,7 +131,7 @@ public class ShiroServiceImpl implements ShiroService{
         HopeShiroReam hopeShiroReam=(HopeShiroReam)realmSecurityManager.getRealms().iterator().next();
         Subject subject=SecurityUtils.getSubject();
         String realmName=subject.getPrincipals().getRealmNames().iterator().next();
-        SimplePrincipalCollection simplePrincipalCollection=new SimplePrincipalCollection(user.getId(),realmName);
+        SimplePrincipalCollection simplePrincipalCollection=new SimplePrincipalCollection(user,realmName);
         subject.runAs(simplePrincipalCollection);
         hopeShiroReam.getAuthorizationCache().remove(subject.getPrincipals());
         subject.releaseRunAs();

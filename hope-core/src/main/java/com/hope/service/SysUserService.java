@@ -19,7 +19,7 @@ public interface SysUserService extends BaseService<SysUser>{
      * @param username
      * @return
      */
-    User getByUserName(String username);
+    SysUser getByUserName(String username);
 
     /***
      * 根据角色id查询用户列表

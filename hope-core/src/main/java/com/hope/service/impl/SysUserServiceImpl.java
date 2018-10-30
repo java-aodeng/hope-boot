@@ -48,11 +48,12 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
      * @return
      */
     @Override
-    public User getByUserName(String username) {
-        User user=new User(username,"");
-        Assert.notNull(user, "User不可为空！");
-        SysUser sysUser=selectOne(user.getSysUser());
-        return null == sysUser ? null : new User(sysUser);
+    public SysUser getByUserName(String username) {
+        SysUser sysuser=new SysUser();
+        sysuser.setUsername(username);
+        Assert.notNull(sysuser, "User不可为空！");
+        SysUser sysUser=selectOne(sysuser);
+        return null == sysUser ? null : sysUser;
     }
 
     @Override

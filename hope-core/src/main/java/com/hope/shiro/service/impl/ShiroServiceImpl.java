@@ -57,15 +57,16 @@ public class ShiroServiceImpl implements ShiroService{
          */
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         //配置shiro过滤器
-        filterChainDefinitionMap.put("/hope/logout","logout");//退出过滤器，shiro代码自动实现
-        filterChainDefinitionMap.put("/hope/login","anon");
-        filterChainDefinitionMap.put("/hope/signin","anon");
+       // filterChainDefinitionMap.put("/hope/logout","logout");//退出过滤器，shiro代码自动实现
+        filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/error","anon");
+        filterChainDefinitionMap.put("/kickout", "anon");
+        filterChainDefinitionMap.put("index","anon");
         /**开发环境开放star**/
-/*
+        filterChainDefinitionMap.put("/login2","anon");
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
-*/
+        /*filterChainDefinitionMap.put("/**","anon");*/
         /**开发环境开放end**/
         /**开放hope资源文件star**/
         filterChainDefinitionMap.put("/css/**","anon");

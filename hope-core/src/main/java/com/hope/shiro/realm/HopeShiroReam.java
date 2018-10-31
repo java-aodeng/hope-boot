@@ -76,7 +76,7 @@ public class HopeShiroReam extends AuthorizingRealm{
         if (null != sysuser.getStatus() && SysUserStatusEnum.DISABLE.getCode().equals(sysuser.getStatus())){
             throw new LockedAccountException("账号锁定，禁止登录hope，自己好好想想为什么吧！");
         }
-        //此处有坑，我搞了几天，如果认证报错了 https://blog.csdn.net/tom9238/article/details/79711651 推荐看看这篇文章，然后debug吧
+        //如果认证报错了 https://blog.csdn.net/tom9238/article/details/79711651 推荐看看这篇文章
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(
                 sysuser,
                 sysuser.getPassword(),

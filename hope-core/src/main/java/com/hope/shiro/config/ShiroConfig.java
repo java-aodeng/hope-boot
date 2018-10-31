@@ -2,6 +2,7 @@ package com.hope.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
+import com.hope.shiro.filter.LoginFormAuthenticationFilter;
 import com.hope.shiro.service.ShiroService;
 import com.hope.shiro.Credentials.RetryLimitCredentialsMatcher;
 import com.hope.shiro.filter.KickoutSessionControlFilter;
@@ -48,12 +49,18 @@ public class ShiroConfig {
     @Autowired
     private RedisProperties redisProperties;
 
-    @Bean
+    /*@Bean
     public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
         MethodInvokingFactoryBean factoryBean=new MethodInvokingFactoryBean();
         factoryBean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
         factoryBean.setArguments(securityManager);
         return factoryBean;
+    }*/
+
+
+    @Bean/*(name ="lifecycleBeanPostProcessor" )*/
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
+        return new LifecycleBeanPostProcessor();
     }
 
     /***
@@ -62,11 +69,6 @@ public class ShiroConfig {
      */
     public ShiroDialect shiroDialect(){
         return new ShiroDialect();
-    }
-
-    @Bean(name ="lifecycleBeanPostProcessor" )
-    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
-        return new LifecycleBeanPostProcessor();
     }
 
     /**
@@ -78,13 +80,13 @@ public class ShiroConfig {
      * 2、当设置多个过滤器时，全部验证通过，才视为通过
      * 3、部分过滤器可指定参数，如perms，roles
      */
-    @Bean(name = "shiroFilter")
+    @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean=new ShiroFilterFactoryBean();
         //设置securityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-        shiroFilterFactoryBean.setLoginUrl("/hope/login/");
+        shiroFilterFactoryBean.setLoginUrl("/login");
         //登陆成功跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面
@@ -93,6 +95,7 @@ public class ShiroConfig {
         Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
         //限制同一个账号同时在线的个数
         filterMap.put("kickout",kickoutSessionControlFilter());
+        //filterMap.put("hopeLog",loginFormAuthenticationFilter());
         shiroFilterFactoryBean.setFilters(filterMap);
         //配置数据库中的resource
         Map<String,String> map=shiroService.loadFilterChainDefinitions();
@@ -100,12 +103,28 @@ public class ShiroConfig {
         return shiroFilterFactoryBean;
     }
 
-    @Bean
-    @DependsOn("lifecycleBeanPostProcessor")
-    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){
-        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator=new DefaultAdvisorAutoProxyCreator();
-        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
-        return defaultAdvisorAutoProxyCreator;
+    /***
+     * Cookid对象
+     * @return
+     */
+    public SimpleCookie simpleCookie(){
+        //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
+        SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
+        //cookie生效时间30天，单位秒，注释，默认永久不过期
+        simpleCookie.setMaxAge(redisProperties.getExpire());
+        return simpleCookie;
+    }
+
+    /***
+     * cookid管理对象，记住我功能
+     * @return
+     */
+    public CookieRememberMeManager rememberMeManager(){
+        CookieRememberMeManager cookieRememberMeManager=new CookieRememberMeManager();
+        cookieRememberMeManager.setCookie(simpleCookie());
+        //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
+        cookieRememberMeManager.setCipherKey(Base64.decode("1QWLxg+NYmxraMoxAXu/Iw=="));
+        return cookieRememberMeManager;
     }
 
     @Bean(name="securityManager")
@@ -131,6 +150,7 @@ public class ShiroConfig {
         hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
         return hopeShiroReam;
     }
+
     /**
      * 凭证匹配器
      * ）
@@ -143,16 +163,21 @@ public class ShiroConfig {
         hashedCredentialsMatcher.setHashIterations(2);
         return hashedCredentialsMatcher;
     }
-    /***
-     * cacheManager 缓存 redis实现
-     * 使用的是shiro-redis开源插件
+
+    /**
+     * 开启shiro aop注解支持.
+     * 使用代理方式;所以需要开启代码支持;
+     *
+     * @param securityManager
      * @return
      */
-    public RedisCacheManager redisCacheManager(){
-        RedisCacheManager redisCacheManager=new RedisCacheManager();
-        redisCacheManager.setRedisManager(redisManager());
-        return redisCacheManager;
+    @Bean
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
+        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
+        return authorizationAttributeSourceAdvisor;
     }
+
 
     /**
      * 配置shiro redisManager
@@ -173,14 +198,14 @@ public class ShiroConfig {
     }
 
     /***
-     * Shiro-Session管理
+     * cacheManager 缓存 redis实现
+     * 使用的是shiro-redis开源插件
      * @return
      */
-    @Bean
-    public DefaultWebSessionManager sessionManager(){
-        DefaultWebSessionManager sessionManager=new DefaultWebSessionManager();
-        sessionManager.setSessionDAO(redisSessionDAO());
-        return sessionManager;
+    public RedisCacheManager redisCacheManager(){
+        RedisCacheManager redisCacheManager=new RedisCacheManager();
+        redisCacheManager.setRedisManager(redisManager());
+        return redisCacheManager;
     }
 
     /***
@@ -193,49 +218,33 @@ public class ShiroConfig {
         redisSessionDAO.setRedisManager(redisManager());
         return redisSessionDAO;
     }
-
     /***
-     * cookid管理对象，记住我功能
-     * @return
-     */
-    public CookieRememberMeManager rememberMeManager(){
-        CookieRememberMeManager cookieRememberMeManager=new CookieRememberMeManager();
-        cookieRememberMeManager.setCookie(simpleCookie());
-        //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
-        cookieRememberMeManager.setCipherKey(Base64.decode("1QWLxg+NYmxraMoxAXu/Iw=="));
-        return cookieRememberMeManager;
-    }
-
-    /***
-     * Cookid对象
-     * @return
-     */
-    public SimpleCookie simpleCookie(){
-        //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
-        SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
-        //cookie生效时间30天，单位秒，注释，默认永久不过期
-        simpleCookie.setMaxAge(redisProperties.getExpire());
-        return simpleCookie;
-    }
-
-    @Bean(name = "credentialsMatcher")
-    public RetryLimitCredentialsMatcher credentialsMatcher(){
-        return new RetryLimitCredentialsMatcher();
-    }
-
-    /**
-     * 开启shiro aop注解支持.
-     * 使用代理方式;所以需要开启代码支持;
-     *
-     * @param securityManager
+     * Shiro-Session管理
      * @return
      */
     @Bean
-    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
-        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
-        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
-        return authorizationAttributeSourceAdvisor;
+    public DefaultWebSessionManager sessionManager(){
+        DefaultWebSessionManager sessionManager=new DefaultWebSessionManager();
+        sessionManager.setSessionDAO(redisSessionDAO());
+        return sessionManager;
     }
+
+
+/*    @Bean
+    @DependsOn("lifecycleBeanPostProcessor")
+    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){
+        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator=new DefaultAdvisorAutoProxyCreator();
+        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
+        return defaultAdvisorAutoProxyCreator;
+    }*/
+
+
+
+/*    @Bean(name = "credentialsMatcher")
+    public RetryLimitCredentialsMatcher credentialsMatcher(){
+        return new RetryLimitCredentialsMatcher();
+    }*/
+
 
     /***
      * 限制同一账号，登录人数的控制
@@ -247,7 +256,18 @@ public class ShiroConfig {
         kickoutSessionControlFilter.setSessionManager(sessionManager());
         kickoutSessionControlFilter.setKickoutAfter(false);
         kickoutSessionControlFilter.setMaxSession(5);
-        kickoutSessionControlFilter.setKickoutUrl("/kickout");
+        //被踢出后重定向到的地址；
+        kickoutSessionControlFilter.setKickoutUrl("/index");
         return kickoutSessionControlFilter;
     }
+
+/*    *//***
+     * 自定义拦截器，重写shiro登录成功重定向，操蛋玩意
+     * @return
+     *//*
+    public LoginFormAuthenticationFilter loginFormAuthenticationFilter(){
+        LoginFormAuthenticationFilter loginFormAuthenticationFilter=new LoginFormAuthenticationFilter();
+        loginFormAuthenticationFilter.setSuccessUrl("/index");
+        return loginFormAuthenticationFilter;
+    }*/
 }

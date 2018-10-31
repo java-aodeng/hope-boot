@@ -65,7 +65,7 @@
                         </div>
                     </div>
                     <input class="i-checks" type="checkbox" name="rememberme" checked value="1"/>&nbsp;&nbsp;记住我
-                    <button class="btn btn-success btn-block" id="btnSubmits" data-loading="正在验证登录，请稍后...">登录</button>
+                    <button class="btn btn-success btn-block" id="loginBtn" data-loading="正在验证登录，请稍后...">登录</button>
                 </form>
             </div>
         </div>
@@ -89,11 +89,11 @@
 </html>
 <script>
     $(function () {
-        $("#btnSubmits").on('click', function () {
-            validateLogin();
+        $("#loginBtn").on('click', function () {
+            //validateLogin();
             $.ajax({
                 type: "POST",
-                url: ctx + "hope/login",
+                url: ctx + "login2",
                 data: $("#HopeLogin").serialize(),
                 dataType: "json",
                 success: function(data) {
@@ -102,10 +102,10 @@
                             offset: '30%',
                             time: 800
                         }, function () {
-                            window.location.href = "/";
+                            window.location.href = "/index";
                         });
                     }else{
-                        layer.msg(data.msg, {
+                        layer.msg(data.message, {
                             icon: 2,
                             offset: '30%',
                             time: 2000
@@ -115,11 +115,16 @@
                 }
             });
         });
-        /*$(".imgcode").on('click', function () {
-            $(this).attr('src', '/verificationCode?' + Math.floor(Math.random() * 100));
+        $(document).keyup(function (event) {
+            if (event.keyCode == 13) {
+                $("#loginBtn").click();
+            }
         });
-        $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});*/
     });
+    $(".imgcode").on('click', function () {
+        $(this).attr('src', '/verificationCode?' + Math.floor(Math.random() * 100));
+    });
+    $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});
     function validateLogin() {
         $("#HopeLogin").validate({
             rules:{

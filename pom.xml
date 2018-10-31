@@ -128,6 +128,12 @@
 			<groupId>org.crazycake</groupId>
 			<artifactId>shiro-redis</artifactId>
 			<version>3.1.0</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>shiro-core</artifactId>
+					<groupId>org.apache.shiro</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!--thymeleaf-->
 		<dependency>

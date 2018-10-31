@@ -29,7 +29,7 @@ public class ResultHopeUtil {
     }
 
     public static ModelAndView redirect(String view){
-        return new ModelAndView("redirect"+view);
+        return new ModelAndView("redirect:"+view);
     }
 
     /**vo**/

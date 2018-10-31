@@ -9,6 +9,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.util.WebUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @program:hope-plus
@@ -26,15 +28,20 @@ import javax.servlet.http.HttpServletRequest;
  * @create:2018-10-22 17:13
  **/
 @Controller
-@RequestMapping(value ="/hope")
 public class HopeController {
     private static final Logger log= LoggerFactory.getLogger(HopeController.class);
 
     @GetMapping("/login")
     public ModelAndView login(Model model) {
+        log.info("----------登录GET方法");
         return ResultHopeUtil.view("admin/login");
     }
 
+    /*首页*/
+    @RequestMapping(value={"/","/index"})
+    public ModelAndView index(HttpServletRequest request){
+        return ResultHopeUtil.view("index/index");
+    }
     /***
      * 登录
      * @param username
@@ -47,30 +54,29 @@ public class HopeController {
     @ResponseBody
     public ResponseVo login(HttpServletRequest request,String username,String password,String verification,
                             @RequestParam(value = "rememberMe", defaultValue = "0") Integer rememberMe){
+        log.info("---------------登录POST方法");
         //判断验证码
         String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
             //验证码通过
         } else {
-            log.info("验证码错误");
             return ResultHopeUtil.error("验证码错误！");
         }
-        UsernamePasswordToken token=new UsernamePasswordToken(username,password);
-        Subject subject= SecurityUtils.getSubject();
+        //验证
+        UsernamePasswordToken token=new UsernamePasswordToken(username,password,1==rememberMe);
         try {
-            token.setRememberMe(1 == rememberMe);
+            Subject subject= SecurityUtils.getSubject();
             subject.login(token);
 
         }catch (LockedAccountException e){
+            e.printStackTrace();
             token.clear();
-            log.info("用户已经被锁定不能登录");
             return ResultHopeUtil.error("用户已经被锁定不能登录，请联系管理员！");
         }catch (AuthenticationException e){
+            e.printStackTrace();
             token.clear();
-            log.info("用户名或者密码错误");
             return ResultHopeUtil.error("用户名或者密码错误！");
         }
-        log.info("登录成功");
         return ResultHopeUtil.success("登录成功！");
     }
 
@@ -92,8 +98,19 @@ public class HopeController {
 
     @RequestMapping("/logintest")
     @ResponseBody
-    public ResponseVo login(){
-
+    public ResponseVo logintest(){
         return ResultHopeUtil.success("登录成功！");
+    }
+    @PostMapping("/login2")
+    @ResponseBody
+    public void
+    login2(HttpServletRequest request, HttpServletResponse response, Model model) {
+        log.info("----------登录GET2方法");
+        try {
+            WebUtils.issueRedirect(request,response,"/index");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

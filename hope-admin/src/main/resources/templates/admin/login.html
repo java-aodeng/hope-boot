@@ -71,7 +71,7 @@
         </div>
         <div class="signup-footer">
             <div class="pull-left">
-                &copy; 2018 All Rights Reserved. <a href="https://aodeng.cc">低调小熊猫</a>
+                &copy; 2018 All Rights Reserved. <a href="https://aodeng.cc">低调小熊猫</a><a href="/logout">退出</a>
             </div>
         </div>
     </div>
@@ -90,10 +90,10 @@
 <script>
     $(function () {
         $("#loginBtn").on('click', function () {
-            //validateLogin();
+            validateLogin();
             $.ajax({
                 type: "POST",
-                url: ctx + "login2",
+                url: ctx + "login",
                 data: $("#HopeLogin").serialize(),
                 dataType: "json",
                 success: function(data) {
@@ -102,7 +102,7 @@
                             offset: '30%',
                             time: 800
                         }, function () {
-                            window.location.href = "/index";
+                            window.location.href = "/";
                         });
                     }else{
                         layer.msg(data.message, {

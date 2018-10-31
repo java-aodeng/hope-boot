@@ -91,12 +91,12 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面
         shiroFilterFactoryBean.setUnauthorizedUrl("/error/403");
-        //自定义拦截器
+        /*//自定义拦截器
         Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
         //限制同一个账号同时在线的个数
         filterMap.put("kickout",kickoutSessionControlFilter());
         //filterMap.put("hopeLog",loginFormAuthenticationFilter());
-        shiroFilterFactoryBean.setFilters(filterMap);
+        shiroFilterFactoryBean.setFilters(filterMap);*/
         //配置数据库中的resource
         Map<String,String> map=shiroService.loadFilterChainDefinitions();
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
@@ -133,7 +133,7 @@ public class ShiroConfig {
         //设置realm
         defaultWebSecurityManager.setRealm(hopeShiroReam());
         // 自定义缓存实现 使用redis
-        defaultWebSecurityManager.setCacheManager(redisCacheManager());
+        //defaultWebSecurityManager.setCacheManager(redisCacheManager());
         //使用redis自定义session管理
         defaultWebSecurityManager.setSessionManager(sessionManager());
         //注入记住我的管理器
@@ -257,7 +257,7 @@ public class ShiroConfig {
         kickoutSessionControlFilter.setKickoutAfter(false);
         kickoutSessionControlFilter.setMaxSession(5);
         //被踢出后重定向到的地址；
-        kickoutSessionControlFilter.setKickoutUrl("/index");
+        kickoutSessionControlFilter.setKickoutUrl("/kickout");
         return kickoutSessionControlFilter;
     }
 

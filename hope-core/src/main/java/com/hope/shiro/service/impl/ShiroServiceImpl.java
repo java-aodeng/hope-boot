@@ -57,7 +57,7 @@ public class ShiroServiceImpl implements ShiroService{
          */
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         //配置shiro过滤器
-       // filterChainDefinitionMap.put("/hope/logout","logout");//退出过滤器，shiro代码自动实现
+        filterChainDefinitionMap.put("/logout","logout");//退出过滤器，shiro代码自动实现
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/error","anon");
         filterChainDefinitionMap.put("/kickout", "anon");
@@ -87,7 +87,8 @@ public class ShiroServiceImpl implements ShiroService{
                 filterChainDefinitionMap.put(resource.getUrl(),permission+",kickout");
             }
         }
-        filterChainDefinitionMap.put("/**","user,kickout");
+        // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
+        filterChainDefinitionMap.put("/**","authc");
         log.info("[hope初始化权限成功,数据库资源条数]-[{}]",resourcesList.size());
         return filterChainDefinitionMap;
     }

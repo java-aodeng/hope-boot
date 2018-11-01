@@ -1,6 +1,6 @@
 package com.hope.object;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.hope.enums.ResponseStatusEnum;
 import lombok.Data;
@@ -36,9 +36,9 @@ public class ResponseVo<T> {
     public  String toJson(){
         T t=this.getData();
         if(t instanceof List || t instanceof Collection){
-            return JSON.toJSONString(this,SerializerFeature.WriteNullListAsEmpty);
+            return JSONObject.toJSONString(this,SerializerFeature.WriteNullListAsEmpty);
         }else {
-            return JSON.toJSONString(this,SerializerFeature.WriteMapNullValue);
+            return JSONObject.toJSONString(this,SerializerFeature.WriteMapNullValue);
         }
     }
 }

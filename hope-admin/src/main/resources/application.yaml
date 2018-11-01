@@ -28,7 +28,7 @@ spring:
       host: localhost
       port: 6379
       #密码默认为空，注释即可，要添加密码，去掉注释添加就行
-      password:
+      #password:
       pool: #star
         maxActive: 8
         maxWait: -1

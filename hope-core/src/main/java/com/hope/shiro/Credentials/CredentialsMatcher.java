@@ -13,9 +13,9 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
  * @微信公众号:低调小熊猫
  * @create:2018-10-21 13:28
  **/
-public class CredentialsMatcher extends SimpleCredentialsMatcher{
+public class CredentialsMatcher /*extends SimpleCredentialsMatcher*/{
     //重写父类的方法,用于验证密码有效性
-    @Override
+    /*@Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info){
         UsernamePasswordToken ut=(UsernamePasswordToken) token;
         //获取用户输入的密码
@@ -30,5 +30,5 @@ public class CredentialsMatcher extends SimpleCredentialsMatcher{
         }
         //验证密码是否一致
         return true;
-    }
+    }*/
 }

@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
 import java.util.Deque;
+import java.util.Map;
 
 /**
  * @program:hope-plus
@@ -48,36 +49,37 @@ public class HopeController {
     }
 
     /*首页*/
-    @RequiresAuthentication
-    @GetMapping(value = {"", "/index"})
-    public ModelAndView index(HttpServletRequest request){
+    @GetMapping(value = {"/", "/index"})
+    public ModelAndView index(){
         return ResultHopeUtil.view("admin/index");
     }
+
     /***
      * 登录
-     * @param username
-     * @param password
-     * @param rememberMe
+     * @param
+     * @param
+     * @param
      * @param
      * @return
      */
     @PostMapping("/login")
     @ResponseBody
-    public ResponseVo login(HttpServletRequest request,String username,String password,String verification,
-                            @RequestParam(value = "rememberMe", defaultValue = "0") Integer rememberMe){
-        log.info("---------------登录POST方法");
+    public ResponseVo login2(){
+        //log.info("---------------登录POST方法");
         //判断验证码
-        String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        //String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
 
-        if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
+        /*if (true*//*StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)*//*) {
             //验证码通过
         } else {
             return ResultHopeUtil.error("验证码错误！");
-        }
-        //验证
-        UsernamePasswordToken token=new UsernamePasswordToken(username,password);
+        }*/
+        /*//验证
+        UsernamePasswordToken token=new UsernamePasswordToken();
         try {
-            //token.setRememberMe(1==rememberMe);
+            token.setUsername(username);
+            token.setPassword(password.toCharArray());
+            token.setRememberMe(1==rememberMe);
             Subject subject= SecurityUtils.getSubject();
             subject.login(token);
 
@@ -89,7 +91,8 @@ public class HopeController {
             return ResultHopeUtil.error("用户名或者密码错误！");
         }catch (Exception e){
             return ResultHopeUtil.error("登录内部错误！请联系管理员检查！");
-        }
+        }*/
+        System.out.println("登录成功");
         return ResultHopeUtil.success("登录成功！");
     }
 
@@ -109,22 +112,7 @@ public class HopeController {
         return ResultHopeUtil.view("common/error/404");
     }
 
-    @RequestMapping("/logintest")
-    @ResponseBody
-    public ResponseVo logintest(){
-        return ResultHopeUtil.success("登录成功！");
-    }
-    @PostMapping("/login2")
-    @ResponseBody
-    public void
-    login2(HttpServletRequest request, HttpServletResponse response, Model model) {
-        log.info("----------登录GET2方法");
-        try {
-            WebUtils.issueRedirect(request,response,"/index");
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
     @GetMapping("/logout")
     public ModelAndView logout() {
         // http://www.oschina.net/question/99751_91561

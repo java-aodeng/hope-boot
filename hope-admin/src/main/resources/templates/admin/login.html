@@ -99,11 +99,11 @@
                 success: function(data) {
                     if (data.status == 200) {
                         layer.msg(data.message, {
+                            icon: 2,
                             offset: '30%',
-                            time: 800
-                        }, function () {
-                            window.location.href = "/";
+                            time: 8000
                         });
+                        window.location.href="/index";
                     }else{
                         layer.msg(data.message, {
                             icon: 2,

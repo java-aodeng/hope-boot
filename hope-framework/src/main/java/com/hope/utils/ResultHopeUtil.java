@@ -34,7 +34,7 @@ public class ResultHopeUtil {
 
     /**vo**/
     public static ResponseVo vo(int code,String message,Object data){
-        return new ResponseVo(code,message,data);
+        return new ResponseVo<>(code,message,data);
     }
 
 

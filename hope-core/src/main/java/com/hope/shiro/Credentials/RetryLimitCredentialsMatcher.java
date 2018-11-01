@@ -24,17 +24,17 @@ import java.util.concurrent.TimeUnit;
  * @微信公众号:低调小熊猫
  * @create:2018-10-21 13:19
  **/
-public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
+public class RetryLimitCredentialsMatcher /*extends CredentialsMatcher*/{
 
-    private static final Logger log= LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
+    /*private static final Logger log= LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
 
-    /**
+    *//**
      * 用户登录次数计数  redisKey 前缀
-     */
+     *//*
     private static final String SHIRO_LOGIN_COUNT = "shiro_login_count_";
-    /**
+    *//**
      * 用户登录是否被锁定    一小时 redisKey 前缀
-     */
+     *//*
     private static final String SHIRO_IS_LOCK = "shiro_is_lock_";
 
     @Autowired
@@ -87,5 +87,5 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
         //但验证全部通过之后，将用户信息存在session里面
         SecurityUtils.getSubject().getSession().setAttribute(CommonConst.USER_SESSION_KEY,user);
         return true;
-    }
+    }*/
 }

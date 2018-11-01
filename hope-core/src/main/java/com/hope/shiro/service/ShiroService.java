@@ -1,8 +1,6 @@
 package com.hope.shiro.service;
 
 import com.hope.model.beans.SysUser;
-import com.hope.model.dto.User;
-
 import java.util.Map;
 
 /**

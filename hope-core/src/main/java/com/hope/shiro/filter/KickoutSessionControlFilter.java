@@ -1,7 +1,6 @@
 package com.hope.shiro.filter;
 
 import com.hope.model.beans.SysUser;
-import com.hope.model.dto.User;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.session.Session;

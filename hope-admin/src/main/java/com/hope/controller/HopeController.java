@@ -10,7 +10,6 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.cache.Cache;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.util.WebUtils;
@@ -22,7 +21,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -70,14 +68,16 @@ public class HopeController {
         log.info("---------------登录POST方法");
         //判断验证码
         String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        /*if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
+
+        if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
             //验证码通过
         } else {
             return ResultHopeUtil.error("验证码错误！");
-        }*/
+        }
         //验证
-        UsernamePasswordToken token=new UsernamePasswordToken(username,password,1==rememberMe);
+        UsernamePasswordToken token=new UsernamePasswordToken(username,password);
         try {
+            //token.setRememberMe(1==rememberMe);
             Subject subject= SecurityUtils.getSubject();
             subject.login(token);
 

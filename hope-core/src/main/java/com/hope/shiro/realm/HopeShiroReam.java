@@ -59,6 +59,7 @@ public class HopeShiroReam extends AuthorizingRealm{
         info.setStringPermissions(sysResourceService.findPermsByUserId(user.getUserUuid()));
         return info;
     }
+
     /***
      * 认证，提供账户信息，返回认证用户的角色信息
      * @param token
@@ -69,6 +70,8 @@ public class HopeShiroReam extends AuthorizingRealm{
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         //获取用户账号
         String username=(String) token.getPrincipal();
+        System.out.println(username+"++++++++++++++");
+        System.out.println("token信息："+token.getCredentials());
         SysUser sysuser=sysUserService.getByUserName(username);
         if (sysuser == null){
             throw new UnknownAccountException("帐号不存在！");

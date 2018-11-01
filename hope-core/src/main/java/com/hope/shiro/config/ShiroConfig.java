@@ -2,11 +2,11 @@ package com.hope.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
-import com.hope.shiro.filter.LoginFormAuthenticationFilter;
-import com.hope.shiro.service.ShiroService;
 import com.hope.shiro.Credentials.RetryLimitCredentialsMatcher;
 import com.hope.shiro.filter.KickoutSessionControlFilter;
+import com.hope.shiro.filter.LoginFormAuthenticationFilter;
 import com.hope.shiro.realm.HopeShiroReam;
+import com.hope.shiro.service.ShiroService;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
@@ -49,16 +49,15 @@ public class ShiroConfig {
     @Autowired
     private RedisProperties redisProperties;
 
-    /*@Bean
+    @Bean
     public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
         MethodInvokingFactoryBean factoryBean=new MethodInvokingFactoryBean();
         factoryBean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
         factoryBean.setArguments(securityManager);
         return factoryBean;
-    }*/
+    }
 
-
-    @Bean/*(name ="lifecycleBeanPostProcessor" )*/
+    @Bean(name ="lifecycleBeanPostProcessor" )
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
         return new LifecycleBeanPostProcessor();
     }
@@ -80,7 +79,7 @@ public class ShiroConfig {
      * 2、当设置多个过滤器时，全部验证通过，才视为通过
      * 3、部分过滤器可指定参数，如perms，roles
      */
-    @Bean
+    @Bean(name = "shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
         ShiroFilterFactoryBean shiroFilterFactoryBean=new ShiroFilterFactoryBean();
         //设置securityManager
@@ -91,12 +90,12 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面
         shiroFilterFactoryBean.setUnauthorizedUrl("/error/403");
-        /*//自定义拦截器
+        //自定义拦截器
         Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
         //限制同一个账号同时在线的个数
         filterMap.put("kickout",kickoutSessionControlFilter());
         //filterMap.put("hopeLog",loginFormAuthenticationFilter());
-        shiroFilterFactoryBean.setFilters(filterMap);*/
+        shiroFilterFactoryBean.setFilters(filterMap);
         //配置数据库中的resource
         Map<String,String> map=shiroService.loadFilterChainDefinitions();
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
@@ -111,7 +110,7 @@ public class ShiroConfig {
         //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
         SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
         //cookie生效时间30天，单位秒，注释，默认永久不过期
-        simpleCookie.setMaxAge(redisProperties.getExpire());
+        simpleCookie.setMaxAge(2592000);
         return simpleCookie;
     }
 
@@ -196,7 +195,6 @@ public class ShiroConfig {
         redisManager.setPassword(redisProperties.getPassword());
         return redisManager;
     }
-
     /***
      * cacheManager 缓存 redis实现
      * 使用的是shiro-redis开源插件
@@ -218,6 +216,7 @@ public class ShiroConfig {
         redisSessionDAO.setRedisManager(redisManager());
         return redisSessionDAO;
     }
+
     /***
      * Shiro-Session管理
      * @return
@@ -229,22 +228,18 @@ public class ShiroConfig {
         return sessionManager;
     }
 
-
-/*    @Bean
+    @Bean
     @DependsOn("lifecycleBeanPostProcessor")
     public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){
         DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator=new DefaultAdvisorAutoProxyCreator();
         defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
         return defaultAdvisorAutoProxyCreator;
-    }*/
+    }
 
-
-
-/*    @Bean(name = "credentialsMatcher")
+    @Bean(name = "credentialsMatcher")
     public RetryLimitCredentialsMatcher credentialsMatcher(){
         return new RetryLimitCredentialsMatcher();
-    }*/
-
+    }
 
     /***
      * 限制同一账号，登录人数的控制
@@ -261,13 +256,13 @@ public class ShiroConfig {
         return kickoutSessionControlFilter;
     }
 
-/*    *//***
+    /***
      * 自定义拦截器，重写shiro登录成功重定向，操蛋玩意
      * @return
-     *//*
+     */
     public LoginFormAuthenticationFilter loginFormAuthenticationFilter(){
         LoginFormAuthenticationFilter loginFormAuthenticationFilter=new LoginFormAuthenticationFilter();
         loginFormAuthenticationFilter.setSuccessUrl("/index");
         return loginFormAuthenticationFilter;
-    }*/
+    }
 }

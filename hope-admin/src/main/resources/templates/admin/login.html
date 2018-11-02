@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <title>H+ 后台主题UI框架 - 登录</title>
-    <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
-    <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
+    <title>Hope-plus 后台- 登录</title>
+    <meta name="keywords" content="个人博客：https://aodeng.cc">
+    <meta name="description" content="微信公众号：低调小熊猫">
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/font-awesome.css?v=4.4.0}" rel="stylesheet">
     <link th:href="@{/css/animate.css}" rel="stylesheet">
@@ -48,11 +48,11 @@
                     <strong>还没有账号？ <a th:href="@{/#}">立即注册&raquo;</a></strong>
                 </div>
             </div>
-            <div class="col-sm-5">
-                <form id="HopeLogin">
+            <div class="col-sm-5"><!--action="" method="post"-->
+                <form  id="HopeLogin" class="login-form">
                     <h4 class="no-margins">登录：</h4>
                     <p class="m-t-md">我们不改变世界，我们跟着世界改变</p>
-                    <input type="text" class="form-control uname" placeholder="用户名" name="username" />
+                    <input type="text"  class="form-control uname" placeholder="用户名" name="username" />
                     <input type="password" class="form-control pword m-b" placeholder="密码" name="password"/>
                     <div class="row">
                         <div class="col-xs-6" style="margin-top: -15px">
@@ -64,8 +64,8 @@
                             </a>
                         </div>
                     </div>
-                    <input class="i-checks" type="checkbox" name="rememberme" checked value="1"/>&nbsp;&nbsp;记住我
-                    <button class="btn btn-success btn-block" id="loginBtn" data-loading="正在验证登录，请稍后...">登录</button>
+                    <input class="i-checks" type="checkbox" name="rememberme" id="rememberme"/>&nbsp;&nbsp;记住我
+                    <input class="btn btn-success btn-block" id="loginBtn" type="button" value="登录"/>
                 </form>
             </div>
         </div>
@@ -89,42 +89,13 @@
 </html>
 <script>
     $(function () {
-        $("#loginBtn").on('click', function () {
-            validateLogin();
-            $.ajax({
-                type: "POST",
-                url: ctx + "login",
-                data: $("#HopeLogin").serialize(),
-                dataType: "json",
-                success: function(data) {
-                    if (data.status == 200) {
-                        layer.msg(data.message, {
-                            icon: 2,
-                            offset: '30%',
-                            time: 8000
-                        });
-                        window.location.href="/index";
-                    }else{
-                        layer.msg(data.message, {
-                            icon: 2,
-                            offset: '30%',
-                            time: 2000
-                        });
-                       /* $(".imgcode").click();*/
-                    }
-                }
-            });
+        validateLogin();
+        $("#loginBtn").click(function () {
+        login()
         });
-        $(document).keyup(function (event) {
-            if (event.keyCode == 13) {
-                $("#loginBtn").click();
-            }
-        });
+        $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});
     });
-    $(".imgcode").on('click', function () {
-        $(this).attr('src', '/verificationCode?' + Math.floor(Math.random() * 100));
-    });
-    $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});
+
     function validateLogin() {
         $("#HopeLogin").validate({
             rules:{
@@ -137,4 +108,42 @@
             }
         })
     }
+
+    function login() {
+        $.ajax({
+            type:"POST",
+            url:"",
+            data: $(".login-form").serialize(),
+            dataType: "json",
+            //cache:false,
+            success: function(data) {
+                if (data.status == 200) {
+                    layer.msg("<em style='color:green'>"+data.message+"</em>", {
+                        icon: 2,
+                        offset: '30%',
+                        time: 800
+                    });
+                    window.location.href="/index";
+                }else{
+                    layer.msg("<em style='color:red'>"+data.message+"</em>", {
+                        icon: 2,
+                        offset: '30%',
+                        time: 2000
+                    });
+                    $(".imgcode").click();
+                }
+            }
+        });
+    }
+
+    $.validator.setDefaults({
+        submitHandler: function() {
+            login();
+        }
+    });
+
+    $(".imgcode").on('click', function () {
+        $(this).attr('src', '/verificationCode?' + Math.floor(Math.random() * 100));
+    });
+
 </script>

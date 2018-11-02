@@ -1,7 +1,7 @@
 package com.hope.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.google.code.kaptcha.Constants;
-import com.hope.model.beans.SysUser;
 import com.hope.object.ResponseVo;
 import com.hope.utils.ResultHopeUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -9,24 +9,15 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
-import org.apache.shiro.cache.Cache;
 import org.apache.shiro.subject.Subject;
-import org.apache.shiro.web.util.WebUtils;
-import org.crazycake.shiro.RedisCacheManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
-import java.util.Deque;
-import java.util.Map;
 
 /**
  * @program:hope-plus
@@ -39,19 +30,20 @@ import java.util.Map;
 public class HopeController {
     private static final Logger log= LoggerFactory.getLogger(HopeController.class);
 
-    @Autowired(required = false)
-    private RedisCacheManager redisCacheManager;
+    /*@Autowired
+    private RedisCacheManager redisCacheManager;*/
 
     @GetMapping("/login")
-    public ModelAndView login() {
-        log.info("----------登录GET方法");
-        return ResultHopeUtil.view("admin/login");
+    public String login() {
+        log.info("[---------------登录Get方法]-[{}]",DateUtil.date());
+        return "admin/login";
     }
 
     /*首页*/
-    @GetMapping(value = {"/", "/index"})
-    public ModelAndView index(){
-        return ResultHopeUtil.view("admin/index");
+    @GetMapping(value = {"/","/admin/index", "/index"})
+    public String index(){
+        log.info("[---------------首页]-[{}]",DateUtil.date());
+        return "admin/index";
     }
 
     /***
@@ -64,35 +56,36 @@ public class HopeController {
      */
     @PostMapping("/login")
     @ResponseBody
-    public ResponseVo login2(){
-        //log.info("---------------登录POST方法");
+    public ResponseVo login(HttpServletRequest request,String username,String password,String verification,
+                            @RequestParam(name = "rememberme",defaultValue = "false") Boolean rememberme){
+        log.info("[---------------登录Post方法]-[{}]",DateUtil.date());
         //判断验证码
-        //String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
-
-        /*if (true*//*StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)*//*) {
+        String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
             //验证码通过
         } else {
-            return ResultHopeUtil.error("验证码错误！");
-        }*/
-        /*//验证
-        UsernamePasswordToken token=new UsernamePasswordToken();
+           return ResultHopeUtil.error("验证码错误！");
+        }
+        Subject subject= SecurityUtils.getSubject();
+        UsernamePasswordToken token=new UsernamePasswordToken(username,password,rememberme);
         try {
-            token.setUsername(username);
-            token.setPassword(password.toCharArray());
-            token.setRememberMe(1==rememberMe);
-            Subject subject= SecurityUtils.getSubject();
+            //验证
             subject.login(token);
-
         }catch (LockedAccountException e){
             token.clear();
+            log.info("[用户已经被锁定不能登录，请联系管理员！]-[{}]",DateUtil.date());
             return ResultHopeUtil.error("用户已经被锁定不能登录，请联系管理员！");
         }catch (AuthenticationException e){
             token.clear();
+            log.info("[用户名或者密码错误]-[{}]",DateUtil.date());
             return ResultHopeUtil.error("用户名或者密码错误！");
         }catch (Exception e){
+            log.info("[登录内部错误！请联系管理员检查！]-[{}]",DateUtil.date());
             return ResultHopeUtil.error("登录内部错误！请联系管理员检查！");
-        }*/
-        System.out.println("登录成功");
+        }
+        log.info("[登录成功]-[{}]",DateUtil.date());
+//        return ResultHopeUtil.success("登录成功！");
+        //此处不处理代为登录成功，有shiro代为处理
         return ResultHopeUtil.success("登录成功！");
     }
 
@@ -101,19 +94,20 @@ public class HopeController {
         log.info("[hope-index_v1-page]-[{}]","测试130");
         return ResultHopeUtil.view("admin/index_v1");
     }
+
     @RequestMapping("/index_v2")
     public ModelAndView index_v2(Model model){
         log.info("[hope-index_v2-page]-[{}]","测试140");
         return ResultHopeUtil.view("admin/index_v2");
     }
+
     @RequestMapping("/error1")
     public ModelAndView error1(Model model){
         log.info("[hope-404-page]-[{}]","测试150");
         return ResultHopeUtil.view("common/error/404");
     }
 
-
-    @GetMapping("/logout")
+/*    @GetMapping("/logout")
     public ModelAndView logout() {
         // http://www.oschina.net/question/99751_91561
         //自定义退出，清空缓存
@@ -132,7 +126,7 @@ public class HopeController {
             cache.put(name,deque);
         }
         subject.logout();
-        log.info("退出登录成功");
+        log.info("[退出登录成功]-[{}]",DateUtil.date());
         return ResultHopeUtil.redirect("index");
-    }
+    }*/
 }

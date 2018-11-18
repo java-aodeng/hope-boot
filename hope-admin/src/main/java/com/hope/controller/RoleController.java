@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,9 +52,9 @@ public class RoleController {
         return ResultHopeUtil.view("admin/role/add");
     }
 
-    @GetMapping("/edit")
-    public ModelAndView edit(Model model){
-        log.info("[role-edit-page]-[{}]","测试220");
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(SysRole sysRole, ModelMap map){
+        map.addAttribute("role",sysRoleService.selectById(sysRole));
         return ResultHopeUtil.view("admin/role/edit");
     }
 }

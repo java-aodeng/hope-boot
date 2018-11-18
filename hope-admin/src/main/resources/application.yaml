@@ -35,7 +35,7 @@ spring:
         maxIdle: 8
         minIdle: 0 #end
       # 连接超时时间（毫秒）
-      timeout:  0
+      timeout:  3000
       # 默认的数据过期时间，主要用于shiro权限管理
       expire: 2592000
   profiles:

@@ -63,6 +63,7 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/kickout", "anon");
         /**开发环境开放star**/
         filterChainDefinitionMap.put("/login2","anon");
+        filterChainDefinitionMap.put("/index","anon");
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
         /*filterChainDefinitionMap.put("/**","anon");*/

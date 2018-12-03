@@ -21,17 +21,16 @@ public class SysResource extends CommonEntity{
     private String description;
     /**权限访问路径**/
     private String url;
+    /**权限标识**/
+    private String permission;
+    /**父编号**/
+    private Integer parentId;
     /**资源类型:0目录 1菜单 2按钮**/
     private Integer type;
     /**显示顺序**/
     private Integer priority;
-    /**父编号**/
-    private Integer parentId;
-    /**权限标识**/
-    private String permission;
     /**图标**/
     private String icon;
     /**是否可用:1有效2删除**/
     private Integer status;
-
 }

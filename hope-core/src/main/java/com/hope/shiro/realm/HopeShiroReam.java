@@ -81,7 +81,7 @@ public class HopeShiroReam extends AuthorizingRealm{
         }
         //如果认证报错了 https://blog.csdn.net/tom9238/article/details/79711651 推荐看看这篇文章
         SimpleAuthenticationInfo authenticationInfo=new SimpleAuthenticationInfo(
-                sysuser,
+                sysuser.getId(),
                 sysuser.getPassword(),
                 ByteSource.Util.bytes(sysuser.getCredentialsSalt()),
                 getName()

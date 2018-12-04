@@ -13,5 +13,10 @@ import java.util.Map;
  * @create:2018-12-03 22:30
  **/
 public interface MenuService{
+    /***
+     * 获取角色菜单
+     * @param sysRole
+     * @return
+     */
     List<Map<String,Object>> roleMenuTreeData(SysRole sysRole);
 }

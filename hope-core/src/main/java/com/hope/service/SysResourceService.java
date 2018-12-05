@@ -1,10 +1,12 @@
 package com.hope.service;
 
 import com.hope.model.beans.SysResource;
+import com.hope.model.beans.SysRole;
 import com.hope.model.dto.Resource;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -39,4 +41,11 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @return set
      */
     Set<String> findPermsByUserId(String userId);
+
+    /***
+     * 获取角色资源
+     * @param sysRole
+     * @return
+     */
+    List<Map<String,Object>> roleResourceTreeData(SysRole sysRole);
 }

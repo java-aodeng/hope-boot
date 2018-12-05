@@ -1,6 +1,8 @@
 package com.hope.controller;
 
 import com.hope.model.beans.SysRole;
+import com.hope.service.SysResourceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +20,21 @@ import java.util.Map;
  * @create:2018-12-03 22:22
  **/
 @Controller
-@RequestMapping("/menu")
-public class MenuController {
+@RequestMapping("/resource")
+public class ResourceController {
 
-    @GetMapping("/roleMenuTreeData")
+    @Autowired
+    private SysResourceService sysResourceService;
+
+    /**
+     * 加载角色资源列表树
+     * @param sysRole
+     * @return
+     */
+    @GetMapping("/roleResourceTreeData")
     @ResponseBody
-    public List<Map<String,Object>> roleMenuTreeData(SysRole sysRole){
-        List<Map<String,Object>> list=new ArrayList<Map<String, Object>>();
-        return list;
+    public List<Map<String,Object>> roleResourceTreeData(SysRole sysRole){
+        List<Map<String,Object>> trees=sysResourceService.roleResourceTreeData(sysRole);
+        return trees;
     }
 }

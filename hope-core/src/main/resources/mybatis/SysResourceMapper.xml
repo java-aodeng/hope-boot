@@ -2,9 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hope.mapper.SysResourceMapper">
     <!--低调小熊猫专用-->
-    <!--selectAlls测试-->
-    <select id="selectAlls" resultType="com.hope.model.beans.SysResource">
-        SELECT  *  FROM sys_resource
+    <resultMap type="com.hope.model.beans.SysResource" id="SysMenuResult">
+        <id property="id" column="id"/>
+        <result property="uresourceUuid" column="resourceId"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="url" column="url"/>
+        <result property="permission" column="permission"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="type" column="type"/>
+        <result property="priority" column="priority"/>
+        <result property="icon" column="icon"/>
+        <result property="status" column="status"/>
+        <result property="createtime" column="create_time"/>
+        <result property="updatetime" column="update_time"/>
+    </resultMap>
+    <select id="selectAlls" resultMap="SysMenuResult">
+        SELECT *
+        FROM sys_resource
     </select>
     <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
         select url,permission from sys_resource where url is not null ORDER by priority ASC
@@ -14,5 +29,13 @@
 			 LEFT JOIN sys_role_resource rr ON r.uresource_uuid=rr.resourceId
 			 LEFT JOIN sys_user_role ur on rr.roleId = ur.roleId
 			 WHERE ur.userId=#{userId} and r.permission is not null and r.permission!='' and r.status=1
+    </select>
+    <select id="selectResourceTree" parameterType="int" resultType="String">
+        select
+			CONCAT(sr.resourceId,sr.permission) as permission
+			FROM sys_resource sr
+			LEFT JOIN sys_role_resource srr on sr.id = srr.resourceId
+			where 1=1 and srr.roleId =#{roleId}
+			ORDER BY sr.parent_id,sr.priority
     </select>
 </mapper>

@@ -5,25 +5,19 @@
 <div class="wrapper wrapper-content animated fadeInRight ibox-content">
     <form class="form-horizontal m" id="form-role-add">
         <div class="form-group">
+            <label class="col-sm-3 control-label">(默认自动获取)uuid：</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" name="roleUuid" id="roleUuid" required="required"/>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-sm-3 control-label ">角色名称：</label>
             <div class="col-sm-8">
-                <input class="form-control" type="text" name="roleName" id="roleName"/>
+                <input class="form-control" type="text" name="role" id="role" required="required"/>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label">权限字符：</label>
-            <div class="col-sm-8">
-                <input class="form-control" type="text" name="roleKey" id="roleKey">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">显示顺序：</label>
-            <div class="col-sm-8">
-                <input class="form-control" type="text" name="roleSort" id="roleSort">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">状态：</label>
+            <label class="col-sm-3 control-label">角色状态：</label>
             <div class="col-sm-8">
                 <div class="onoffswitch">
                     <input type="checkbox" th:checked="true" class="onoffswitch-checkbox" id="status" name="status">
@@ -35,30 +29,47 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label">备注：</label>
+            <label class="col-sm-3 control-label">角色描述：</label>
             <div class="col-sm-8">
-                <input id="remark" name="remark" class="form-control" type="text">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">菜单权限</label>
-            <div class="col-sm-8">
-                <div id="ResourceTrees" class="ztree"></div>
+                <input class="form-control" type="text" name="description" id="description" required="required"/>
             </div>
         </div>
     </form>
 </div>
-<script type="text/javascript">
-    $(function() {
-        var url = ctx + "resource/roleResourceTreeData";
-        var options = {
-            id: "ResourceTrees",
-            url: url,
-            check: { enable: true, nocheckInherit: true, chkboxType: { "Y": "ps", "N": "ps" } },
-            expandLevel: 0
-        };
-        $.tree.init(options);
-    });
+<script>
+    function submitHandler() {
+        if ($.validate.form()) {
+            add();
+        }
+    }
+    function add() {
+        var roleUuid = $("input[name='roleUuid']").val();
+        var role = $("input[name='role']").val();
+        var status = $("input[name='status']").is(':checked') == true ? 1 : 2;
+        var description = $("input[name='description']").val();
+        $.ajax({
+            cache : true,
+            type : "POST",
+            url : ctx + "role/add",
+            data : {
+                "roleUuid": roleUuid,
+                "role": role,
+                "status": status,
+                "description": description
+            },
+            async : false,
+            error : function(request) {
+                $.modal.alertError("系统错误");
+            },
+            success : function(json) {
+                if(json.status == 200){
+                    $.modal.msgReload("保存成功,正在刷新数据请稍后……", modal_status.SUCCESS);
+                }else {
+                    $.modal.alertError(result.message);
+                }
+            }
+        });
+    }
 </script>
 </body>
 </html>

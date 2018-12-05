@@ -1,9 +1,11 @@
 package com.hope.controller;
 
+import cn.hutool.core.date.DateUtil;
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysRole;
 import com.hope.model.vo.RoleConditionVo;
 import com.hope.object.PageResultVo;
+import com.hope.object.ResponseVo;
 import com.hope.service.SysRoleService;
 import com.hope.utils.ResultHopeUtil;
 import org.slf4j.Logger;
@@ -12,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -52,9 +51,30 @@ public class RoleController {
         return ResultHopeUtil.view("admin/role/add");
     }
 
+    @PostMapping("/add")
+    @ResponseBody
+    public ResponseVo add(SysRole sysRole){
+        try {
+            sysRole.setCreatetime(DateUtil.date());
+            if(sysRoleService.insert(sysRole)){
+                return ResultHopeUtil.success("角色添加成功！");
+            }else{
+                return ResultHopeUtil.success("角色添加失败！");
+            }
+        }catch (Exception e) {
+            log.error(String.format("RoleController.addRole%s", e));
+            throw e;
+        }
+    }
+
     @GetMapping("/edit/{id}")
-    public ModelAndView edit(SysRole sysRole, ModelMap map){
-        map.addAttribute("role",sysRoleService.selectById(sysRole));
+    public ModelAndView edit(@PathVariable("id") Integer id, ModelMap map){
+        map.addAttribute("role",sysRoleService.selectById(id));
         return ResultHopeUtil.view("admin/role/edit");
+    }
+
+    @GetMapping("/rule")
+    public ModelAndView rule(){
+        return ResultHopeUtil.view("admin/role/rule");
     }
 }

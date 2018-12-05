@@ -535,10 +535,11 @@
             },
             // 保存结果提示msg
             saveSuccess: function (result) {
-            	if (result.code == web_status.SUCCESS) {
+        		debugger;
+            	if (result.status == web_status.SUCCESS) {
             		$.modal.msgReload("保存成功,正在刷新数据请稍后……", modal_status.SUCCESS);
                 } else {
-                	$.modal.alertError(result.msg);
+                	$.modal.alertError(result.message);
                 }
             	$.modal.closeLoading();
             }
@@ -759,7 +760,7 @@
 
 /** 消息状态码 */
 web_status = {
-    SUCCESS: 0,
+    SUCCESS: 200,
     FAIL: 500
 };
 

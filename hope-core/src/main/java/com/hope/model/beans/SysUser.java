@@ -3,6 +3,7 @@ package com.hope.model.beans;
 import com.hope.mybatis.pojo.CommonEntity;
 import lombok.*;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**用户数据对象类
@@ -16,7 +17,8 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 public class SysUser extends CommonEntity {
     /**装逼的id**/
-    private String userUuid;
+    @Column(name="userId")
+    private String userId;
     /**用户名**/
     private String username;
     /**密码**/
@@ -35,6 +37,17 @@ public class SysUser extends CommonEntity {
     private Integer status;
     /**最后登陆时间**/
     private Date lastLoginTime;
+
+    /**test**/
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     /**
      *

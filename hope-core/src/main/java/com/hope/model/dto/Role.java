@@ -34,11 +34,11 @@ public class Role {
     }
 
     public String getRoleUuid() {
-        return this.sysRole.getRoleUuid();
+        return this.sysRole.getRoleId();
     }
 
     public void setRoleUuid(String roleUuid) {
-        this.sysRole.setRoleUuid(roleUuid);
+        this.sysRole.setRoleId(roleUuid);
     }
 
     public String getRole() {

@@ -24,5 +24,5 @@ public interface SysRoleMapper extends BaseMapper<SysRole>{
      * @param userId 用户id
      * @return set
      */
-    Set<String> findRoleByUserId(String userId);
+    Set<String> findRoleByUserId(Integer userId);
 }

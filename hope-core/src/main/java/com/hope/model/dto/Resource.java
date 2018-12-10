@@ -34,11 +34,11 @@ public class Resource {
     }
 
     public String getUresourceUuid() {
-        return this.sysResource.getUresourceUuid();
+        return this.sysResource.getResourceId();
     }
 
     public void setUresourceUuid(String uresourceUuid) {
-        this.sysResource.setUresourceUuid(uresourceUuid);
+        this.sysResource.setResourceId(uresourceUuid);
     }
 
     public String getName() {

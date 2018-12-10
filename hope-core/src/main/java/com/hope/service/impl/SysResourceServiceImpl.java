@@ -57,7 +57,7 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
     }
 
     @Override
-    public Set<String> findPermsByUserId(String userId) {
+    public Set<String> findPermsByUserId(Integer userId) {
         return sysResourceMapper.findPermsByUserId(userId);
     }
 

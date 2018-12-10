@@ -40,7 +40,7 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @param userId
      * @return set
      */
-    Set<String> findPermsByUserId(String userId);
+    Set<String> findPermsByUserId(Integer userId);
 
     /***
      * 获取角色资源

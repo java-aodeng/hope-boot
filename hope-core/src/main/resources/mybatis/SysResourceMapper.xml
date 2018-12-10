@@ -4,7 +4,7 @@
     <!--低调小熊猫专用-->
     <resultMap type="com.hope.model.beans.SysResource" id="SysMenuResult">
         <id property="id" column="id"/>
-        <result property="uresourceUuid" column="resourceId"/>
+        <result property="resourceId" column="resourceId"/>
         <result property="name" column="name"/>
         <result property="description" column="description"/>
         <result property="url" column="url"/>
@@ -26,7 +26,7 @@
     </select>
     <select id="findPermsByUserId" resultType="java.lang.String">
         select DISTINCT r.permission from sys_resource r
-			 LEFT JOIN sys_role_resource rr ON r.uresource_uuid=rr.resourceId
+			 LEFT JOIN sys_role_resource rr ON r.id=rr.resourceId
 			 LEFT JOIN sys_user_role ur on rr.roleId = ur.roleId
 			 WHERE ur.userId=#{userId} and r.permission is not null and r.permission!='' and r.status=1
     </select>

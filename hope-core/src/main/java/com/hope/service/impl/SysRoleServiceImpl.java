@@ -57,13 +57,12 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
         if (CollectionUtils.isEmpty(sysRoles)){
             return null;
         }
-        PageInfo list=new PageInfo<SysRole>(sysRoles);
-        list.setList(getRoles(sysRoles));
+        PageInfo list=new PageInfo<>(sysRoles);
         return list;
     }
 
     @Override
-    public Set<String> findRoleByUserId(String userId) {
+    public Set<String> findRoleByUserId(Integer userId) {
         return sysRoleMapper.findRoleByUserId(userId);
     }
 }

@@ -41,7 +41,6 @@ public class RoleController {
     @ResponseBody
     public PageResultVo list(RoleConditionVo vo){
         PageInfo<SysRole> pageInfo=sysRoleService.findPageBreakByCondition(vo);
-        log.info("[role-list-page]-[{}]","测试200");
         return ResultHopeUtil.tablePage(pageInfo);
     }
 

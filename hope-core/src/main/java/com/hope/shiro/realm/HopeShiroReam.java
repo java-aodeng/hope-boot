@@ -53,10 +53,10 @@ public class HopeShiroReam extends AuthorizingRealm{
         if (principalCollection == null){
             throw new AuthorizationException("principals should not be null");
         }
-        User user=(User)principalCollection.getPrimaryPrincipal();
+        SysUser sysUser=(SysUser) principalCollection.getPrimaryPrincipal();
         SimpleAuthorizationInfo info=new SimpleAuthorizationInfo();
-        info.setRoles(sysRoleService.findRoleByUserId(user.getUserUuid()));
-        info.setStringPermissions(sysResourceService.findPermsByUserId(user.getUserUuid()));
+        info.setRoles(sysRoleService.findRoleByUserId(sysUser.getId()));
+        info.setStringPermissions(sysResourceService.findPermsByUserId(sysUser.getId()));
         return info;
     }
 

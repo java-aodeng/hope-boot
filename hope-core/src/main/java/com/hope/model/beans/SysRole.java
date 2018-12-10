@@ -14,7 +14,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 public class SysRole extends CommonEntity{
     /**装逼的id**/
-    private String roleUuid;
+    private String roleId;
     /**角色名称**/
     private String role;
     /**角色描述**/

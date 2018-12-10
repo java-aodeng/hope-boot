@@ -26,7 +26,7 @@ public interface SysResourceMapper extends BaseMapper<SysResource>{
      * @param userId 状态
      * @return set
      */
-    Set<String> findPermsByUserId(String userId);
+    Set<String> findPermsByUserId(Integer userId);
 
     /***
      * 根据角色id查询资源

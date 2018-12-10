@@ -1,7 +1,8 @@
 package com.hope.service;
 
+import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysUser;
-import com.hope.model.dto.User;
+import com.hope.model.vo.UserConditionVo;
 import com.hope.mybatis.service.BaseService;
 
 import java.util.List;
@@ -14,6 +15,11 @@ import java.util.List;
  * @create:2018-10-16 15:10
  **/
 public interface SysUserService extends BaseService<SysUser>{
+    /** 分页查询，使用分页插件
+     * @param vo
+     * @return
+     */
+    PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo);
     /***
      * 根据用户名查询
      * @param username

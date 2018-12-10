@@ -36,5 +36,5 @@ public interface SysRoleService extends BaseService<SysRole>{
      * @param userId
      * @return set
      */
-    Set<String> findRoleByUserId(String userId);
+    Set<String> findRoleByUserId(Integer userId);
 }

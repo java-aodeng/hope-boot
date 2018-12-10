@@ -1,8 +1,10 @@
 package com.hope.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysUser;
 import com.hope.model.dto.User;
 import com.hope.mapper.SysUserMapper;
+import com.hope.model.vo.UserConditionVo;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +44,15 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
         return userList;
     }
 
+    @Override
+    public PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo) {
+        List<SysUser> sysUsers=sysUserMapper.findPageBreakByCondition(vo);
+        if (CollectionUtils.isEmpty(sysUsers)){
+            return null;
+        }
+        PageInfo list=new PageInfo<>(sysUsers);
+        return list;
+    }
     /***
      * 根据用户名查询
      * @param username

@@ -61,11 +61,11 @@ public class User extends CommonSerializable{
         this.sysUser.setPassword(password);
     }
     public String getUserUuid() {
-        return this.sysUser.getUserUuid();
+        return this.sysUser.getUserId();
     }
 
     public void setUserUuid(String userUuid) {
-        this.sysUser.setUserUuid(userUuid);
+        this.sysUser.setUserId(userUuid);
     }
 
     public String getUsername() {

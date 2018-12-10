@@ -14,7 +14,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 public class SysResource extends CommonEntity{
     /**装逼的id**/
-    private String uresourceUuid;
+    private String resourceId;
     /**资源名称**/
     private String name;
     /**权限描述**/

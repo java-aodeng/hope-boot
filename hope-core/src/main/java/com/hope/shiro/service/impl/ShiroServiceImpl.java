@@ -56,8 +56,8 @@ public class ShiroServiceImpl implements ShiroService{
          * user:配置记住我或认证通过可以访问
          */
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-        //配置shiro过滤器
-        filterChainDefinitionMap.put("/logout","logout");//退出过滤器，shiro代码自动实现
+        /**配置shiro过滤器**/
+        filterChainDefinitionMap.put("/logout","logout");/**退出过滤器，shiro代码自动实现**/
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/error","anon");
         filterChainDefinitionMap.put("/kickout", "anon");
@@ -67,7 +67,7 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
         filterChainDefinitionMap.put("/user/**","anon");
-        /*filterChainDefinitionMap.put("/**","anon");*/
+        filterChainDefinitionMap.put("/resource/**","anon");
         /**开发环境开放end**/
         /**开放hope资源文件star**/
         filterChainDefinitionMap.put("/css/**","anon");
@@ -80,7 +80,7 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/verificationCode", "anon");
         /**开放hope资源文件end**/
         filterChainDefinitionMap.put("/druid/**","anon");//druid,hope默认开放
-        //加载数据库中配置的资源权限列表
+        /**加载数据库中配置的资源权限列表**/
         List<SysResource> resourcesList=sysResourceService.listUrlAndPermission();
         for(SysResource resource:resourcesList){
             if(!StringUtils.isEmpty(resource.getUrl()) && !StringUtils.isEmpty(resource.getPermission())){

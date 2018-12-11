@@ -48,4 +48,11 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @return
      */
     List<Map<String,Object>> roleResourceTreeData(SysRole sysRole);
+
+    /***
+     * 获取系统资源列表
+     * @param sysResource
+     * @return
+     */
+    List<SysResource> selectResourceList(SysResource sysResource);
 }

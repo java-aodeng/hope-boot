@@ -29,7 +29,7 @@ public class UserController {
     private SysUserService sysUserService;
 
     @RequestMapping("/user")
-    public ModelAndView user(Model model){
+    public ModelAndView user(){
         return ResultHopeUtil.view("admin/user/user");
     }
 

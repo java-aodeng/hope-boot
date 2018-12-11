@@ -36,14 +36,14 @@ public class HopeController {
     @GetMapping("/login")
     public String login() {
         log.info("[---------------登录Get方法]-[{}]",DateUtil.date());
-        return "admin/login";
+        return "common/login";
     }
 
     /*首页*/
-    @GetMapping(value = {"/","/admin/index", "/index"})
+    @GetMapping(value = {"/","/common/index", "/index"})
     public String index(){
         log.info("[---------------首页]-[{}]",DateUtil.date());
-        return "admin/index";
+        return "common/index";
     }
 
     /***
@@ -92,13 +92,13 @@ public class HopeController {
     @RequestMapping("/index_v1")
     public ModelAndView index_v1(Model model){
         log.info("[hope-index_v1-page]-[{}]","测试130");
-        return ResultHopeUtil.view("admin/index_v1");
+        return ResultHopeUtil.view("common/index_v1");
     }
 
     @RequestMapping("/index_v2")
     public ModelAndView index_v2(Model model){
         log.info("[hope-index_v2-page]-[{}]","测试140");
-        return ResultHopeUtil.view("admin/index_v2");
+        return ResultHopeUtil.view("common/index_v2");
     }
 
     @RequestMapping("/error1")

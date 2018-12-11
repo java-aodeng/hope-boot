@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hope.mapper.SysResourceMapper">
     <!--低调小熊猫专用-->
-    <resultMap type="com.hope.model.beans.SysResource" id="SysMenuResult">
+    <resultMap id="resourceMap" type="com.hope.model.beans.SysResource">
         <id property="id" column="id"/>
         <result property="resourceId" column="resourceId"/>
         <result property="name" column="name"/>
@@ -17,7 +17,34 @@
         <result property="createtime" column="create_time"/>
         <result property="updatetime" column="update_time"/>
     </resultMap>
-    <select id="selectAlls" resultMap="SysMenuResult">
+    <sql id="resourceSql">
+        select
+			sr.id,
+			sr.resourceId,
+			sr.`name`,
+			sr.description,
+			sr.url,
+			sr.permission,
+			sr.parent_id,
+			sr.type,
+			sr.priority,
+			sr.icon,
+			sr.`status`,
+			sr.create_time,
+			sr.update_time
+			from sys_resource sr
+    </sql>
+    <select id="selectResourceList" parameterType="com.hope.model.beans.SysResource" resultMap="resourceMap">
+      <include refid="resourceSql"/>
+        WHERE 1=1
+        <if test="null != name and '' != name">
+            and  sr.name like concat('%', #{name}, '%')
+        </if>
+        <if test="null != status and '' != status">
+            and  sr.`status` = #{status}
+        </if>
+    </select>
+    <select id="selectAlls" resultMap="resourceMap">
         SELECT *
         FROM sys_resource
     </select>

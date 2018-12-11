@@ -117,4 +117,9 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
         }
         return sb.toString();
     }
+
+    @Override
+    public List<SysResource> selectResourceList(SysResource sysResource) {
+        return sysResourceMapper.selectResourceList(sysResource);
+    }
 }

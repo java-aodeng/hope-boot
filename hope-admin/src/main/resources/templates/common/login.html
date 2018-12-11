@@ -116,14 +116,14 @@
             dataType: "json",
             //cache:false,
             success: function(data) {
-                layer.msg("login");
+                layer.msg("templates.common.login");
                 if (data.status == 200) {
                     layer.msg("<em style='color:green'>"+data.message+"</em>", {
                         icon: 2,
                         offset: '30%',
                         time: 800
                     });
-                    window.location.href="/admin/index";
+                    window.location.href="/common/index";
                 }else{
                     layer.msg("<em style='color:red'>"+data.message+"</em>", {
                         icon: 2,

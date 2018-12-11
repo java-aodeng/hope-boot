@@ -33,7 +33,7 @@ public class RoleController {
     private SysRoleService sysRoleService;
 
     @RequestMapping("/role")
-    public ModelAndView role(Model model){
+    public ModelAndView role(){
         return ResultHopeUtil.view("admin/role/role");
     }
 

@@ -16,6 +16,9 @@ import java.util.Set;
 @Mapper
 @Repository
 public interface SysResourceMapper extends BaseMapper<SysResource>{
+
+    List<SysResource> selectResourceList(SysResource sysResource);
+
     List<SysResource> selectAlls();
 
     List<SysResource> listUrlAndPermission();

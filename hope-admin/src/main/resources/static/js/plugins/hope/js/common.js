@@ -143,7 +143,7 @@ $.ajaxSetup({
     complete: function(XMLHttpRequest, textStatus) {
         if (textStatus == "parsererror") {
         	$.modal.confirm("登陆超时！请重新登陆！", function() {
-        		window.location.href = ctx + "login";
+        		window.location.href = ctx + "templates.common.login";
         	})
         }
     }

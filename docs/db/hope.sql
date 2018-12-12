@@ -113,6 +113,34 @@ CREATE TABLE `sys_role_resource` (
 -- ----------------------------
 INSERT INTO `sys_role_resource` VALUES ('1', '1', '1');
 INSERT INTO `sys_role_resource` VALUES ('2', '1', '2');
+INSERT INTO `sys_role_resource` VALUES ('3', '1', '3');
+INSERT INTO `sys_role_resource` VALUES ('4', '1', '4');
+INSERT INTO `sys_role_resource` VALUES ('5', '1', '100');
+INSERT INTO `sys_role_resource` VALUES ('6', '1', '101');
+INSERT INTO `sys_role_resource` VALUES ('7', '1', '102');
+INSERT INTO `sys_role_resource` VALUES ('8', '1', '103');
+INSERT INTO `sys_role_resource` VALUES ('9', '1', '104');
+INSERT INTO `sys_role_resource` VALUES ('10', '1', '105');
+INSERT INTO `sys_role_resource` VALUES ('11', '1', '106');
+INSERT INTO `sys_role_resource` VALUES ('12', '1', '107');
+INSERT INTO `sys_role_resource` VALUES ('13', '1', '1000');
+INSERT INTO `sys_role_resource` VALUES ('14', '1', '1001');
+INSERT INTO `sys_role_resource` VALUES ('15', '1', '1002');
+INSERT INTO `sys_role_resource` VALUES ('16', '1', '1003');
+INSERT INTO `sys_role_resource` VALUES ('17', '1', '1004');
+INSERT INTO `sys_role_resource` VALUES ('18', '1', '1005');
+INSERT INTO `sys_role_resource` VALUES ('19', '1', '1006');
+INSERT INTO `sys_role_resource` VALUES ('20', '1', '1007');
+INSERT INTO `sys_role_resource` VALUES ('21', '1', '1008');
+INSERT INTO `sys_role_resource` VALUES ('22', '1', '1009');
+INSERT INTO `sys_role_resource` VALUES ('23', '1', '1010');
+INSERT INTO `sys_role_resource` VALUES ('24', '1', '1011');
+INSERT INTO `sys_role_resource` VALUES ('25', '1', '1012');
+INSERT INTO `sys_role_resource` VALUES ('26', '1', '1013');
+INSERT INTO `sys_role_resource` VALUES ('27', '1', '1014');
+INSERT INTO `sys_role_resource` VALUES ('28', '1', '1015');
+INSERT INTO `sys_role_resource` VALUES ('29', '1', '1016');
+INSERT INTO `sys_role_resource` VALUES ('30', '1', '1017');
 
 -- ----------------------------
 -- Table structure for sys_user

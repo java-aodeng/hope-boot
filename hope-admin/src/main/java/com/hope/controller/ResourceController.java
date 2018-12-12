@@ -34,7 +34,8 @@ public class ResourceController {
     @Autowired
     private SysResourceService sysResourceService;
 
-    @RequestMapping("/resource")
+
+    @GetMapping("/resource")
     public ModelAndView resource(){
         return ResultHopeUtil.view("admin/resource/resource");
     }

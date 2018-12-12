@@ -6,9 +6,12 @@ import com.hope.model.vo.UserConditionVo;
 import com.hope.object.PageResultVo;
 import com.hope.service.SysUserService;
 import com.hope.utils.ResultHopeUtil;
+import org.apache.shiro.authz.annotation.RequiresAuthentication;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -28,7 +31,8 @@ public class UserController {
     @Autowired
     private SysUserService sysUserService;
 
-    @RequestMapping("/user")
+    @RequiresPermissions("user:user:view")
+    @GetMapping("/user")
     public ModelAndView user(){
         return ResultHopeUtil.view("admin/user/user");
     }

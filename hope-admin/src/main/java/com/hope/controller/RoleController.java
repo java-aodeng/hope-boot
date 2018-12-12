@@ -32,7 +32,7 @@ public class RoleController {
     @Autowired
     private SysRoleService sysRoleService;
 
-    @RequestMapping("/role")
+    @GetMapping("/role")
     public ModelAndView role(){
         return ResultHopeUtil.view("admin/role/role");
     }

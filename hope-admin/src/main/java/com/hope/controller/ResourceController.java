@@ -44,12 +44,12 @@ public class ResourceController {
      * @param sysResource
      * @return
      */
-    @PostMapping("/list")
+    @GetMapping("/list")
     @ResponseBody
-    public PageResultVo list(SysResource sysResource){
+    public List<SysResource> list(SysResource sysResource){
         List<SysResource> resourceList=sysResourceService.selectResourceList(sysResource);
-        PageInfo<SysResource> list=new PageInfo<>(resourceList);
-        return ResultHopeUtil.tablePage(list);
+        //PageInfo<SysResource> list=new PageInfo<>(resourceList);
+        return  resourceList;//ResultHopeUtil.tablePage(list);
     }
 
     /**

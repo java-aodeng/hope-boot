@@ -56,7 +56,7 @@ public class KaptchaController {
         //生成验证码文本
         String capText = captchaProducer.createText();
         session.setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
-        log.info("[google验证码生成成功-------]-[{}]",capText);
+        log.info("[google验证码生成成功]-[{}]",capText);
         //利用生成的字符串构建图片
         BufferedImage bi = captchaProducer.createImage(capText);
         ServletOutputStream out = response.getOutputStream();

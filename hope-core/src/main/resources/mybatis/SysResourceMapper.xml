@@ -45,17 +45,22 @@
         </if>
     </select>
     <select id="selectAlls" resultMap="resourceMap">
-        SELECT *
-        FROM sys_resource
+      <include refid="resourceSql"/>
     </select>
     <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
-        select url,permission from sys_resource where url is not null ORDER by priority ASC
+        select
+            url,
+            permission
+            from sys_resource
+            where 1=1 and url is not null ORDER by priority ASC
     </select>
-    <select id="findPermsByUserId" resultType="java.lang.String">
-        select DISTINCT r.permission from sys_resource r
-			 LEFT JOIN sys_role_resource rr ON r.id=rr.resourceId
-			 LEFT JOIN sys_user_role ur on rr.roleId = ur.roleId
-			 WHERE ur.userId=#{userId} and r.permission is not null and r.permission!='' and r.status=1
+    <select id="findPermsByUserId" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select
+            DISTINCT r.permission
+            from sys_resource r
+            LEFT JOIN sys_role_resource rr ON r.id=rr.resourceId
+            LEFT JOIN sys_user_role ur on rr.roleId = ur.roleId
+            WHERE 1=1 AND ur.userId=#{userId} and r.permission is not null and r.permission!='' and r.status=1
     </select>
     <select id="selectResourceTree" parameterType="int" resultType="String">
         select

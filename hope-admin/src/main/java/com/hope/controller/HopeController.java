@@ -35,14 +35,12 @@ public class HopeController {
 
     @GetMapping("/login")
     public String login() {
-        log.info("[---------------登录Get方法]-[{}]",DateUtil.date());
         return "common/login";
     }
 
     /*首页*/
     @GetMapping(value = {"/","/common/index", "/index"})
     public String index(){
-        log.info("[---------------首页]-[{}]",DateUtil.date());
         return "common/index";
     }
 
@@ -58,7 +56,7 @@ public class HopeController {
     @ResponseBody
     public ResponseVo login(HttpServletRequest request,String username,String password,String verification,
                             @RequestParam(name = "rememberme",defaultValue = "false") Boolean rememberme){
-        log.info("[---------------登录Post方法]-[{}]",DateUtil.date());
+        log.info("[进入登录方法....]");
         //判断验证码
         String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
@@ -66,10 +64,10 @@ public class HopeController {
         } else {
            return ResultHopeUtil.error("验证码错误！");
         }
-        Subject subject= SecurityUtils.getSubject();
         UsernamePasswordToken token=new UsernamePasswordToken(username,password,rememberme);
         try {
             //验证
+            Subject subject= SecurityUtils.getSubject();
             subject.login(token);
         }catch (LockedAccountException e){
             token.clear();
@@ -80,6 +78,7 @@ public class HopeController {
             log.info("[用户名或者密码错误]-[{}]",DateUtil.date());
             return ResultHopeUtil.error("用户名或者密码错误！");
         }catch (Exception e){
+            token.clear();
             log.info("[登录内部错误！请联系管理员检查！]-[{}]",DateUtil.date());
             return ResultHopeUtil.error("登录内部错误！请联系管理员检查！");
         }
@@ -91,7 +90,6 @@ public class HopeController {
 
     @RequestMapping("/index_v1")
     public ModelAndView index_v1(Model model){
-        log.info("[hope-index_v1-page]-[{}]","测试130");
         return ResultHopeUtil.view("common/index_v1");
     }
 

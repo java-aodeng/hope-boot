@@ -1,5 +1,6 @@
 package com.hope.shiro.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.hope.model.beans.SysResource;
 import com.hope.model.beans.SysUser;
 import com.hope.holder.SpringContextHolder;
@@ -56,6 +57,16 @@ public class ShiroServiceImpl implements ShiroService{
          * user:配置记住我或认证通过可以访问
          */
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+        /**开放hope资源文件star**/
+        filterChainDefinitionMap.put("/css/**","anon");
+        filterChainDefinitionMap.put("/docs/**","anon");
+        filterChainDefinitionMap.put("/fonts/**","anon");
+        filterChainDefinitionMap.put("/img/**","anon");
+        filterChainDefinitionMap.put("/js/**","anon");
+        filterChainDefinitionMap.put("/plugins/**","anon");
+        filterChainDefinitionMap.put("/favicon.ico", "anon");
+        filterChainDefinitionMap.put("/verificationCode", "anon");
+        /**开放hope资源文件end**/
         /**配置shiro过滤器**/
         filterChainDefinitionMap.put("/logout","logout");/**退出过滤器，shiro代码自动实现**/
         filterChainDefinitionMap.put("/login","anon");
@@ -69,27 +80,18 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/user/**","anon");
         filterChainDefinitionMap.put("/resource/**","anon");
         /**开发环境开放end**/
-        /**开放hope资源文件star**/
-        filterChainDefinitionMap.put("/css/**","anon");
-        filterChainDefinitionMap.put("/docs/**","anon");
-        filterChainDefinitionMap.put("/fonts/**","anon");
-        filterChainDefinitionMap.put("/img/**","anon");
-        filterChainDefinitionMap.put("/js/**","anon");
-        filterChainDefinitionMap.put("/plugins/**","anon");
-        filterChainDefinitionMap.put("/favicon.ico", "anon");
-        filterChainDefinitionMap.put("/verificationCode", "anon");
-        /**开放hope资源文件end**/
-        filterChainDefinitionMap.put("/druid/**","anon");//druid,hope默认开放
+        //druid,hope默认开放
+        filterChainDefinitionMap.put("/druid/**","anon");
         /**加载数据库中配置的资源权限列表**/
         List<SysResource> resourcesList=sysResourceService.listUrlAndPermission();
         for(SysResource resource:resourcesList){
-            if(!StringUtils.isEmpty(resource.getUrl()) && !StringUtils.isEmpty(resource.getPermission())){
+            if(ObjectUtil.isNotNull(resource.getUrl()) && ObjectUtil.isNotNull(resource.getPermission())){
                 String permission ="perms["+resource.getPermission()+"]";
-                filterChainDefinitionMap.put(resource.getUrl(),permission+",kickout");
+                filterChainDefinitionMap.put(resource.getUrl(),permission);
             }
         }
-        // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
-        filterChainDefinitionMap.put("/**","authc");
+        /**authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc**/
+        filterChainDefinitionMap.put("/**","user");
         log.info("[hope初始化权限成功,数据库资源条数]-[{}]",resourcesList.size());
         return filterChainDefinitionMap;
     }

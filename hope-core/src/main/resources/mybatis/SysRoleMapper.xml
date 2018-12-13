@@ -26,9 +26,13 @@
       <include refid="roleSql"/>
         WHERE 1=1
     </select>
-    <select id="findRoleByUserId" resultType="java.lang.String">
-        select r.role_uuid from sys_role r
-			LEFT JOIN sys_user_role ur on r.role_uuid = ur.roleId
+    <select id="findRoleByUserId" parameterType="java.lang.Integer" resultMap="roleMap">
+        select
+            r.id,
+            r.role,
+            r.description
+            from sys_role r
+			LEFT JOIN sys_user_role ur on r.id = ur.roleId
 			where ur.userId=#{userId}
     </select>
 </mapper>

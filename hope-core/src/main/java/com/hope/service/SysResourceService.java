@@ -36,7 +36,7 @@ public interface SysResourceService extends BaseService<SysResource> {
     List<SysResource> listResourcesByUserId();
 
     /**
-     * 根据用户id查询权限集合
+     * 根据用户id查询资源集合
      * @param userId
      * @return set
      */

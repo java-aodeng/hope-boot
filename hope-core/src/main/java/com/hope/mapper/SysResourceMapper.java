@@ -25,7 +25,7 @@ public interface SysResourceMapper extends BaseMapper<SysResource>{
 
     List<SysResource> listResourcesByUserId();
     /**
-     * 根据用户id查询权限集合
+     * 根据用户id查询资源集合
      * @param userId 状态
      * @return set
      */

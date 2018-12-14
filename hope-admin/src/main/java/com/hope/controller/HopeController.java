@@ -88,9 +88,9 @@ public class HopeController {
         return ResultHopeUtil.success("登录成功！");
     }
 
-    @RequestMapping("/index_v1")
+    @RequestMapping("/hope-plus")
     public ModelAndView index_v1(Model model){
-        return ResultHopeUtil.view("common/index_v1");
+        return ResultHopeUtil.view("common/hope-plus");
     }
 
     @RequestMapping("/index_v2")

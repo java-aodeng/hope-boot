@@ -38,7 +38,7 @@ public class SysUser extends CommonEntity {
     /**最后登陆时间**/
     private Date lastLoginTime;
 
-    /**test**/
+/*    *//**test**//*
     private Integer id;
 
     public Integer getId() {
@@ -47,7 +47,7 @@ public class SysUser extends CommonEntity {
 
     public void setId(Integer id) {
         this.id = id;
-    }
+    }*/
 
     /**
      *

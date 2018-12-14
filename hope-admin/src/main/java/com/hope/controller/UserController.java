@@ -31,13 +31,14 @@ public class UserController {
     @Autowired
     private SysUserService sysUserService;
 
-    @RequiresPermissions("user:user:view")
+    //@RequiresPermissions("user:user:view")
     @GetMapping("/user")
     public ModelAndView user(){
         return ResultHopeUtil.view("admin/user/user");
     }
 
     /**用户列表**/
+    @RequiresPermissions("user:list")
     @PostMapping("/list")
     @ResponseBody
     public PageResultVo list(UserConditionVo vo){

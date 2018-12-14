@@ -1,5 +1,6 @@
 package com.hope.model.vo;
 
+import com.hope.model.beans.SysResource;
 import com.hope.model.dto.Resource;
 import com.hope.object.BaseConditionVo;
 import lombok.Data;
@@ -15,6 +16,6 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ResourceConditionVo extends BaseConditionVo{
-    private Resource resource;
+    private SysResource resource;
     private String type;
 }

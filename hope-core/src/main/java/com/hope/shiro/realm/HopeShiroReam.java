@@ -1,12 +1,11 @@
 package com.hope.shiro.realm;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.hope.enums.SysUserStatusEnum;
 import com.hope.model.beans.SysUser;
-import com.hope.model.dto.User;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
-import com.hope.shiro.service.impl.ShiroServiceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;
@@ -59,15 +58,15 @@ public class HopeShiroReam extends AuthorizingRealm{
         /*System.out.println(username+"++++++++++++++");
         System.out.println("token信息："+token.getCredentials());*/
         SysUser sysuser=sysUserService.getByUserName(username);
-        if (sysuser == null){
+        if (ObjectUtil.isNull(sysuser)){
             throw new UnknownAccountException("帐号不存在！");
         }
-        if (null != sysuser.getStatus() && SysUserStatusEnum.DISABLE.getCode().equals(sysuser.getStatus())){
+        if (SysUserStatusEnum.DISABLE.getCode().equals(sysuser.getStatus())){
             throw new LockedAccountException("账号锁定，禁止登录hope，自己好好想想为什么吧！");
         }
         //如果认证报错了 https://blog.csdn.net/tom9238/article/details/79711651 推荐看看这篇文章
         return new SimpleAuthenticationInfo(
-                sysuser.getId(),
+                sysuser,
                 sysuser.getPassword(),
                 ByteSource.Util.bytes(sysuser.getCredentialsSalt()),
                 getName()
@@ -93,14 +92,14 @@ public class HopeShiroReam extends AuthorizingRealm{
         Set<String> resources=new HashSet<String>();
 
         //根据用户id获取角色，资源
-        Integer userId = (Integer) SecurityUtils.getSubject().getPrincipal();
-        roles=sysRoleService.findRoleByUserId(userId);
-        resources=sysResourceService.findPermsByUserId(userId);
+        SysUser sysUser=(SysUser) principalCollection.getPrimaryPrincipal();
+        roles=sysRoleService.findRoleByUserId(sysUser.getId());
+        resources=sysResourceService.findPermsByUserId(sysUser.getId());
 
         //将角色，权限添加到SimpleAuthorizationInfo认证对象中
         info.setRoles(roles);
         info.setStringPermissions(resources);
-        log.info("[当前登录用户授权完成,用户id]-[{}]",userId);
+        log.info("[当前登录用户授权完成,用户id]-[{}]",sysUser.getId());
         return info;
     }
 
@@ -154,9 +153,9 @@ public class HopeShiroReam extends AuthorizingRealm{
                 SimplePrincipalCollection spc = (SimplePrincipalCollection)obj;
                 //判断用户，匹配用户id
                 obj =spc.getPrimaryPrincipal();
-                if(null != obj && obj instanceof  User){
-                    User user=(User) obj;
-                    if (null != user && userIds.contains(user.getUserUuid())){
+                if(null != obj && obj instanceof  SysUser){
+                    SysUser user=(SysUser) obj;
+                    if (null != user && userIds.contains(user.getId())){
                         list.add(spc);
                     }
                 }

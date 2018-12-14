@@ -50,15 +50,71 @@ public class ShiroConfig {
     @Autowired
     private RedisProperties redisProperties;
 
-    //=====================================================Hope ShiroConfig=======================================
+    /**=====================================================Hope ShiroConfig=======================================**/
 
     /***
      * 管理shirobean生命周期
      * @return
      */
-    @Bean(name ="lifecycleBeanPostProcessor" )
+    @Bean
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
         return new LifecycleBeanPostProcessor();
+    }
+
+    /***
+     * 创建SecurityManager
+     * @return
+     */
+    @Bean(name="securityManager")
+    public SecurityManager securityManager(){
+        DefaultWebSecurityManager defaultWebSecurityManager=new DefaultWebSecurityManager();
+        //设置realm
+        defaultWebSecurityManager.setRealm(hopeShiroReam());
+        //注入记住我的管理器
+        defaultWebSecurityManager.setRememberMeManager(rememberMeManager());
+        // 自定义缓存实现 使用redis
+        defaultWebSecurityManager.setCacheManager(redisCacheManager());
+        //使用redis自定义session管理
+        defaultWebSecurityManager.setSessionManager(sessionManager());
+        return defaultWebSecurityManager;
+    }
+
+    /***
+     * HopeShiroReam 自定义ream，认证，授权
+     * @return
+     */
+    @Bean
+    public HopeShiroReam hopeShiroReam(){
+        HopeShiroReam hopeShiroReam=new HopeShiroReam();
+        //匹配器，credentialsMatcher使用RetryLimitCredentialsMatcher
+        //hashedCredentialsMatcher使用HashedCredentialsMatcher
+        //这里简介使用hashedCredentialsMatcher
+        hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
+        return hopeShiroReam;
+    }
+
+    /**
+     * 凭证匹配器
+     * ）
+     * @return
+     */
+    @Bean
+    public HashedCredentialsMatcher hashedCredentialsMatcher(){
+        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
+        hashedCredentialsMatcher.setHashAlgorithmName("md5");
+        hashedCredentialsMatcher.setHashIterations(2);
+        return hashedCredentialsMatcher;
+    }
+
+    /***
+     * RedisSessionDAO shiro sessionDao层的实现 通过redis
+     * 使用的是shiro-redis开源插件
+     * @return
+     */
+    public RedisSessionDAO redisSessionDAO(){
+        RedisSessionDAO redisSessionDAO=new RedisSessionDAO();
+        redisSessionDAO.setRedisManager(redisManager());
+        return redisSessionDAO;
     }
 
     /**
@@ -80,28 +136,6 @@ public class ShiroConfig {
     }
 
     /***
-     * cacheManager 缓存 redis实现
-     * 使用的是shiro-redis开源插件
-     * @return
-     */
-    public RedisCacheManager redisCacheManager(){
-        RedisCacheManager redisCacheManager=new RedisCacheManager();
-        redisCacheManager.setRedisManager(redisManager());
-        return redisCacheManager;
-    }
-
-    /***
-     * RedisSessionDAO shiro sessionDao层的实现 通过redis
-     * 使用的是shiro-redis开源插件
-     * @return
-     */
-    public RedisSessionDAO redisSessionDAO(){
-        RedisSessionDAO redisSessionDAO=new RedisSessionDAO();
-        redisSessionDAO.setRedisManager(redisManager());
-        return redisSessionDAO;
-    }
-
-    /***
      * Shiro-Session管理
      * @return
      */
@@ -113,15 +147,14 @@ public class ShiroConfig {
     }
 
     /***
-     * Cookid对象
+     * cacheManager 缓存 redis实现
+     * 使用的是shiro-redis开源插件
      * @return
      */
-    public SimpleCookie simpleCookie(){
-        //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
-        SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
-        //cookie生效时间30天，单位秒，注释，默认永久不过期
-        simpleCookie.setMaxAge(redisProperties.getExpire());
-        return simpleCookie;
+    public RedisCacheManager redisCacheManager(){
+        RedisCacheManager redisCacheManager=new RedisCacheManager();
+        redisCacheManager.setRedisManager(redisManager());
+        return redisCacheManager;
     }
 
     /***
@@ -136,63 +169,21 @@ public class ShiroConfig {
         return cookieRememberMeManager;
     }
 
-    /**
-     * 凭证匹配器
-     * ）
-     * @return
-     */
-    @Bean
-    public HashedCredentialsMatcher hashedCredentialsMatcher(){
-        HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("md5");
-        hashedCredentialsMatcher.setHashIterations(2);
-        return hashedCredentialsMatcher;
-    }
-
     /***
-     * HopeShiroReam 自定义ream，认证，授权
+     * Cookid对象
      * @return
      */
-    @Bean
-    public HopeShiroReam hopeShiroReam(){
-        HopeShiroReam hopeShiroReam=new HopeShiroReam();
-        /**匹配器，credentialsMatcher使用RetryLimitCredentialsMatcher
-        hashedCredentialsMatcher使用HashedCredentialsMatcher
-        这里简介使用hashedCredentialsMatcher**/
-        hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
-        return hopeShiroReam;
+    public SimpleCookie simpleCookie(){
+        //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
+        SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
+        //cookie生效时间30天，单位秒，注释，默认永久不过期
+        simpleCookie.setMaxAge(redisProperties.getExpire());
+        return simpleCookie;
     }
-
-    /***
-     * 创建SecurityManager
-     * @return
-     */
-    @Bean(name="securityManager")
-    public SecurityManager securityManager(){
-        DefaultWebSecurityManager defaultWebSecurityManager=new DefaultWebSecurityManager();
-        //设置realm
-        defaultWebSecurityManager.setRealm(hopeShiroReam());
-        // 自定义缓存实现 使用redis
-        defaultWebSecurityManager.setCacheManager(redisCacheManager());
-        //使用redis自定义session管理
-        defaultWebSecurityManager.setSessionManager(sessionManager());
-        //注入记住我的管理器
-        defaultWebSecurityManager.setRememberMeManager(rememberMeManager());
-        return defaultWebSecurityManager;
-    }
-
-    /*@Bean
-    public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
-        MethodInvokingFactoryBean factoryBean=new MethodInvokingFactoryBean();
-        factoryBean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
-        factoryBean.setArguments(securityManager);
-        return factoryBean;
-    }*/
 
     /**
      * 开启shiro aop注解支持.
      * 使用代理方式;所以需要开启代码支持;
-     *
      * @param securityManager
      * @return
      */
@@ -201,22 +192,6 @@ public class ShiroConfig {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
         authorizationAttributeSourceAdvisor.setSecurityManager(securityManager);
         return authorizationAttributeSourceAdvisor;
-    }
-
-    /***
-     * 为了在thymeleaf引擎中使用shiro的标签bean
-     * @return
-     */
-    public ShiroDialect shiroDialect(){
-        return new ShiroDialect();
-    }
-
-    @Bean
-    @DependsOn("lifecycleBeanPostProcessor")
-    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){
-        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator=new DefaultAdvisorAutoProxyCreator();
-        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
-        return defaultAdvisorAutoProxyCreator;
     }
 
     /**
@@ -228,9 +203,9 @@ public class ShiroConfig {
      * 2、当设置多个过滤器时，全部验证通过，才视为通过
      * 3、部分过滤器可指定参数，如perms，roles
      */
-    @Bean(name = "shiroFilter")
+    @Bean
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
-        ShiroFilterFactoryBean shiroFilterFactoryBean=new ShiroFilterFactoryBean();
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         //设置securityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         //如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
@@ -245,44 +220,9 @@ public class ShiroConfig {
         filterMap.put("kickout",kickoutSessionControlFilter());
         shiroFilterFactoryBean.setFilters(filterMap);
         //配置数据库中的resource
-        Map<String,String> map=shiroService.loadFilterChainDefinitions();
-        shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
+        Map<String,String> filterChainDefinitionMap=shiroService.loadFilterChainDefinitions();
+        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
-//        ShiroFilterFactoryBean shiroFilterFactoryBean  = new ShiroFilterFactoryBean();
-//
-//        // 必须设置 SecurityManager
-//        shiroFilterFactoryBean.setSecurityManager(securityManager);
-//
-//
-//
-//        //拦截器.
-//        Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String,String>();
-//
-//        //配置退出过滤器,其中的具体的退出代码Shiro已经替我们实现了
-//        filterChainDefinitionMap.put("/logout", "logout");
-//
-//        //<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
-//        //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
-//        filterChainDefinitionMap.put("/**", "authc");
-//
-//        // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
-//        shiroFilterFactoryBean.setLoginUrl("/login");
-//        // 登录成功后要跳转的链接
-//        shiroFilterFactoryBean.setSuccessUrl("/index");
-//        //未授权界面;
-//        shiroFilterFactoryBean.setUnauthorizedUrl("/403");
-//
-//        shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-//        return shiroFilterFactoryBean;
-    }
-
-    /***
-     * 密码验证次数管理
-     * @return
-     */
-    @Bean(name = "credentialsMatcher")
-    public RetryLimitCredentialsMatcher credentialsMatcher(){
-        return new RetryLimitCredentialsMatcher();
     }
 
     /***
@@ -301,7 +241,41 @@ public class ShiroConfig {
     }
 
     /***
-     * 自定义拦截器，重写shiro登录成功重定向，操蛋玩意
+     * 为了在thymeleaf引擎中使用shiro的标签bean
+     * @return
+     */
+    @Bean
+    public ShiroDialect shiroDialect(){
+        return new ShiroDialect();
+    }
+
+    /*@Bean
+    public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
+        MethodInvokingFactoryBean factoryBean=new MethodInvokingFactoryBean();
+        factoryBean.setStaticMethod("org.apache.shiro.SecurityUtils.setSecurityManager");
+        factoryBean.setArguments(securityManager);
+        return factoryBean;
+    }*/
+
+    /*@Bean
+    @DependsOn("lifecycleBeanPostProcessor")
+    public DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator(){
+        DefaultAdvisorAutoProxyCreator defaultAdvisorAutoProxyCreator=new DefaultAdvisorAutoProxyCreator();
+        defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
+        return defaultAdvisorAutoProxyCreator;
+    }*/
+
+    /***
+     * 密码验证次数管理
+     * @return
+     */
+    /*@Bean(name = "credentialsMatcher")
+    public RetryLimitCredentialsMatcher credentialsMatcher(){
+        return new RetryLimitCredentialsMatcher();
+    }*/
+
+    /***
+     * 自定义拦截器，重写shiro登录成功重定向
      * @return
      */
     /*public LoginFormAuthenticationFilter loginFormAuthenticationFilter(){

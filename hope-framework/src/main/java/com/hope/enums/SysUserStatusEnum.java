@@ -9,7 +9,7 @@ package com.hope.enums;
  **/
 public enum SysUserStatusEnum {
     NORMAL(1,"正常"),
-    DISABLE(0,"禁用"),;
+    DISABLE(2,"禁用"),;
     private Integer code;
     private String describe;
 

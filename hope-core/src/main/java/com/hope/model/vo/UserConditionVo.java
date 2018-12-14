@@ -1,6 +1,6 @@
 package com.hope.model.vo;
 
-import com.hope.model.dto.User;
+import com.hope.model.beans.SysUser;
 import com.hope.object.BaseConditionVo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,5 +15,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class UserConditionVo  extends BaseConditionVo{
-    private User user;
+    private SysUser user;
 }

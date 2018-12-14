@@ -1,5 +1,6 @@
 package com.hope.model.vo;
 
+import com.hope.model.beans.SysRole;
 import com.hope.model.dto.Role;
 import com.hope.object.BaseConditionVo;
 import lombok.Data;
@@ -15,5 +16,5 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class RoleConditionVo extends BaseConditionVo{
-    private Role role;
+    private SysRole role;
 }

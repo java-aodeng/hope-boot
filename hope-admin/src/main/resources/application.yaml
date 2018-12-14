@@ -6,6 +6,9 @@ server:
   max-http-header-size: 8192
   use-forward-headers: true
 spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
   thymeleaf:
     # 配置thymeleaf修改页面不重启生效
     cache: false

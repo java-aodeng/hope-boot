@@ -56,7 +56,7 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
 
         //如果禁止登陆，提示
         if (redisTemplate.hasKey(isLockKey)){
-            throw new ExcessiveAttemptsException("sorry，账号【"+username+"】已被禁止登录！");
+            throw new ExcessiveAttemptsException("sorry，账号【"+username+"】已被禁止1小时内登陆！");
         }
 
         //根据计数锁定用户
@@ -75,7 +75,7 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
         Boolean aBoolean=super.doCredentialsMatch(token,info);
         if (!aBoolean){
             String message=i<=0?"你的账号禁止1小时内登陆":"你还剩【"+i+"】次重试的机会！";
-            throw new AccountException("sorry,账号或密码不正确！"+message);
+            throw new AccountException("账号或密码不正确！"+message);
         }
 
         //初始化登录计数

@@ -60,31 +60,21 @@ public class HopeController {
         //判断验证码
         String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
         if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
-            //验证码通过
+            log.info("[验证码通过]");
         } else {
            return ResultHopeUtil.error("验证码错误！");
         }
         UsernamePasswordToken token=new UsernamePasswordToken(username,password,rememberme);
         try {
-            //验证
             Subject subject= SecurityUtils.getSubject();
+            //登录验证
             subject.login(token);
-        }catch (LockedAccountException e){
-            token.clear();
-            log.info("[用户已经被锁定不能登录，请联系管理员！]-[{}]",DateUtil.date());
-            return ResultHopeUtil.error("用户已经被锁定不能登录，请联系管理员！");
-        }catch (AuthenticationException e){
-            token.clear();
-            log.info("[用户名或者密码错误]-[{}]",DateUtil.date());
-            return ResultHopeUtil.error("用户名或者密码错误！");
         }catch (Exception e){
             token.clear();
             log.info("[登录内部错误！请联系管理员检查！]-[{}]",DateUtil.date());
-            return ResultHopeUtil.error("登录内部错误！请联系管理员检查！");
+            return ResultHopeUtil.error(e.getMessage());
         }
         log.info("[登录成功]-[{}]",DateUtil.date());
-//        return ResultHopeUtil.success("登录成功！");
-        //此处不处理代为登录成功，有shiro代为处理
         return ResultHopeUtil.success("登录成功！");
     }
 

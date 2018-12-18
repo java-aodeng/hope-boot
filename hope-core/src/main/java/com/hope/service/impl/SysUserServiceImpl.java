@@ -78,8 +78,8 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
     }
 
     @Override
-    public SysUser updateUserLastLoginInfo(SysUser sysuser) {
-        return null;
+    public void updateUserLastLoginInfo(SysUser sysuser) {
+        sysUserMapper.updateLastLoginTime(sysuser);
     }
 
     @Override

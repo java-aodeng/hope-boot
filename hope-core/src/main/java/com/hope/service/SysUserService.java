@@ -45,7 +45,7 @@ public interface SysUserService extends BaseService<SysUser>{
      * @param sysUser
      * @return
      */
-    SysUser updateUserLastLoginInfo(SysUser sysUser);
+    void updateUserLastLoginInfo(SysUser sysUser);
 
     SysUser selectUserByName(String userName);
 }

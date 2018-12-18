@@ -72,7 +72,7 @@ public class HopeShiroReam extends AuthorizingRealm{
         return new SimpleAuthenticationInfo(
                 sysuser,
                 sysuser.getPassword(),
-                ByteSource.Util.bytes(sysuser.getCredentialsSalt()),
+                ByteSource.Util.bytes(username),
                 getName()
         );
     }

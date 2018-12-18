@@ -34,8 +34,12 @@
             su.last_login_time
             from sys_user su
     </sql>
+    <select id="selectUserByName" resultMap="userMap" parameterType="java.lang.String">
+      <include refid="userSql" />
+        where su.username=#{userName}
+    </select>
     <select id="findPageBreakByCondition" parameterType="com.hope.model.vo.UserConditionVo" resultMap="userMap">
-      <include refid="userSql"/>
+        <include refid="userSql"/>
         where 1=1 and `status`=1
     </select>
 </mapper>

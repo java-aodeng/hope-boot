@@ -2,7 +2,7 @@ package com.hope.service.impl;
 
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysUser;
-import com.hope.model.dto.User;
+//import com.hope.model.dto.User;
 import com.hope.mapper.SysUserMapper;
 import com.hope.model.vo.UserConditionVo;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
@@ -30,10 +30,10 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
 
     /***
      * 数据类型转换为业务类型
-     * @param sysUsers
+     * @param //sysUsers
      * @return
      */
-    private List<User> getUsers(List<SysUser> sysUsers){
+/*    private List<User> getUsers(List<SysUser> sysUsers){
         if (CollectionUtils.isEmpty(sysUsers)){
             return null;
         }
@@ -42,7 +42,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
             userList.add(new User(sysUser));
         }
         return userList;
-    }
+    }*/
 
     @Override
     public PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo) {
@@ -80,5 +80,10 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
     @Override
     public SysUser updateUserLastLoginInfo(SysUser sysuser) {
         return null;
+    }
+
+    @Override
+    public SysUser selectUserByName(String userName) {
+        return sysUserMapper.selectUserByName(userName);
     }
 }

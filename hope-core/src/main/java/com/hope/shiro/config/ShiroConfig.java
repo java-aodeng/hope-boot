@@ -2,9 +2,7 @@ package com.hope.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
-import com.hope.shiro.Credentials.RetryLimitCredentialsMatcher;
 import com.hope.shiro.filter.KickoutSessionControlFilter;
-import com.hope.shiro.filter.LoginFormAuthenticationFilter;
 import com.hope.shiro.realm.HopeShiroReam;
 import com.hope.shiro.service.ShiroService;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -20,12 +18,9 @@ import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.crazycake.shiro.RedisCacheManager;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.RedisSessionDAO;
-import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.annotation.Order;
 
 import javax.servlet.Filter;
@@ -41,7 +36,7 @@ import java.util.Map;
  * @update:2018-11-1 14:12
  **/
 @Configuration
-@Order(-1)
+@Order(-1) //注解表示加载顺序
 public class ShiroConfig {
 
     @Autowired
@@ -50,7 +45,7 @@ public class ShiroConfig {
     @Autowired
     private RedisProperties redisProperties;
 
-    /**=====================================================Hope ShiroConfig=======================================**/
+    /**=====================================================hope-plus ShiroConfig star=======================================**/
 
     /***
      * 管理shirobean生命周期
@@ -213,7 +208,7 @@ public class ShiroConfig {
         //登陆成功跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
         //未授权的界面
-        shiroFilterFactoryBean.setUnauthorizedUrl("/error/403");
+        shiroFilterFactoryBean.setUnauthorizedUrl("/error1");
         //自定义拦截器
         Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
         //限制同一个账号同时在线的个数
@@ -249,6 +244,8 @@ public class ShiroConfig {
         return new ShiroDialect();
     }
 
+    /**=====================================================hope-plus ShiroConfig end=======================================**/
+    /**可以不要以下方法**/
     /*@Bean
     public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
         MethodInvokingFactoryBean factoryBean=new MethodInvokingFactoryBean();

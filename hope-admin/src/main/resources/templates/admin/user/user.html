@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head th:include="common/include :: header"></head>
 <body class="gray-bg">
 <div class="container-div">
@@ -34,10 +36,11 @@
                 </div>
             </form>
         </div>
-
+        <shiro:user>
+            欢迎<shiro:principal property="username"/>
+        </shiro:user>
         <div class="btn-group-sm hidden-xs" id="toolbar" role="group">
-
-            <a class="btn btn-success" onclick="$.operate.add()" >
+            <a class="btn btn-success" onclick="$.operate.add()">
                 <i class="fa fa-plus"></i> 新增
             </a>
             <a class="btn btn-primary btn-edit disabled" onclick="$.operate.edit()">

@@ -18,4 +18,5 @@ import java.util.List;
 public interface SysUserMapper extends BaseMapper<SysUser>{
     List<SysUser> listUsersByRoleId(Integer roleId);
     List<SysUser> findPageBreakByCondition(UserConditionVo vo);
+    SysUser selectUserByName(String userName);
 }

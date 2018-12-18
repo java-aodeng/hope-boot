@@ -70,14 +70,14 @@ public class ShiroServiceImpl implements ShiroService{
         /**配置shiro过滤器**/
         filterChainDefinitionMap.put("/logout","logout");/**退出过滤器，shiro代码自动实现**/
         filterChainDefinitionMap.put("/login","anon");
-        filterChainDefinitionMap.put("/error","anon");
+        filterChainDefinitionMap.put("/error1","anon");
         filterChainDefinitionMap.put("/kickout", "anon");
         /**开发环境开放star**/
         filterChainDefinitionMap.put("/login2","anon");
         filterChainDefinitionMap.put("/index","anon");
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
-        filterChainDefinitionMap.put("/user/**","anon");
+        //filterChainDefinitionMap.put("/user/**","anon");
         filterChainDefinitionMap.put("/resource/**","anon");
         /**开发环境开放end**/
         //druid,hope默认开放
@@ -92,7 +92,7 @@ public class ShiroServiceImpl implements ShiroService{
         }
         /**authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc**/
         filterChainDefinitionMap.put("/**","user");
-        log.info("[hope初始化权限成功,数据库资源条数]-[{}]",resourcesList.size());
+        log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}]",resourcesList.size());
         return filterChainDefinitionMap;
     }
 

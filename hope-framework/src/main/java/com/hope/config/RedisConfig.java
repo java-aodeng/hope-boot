@@ -33,7 +33,7 @@ import java.util.Map;
 @EnableCaching //该注解表示缓存管理
 public class RedisConfig extends CachingConfigurerSupport {
     @Bean
-    public org.springframework.cache.interceptor.KeyGenerator keyGenerator() {
+    public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
             public Object generate(Object target, Method method, Object... params) {

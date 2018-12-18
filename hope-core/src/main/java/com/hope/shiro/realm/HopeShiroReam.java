@@ -16,6 +16,7 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.util.ByteSource;
 import org.crazycake.shiro.RedisSessionDAO;
@@ -53,16 +54,19 @@ public class HopeShiroReam extends AuthorizingRealm{
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        //获取用户账号
-        String username=(String) token.getPrincipal();
-        /*System.out.println(username+"++++++++++++++");
-        System.out.println("token信息："+token.getCredentials());*/
-        SysUser sysuser=sysUserService.getByUserName(username);
+
+        //获取用户账号 此处有坑，需谨慎
+        UsernamePasswordToken upToken = (UsernamePasswordToken) token;
+
+        String username = upToken.getUsername();
+
+        SysUser sysuser=sysUserService.selectUserByName(username);
+
         if (ObjectUtil.isNull(sysuser)){
             throw new UnknownAccountException("帐号不存在！");
         }
         if (SysUserStatusEnum.DISABLE.getCode().equals(sysuser.getStatus())){
-            throw new LockedAccountException("账号锁定，禁止登录hope，自己好好想想为什么吧！");
+            throw new LockedAccountException("账号锁定，禁止登录系统，啦啦啦，得玛西亚！");
         }
         //如果认证报错了 https://blog.csdn.net/tom9238/article/details/79711651 推荐看看这篇文章
         return new SimpleAuthenticationInfo(
@@ -93,6 +97,7 @@ public class HopeShiroReam extends AuthorizingRealm{
 
         //根据用户id获取角色，资源
         SysUser sysUser=(SysUser) principalCollection.getPrimaryPrincipal();
+
         roles=sysRoleService.findRoleByUserId(sysUser.getId());
         resources=sysResourceService.findPermsByUserId(sysUser.getId());
 

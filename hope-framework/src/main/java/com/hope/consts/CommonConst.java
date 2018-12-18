@@ -43,5 +43,5 @@ public class CommonConst {
     /***
      * session key
      */
-    public static final String USER_SESSION_KEY="user";
+    public static final String USER_SESSION_KEY="user_session_key";
 }

@@ -2,6 +2,7 @@ package com.hope.shiro.config;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
+import com.hope.shiro.credentials.RetryLimitCredentialsMatcher;
 import com.hope.shiro.filter.KickoutSessionControlFilter;
 import com.hope.shiro.realm.HopeShiroReam;
 import com.hope.shiro.service.ShiroService;
@@ -83,8 +84,9 @@ public class ShiroConfig {
         HopeShiroReam hopeShiroReam=new HopeShiroReam();
         //匹配器，credentialsMatcher使用RetryLimitCredentialsMatcher
         //hashedCredentialsMatcher使用HashedCredentialsMatcher
-        //这里简介使用hashedCredentialsMatcher
-        hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
+        //这里简洁可以使用hashedCredentialsMatcher
+        //hopeShiroReam.setCredentialsMatcher(hashedCredentialsMatcher());
+        hopeShiroReam.setCredentialsMatcher(credentialsMatcher());
         return hopeShiroReam;
     }
 
@@ -263,13 +265,13 @@ public class ShiroConfig {
     }*/
 
     /***
-     * 密码验证次数管理
+     * 凭证匹配器
      * @return
      */
-    /*@Bean(name = "credentialsMatcher")
+    @Bean(name = "credentialsMatcher")
     public RetryLimitCredentialsMatcher credentialsMatcher(){
         return new RetryLimitCredentialsMatcher();
-    }*/
+    }
 
     /***
      * 自定义拦截器，重写shiro登录成功重定向

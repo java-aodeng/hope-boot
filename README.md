@@ -2,7 +2,7 @@
 
 🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
 
-![JDK](https://img.shields.io/badge/JDK-1.8-green.svg)
+[![JDK](https://img.shields.io/badge/JDK-1.8-green.svg)](https://github.com/java-aodeng/hope-plus)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
 [![QQ群](https://img.shields.io/badge/chat-on%20QQ-ff69b4.svg?style=flat-square)](https://jq.qq.com/?_wv=1027&k=574chhz)
 

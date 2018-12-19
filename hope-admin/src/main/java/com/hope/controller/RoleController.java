@@ -1,6 +1,7 @@
 package com.hope.controller;
 
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysRole;
 import com.hope.model.vo.RoleConditionVo;
@@ -52,17 +53,18 @@ public class RoleController {
 
     @PostMapping("/add")
     @ResponseBody
-    public ResponseVo add(SysRole sysRole){
+    public ResponseVo add(SysRole sysRoleForm){
         try {
-            sysRole.setCreatetime(DateUtil.date());
-            if(sysRoleService.insert(sysRole)){
+            sysRoleForm.setCreatetime(DateUtil.date());
+            sysRoleForm.setRoleId(RandomUtil.randomUUID().substring(0,7).toString());
+            if(sysRoleService.insert(sysRoleForm)){
                 return ResultHopeUtil.success("角色添加成功！");
             }else{
-                return ResultHopeUtil.success("角色添加失败！");
+                return ResultHopeUtil.error("角色添加失败！");
             }
         }catch (Exception e) {
-            log.error(String.format("RoleController.addRole%s", e));
-            throw e;
+            log.error("[角色添加失败！]-[{}]",e.getMessage());
+            return ResultHopeUtil.error("角色添加失败！");
         }
     }
 

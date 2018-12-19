@@ -36,9 +36,6 @@
                 </div>
             </form>
         </div>
-        <shiro:user>
-            欢迎<shiro:principal property="username"/>
-        </shiro:user>
         <div class="btn-group-sm hidden-xs" id="toolbar" role="group">
             <a class="btn btn-success" onclick="$.operate.add()">
                 <i class="fa fa-plus"></i> 新增
@@ -95,7 +92,14 @@
                 },
                 {
                     field: 'sex',
-                    title: '性别'
+                    title: '性别',
+                    formatter: function(value, row, index) {
+                        switch (row.status){
+                            case 1 : return '<span class="badge badge-info">男</span>';
+                            case 2 : return '<span class="badge badge-info">女</span>';
+                            case 3 : return '<span class="badge badge-info">未知</span>';
+                        }
+                    }
                 },
                 {
                     field: 'age',
@@ -103,7 +107,13 @@
                 },
                 {
                     field:'status',
-                    title:'用户状态'
+                    title:'用户状态',
+                    formatter: function(value, row, index) {
+                        switch (row.status){
+                            case 1 : return '<span class="badge badge-info">有效</span>';
+                            case 2 : return '<span class="badge badge-info">无效</span>';
+                        }
+                    }
                 },
                 {
                     field: 'createtime',

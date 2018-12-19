@@ -40,7 +40,7 @@
     </select>
     <select id="findPageBreakByCondition" parameterType="com.hope.model.vo.UserConditionVo" resultMap="userMap">
         <include refid="userSql"/>
-        where 1=1 and `status`=1
+        where 1=1
     </select>
     <update id="updateLastLoginTime" parameterType="com.hope.model.beans.SysUser">
         UPDATE sys_user SET last_login_time = now() WHERE id=#{id}

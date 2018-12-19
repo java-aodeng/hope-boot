@@ -86,7 +86,13 @@
                 },
                 {
                     field: 'status',
-                    title: '角色状态'
+                    title: '角色状态',
+                    formatter: function(value, row, index) {
+                        switch (row.status){
+                            case 1 : return '<span class="badge badge-info">有效</span>';
+                            case 2 : return '<span class="badge badge-info">无效</span>';
+                        }
+                    }
                 },
                 {
                     field: 'createtime',

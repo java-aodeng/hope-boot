@@ -20,24 +20,6 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class SysUser  implements Serializable {
-    public SysUser() {
-    }
-
-    public SysUser(String userId, String username, String password, String salt, String email, String phone, Integer sex, Integer age, Integer status, Date lastLoginTime, Date createtime, Date updatetime) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.salt = salt;
-        this.email = email;
-        this.phone = phone;
-        this.sex = sex;
-        this.age = age;
-        this.status = status;
-        this.lastLoginTime = lastLoginTime;
-        this.createtime = createtime;
-        this.updatetime = updatetime;
-    }
-
     private static final long serialVersionUID = -4080167041530353373L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,14 +51,4 @@ public class SysUser  implements Serializable {
     /**修改时间**/
     @Column(name = "update_time")
     private Date updatetime;
-    /**
-     *
-     * 重写获取盐值方法，自定义realm使用
-     * Gets credentials salt.
-     *
-     * @return the credentials salt
-     */
-    public String getCredentialsSalt() {
-        return username + "nbclass.com" + salt;
-    }
 }

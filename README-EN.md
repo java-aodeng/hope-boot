@@ -2,4 +2,4 @@
 
 >Under development...
 
-🇨🇳[简体中文](./README.md) | 🇺🇸English
+🇨🇳[简体中文](./README.md) | 🇺🇸English | log[更新日志](https://github.com/java-aodeng/hope-plus/commits/master)

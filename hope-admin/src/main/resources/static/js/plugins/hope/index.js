@@ -357,7 +357,7 @@ $(function() {
     //刷新iframe
     function refreshTab() {
     	var currentId = $('.page-tabs-content').find('.active').attr('data-id');
-    	var target = $('.RuoYi_iframe[data-id="' + currentId + '"]');
+    	var target = $('.J_iframe[data-id="' + currentId + '"]');
         var url = target.attr('src');
         target.attr('src', url).ready();
     }

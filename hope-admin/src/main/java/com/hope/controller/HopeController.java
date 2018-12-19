@@ -6,8 +6,6 @@ import com.hope.object.ResponseVo;
 import com.hope.utils.ResultHopeUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -30,15 +28,15 @@ import javax.servlet.http.HttpServletRequest;
 public class HopeController {
     private static final Logger log= LoggerFactory.getLogger(HopeController.class);
 
-    /*@Autowired
-    private RedisCacheManager redisCacheManager;*/
-
     @GetMapping("/login")
     public String login() {
         return "common/login";
     }
 
-    /*首页*/
+    /***
+     * 首页
+     * @return
+     */
     @GetMapping(value = {"/","/common/index", "/index"})
     public String index(){
         return "common/index";
@@ -78,6 +76,16 @@ public class HopeController {
         return ResultHopeUtil.success("登录成功！");
     }
 
+    /**
+     * 退出登录
+     * @return
+     */
+    @GetMapping("/logout")
+    public ModelAndView logout() {
+        log.info("[退出登录成功]-[{}]",DateUtil.date());
+        return ResultHopeUtil.redirect("login");
+    }
+
     @RequestMapping("/hope-plus")
     public ModelAndView index_v1(Model model){
         return ResultHopeUtil.view("common/hope-plus");
@@ -95,26 +103,28 @@ public class HopeController {
         return ResultHopeUtil.view("common/error/404");
     }
 
-/*    @GetMapping("/logout")
-    public ModelAndView logout() {
-        // http://www.oschina.net/question/99751_91561
+/*
+    @Autowired private RedisCacheManager redisCacheManager;
+    @RequestMapping("/logout2")
+    public ModelAndView logout2() {
+        // http://www.oschina.net/question/99751_91561  这里其实可用使用shiro自带的退出，不用你实现任何东西
         //自定义退出，清空缓存
         Subject subject=SecurityUtils.getSubject();
-        if (null!=subject){
-            String name=((SysUser)SecurityUtils.getSubject().getPrincipal()).getUsername();
+        if (ObjectUtil.isNotNull(subject)){
+            String username=((SysUser)SecurityUtils.getSubject().getPrincipal()).getUsername();
             Serializable sessionId=SecurityUtils.getSubject().getSession().getId();
-            Cache<String,Deque<Serializable>> cache=redisCacheManager.getCache(redisCacheManager.getKeyPrefix()+name);
-            Deque<Serializable> deque=cache.get(name);
-            for (Serializable deSerializable:deque){
+            Cache<String,Deque<Serializable>> cache=redisCacheManager.getCache(redisCacheManager.getKeyPrefix()+username);
+            Deque<Serializable> deques=cache.get(username);
+            for (Serializable deque:deques){
                 if (sessionId.equals(deque)){
-                    deque.remove(deque);
+                    deques.remove(deque);
                     break;
                 }
             }
-            cache.put(name,deque);
+            cache.put(username,deques);
         }
         subject.logout();
         log.info("[退出登录成功]-[{}]",DateUtil.date());
-        return ResultHopeUtil.redirect("index");
+        return ResultHopeUtil.redirect("login");
     }*/
 }

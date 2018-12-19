@@ -7890,3 +7890,9 @@ body.skin-3 {
         font-size: 12px
     }
 }
+.roll-right.tabReload {
+    background: #fff;
+    height: 40px;
+    width: 60px;
+    outline: none;
+}

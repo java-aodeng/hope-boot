@@ -4,7 +4,7 @@ import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import com.hope.properties.RedisProperties;
 import com.hope.shiro.credentials.RetryLimitCredentialsMatcher;
 import com.hope.shiro.filter.KickoutSessionControlFilter;
-import com.hope.shiro.realm.HopeShiroReam;
+import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.shiro.service.ShiroService;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.codec.Base64;
@@ -80,8 +80,8 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public HopeShiroReam hopeShiroReam(){
-        HopeShiroReam hopeShiroReam=new HopeShiroReam();
+    public HopeShiroRealm hopeShiroReam(){
+        HopeShiroRealm hopeShiroReam=new HopeShiroRealm();
         //匹配器，credentialsMatcher使用RetryLimitCredentialsMatcher
         //hashedCredentialsMatcher使用HashedCredentialsMatcher
         //这里简洁可以使用hashedCredentialsMatcher
@@ -124,9 +124,12 @@ public class ShiroConfig {
         //配置地址，端口
         redisManager.setHost(redisProperties.getHost());
         redisManager.setPort(redisProperties.getPort());
-        //配置缓存过期时间
+        //配置缓存的redis库
         redisManager.setDatabase(redisProperties.getDatabase());
+        //链接超时(毫秒)
         redisManager.setTimeout(redisProperties.getTimeout());
+        //缓存过期时间
+        /*redisManager.setExpire(redisProperties.getExpire());*/
         //配置密码
         redisManager.setPassword(redisProperties.getPassword());
         return redisManager;
@@ -148,6 +151,7 @@ public class ShiroConfig {
      * 使用的是shiro-redis开源插件
      * @return
      */
+    @Bean
     public RedisCacheManager redisCacheManager(){
         RedisCacheManager redisCacheManager=new RedisCacheManager();
         redisCacheManager.setRedisManager(redisManager());

@@ -16,7 +16,6 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.subject.SimplePrincipalCollection;
-import org.apache.shiro.subject.Subject;
 import org.apache.shiro.subject.support.DefaultSubjectContext;
 import org.apache.shiro.util.ByteSource;
 import org.crazycake.shiro.RedisSessionDAO;
@@ -33,9 +32,9 @@ import java.util.*;
  * @微信公众号:低调小熊猫
  * @create:2018-10-29 13:14
  **/
-public class HopeShiroReam extends AuthorizingRealm{
+public class HopeShiroRealm extends AuthorizingRealm{
 
-    private static final Logger log= LoggerFactory.getLogger(HopeShiroReam.class);
+    private static final Logger log= LoggerFactory.getLogger(HopeShiroRealm.class);
 
     @Autowired
     private SysUserService sysUserService;
@@ -118,7 +117,7 @@ public class HopeShiroReam extends AuthorizingRealm{
         }
         List<SimplePrincipalCollection> list =getSpcListByUserIds(userIds);
         RealmSecurityManager securityManager=(RealmSecurityManager) SecurityUtils.getSecurityManager();
-        HopeShiroReam hopeShiroReam=(HopeShiroReam) securityManager.getRealms().iterator().next();
+        HopeShiroRealm hopeShiroReam=(HopeShiroRealm) securityManager.getRealms().iterator().next();
         for (SimplePrincipalCollection collection:list){
             hopeShiroReam.clearCachedAuthenticationInfo(collection);
         }
@@ -135,7 +134,7 @@ public class HopeShiroReam extends AuthorizingRealm{
         List<SimplePrincipalCollection> list = getSpcListByUserIds(userIds);
         RealmSecurityManager securityManager =
                 (RealmSecurityManager) SecurityUtils.getSecurityManager();
-        HopeShiroReam realm = (HopeShiroReam)securityManager.getRealms().iterator().next();
+        HopeShiroRealm realm = (HopeShiroRealm)securityManager.getRealms().iterator().next();
         for (SimplePrincipalCollection collection : list) {
             realm.clearCachedAuthorizationInfo(collection);
         }

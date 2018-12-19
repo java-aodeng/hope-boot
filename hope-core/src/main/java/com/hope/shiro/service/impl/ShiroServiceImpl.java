@@ -7,7 +7,7 @@ import com.hope.holder.SpringContextHolder;
 import com.hope.shiro.service.ShiroService;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
-import com.hope.shiro.realm.HopeShiroReam;
+import com.hope.shiro.realm.HopeShiroRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -21,7 +21,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -57,7 +56,8 @@ public class ShiroServiceImpl implements ShiroService{
          * user:配置记住我或认证通过可以访问
          */
         Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
-        /**开放hope资源文件star**/
+
+        //开放资源文件
         filterChainDefinitionMap.put("/css/**","anon");
         filterChainDefinitionMap.put("/docs/**","anon");
         filterChainDefinitionMap.put("/fonts/**","anon");
@@ -66,23 +66,25 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/plugins/**","anon");
         filterChainDefinitionMap.put("/favicon.ico", "anon");
         filterChainDefinitionMap.put("/verificationCode", "anon");
-        /**开放hope资源文件end**/
-        /**配置shiro过滤器**/
-        filterChainDefinitionMap.put("/logout","logout");/**退出过滤器，shiro代码自动实现**/
+
+        //配置过滤器
+        filterChainDefinitionMap.put("/logout","logout");
         filterChainDefinitionMap.put("/login","anon");
         filterChainDefinitionMap.put("/error1","anon");
         filterChainDefinitionMap.put("/kickout", "anon");
-        /**开发环境开放star**/
+
+        //开发环境开放
         filterChainDefinitionMap.put("/login2","anon");
         filterChainDefinitionMap.put("/index","anon");
         filterChainDefinitionMap.put("/hope/**","anon");
         filterChainDefinitionMap.put("/role/**","anon");
         //filterChainDefinitionMap.put("/user/**","anon");
         filterChainDefinitionMap.put("/resource/**","anon");
-        /**开发环境开放end**/
+
         //druid,hope默认开放
         filterChainDefinitionMap.put("/druid/**","anon");
-        /**加载数据库中配置的资源权限列表**/
+
+        //加载数据库中配置的资源权限列表
         List<SysResource> resourcesList=sysResourceService.listUrlAndPermission();
         for(SysResource resource:resourcesList){
             if(ObjectUtil.isNotNull(resource.getUrl()) && ObjectUtil.isNotNull(resource.getPermission())){
@@ -90,8 +92,10 @@ public class ShiroServiceImpl implements ShiroService{
                 filterChainDefinitionMap.put(resource.getUrl(),permission);
             }
         }
-        /**authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc**/
+
+        //authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc
         filterChainDefinitionMap.put("/**","user");
+
         log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}]",resourcesList.size());
         return filterChainDefinitionMap;
     }
@@ -133,7 +137,7 @@ public class ShiroServiceImpl implements ShiroService{
     @Override
     public void reloadAuthorizingByUserId(SysUser user) {
         RealmSecurityManager realmSecurityManager=(RealmSecurityManager) SecurityUtils.getSecurityManager();
-        HopeShiroReam hopeShiroReam=(HopeShiroReam)realmSecurityManager.getRealms().iterator().next();
+        HopeShiroRealm hopeShiroReam=(HopeShiroRealm)realmSecurityManager.getRealms().iterator().next();
         Subject subject=SecurityUtils.getSubject();
         String realmName=subject.getPrincipals().getRealmNames().iterator().next();
         SimplePrincipalCollection simplePrincipalCollection=new SimplePrincipalCollection(user,realmName);

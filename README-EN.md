@@ -28,6 +28,12 @@ Hope-plus was born out of the following projects：
 - [Apache Shiro](https://github.com/apache/shiro)：Is a powerful and easy-to-use Java security framework
 - [Redis](https://github.com/antirez/redis)：Memory data structure storage, used as database, cache and message proxy
 - [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Modern Server-side Java Template Engine for Web and Independent Environments
+- [MyBatis](https://github.com/mybatis/mybatis-3)：MyBatis SQL Mapper Framework for Java
+- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：jPaginate
+- [tk.mybatis](https://github.com/abel533/Mapper)：General Mapper
+- [alibaba/druid](https://github.com/alibaba/druid)：Alibaba Database Business Department, database connection pool for monitoring
+- [alibaba/fastjson](https://github.com/alibaba/fastjson)：Fast JSON parser/generator for Java
+- [shiro-redis](https://github.com/alexxiyang/shiro-redis)：A redis caching tool that Shiro can use
 - [Lombok](https://www.projectlombok.org/)：Make the code more concise and no longer encapsulate get, set
 - [Hutool](https://github.com/looly/hutool)：It's the best Java toolkit I've ever used
 - [Bootstrap](https://github.com/twbs/bootstrap.git)：The most widely used front-end UI framework

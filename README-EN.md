@@ -29,8 +29,8 @@ Hope-plus was born out of the following projects：
 - [Redis](https://github.com/antirez/redis)：Memory data structure storage, used as database, cache and message proxy
 - [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Modern Server-side Java Template Engine for Web and Independent Environments
 - [MyBatis](https://github.com/mybatis/mybatis-3)：MyBatis SQL Mapper Framework for Java
-- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：jPaginate
-- [tk.mybatis](https://github.com/abel533/Mapper)：General Mapper
+- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：Paging plug-in, mother no longer need to worry about your paging
+- [tk.mybatis](https://github.com/abel533/Mapper)：General Mapper, great convenience for developers, you know
 - [alibaba/druid](https://github.com/alibaba/druid)：Alibaba Database Business Department, database connection pool for monitoring
 - [alibaba/fastjson](https://github.com/alibaba/fastjson)：Fast JSON parser/generator for Java
 - [shiro-redis](https://github.com/alexxiyang/shiro-redis)：A redis caching tool that Shiro can use

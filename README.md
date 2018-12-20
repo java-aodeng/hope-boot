@@ -20,3 +20,18 @@
 | hope-admin  | 后台管理模块 |      
 | hope-core  | 核心业务类模块 |    
 | hope-framework | 框架模块,提供数据操作、工具处理等 |
+
+### 感谢
+Hope-plus的诞生离不开下面这些项目：
+
+- [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring 家族的顶级项目
+- [Apache Shiro](https://github.com/apache/shiro)：是一个功能强大且易于使用的Java安全框架
+- [Redis](https://github.com/antirez/redis)：内存数据结构存储，用作数据库，缓存和消息代理
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：适用于Web和独立环境的现代服务器端Java模板引擎
+- [Lombok](https://www.projectlombok.org/)：让代码更简洁，再也不用封装get，set
+- [Hutool](https://github.com/looly/hutool)：是我用过认为最好的java工具包了
+- [Bootstrap](https://github.com/twbs/bootstrap.git)：使用最广泛的前端 ui 框架
+- [JQuery](https://github.com/jquery/jquery.git)：使用最广泛的 JavaScript 框架
+- [Layer](https://github.com/sentsin/layer.git)：使用了弹出层组件，不可否认就是好看才用的
+
+正在努力加载中......

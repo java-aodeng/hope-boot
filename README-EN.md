@@ -20,3 +20,18 @@
 | hope-admin  | Background management module |      
 | hope-core  | Core Business Class Module |    
 | hope-framework | Framework module, providing data manipulation, tool processing, etc. |
+
+### Thank
+Hope-plus was born out of the following projects：
+
+- [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring the item
+- [Apache Shiro](https://github.com/apache/shiro)：Is a powerful and easy-to-use Java security framework
+- [Redis](https://github.com/antirez/redis)：Memory data structure storage, used as database, cache and message proxy
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Modern Server-side Java Template Engine for Web and Independent Environments
+- [Lombok](https://www.projectlombok.org/)：Make the code more concise and no longer encapsulate get, set
+- [Hutool](https://github.com/looly/hutool)：It's the best Java toolkit I've ever used
+- [Bootstrap](https://github.com/twbs/bootstrap.git)：The most widely used front-end UI framework
+- [JQuery](https://github.com/jquery/jquery.git)：The most widely used JavaScript framework
+- [Layer](https://github.com/sentsin/layer.git)：The use of pop-up layer components is undeniably good-looking.
+
+Efforts are being made to load...

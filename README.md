@@ -21,7 +21,7 @@
 | hope-core  | 核心业务类模块 |    
 | hope-framework | 框架模块,提供数据操作、工具处理等 |
 
-### 感谢
+### 感谢：
 Hope-plus的诞生离不开下面这些项目：
 
 - [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring 家族的顶级项目

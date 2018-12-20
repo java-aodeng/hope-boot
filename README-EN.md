@@ -21,7 +21,7 @@
 | hope-core  | Core Business Class Module |    
 | hope-framework | Framework module, providing data manipulation, tool processing, etc. |
 
-### Thank
+### Thank：
 Hope-plus was born out of the following projects：
 
 - [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring the item

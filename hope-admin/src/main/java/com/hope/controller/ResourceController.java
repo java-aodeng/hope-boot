@@ -65,5 +65,12 @@ public class ResourceController {
         return trees;
     }
 
-
+    /***
+     * 新增资源
+     * @return
+     */
+    @GetMapping("/add")
+    public ModelAndView add(){
+        return ResultHopeUtil.view("admin/resource/add");
+    }
 }

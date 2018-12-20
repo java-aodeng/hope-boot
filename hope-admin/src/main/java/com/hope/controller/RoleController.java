@@ -46,7 +46,7 @@ public class RoleController {
     }
 
     @GetMapping("/add")
-    public ModelAndView add(Model model){
+    public ModelAndView add(){
         log.info("[role-add-page]-[{}]","测试210");
         return ResultHopeUtil.view("admin/role/add");
     }

@@ -12,3 +12,11 @@
 >Hope-plus is a nice privilege management system
 
 >Based on Springboot 2.0.5 development, integrated use of mybatis + Shiro + redis + thymeleaf + Maven and other practical technologies. Page template uses h+, which has beautiful interface, many powerful UI components that can be reconfigured, jQuery plug-ins and so on. It can be used in all Web applications, such as the background of website management system, CMS, CRM, OA and so on. Of course, you can also customize in depth to make a stronger system.
+
+#### Module partition
+
+| Modular         | Interpretation                      |    
+| ---------- | ----------------------- |
+| hope-admin  | Background management module |      
+| hope-core  | Core Business Class Module |    
+| hope-framework | Framework module, providing data manipulation, tool processing, etc. |

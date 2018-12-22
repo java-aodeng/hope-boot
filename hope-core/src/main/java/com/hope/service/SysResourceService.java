@@ -55,4 +55,11 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @return
      */
     List<SysResource> selectResourceList(SysResource sysResource);
+
+    /***
+     * 根据资源id查询数据
+     * @param resourceId
+     * @return
+     */
+    SysResource selectResourceById(Integer resourceId);
 }

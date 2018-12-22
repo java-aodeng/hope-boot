@@ -33,4 +33,6 @@ public class SysResource extends CommonEntity{
     private String icon;
     /**是否可用:1有效2删除**/
     private Integer status;
+    /**父name**/
+    private String  parentname;
 }

@@ -122,4 +122,9 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
     public List<SysResource> selectResourceList(SysResource sysResource) {
         return sysResourceMapper.selectResourceList(sysResource);
     }
+
+    @Override
+    public SysResource selectMenuTree(Integer resourceId) {
+        return sysResourceMapper.selectRe;
+    }
 }

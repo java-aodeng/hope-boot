@@ -37,4 +37,6 @@ public interface SysResourceMapper extends BaseMapper<SysResource>{
      * @return
      */
     List<String> selectResourceTree(Integer roleId);
+
+    SysResource selectResourceById(Integer resourceId);
 }

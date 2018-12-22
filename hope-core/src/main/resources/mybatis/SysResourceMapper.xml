@@ -16,6 +16,7 @@
         <result property="status" column="status"/>
         <result property="createtime" column="create_time"/>
         <result property="updatetime" column="update_time"/>
+        <result property="parentname" column="parentname"/>
     </resultMap>
     <sql id="resourceSql">
         select
@@ -69,5 +70,13 @@
 			LEFT JOIN sys_role_resource srr on sr.id = srr.resourceId
 			where 1=1 and srr.roleId =#{roleId}
 			ORDER BY sr.parent_id,sr.priority
+    </select>
+    <select id="selectResourceById" parameterType="java.lang.Integer" resultMap="resourceMap">
+        select
+            sr1.* ,
+            sr2.name as parentname
+            from sys_resource sr1
+            LEFT join sys_resource sr2 on sr2.id=sr1.parent_id
+            where sr1.id =#{id}
     </select>
 </mapper>

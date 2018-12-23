@@ -26,10 +26,10 @@ public abstract class CommonEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     /**创建时间**/
-    @Column(name = "create_time",insertable = false,updatable = false)
+    @Column(name = "create_time")
     private Date createtime;
     /**修改时间**/
-    @Column(name = "update_time",insertable = false,updatable = false)
+    @Column(name = "update_time")
     private Date updatetime;
 
 }

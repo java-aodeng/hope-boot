@@ -3,7 +3,7 @@
 <head th:include="common/include :: header"></head>
 <body class="white-bg">
 <div class="wrapper wrapper-content animated fadeInRight ibox-content">
-    <form class="form-horizontal m" id="form-role-add">
+    <form class="form-horizontal m" id="form-resource-add">
         <input id="treeId" name="parentId" type="hidden" th:value="${resource.id}" />
         <div class="form-group">
             <label class="col-sm-3 control-label">菜单类型：</label>
@@ -78,36 +78,28 @@
 <script>
     function submitHandler() {
         if ($.validate.form()) {
-            add();
+            debugger;
+            $.operate.save(ctx + "resource/add", $('#form-resource-add').serialize());
         }
     }
-    function add() {
-        var roleUuid = $("input[name='roleUuid']").val();
-        var role = $("input[name='role']").val();
-        var status = $("input[name='status']").is(':checked') == true ? 1 : 2;
-        var description = $("input[name='description']").val();
-        $.ajax({
-            cache : true,
-            type : "POST",
-            url : ctx + "role/add",
-            data : {
-                "roleUuid": roleUuid,
-                "role": role,
-                "status": status,
-                "description": description
-            },
-            async : false,
-            error : function(request) {
-                $.modal.alertError("系统错误");
-            },
-            success : function(json) {
-                if(json.status == 200){
-                    $.modal.msgReload("保存成功,正在刷新数据请稍后……", modal_status.SUCCESS);
-                }else {
-                    $.modal.alertError(result.message);
-                }
-            }
-        });
+    /*菜单管理-新增-选择菜单树*/
+    function selectResourceTree() {
+        var treeId = $("#treeId").val();
+        var resourceId = treeId > 0 ? treeId : 1;
+        var url = ctx+"resource/selectResourceById/" + resourceId;
+        var options = {
+            title: '菜单选择',
+            width: "380",
+            url: url,
+            callBack: doSubmit
+        };
+        $.modal.openOptions(options);
+    }
+    function doSubmit(index, layero){
+        var body = layer.getChildFrame('body', index);
+        $("#treeId").val(body.find('#treeId').val());
+        $("#treeName").val(body.find('#treeName').val());
+        layer.close(index);
     }
     $('input[type=radio][name=type]').change(function() {
         var menuType = $(event.target).val();
@@ -128,25 +120,6 @@
             $("#description").parents(".form-group").show();
         }
     });
-    /*菜单管理-新增-选择菜单树*/
-    function selectResourceTree() {
-        var treeId = $("#treeId").val();
-        var resourceId = treeId > 0 ? treeId : 1;
-        var url = ctx+"resource/selectResourceById/" + resourceId;
-        var options = {
-            title: '菜单选择',
-            width: "380",
-            url: url,
-            callBack: doSubmit
-        };
-        $.modal.openOptions(options);
-    }
-    function doSubmit(index, layero){
-        var body = layer.getChildFrame('body', index);
-        $("#treeId").val(body.find('#treeId').val());
-        $("#treeName").val(body.find('#treeName').val());
-        layer.close(index);
-    }
 </script>
 </body>
 </html>

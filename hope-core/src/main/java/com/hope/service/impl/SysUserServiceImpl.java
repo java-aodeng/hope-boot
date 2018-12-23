@@ -1,5 +1,6 @@
 package com.hope.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysUser;
 //import com.hope.model.dto.User;
@@ -46,6 +47,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
 
     @Override
     public PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo) {
+        PageHelper.startPage(vo.getPageNumber(),vo.getPageSize());
         List<SysUser> sysUsers=sysUserMapper.findPageBreakByCondition(vo);
         if (CollectionUtils.isEmpty(sysUsers)){
             return null;

@@ -1,11 +1,15 @@
 package com.hope.controller;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysResource;
 import com.hope.model.beans.SysRole;
 import com.hope.object.PageResultVo;
+import com.hope.object.ResponseVo;
 import com.hope.service.SysResourceService;
+import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
 import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +36,8 @@ public class ResourceController {
 
     @Autowired
     private SysResourceService sysResourceService;
-
+    @Autowired
+    private ShiroService shiroService;
 
     @GetMapping("/resource")
     public ModelAndView resource(){
@@ -82,6 +87,23 @@ public class ResourceController {
     }
 
     /***
+     * 保存新增资源
+     * @param sysResource
+     * @return
+     */
+    @PostMapping("/add")
+    @ResponseBody
+    public ResponseVo add(SysResource sysResource){
+        sysResource.setCreatetime(DateUtil.date());
+        sysResource.setResourceId(RandomUtil.randomUUID().substring(0,7).toString());
+        if (sysResourceService.insert(sysResource)){
+            shiroService.updatePermission();
+            return ResultHopeUtil.success("添加资源成功");
+        }else{
+            return ResultHopeUtil.error("添加资源失败");
+        }
+    }
+    /***
      * 根据id获取资源数据
      * @return
      */
@@ -91,6 +113,10 @@ public class ResourceController {
         return ResultHopeUtil.view("admin/resource/tree");
     }
 
+    /***
+     * 获取资源数据
+     * @return
+     */
     @GetMapping("/resourceTreeAll")
     @ResponseBody
     public List<Map<String,Object>> resourceTreeAll(){

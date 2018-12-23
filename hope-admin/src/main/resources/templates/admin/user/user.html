@@ -94,10 +94,10 @@
                     field: 'sex',
                     title: '性别',
                     formatter: function(value, row, index) {
-                        switch (row.status){
+                        switch (row.sex){
                             case 1 : return '<span class="badge badge-info">男</span>';
                             case 2 : return '<span class="badge badge-info">女</span>';
-                            case 3 : return '<span class="badge badge-info">未知</span>';
+                            case 3 : return '<span class="badge badge-info"><font style="color: red">未知</font></span>';
                         }
                     }
                 },
@@ -111,7 +111,7 @@
                     formatter: function(value, row, index) {
                         switch (row.status){
                             case 1 : return '<span class="badge badge-info">有效</span>';
-                            case 2 : return '<span class="badge badge-info">无效</span>';
+                            case 2 : return '<span class="badge badge-info"><font style="color: red">无效</font></span>';
                         }
                     }
                 },

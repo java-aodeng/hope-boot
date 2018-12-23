@@ -57,11 +57,11 @@ public class Role {
         this.sysRole.setDescription(description);
     }
 
-    public String getStatus() {
+    public Integer getStatus() {
         return this.sysRole.getStatus();
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.sysRole.setStatus(status);
     }
 

@@ -46,6 +46,7 @@
         var roleUuid = $("input[name='roleUuid']").val();
         var role = $("input[name='role']").val();
         var status = $("input[name='status']").is(':checked') == true ? 1 : 2;
+        alert(status);
         var description = $("input[name='description']").val();
         $.ajax({
             cache : true,

@@ -56,6 +56,7 @@ public class RoleController {
     public ResponseVo add(SysRole sysRoleForm){
         try {
             sysRoleForm.setCreatetime(DateUtil.date());
+            sysRoleForm.setUpdatetime(DateUtil.date());
             sysRoleForm.setRoleId(RandomUtil.randomUUID().substring(0,7).toString());
             if(sysRoleService.insert(sysRoleForm)){
                 return ResultHopeUtil.success("角色添加成功！");

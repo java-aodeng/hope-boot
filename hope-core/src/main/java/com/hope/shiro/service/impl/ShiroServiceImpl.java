@@ -127,7 +127,7 @@ public class ShiroServiceImpl implements ShiroService{
                 defaultFilterChainManager.createChain(url,chainDefinition);
             }
         }
-        log.info("[hope重新加载权限成功,低调小熊猫博客：https://aodeng.cc]");
+        log.info("[hope权限重新加载成功,低调小熊猫博客：https://aodeng.cc]");
     }
 
     /***

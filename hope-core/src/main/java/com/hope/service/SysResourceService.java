@@ -62,4 +62,10 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @return
      */
     SysResource selectResourceById(Integer resourceId);
+
+    /***
+     * 获取所有资源数据
+     * @return
+     */
+    List<Map<String,Object>> resourceTreeAll();
 }

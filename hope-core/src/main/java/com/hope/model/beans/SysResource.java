@@ -3,6 +3,9 @@ package com.hope.model.beans;
 import com.hope.mybatis.pojo.CommonEntity;
 import lombok.*;
 
+import javax.persistence.Column;
+import javax.persistence.Transient;
+
 /**资源数据对象类
  * @program:hope-plus
  * @author:aodeng
@@ -14,6 +17,7 @@ import lombok.*;
 @EqualsAndHashCode(callSuper = false)
 public class SysResource extends CommonEntity{
     /**装逼的id**/
+    @Column(name = "resourceId")//指定不符合第3条规则的字段名
     private String resourceId;
     /**资源名称**/
     private String name;
@@ -34,5 +38,6 @@ public class SysResource extends CommonEntity{
     /**是否可用:1有效2删除**/
     private Integer status;
     /**父name**/
+    @Transient//添加该注解的字段不会作为表字段使用
     private String  parentname;
 }

@@ -1,5 +1,6 @@
 package com.hope.controller;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysResource;
 import com.hope.model.beans.SysRole;
@@ -10,10 +11,8 @@ import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -49,8 +48,7 @@ public class ResourceController {
     @ResponseBody
     public List<SysResource> list(SysResource sysResource){
         List<SysResource> resourceList=sysResourceService.selectResourceList(sysResource);
-        //PageInfo<SysResource> list=new PageInfo<>(resourceList);
-        return  resourceList;//ResultHopeUtil.tablePage(list);
+        return  resourceList;
     }
 
     /**
@@ -69,8 +67,34 @@ public class ResourceController {
      * 新增资源
      * @return
      */
-    @GetMapping("/add")
-    public ModelAndView add(){
+    @GetMapping("/add/{id}")
+    public ModelAndView add(@PathVariable("id") Integer id,ModelMap map){
+        SysResource resource=null;
+        if(id>0){
+            resource=sysResourceService.selectResourceById(id);
+        }else {
+            resource=new SysResource();
+            resource.setId(0);
+            resource.setName("主目录");
+        }
+        map.put("resource",resource);
         return ResultHopeUtil.view("admin/resource/add");
+    }
+
+    /***
+     * 根据id获取资源数据
+     * @return
+     */
+    @GetMapping("/selectResourceById/{resourceId}")
+    public ModelAndView selectResourceById(@PathVariable("resourceId") Integer resourceId, ModelMap map){
+        map.put("resource",sysResourceService.selectResourceById(resourceId));
+        return ResultHopeUtil.view("admin/resource/tree");
+    }
+
+    @GetMapping("/resourceTreeAll")
+    @ResponseBody
+    public List<Map<String,Object>> resourceTreeAll(){
+        List<Map<String,Object>> trees=sysResourceService.resourceTreeAll();
+        return trees;
     }
 }

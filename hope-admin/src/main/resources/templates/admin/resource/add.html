@@ -40,13 +40,8 @@
         <div class="form-group">
             <label class="col-sm-3 control-label">菜单状态：</label>
             <div class="col-sm-8">
-                <div class="onoffswitch">
-                    <input type="checkbox" th:checked="true" class="onoffswitch-checkbox" id="status" name="status">
-                    <label class="onoffswitch-label" for="status">
-                        <span class="onoffswitch-inner"></span>
-                        <span class="onoffswitch-switch"></span>
-                    </label>
-                </div>
+                <label> <input type="radio" name="status" value="1" id="status" checked="checked" /> 有效 </label>
+                <label> <input type="radio" name="status" value="2"  id="status" /> 无效 </label>
             </div>
         </div>
         <div class="form-group">

@@ -6,7 +6,7 @@
 [![JDK](https://img.shields.io/badge/JDK-1.8-orange.svg)](https://github.com/java-aodeng/hope-plus)
 [![license](https://img.shields.io/badge/license-GPL--3.0-red.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
 [![QQ群](https://img.shields.io/badge/chat-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%ABQQ%E7%BE%A4-yellow.svg)](https://jq.qq.com/?_wv=1027&k=574chhz)
-[![发行版本](https://img.shields.io/badge/release-v0.1.0-yellowgreen.svg)](https://github.com/java-aodeng/hope-plus)
+[![发行版本](https://img.shields.io/badge/release-0.0.1-yellowgreen.svg)](https://github.com/java-aodeng/hope-plus/releases)
 
 ## 简介：
 

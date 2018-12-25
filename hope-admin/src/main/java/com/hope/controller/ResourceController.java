@@ -95,6 +95,7 @@ public class ResourceController {
     @ResponseBody
     public ResponseVo add(SysResource sysResource){
         sysResource.setCreatetime(DateUtil.date());
+        sysResource.setUpdatetime(DateUtil.date());
         sysResource.setResourceId(RandomUtil.randomUUID().substring(0,7).toString());
         if (sysResourceService.insert(sysResource)){
             shiroService.updatePermission();

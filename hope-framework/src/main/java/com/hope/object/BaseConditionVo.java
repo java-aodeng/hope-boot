@@ -6,7 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-/**基础转换
+/**基础转换 其实分页工具会自动计算，只需要num和size即可
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

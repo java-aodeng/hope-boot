@@ -2,9 +2,8 @@ package com.hope.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.hope.model.beans.SysUser;
-//import com.hope.model.dto.User;
 import com.hope.mapper.SysUserMapper;
+import com.hope.model.beans.SysUser;
 import com.hope.model.vo.UserConditionVo;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
 import com.hope.service.SysUserService;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

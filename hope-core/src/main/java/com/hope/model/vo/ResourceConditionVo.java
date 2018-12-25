@@ -1,7 +1,6 @@
 package com.hope.model.vo;
 
 import com.hope.model.beans.SysResource;
-import com.hope.model.dto.Resource;
 import com.hope.object.BaseConditionVo;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

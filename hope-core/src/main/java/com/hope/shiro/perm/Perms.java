@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
  * @微信公众号:低调小熊猫
  * @create:2018-10-29 13:59
  **/
-/*@Component("perms")
+@Component("perms")
 public class Perms {
     public boolean hasPerm(String permission){
         return SecurityUtils.getSubject().isPermitted(permission);
     }
-}*/
+}

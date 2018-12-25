@@ -100,7 +100,7 @@ public class HopeController {
     @RequestMapping("/error1")
     public ModelAndView error1(Model model){
         log.info("[hope-404-page]-[{}]","测试150");
-        return ResultHopeUtil.view("common/error/404");
+        return ResultHopeUtil.view("common/error/010");
     }
 
 /*

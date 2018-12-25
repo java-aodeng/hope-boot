@@ -42,5 +42,6 @@ Hope-plus的诞生离不开下面这些项目：
 - [Bootstrap](https://github.com/twbs/bootstrap.git)：使用最广泛的前端 ui 框架
 - [JQuery](https://github.com/jquery/jquery.git)：使用最广泛的 JavaScript 框架
 - [Layer](https://github.com/sentsin/layer.git)：使用了弹出层组件，不可否认就是好看才用的
+- [tomcat](https://github.com/apache/tomcat)：项目内嵌apache的tomcat
 
 正在努力加载中......

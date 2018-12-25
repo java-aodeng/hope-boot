@@ -1,25 +1,19 @@
 package com.hope.controller;
 
 import cn.hutool.core.date.DateUtil;
-import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
-import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysResource;
 import com.hope.model.beans.SysRole;
-import com.hope.object.PageResultVo;
 import com.hope.object.ResponseVo;
 import com.hope.service.SysResourceService;
 import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
-import org.apache.tomcat.util.http.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

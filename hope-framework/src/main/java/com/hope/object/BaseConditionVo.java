@@ -18,7 +18,7 @@ import java.util.Date;
 public class BaseConditionVo {
 
     public final static int DEFAULT_PAGE_SIZE=10;
-    private int pageNumber=1;
+    private int pageNum=1;
     private int pageSize=0;
     private int pageStart=0;
     private String orderField;
@@ -34,6 +34,6 @@ public class BaseConditionVo {
     }
 
     public int getPageStart() {
-        return pageNumber> 0 ?(pageNumber-1) *pageSize:0;
+        return pageNum> 0 ?(pageNum-1) *pageSize:0;
     }
 }

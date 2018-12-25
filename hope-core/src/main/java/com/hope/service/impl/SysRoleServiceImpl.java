@@ -52,7 +52,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
 
     @Override
     public PageInfo<SysRole> findPageBreakByCondition(RoleConditionVo vo) {
-        PageHelper.startPage(vo.getPageNumber(),vo.getPageSize());
+        PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
         List<SysRole> sysRoles=sysRoleMapper.findPageBreakByCondition(vo);
         if (CollectionUtils.isEmpty(sysRoles)){
             return null;

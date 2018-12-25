@@ -1,6 +1,6 @@
-![](https://github.com/java-aodeng/hope-plus/blob/master/docs/img/logo.png)
+[![log]((https://github.com/java-aodeng/hope-plus/blob/master/docs/img/logo.png))](https://github.com/java-aodeng/hope-plus)
 
-<h1><a href="#">Hope-plus</a></h1>
+<h1></h1>
 
 🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
 

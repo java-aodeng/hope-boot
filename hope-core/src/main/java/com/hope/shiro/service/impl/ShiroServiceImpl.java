@@ -1,13 +1,13 @@
 package com.hope.shiro.service.impl;
 
-import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import com.hope.holder.SpringContextHolder;
 import com.hope.model.beans.SysResource;
 import com.hope.model.beans.SysUser;
-import com.hope.holder.SpringContextHolder;
-import com.hope.shiro.service.ShiroService;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
 import com.hope.shiro.realm.HopeShiroRealm;
+import com.hope.shiro.service.ShiroService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -86,17 +86,19 @@ public class ShiroServiceImpl implements ShiroService{
 
         //加载数据库中配置的资源权限列表
         List<SysResource> resourcesList=sysResourceService.listUrlAndPermission();
+        int a = 0;
         for(SysResource resource:resourcesList){
-            if(ObjectUtil.isNotNull(resource.getUrl()) && ObjectUtil.isNotNull(resource.getPermission())){
+            if(StrUtil.isNotBlank(resource.getUrl()) && StrUtil.isNotBlank(resource.getPermission())){
                 String permission ="perms["+resource.getPermission()+"]";
                 filterChainDefinitionMap.put(resource.getUrl(),permission);
+                a+=1;
             }
         }
 
         //authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc
         filterChainDefinitionMap.put("/**","user");
 
-        log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}]",resourcesList.size());
+        log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}],初始化数据库资源条数-[{}]",resourcesList.size(),a);
         return filterChainDefinitionMap;
     }
 

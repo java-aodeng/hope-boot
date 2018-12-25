@@ -43,5 +43,6 @@ Hope-plus的诞生离不开下面这些项目：
 - [JQuery](https://github.com/jquery/jquery.git)：使用最广泛的 JavaScript 框架
 - [Layer](https://github.com/sentsin/layer.git)：使用了弹出层组件，不可否认就是好看才用的
 - [tomcat](https://github.com/apache/tomcat)：项目内嵌apache的tomcat
+- [kaptcha](https://github.com/penggle/kaptcha)：Google验证码，使用方便，好评
 
 正在努力加载中......

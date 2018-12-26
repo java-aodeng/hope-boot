@@ -30,7 +30,7 @@ Hope-plus was born out of the following projects：
 - [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring the item
 - [Apache Shiro](https://github.com/apache/shiro)：Is a powerful and easy-to-use Java security framework
 - [Redis](https://github.com/antirez/redis)：Memory data structure storage, used as database, cache and message proxy
-- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Modern Server-side Java Template Engine for Web and Independent Environments
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Modern Server-side Java Template Engine for Web and Independent Environments，Official recommendation of sb
 - [MyBatis](https://github.com/mybatis/mybatis-3)：MyBatis SQL Mapper Framework for Java
 - [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：Paging plug-in, mother no longer need to worry about your paging
 - [tk.mybatis](https://github.com/abel533/Mapper)：General Mapper, great convenience for developers, you know

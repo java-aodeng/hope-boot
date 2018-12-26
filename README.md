@@ -30,7 +30,7 @@ Hope-plus的诞生离不开下面这些项目：
 - [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring 家族的顶级项目
 - [Apache Shiro](https://github.com/apache/shiro)：是一个功能强大且易于使用的Java安全框架
 - [Redis](https://github.com/antirez/redis)：内存数据结构存储，用作数据库，缓存和消息代理
-- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：适用于Web和独立环境的现代服务器端Java模板引擎
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：适用于Web和独立环境的现代服务器端Java模板引擎，sb官方推荐
 - [MyBatis](https://github.com/mybatis/mybatis-3)：用于Java的MyBatis SQL Mapper框架
 - [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：分页插件，妈妈再也不用担心你的分页了
 - [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper，极大的方便开发人员，你懂的

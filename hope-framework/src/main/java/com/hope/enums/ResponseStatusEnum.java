@@ -9,7 +9,7 @@ package com.hope.enums;
  **/
 public enum ResponseStatusEnum {
     SUCCESS(200, "操作成功！"),
-    ERROR(500, "服务器未知错误！"),
+    ERROR(500, "小熊猫提示：服务器未知错误！请联系作者！"),
     UNAUTHORIZED(500, "尚未登录！"),
     FORBIDDEN(500, "您没有操作权限！"),
     NOT_FOUND(500, "资源不存在！"),

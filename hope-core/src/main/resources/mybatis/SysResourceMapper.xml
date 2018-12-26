@@ -9,7 +9,7 @@
         <result property="description" column="description"/>
         <result property="url" column="url"/>
         <result property="permission" column="permission"/>
-        <result property="parentId" column="parent_id"/>
+        <result property="parentId" column="parentId"/>
         <result property="type" column="type"/>
         <result property="priority" column="priority"/>
         <result property="icon" column="icon"/>
@@ -26,7 +26,7 @@
 			sr.description,
 			sr.url,
 			sr.permission,
-			sr.parent_id,
+			sr.parentId,
 			sr.type,
 			sr.priority,
 			sr.icon,
@@ -69,14 +69,21 @@
 			FROM sys_resource sr
 			LEFT JOIN sys_role_resource srr on sr.id = srr.resourceId
 			where 1=1 and srr.roleId =#{roleId}
-			ORDER BY sr.parent_id,sr.priority
+			ORDER BY sr.parentId,sr.priority
     </select>
     <select id="selectResourceById" parameterType="java.lang.Integer" resultMap="resourceMap">
         select
             sr1.* ,
             sr2.name as parentname
             from sys_resource sr1
-            LEFT join sys_resource sr2 on sr2.id=sr1.parent_id
+            LEFT join sys_resource sr2 on sr2.id=sr1.parentId
             where sr1.id =#{id}
+    </select>
+    <select id="selectSubPermsById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select
+            count(sr2.id)
+            from sys_resource sr1
+            LEFT JOIN sys_resource sr2 ON sr1.id=sr2.parentId and sr2.status=1
+            where sr1.id=#{id}
     </select>
 </mapper>

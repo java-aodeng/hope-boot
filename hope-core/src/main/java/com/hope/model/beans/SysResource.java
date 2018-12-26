@@ -28,6 +28,7 @@ public class SysResource extends CommonEntity{
     /**权限标识**/
     private String permission;
     /**父编号**/
+    @Column(name = "parentId")
     private Integer parentId;
     /**资源类型:0目录 1菜单 2按钮**/
     private Integer type;

@@ -136,4 +136,9 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
         return trees;
     }
 
+    @Override
+    public int selectSubPermsById(Integer resourceId) {
+        return sysResourceMapper.selectSubPermsById(resourceId);
+    }
+
 }

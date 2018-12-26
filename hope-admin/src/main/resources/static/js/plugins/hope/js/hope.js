@@ -61,7 +61,7 @@
                 /*if (res.code == 0) {*/
                     return { rows: res.rows, total: res.total };
                /* } else {
-                	$.modal.alertWarning(res.msg);
+                	$.modal.alertWarning(res.message);
                 	return { rows: [], total: 0 };
                 }*/
             },
@@ -88,10 +88,10 @@
     			var currentId = $.common.isEmpty(formId) ? $('form').attr('id') : formId;
     			$.modal.loading("正在导出数据，请稍后...");
     			$.post($.table._option.exportUrl, $("#" + currentId).serializeArray(), function(result) {
-    				if (result.code == web_status.SUCCESS) {
+    				if (result.status == web_status.SUCCESS) {
     			        window.location.href = ctx + "common/download?fileName=" + result.msg + "&delete=" + true;
     				} else {
-    					$.modal.alertError(result.msg);
+    					$.modal.alertError(result.message);
     				}
     				$.modal.closeLoading();
     			});
@@ -526,11 +526,11 @@
             },
             // 保存结果弹出msg刷新table表格
             ajaxSuccess: function (result) {
-            	if (result.code == web_status.SUCCESS) {
-                	$.modal.msgSuccess(result.msg);
+            	if (result.status == web_status.SUCCESS) {
+                	$.modal.msgSuccess(result.message);
             		$.table.refresh();
                 } else {
-                	$.modal.alertError(result.msg);
+                	$.modal.alertError(result.message);
                 }
             	$.modal.closeLoading();
             },

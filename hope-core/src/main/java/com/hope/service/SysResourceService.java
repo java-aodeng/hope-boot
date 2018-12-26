@@ -67,4 +67,11 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @return
      */
     List<Map<String,Object>> resourceTreeAll();
+
+    /***
+     * 根据id查看是否存在子级数据
+     * @param resourceId
+     * @return
+     */
+    int selectSubPermsById(Integer resourceId);
 }

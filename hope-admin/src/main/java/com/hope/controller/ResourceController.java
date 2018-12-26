@@ -118,4 +118,52 @@ public class ResourceController {
         List<Map<String,Object>> trees=sysResourceService.resourceTreeAll();
         return trees;
     }
+
+    /***
+     * 修改资源
+     * @return
+     */
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable("id") Integer id,ModelMap map){
+        map.put("resource",sysResourceService.selectResourceById(id));
+        return ResultHopeUtil.view("admin/resource/edit");
+    }
+
+    /***
+     * 保存修改资源
+     * @param sysResource
+     * @return
+     */
+    @PostMapping("/edit")
+    @ResponseBody
+    public ResponseVo edit(SysResource sysResource){
+        sysResource.setUpdatetime(DateUtil.date());
+        if (sysResourceService.updateById(sysResource)){
+            shiroService.updatePermission();
+            return ResultHopeUtil.success("修改资源成功");
+        }else{
+            return ResultHopeUtil.error("修改资源失败");
+        }
+    }
+
+    /***
+     * 删除资源
+     * @param id
+     * @return
+     */
+    @PostMapping("/delete/{id}")
+    @ResponseBody
+    public ResponseVo delete(@PathVariable("id") Integer id){
+        if (id<=1017) {
+            return ResultHopeUtil.error("系统资源，请不要删除！");
+        }
+        if (sysResourceService.selectSubPermsById(id)>0){
+            return ResultHopeUtil.error("当前资源存在下级资源，无法删除！");
+        }
+        if (sysResourceService.deleteById(id)){
+            return ResultHopeUtil.success("删除资源成功");
+        }else{
+            return ResultHopeUtil.error("删除资源失败");
+        }
+    }
 }

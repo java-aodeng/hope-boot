@@ -57,19 +57,4 @@ public class RoleResource {
         this.sysRoleResource.setId(id);
     }
 
-    public Date getCreatetime() {
-        return this.sysRoleResource.getCreatetime();
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.sysRoleResource.setCreatetime(createtime);
-    }
-
-    public Date getUpdatetime() {
-        return this.sysRoleResource.getUpdatetime();
-    }
-
-    public void setUpdatetime(Date updatetime) {
-        this.sysRoleResource.setUpdatetime(updatetime);
-    }
 }

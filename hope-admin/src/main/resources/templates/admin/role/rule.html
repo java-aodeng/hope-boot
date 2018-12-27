@@ -31,7 +31,7 @@
         }
     }
     function add() {
-        var roleUuid = $("input[name='id']").val();
+        var id = $("input[name='id']").val();
         var resourceIds = $.tree.getCheckedNodes();
         $.ajax({
             cache : true,

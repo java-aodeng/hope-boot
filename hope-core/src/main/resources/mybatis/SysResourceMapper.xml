@@ -65,7 +65,7 @@
     </select>
     <select id="selectResourceTree" parameterType="int" resultType="String">
         select
-			CONCAT(sr.resourceId,sr.permission) as permission
+			CONCAT(sr.id,sr.permission) as permission
 			FROM sys_resource sr
 			LEFT JOIN sys_role_resource srr on sr.id = srr.resourceId
 			where 1=1 and srr.roleId =#{roleId}

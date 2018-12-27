@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.hope.model.beans.SysRole;
 import com.hope.model.vo.RoleConditionVo;
 import com.hope.mybatis.service.BaseService;
+import com.hope.object.ResponseVo;
 
 import java.util.List;
 import java.util.Set;
@@ -36,4 +37,6 @@ public interface SysRoleService extends BaseService<SysRole>{
      * @return set
      */
     Set<String> findRoleByUserId(Integer userId);
+
+    ResponseVo addAssignResourceById(String roleId,List<String> resourceIds);
 }

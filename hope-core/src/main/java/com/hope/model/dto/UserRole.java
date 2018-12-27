@@ -56,19 +56,4 @@ public class UserRole {
         this.sysUserRole.setId(id);
     }
 
-    public Date getCreatetime() {
-        return this.sysUserRole.getCreatetime();
-    }
-
-    public void setCreatetime(Date createtime) {
-        this.sysUserRole.setCreatetime(createtime);
-    }
-
-    public Date getUpdatetime() {
-        return this.sysUserRole.getUpdatetime();
-    }
-
-    public void setUpdatetime(Date updatetime) {
-        this.sysUserRole.setUpdatetime(updatetime);
-    }
 }

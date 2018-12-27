@@ -1,5 +1,6 @@
 package com.hope.controller;
 
+import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageInfo;
@@ -8,6 +9,7 @@ import com.hope.model.vo.RoleConditionVo;
 import com.hope.object.PageResultVo;
 import com.hope.object.ResponseVo;
 import com.hope.service.SysRoleService;
+import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +19,10 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @program:hope-plus
@@ -32,7 +38,8 @@ public class RoleController {
 
     @Autowired
     private SysRoleService sysRoleService;
-
+    @Autowired
+    private ShiroService shiroService;
     @GetMapping("/role")
     public ModelAndView role(){
         return ResultHopeUtil.view("admin/role/role");
@@ -83,8 +90,15 @@ public class RoleController {
 
     @PostMapping("/assign")
     @ResponseBody
-    public ResponseVo assign(Integer id, Long[] menuIds){
-        System.out.println(menuIds);
-        return ResultHopeUtil.success("测试");
+    public ResponseVo assign(String id, String[] menuIds){
+        System.out.println(menuIds+"--------"+id);
+        List<String> resourceIds=new ArrayList<>();
+        if (menuIds.length!=0){
+            resourceIds= Arrays.asList(menuIds);
+        }
+        ResponseVo responseVo=sysRoleService.addAssignResourceById(id,resourceIds);
+        //重新加载拥有角色的资源权限
+        shiroService.reloadAuthorizingByRoleId(Convert.convert(Integer.class,id));
+        return responseVo;
     }
 }

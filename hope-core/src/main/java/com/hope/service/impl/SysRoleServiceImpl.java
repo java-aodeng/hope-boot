@@ -2,12 +2,17 @@ package com.hope.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hope.mapper.SysRoleResourceMapper;
+import com.hope.model.beans.SysResource;
 import com.hope.model.beans.SysRole;
+import com.hope.model.beans.SysRoleResource;
 import com.hope.model.dto.Role;
 import com.hope.mapper.SysRoleMapper;
 import com.hope.model.vo.RoleConditionVo;
 import com.hope.mybatis.service.impl.BaseServiceImpl;
+import com.hope.object.ResponseVo;
 import com.hope.service.SysRoleService;
+import com.hope.utils.ResultHopeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -28,6 +33,8 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
 
     @Autowired
     private SysRoleMapper sysRoleMapper;
+    @Autowired
+    private SysRoleResourceMapper roleResourceMapper;
 
     /***
      * 数据类型转换
@@ -64,5 +71,22 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
     @Override
     public Set<String> findRoleByUserId(Integer userId) {
         return sysRoleMapper.findRoleByUserId(userId);
+    }
+
+    @Override
+    public ResponseVo addAssignResourceById(String roleId, List<String> resourceIds) {
+        try {
+            SysRoleResource roleResource=new SysRoleResource();
+            roleResource.setRoleId(roleId);
+            roleResourceMapper.delete(roleResource);
+            for (String resourceId:resourceIds) {
+                roleResource.setId(null);
+                roleResource.setResourceId(resourceId);
+                roleResourceMapper.insert(roleResource);
+            }
+            return ResultHopeUtil.success("分配资源成功！");
+        }catch (Exception e){
+            return ResultHopeUtil.error("分配资源失败！");
+        }
     }
 }

@@ -21,4 +21,6 @@ public interface SysUserMapper extends BaseMapper<SysUser>{
     SysUser selectUserByName(String userName);
     /**修改最后登录时间**/
     void updateLastLoginTime(SysUser sysUser);
+
+    List<SysUser> findByRoleId(Integer roleId);
 }

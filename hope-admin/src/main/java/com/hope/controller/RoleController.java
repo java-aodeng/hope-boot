@@ -9,6 +9,7 @@ import com.hope.model.vo.RoleConditionVo;
 import com.hope.object.PageResultVo;
 import com.hope.object.ResponseVo;
 import com.hope.service.SysRoleService;
+import com.hope.service.SysUserService;
 import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
 import org.slf4j.Logger;
@@ -40,6 +41,8 @@ public class RoleController {
     private SysRoleService sysRoleService;
     @Autowired
     private ShiroService shiroService;
+    @Autowired
+    private SysUserService sysUserService;
     @GetMapping("/role")
     public ModelAndView role(){
         return ResultHopeUtil.view("admin/role/role");
@@ -76,10 +79,28 @@ public class RoleController {
         }
     }
 
+    /***
+     * 编辑角色
+     * @param id
+     * @param map
+     * @return
+     */
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Integer id, ModelMap map){
         map.addAttribute("role",sysRoleService.selectById(id));
         return ResultHopeUtil.view("admin/role/edit");
+    }
+
+    @PostMapping("/edit")
+    @ResponseBody
+    public ResponseVo edit(SysRole sysRole){
+        sysRole.setUpdatetime(DateUtil.date());
+        sysRole.setRoleId(RandomUtil.randomUUID().substring(0,7).toString());
+        if (sysRoleService.updateById(sysRole)){
+            return ResultHopeUtil.success("角色修改成功！");
+        }else {
+            return ResultHopeUtil.error("角色修改失败！");
+        }
     }
 
     @GetMapping("/rule/{id}")
@@ -88,6 +109,12 @@ public class RoleController {
         return ResultHopeUtil.view("admin/role/rule");
     }
 
+    /***
+     * 分配资源
+     * @param id
+     * @param menuIds
+     * @return
+     */
     @PostMapping("/assign")
     @ResponseBody
     public ResponseVo assign(String id, String[] menuIds){
@@ -100,5 +127,23 @@ public class RoleController {
         //重新加载拥有角色的资源权限
         shiroService.reloadAuthorizingByRoleId(Convert.convert(Integer.class,id));
         return responseVo;
+    }
+
+    /***
+     * 删除角色
+     * @param id
+     * @return
+     */
+    @PostMapping("/delete/{id}")
+    @ResponseBody
+    public ResponseVo delete(@PathVariable("id") Integer id){
+        if (sysUserService.findByRoleId(id).size()>0){
+            return ResultHopeUtil.error("当前角色存在用户，不能删除！");
+        }
+        if (sysRoleService.deleteById(id)){
+            return ResultHopeUtil.success("角色删除成功！");
+        }else {
+            return ResultHopeUtil.error("角色删除失败！");
+        }
     }
 }

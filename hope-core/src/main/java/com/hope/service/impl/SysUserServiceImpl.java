@@ -86,4 +86,9 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
     public SysUser selectUserByName(String userName) {
         return sysUserMapper.selectUserByName(userName);
     }
+
+    @Override
+    public List<SysUser> findByRoleId(Integer roleId) {
+        return sysUserMapper.findByRoleId(roleId);
+    }
 }

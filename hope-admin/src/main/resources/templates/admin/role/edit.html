@@ -4,7 +4,7 @@
 <body class="white-bg">
 <div class="wrapper wrapper-content animated fadeInRight ibox-content">
     <form class="form-horizontal m" id="form-role-edit" th:object="${role}">
-        <input id="roleId" name="roleId" type="hidden" th:field="*{id}"/>
+        <input id="id" name="id" type="hidden" th:field="*{id}"/>
         <div class="form-group">
             <label class="col-sm-3 control-label">(默认自动获取)uuid：</label>
             <div class="col-sm-8">
@@ -37,6 +37,42 @@
         </div>
     </form>
 </div>
-
+<script>
+    function submitHandler() {
+        if ($.validate.form()) {
+            add();
+        }
+    }
+    function add() {
+        var id = $("input[name='id']").val();
+        var roleUuid = $("input[name='roleUuid']").val();
+        var role = $("input[name='role']").val();
+        var status = $("input[name='status']").is(':checked') == true ? 1 : 2;
+        var description = $("input[name='description']").val();
+        $.ajax({
+            cache : true,
+            type : "POST",
+            url : ctx + "role/edit",
+            data : {
+                "id": id,
+                "roleUuid": roleUuid,
+                "role": role,
+                "status": status,
+                "description": description
+            },
+            async : false,
+            error : function(request) {
+                $.modal.alertError("系统错误");
+            },
+            success : function(json) {
+                if(json.status == 200){
+                    $.modal.msgReload("保存成功,正在刷新数据请稍后……", modal_status.SUCCESS);
+                }else {
+                    $.modal.alertError(json.message);
+                }
+            }
+        });
+    }
+</script>
 </body>
 </html>

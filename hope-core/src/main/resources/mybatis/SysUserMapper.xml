@@ -53,4 +53,9 @@
             INNER JOIN sys_user_role sur on sur.userId=su.id
             where 1=1 and sur.roleId=#{roleId}
     </select>
+    <select id="findByRoleId" parameterType="java.lang.Integer" resultMap="userMap">
+        <include refid="userSql"/>
+		INNER JOIN sys_user_role sur on su.id =sur.userId
+		where 1=1 and sur.roleId=#{roleId}
+    </select>
 </mapper>

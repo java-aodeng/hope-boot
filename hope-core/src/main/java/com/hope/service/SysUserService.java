@@ -48,4 +48,11 @@ public interface SysUserService extends BaseService<SysUser>{
     void updateUserLastLoginInfo(SysUser sysUser);
 
     SysUser selectUserByName(String userName);
+
+    /***
+     * 根据角色id查询用户数据
+     * @param roleId
+     * @return
+     */
+    List<SysUser> findByRoleId(Integer roleId);
 }

@@ -84,7 +84,7 @@ public class RoleController {
     @PostMapping("/assign")
     @ResponseBody
     public ResponseVo assign(Integer id, Long[] menuIds){
-
+        System.out.println(menuIds);
         return ResultHopeUtil.success("测试");
     }
 }

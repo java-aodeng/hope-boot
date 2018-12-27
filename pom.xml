@@ -165,7 +165,7 @@
             <version>4.1.7</version>
         </dependency>
 		<!-- devtools-->
-		<!--热启动导致类加载异常,暂时注释-->
+		<!--热启动导致类加载异常,暂时注释，还是jrebel香-->
 		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

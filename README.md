@@ -44,5 +44,6 @@ Hope-plus的诞生离不开下面这些项目：
 - [Layer](https://github.com/sentsin/layer.git)：使用了弹出层组件，不可否认就是好看才用的
 - [tomcat](https://github.com/apache/tomcat)：项目内嵌apache的tomcat
 - [kaptcha](https://github.com/penggle/kaptcha)：Google验证码，使用方便，好评
+- [jrebel](https://zeroturnaround.com/software/jrebel/)：热启动，帮助开发人员提高工作效率
 
 正在努力加载中......

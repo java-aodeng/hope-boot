@@ -44,5 +44,6 @@ Hope-plus was born out of the following projects：
 - [Layer](https://github.com/sentsin/layer.git)：The use of pop-up layer components is undeniably good-looking.
 - [tomcat](https://github.com/apache/tomcat)：Tomcat with Apache embedded in the project
 - [kaptcha](https://github.com/penggle/kaptcha)：Google Verification Code, easy to use, praise
+- [jrebel](https://zeroturnaround.com/software/jrebel/)：Hot Start to Help Developers Improve Work Efficiency
 
 Efforts are being made to load...

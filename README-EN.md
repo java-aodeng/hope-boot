@@ -25,25 +25,24 @@
 | hope-framework | Framework module, providing data manipulation, tool processing, etc. |
 
 ### Thank：
-Hope-plus was born out of the following projects：
+Hope-plus was born out of the following projects（Open Source, Open Source for Use）：
 
-- [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring the item
-- [Apache Shiro](https://github.com/apache/shiro)：Is a powerful and easy-to-use Java security framework
-- [Redis](https://github.com/antirez/redis)：Memory data structure storage, used as database, cache and message proxy
-- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Modern Server-side Java Template Engine for Web and Independent Environments，Official recommendation of sb
+- [Spring Boot](https://github.com/spring-projects/spring-boot)：Core framework
+- [Apache Shiro](https://github.com/apache/shiro)：Permission framework
+- [Redis](https://github.com/antirez/redis)：Caching framework
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：template engine
 - [MyBatis](https://github.com/mybatis/mybatis-3)：MyBatis SQL Mapper Framework for Java
-- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：Paging plug-in, mother no longer need to worry about your paging
-- [tk.mybatis](https://github.com/abel533/Mapper)：General Mapper, great convenience for developers, you know
-- [alibaba/druid](https://github.com/alibaba/druid)：Alibaba Database Business Department, database connection pool for monitoring
+- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：jPaginate
+- [tk.mybatis](https://github.com/abel533/Mapper)：General Mapper
+- [alibaba/druid](https://github.com/alibaba/druid)：Database connection pool
 - [alibaba/fastjson](https://github.com/alibaba/fastjson)：Fast JSON parser/generator for Java
 - [shiro-redis](https://github.com/alexxiyang/shiro-redis)：A redis caching tool that Shiro can use
-- [Lombok](https://www.projectlombok.org/)：Make the code more concise and no longer encapsulate get, set
-- [Hutool](https://github.com/looly/hutool)：It's the best Java toolkit I've ever used
+- [Lombok](https://www.projectlombok.org/)：Make the code more concise
+- [Hutool](https://github.com/looly/hutool)：A Java toolkit, also just a toolkit, helps us simplify every line of code, reduce every method, and make the Java language "sweet"
 - [Bootstrap](https://github.com/twbs/bootstrap.git)：The most widely used front-end UI framework
 - [JQuery](https://github.com/jquery/jquery.git)：The most widely used JavaScript framework
-- [Layer](https://github.com/sentsin/layer.git)：The use of pop-up layer components is undeniably good-looking.
-- [tomcat](https://github.com/apache/tomcat)：Tomcat with Apache embedded in the project
-- [kaptcha](https://github.com/penggle/kaptcha)：Google Verification Code, easy to use, praise
-- [jrebel](https://zeroturnaround.com/software/jrebel/)：Hot Start to Help Developers Improve Work Efficiency
+- [Layer](https://github.com/sentsin/layer.git)：Ejection Layer Component
+- [kaptcha](https://github.com/penggle/kaptcha)：Google Verification Code
+- [jrebel](https://zeroturnaround.com/software/jrebel/)：Thermal deployment
 
 Efforts are being made to load...

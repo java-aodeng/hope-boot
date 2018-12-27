@@ -25,25 +25,24 @@
 | hope-framework | 框架模块,提供数据操作、工具处理等 |
 
 ### 感谢：
-Hope-plus的诞生离不开下面这些项目：
+Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：
 
-- [Spring Boot](https://github.com/spring-projects/spring-boot)：Spring 家族的顶级项目
-- [Apache Shiro](https://github.com/apache/shiro)：是一个功能强大且易于使用的Java安全框架
-- [Redis](https://github.com/antirez/redis)：内存数据结构存储，用作数据库，缓存和消息代理
-- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：适用于Web和独立环境的现代服务器端Java模板引擎，sb官方推荐
+- [Spring Boot](https://github.com/spring-projects/spring-boot)：核心框架
+- [Apache Shiro](https://github.com/apache/shiro)：权限框架
+- [Redis](https://github.com/antirez/redis)：缓存框架
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：模板引擎
 - [MyBatis](https://github.com/mybatis/mybatis-3)：用于Java的MyBatis SQL Mapper框架
-- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：分页插件，妈妈再也不用担心你的分页了
-- [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper，极大的方便开发人员，你懂的
-- [alibaba/druid](https://github.com/alibaba/druid)：阿里巴巴数据库事业部出品，为监控而生的数据库连接池
+- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：分页插件
+- [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper
+- [alibaba/druid](https://github.com/alibaba/druid)：数据库连接池
 - [alibaba/fastjson](https://github.com/alibaba/fastjson)：用于Java的快速JSON解析器/生成器
 - [shiro-redis](https://github.com/alexxiyang/shiro-redis)：一个可以由shiro使用的redis缓存工具
-- [Lombok](https://www.projectlombok.org/)：让代码更简洁，再也不用封装get，set
-- [Hutool](https://github.com/looly/hutool)：是我用过认为最好的java工具包了
+- [Lombok](https://www.projectlombok.org/)：让代码更简洁
+- [Hutool](https://github.com/looly/hutool)：一个Java工具包，也只是一个工具包，它帮助我们简化每一行代码，减少每一个方法，让Java语言也可以“甜甜的”
 - [Bootstrap](https://github.com/twbs/bootstrap.git)：使用最广泛的前端 ui 框架
 - [JQuery](https://github.com/jquery/jquery.git)：使用最广泛的 JavaScript 框架
-- [Layer](https://github.com/sentsin/layer.git)：使用了弹出层组件，不可否认就是好看才用的
-- [tomcat](https://github.com/apache/tomcat)：项目内嵌apache的tomcat
-- [kaptcha](https://github.com/penggle/kaptcha)：Google验证码，使用方便，好评
-- [jrebel](https://zeroturnaround.com/software/jrebel/)：热启动，帮助开发人员提高工作效率
+- [Layer](https://github.com/sentsin/layer.git)：弹出层组件
+- [kaptcha](https://github.com/penggle/kaptcha)：Google验证码
+- [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
 
 正在努力加载中......

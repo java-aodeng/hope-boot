@@ -28,11 +28,6 @@ import javax.servlet.http.HttpServletRequest;
 public class HopeController {
     private static final Logger log= LoggerFactory.getLogger(HopeController.class);
 
-    @GetMapping("/login")
-    public String login() {
-        return "common/login";
-    }
-
     /***
      * 首页
      * @return
@@ -44,12 +39,13 @@ public class HopeController {
 
     /***
      * 登录
-     * @param
-     * @param
-     * @param
-     * @param
      * @return
      */
+    @GetMapping("/login")
+    public String login() {
+        return "common/login";
+    }
+
     @PostMapping("/login")
     @ResponseBody
     public ResponseVo login(HttpServletRequest request,String username,String password,String verification,
@@ -86,17 +82,32 @@ public class HopeController {
         return ResultHopeUtil.redirect("login");
     }
 
+    /***
+     * hope-plus
+     * @param model
+     * @return
+     */
     @RequestMapping("/hope-plus")
     public ModelAndView index_v1(Model model){
         return ResultHopeUtil.view("common/hope-plus");
     }
 
+    /***
+     * 测试
+     * @param model
+     * @return
+     */
     @RequestMapping("/index_v2")
     public ModelAndView index_v2(Model model){
         log.info("[hope-index_v2-page]-[{}]","测试140");
         return ResultHopeUtil.view("common/index_v2");
     }
 
+    /***
+     * 错误页面
+     * @param model
+     * @return
+     */
     @RequestMapping("/error1")
     public ModelAndView error1(Model model){
         log.info("[hope-404-page]-[{}]","测试150");

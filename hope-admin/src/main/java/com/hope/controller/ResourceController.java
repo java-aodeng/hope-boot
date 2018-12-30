@@ -33,16 +33,15 @@ public class ResourceController {
     @Autowired
     private ShiroService shiroService;
 
+    /***
+     * 资源列表
+     * @return
+     */
     @GetMapping("/resource")
     public ModelAndView resource(){
         return ResultHopeUtil.view("admin/resource/resource");
     }
 
-    /***
-     * 加载系统资源列表
-     * @param sysResource
-     * @return
-     */
     @GetMapping("/list")
     @ResponseBody
     public List<SysResource> list(SysResource sysResource){
@@ -80,11 +79,6 @@ public class ResourceController {
         return ResultHopeUtil.view("admin/resource/add");
     }
 
-    /***
-     * 保存新增资源
-     * @param sysResource
-     * @return
-     */
     @PostMapping("/add")
     @ResponseBody
     public ResponseVo add(SysResource sysResource){
@@ -98,8 +92,9 @@ public class ResourceController {
             return ResultHopeUtil.error("添加资源失败");
         }
     }
+
     /***
-     * 根据id获取资源数据
+     * 根据资源id获取资源数据
      * @return
      */
     @GetMapping("/selectResourceById/{resourceId}")
@@ -129,11 +124,6 @@ public class ResourceController {
         return ResultHopeUtil.view("admin/resource/edit");
     }
 
-    /***
-     * 保存修改资源
-     * @param sysResource
-     * @return
-     */
     @PostMapping("/edit")
     @ResponseBody
     public ResponseVo edit(SysResource sysResource){

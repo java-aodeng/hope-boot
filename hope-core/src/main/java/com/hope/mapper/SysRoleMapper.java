@@ -25,4 +25,10 @@ public interface SysRoleMapper extends BaseMapper<SysRole>{
      * @return set
      */
     Set<String> findRoleByUserId(Integer userId);
+
+    /***
+     * 根据用户id获取角色及选中信息
+     * RoleListWithSelected
+     */
+    List<SysRole> RoleListWithSelected(Integer userId);
 }

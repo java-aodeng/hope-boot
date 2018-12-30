@@ -4,6 +4,7 @@ import com.hope.mybatis.pojo.CommonEntity;
 import lombok.*;
 
 import javax.persistence.Column;
+import javax.persistence.Transient;
 
 /**角色数据对象类
  * @program:hope-plus
@@ -24,5 +25,7 @@ public class SysRole extends CommonEntity{
     private String description;
     /**是否可用：1有效2删除**/
     private Integer status;
-
+    /**是否选中**/
+    @Transient
+    private Integer selected;
 }

@@ -17,9 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @program:hope-plus
@@ -88,5 +86,24 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysR
         }catch (Exception e){
             return ResultHopeUtil.error("分配资源失败！");
         }
+    }
+
+    @Override
+    public List<Map<String, Object>> RoleListWithSelected(Integer userId) {
+        List<SysRole> userRoleList = sysRoleMapper.RoleListWithSelected(userId);
+        if (CollectionUtils.isEmpty(userRoleList)){
+            return null;
+        }
+        List<Map<String,Object>> mapList=new ArrayList<Map<String,Object>>();
+        Map<String,Object> map=null;
+        for (SysRole role:userRoleList){
+            map=new HashMap<String,Object>(3);
+            map.put("id", role.getId());
+            map.put("pId", 0);
+            map.put("checked", role.getSelected() != null && role.getSelected() == 1);
+            map.put("name", role.getRole());
+            mapList.add(map);
+        }
+        return mapList;
     }
 }

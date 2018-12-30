@@ -7,6 +7,7 @@ import com.hope.mybatis.service.BaseService;
 import com.hope.object.ResponseVo;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -39,4 +40,11 @@ public interface SysRoleService extends BaseService<SysRole>{
     Set<String> findRoleByUserId(Integer userId);
 
     ResponseVo addAssignResourceById(String roleId,List<String> resourceIds);
+
+    /***
+     * 根据用户id获取角色及选中的角色
+     * @param userId
+     * @return
+     */
+    List<Map<String, Object>> RoleListWithSelected(Integer userId);
 }

@@ -5,10 +5,12 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
 import com.github.pagehelper.PageInfo;
 import com.hope.enums.SysUserStatusEnum;
+import com.hope.model.beans.SysRole;
 import com.hope.model.beans.SysUser;
 import com.hope.model.vo.UserConditionVo;
 import com.hope.object.PageResultVo;
 import com.hope.object.ResponseVo;
+import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
 import com.hope.utils.ResultHopeUtil;
 import com.hope.utils.UsingAesHopeUtil;
@@ -17,11 +19,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * @program:hope-plus
@@ -38,14 +40,15 @@ public class UserController {
 
     @Autowired
     private SysUserService sysUserService;
-
+    @Autowired
+    private SysRoleService sysRoleService;
+    /**用户列表**/
     @RequiresPermissions("user:user:view")
     @GetMapping("/user")
     public ModelAndView user(){
         return ResultHopeUtil.view("admin/user/user");
     }
 
-    /**用户列表**/
     //@RequiresPermissions("user:list")
     @PostMapping("/list")
     @ResponseBody
@@ -89,5 +92,14 @@ public class UserController {
             log.info("[用户添加失败]-[{}]",e.getMessage());
             return ResultHopeUtil.error("用户添加失败！");
         }
+    }
+
+    /***
+     * 用户分配角色
+     */
+    @PostMapping("/rolesWithSelected")
+    @ResponseBody
+    public ResponseVo<List<SysRole>> rolesWithSelected(Integer uid) {
+        return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(uid));
     }
 }

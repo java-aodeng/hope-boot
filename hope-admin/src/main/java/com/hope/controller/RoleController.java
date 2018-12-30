@@ -43,6 +43,8 @@ public class RoleController {
     private ShiroService shiroService;
     @Autowired
     private SysUserService sysUserService;
+
+    /**角色列表**/
     @GetMapping("/role")
     public ModelAndView role(){
         return ResultHopeUtil.view("admin/role/role");
@@ -55,6 +57,10 @@ public class RoleController {
         return ResultHopeUtil.tablePage(pageInfo);
     }
 
+    /***
+     * 添加角色
+     * @return
+     */
     @GetMapping("/add")
     public ModelAndView add(){
         log.info("[role-add-page]-[{}]","测试210");
@@ -103,18 +109,18 @@ public class RoleController {
         }
     }
 
+    /***
+     * 角色分配资源
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/rule/{id}")
     public ModelAndView rule(@PathVariable("id") Integer id, Model model){
         model.addAttribute("id",id);
         return ResultHopeUtil.view("admin/role/rule");
     }
 
-    /***
-     * 分配资源
-     * @param id
-     * @param menuIds
-     * @return
-     */
     @PostMapping("/assign")
     @ResponseBody
     public ResponseVo assign(String id, String[] menuIds){

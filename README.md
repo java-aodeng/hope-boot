@@ -1,4 +1,4 @@
-[![log](https://github.com/java-aodeng/hope-plus/blob/master/docs/img/logo.png)](https://github.com/java-aodeng/hope-plus)
+[![log](https://i.loli.net/2018/12/30/5c28d022c657d.png)](https://github.com/java-aodeng/hope-plus)
 
 <h1><a href="#">Hope-plus</a></h1>
 

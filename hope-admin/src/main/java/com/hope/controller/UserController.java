@@ -139,4 +139,24 @@ public class UserController {
             return ResultHopeUtil.error("用户删除失败！");
         }
     }
+
+    /***
+     * 编辑用户
+     */
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable("id") Integer id,ModelMap map){
+        map.addAttribute("user",sysUserService.selectById(id));
+        return ResultHopeUtil.view("admin/user/edit");
+    }
+
+    @PostMapping("/edit")
+    @ResponseBody
+    public ResponseVo edit(SysUser sysUserFrom){
+        int a=sysUserService.updateByUserId(sysUserFrom);
+        if (a>0){
+            return ResultHopeUtil.success("用户修改成功！");
+        }else {
+            return ResultHopeUtil.error("用户修改失败！");
+        }
+    }
 }

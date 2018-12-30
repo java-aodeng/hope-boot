@@ -55,4 +55,11 @@ public interface SysUserService extends BaseService<SysUser>{
      * @return
      */
     List<SysUser> findByRoleId(Integer roleId);
+
+    /***
+     * 根据id更新数据
+     * @param sysUser
+     * @return
+     */
+    int updateByUserId(SysUser sysUser);
 }

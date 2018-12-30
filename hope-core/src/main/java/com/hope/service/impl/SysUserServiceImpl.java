@@ -91,4 +91,9 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
     public List<SysUser> findByRoleId(Integer roleId) {
         return sysUserMapper.findByRoleId(roleId);
     }
+
+    @Override
+    public int updateByUserId(SysUser sysUser) {
+        return sysUserMapper.updateByUserId(sysUser);
+    }
 }

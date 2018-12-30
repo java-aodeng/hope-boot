@@ -23,4 +23,6 @@ public interface SysUserMapper extends BaseMapper<SysUser>{
     void updateLastLoginTime(SysUser sysUser);
 
     List<SysUser> findByRoleId(Integer roleId);
+
+    int updateByUserId(SysUser sysUser);
 }

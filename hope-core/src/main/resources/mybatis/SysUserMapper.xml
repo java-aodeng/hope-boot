@@ -58,4 +58,9 @@
 		INNER JOIN sys_user_role sur on su.id =sur.userId
 		where 1=1 and sur.roleId=#{roleId}
     </select>
+    <update id="updateByUserId" parameterType="com.hope.model.beans.SysUser">
+        update sys_user
+		  set username=#{username},email=#{email},phone=#{phone},sex=#{sex},age=#{age},status=#{status},update_time = now()
+		  WHERE id=#{id}
+    </update>
 </mapper>

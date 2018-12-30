@@ -108,6 +108,7 @@ public class ShiroConfig {
      * 使用的是shiro-redis开源插件
      * @return
      */
+    @Bean
     public RedisSessionDAO redisSessionDAO(){
         RedisSessionDAO redisSessionDAO=new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());

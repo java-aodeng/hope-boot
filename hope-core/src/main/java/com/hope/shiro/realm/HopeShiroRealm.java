@@ -42,7 +42,7 @@ public class HopeShiroRealm extends AuthorizingRealm{
     private SysResourceService sysResourceService;
     @Autowired
     private SysRoleService sysRoleService;
-    @Autowired(required = false)
+    @Autowired
     private RedisSessionDAO redisSessionDAO;
 
     /***
@@ -137,6 +137,7 @@ public class HopeShiroRealm extends AuthorizingRealm{
         for (SimplePrincipalCollection collection : list) {
             realm.clearCachedAuthorizationInfo(collection);
         }
+        log.info("[用户权限缓存更新成功]");
     }
 
     /***

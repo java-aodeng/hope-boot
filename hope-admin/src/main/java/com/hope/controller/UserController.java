@@ -111,6 +111,7 @@ public class UserController {
     public ResponseVo<List<SysRole>> rolesWithSelected(Integer userId) {
         return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(userId));
     }
+
     @PostMapping("/saveUserRoles")
     @ResponseBody
     public ResponseVo<List<SysRole>> saveUserRoles(Integer userId, String roleIds) {
@@ -122,5 +123,20 @@ public class UserController {
         userIds.add(Convert.convert(String.class,userId));
         hopeShiroRealm.clearAuthorizationByUserId(userIds);
         return ResultHopeUtil.success("操作成功");
+    }
+
+    /***
+     * 删除用户
+     * @param id
+     * @return
+     */
+    @PostMapping("/delete/{id}")
+    @ResponseBody
+    public ResponseVo delete(@PathVariable("id") Integer id){
+        if (sysUserService.deleteById(id)){
+            return ResultHopeUtil.success("用户删除成功！");
+        }else {
+            return ResultHopeUtil.error("用户删除失败！");
+        }
     }
 }

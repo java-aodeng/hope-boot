@@ -1,5 +1,6 @@
 package com.hope.controller;
 
+import cn.hutool.core.convert.Convert;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.RandomUtil;
@@ -11,7 +12,9 @@ import com.hope.model.vo.UserConditionVo;
 import com.hope.object.PageResultVo;
 import com.hope.object.ResponseVo;
 import com.hope.service.SysRoleService;
+import com.hope.service.SysUserRoleService;
 import com.hope.service.SysUserService;
+import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.utils.ResultHopeUtil;
 import com.hope.utils.UsingAesHopeUtil;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -23,6 +26,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,6 +46,11 @@ public class UserController {
     private SysUserService sysUserService;
     @Autowired
     private SysRoleService sysRoleService;
+    @Autowired
+    private SysUserRoleService sysUserRoleService;
+    @Autowired
+    private HopeShiroRealm hopeShiroRealm;
+
     /**用户列表**/
     @RequiresPermissions("user:user:view")
     @GetMapping("/user")
@@ -99,7 +108,19 @@ public class UserController {
      */
     @PostMapping("/rolesWithSelected")
     @ResponseBody
-    public ResponseVo<List<SysRole>> rolesWithSelected(Integer uid) {
-        return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(uid));
+    public ResponseVo<List<SysRole>> rolesWithSelected(Integer userId) {
+        return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(userId));
+    }
+    @PostMapping("/saveUserRoles")
+    @ResponseBody
+    public ResponseVo<List<SysRole>> saveUserRoles(Integer userId, String roleIds) {
+        log.info("[用户id-[{}]，角色id-[{}]",userId,roleIds);
+        //添加
+        sysUserRoleService.addUserRole(userId,roleIds);
+        //更新当前登录的用户的权限缓存
+        List<String> userIds=new ArrayList<>();
+        userIds.add(Convert.convert(String.class,userId));
+        hopeShiroRealm.clearAuthorizationByUserId(userIds);
+        return ResultHopeUtil.success("操作成功");
     }
 }

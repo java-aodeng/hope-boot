@@ -132,8 +132,7 @@ public class HopeShiroRealm extends AuthorizingRealm{
             return ;
         }
         List<SimplePrincipalCollection> list = getSpcListByUserIds(userIds);
-        RealmSecurityManager securityManager =
-                (RealmSecurityManager) SecurityUtils.getSecurityManager();
+        RealmSecurityManager securityManager = (RealmSecurityManager) SecurityUtils.getSecurityManager();
         HopeShiroRealm realm = (HopeShiroRealm)securityManager.getRealms().iterator().next();
         for (SimplePrincipalCollection collection : list) {
             realm.clearCachedAuthorizationInfo(collection);

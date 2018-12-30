@@ -55,6 +55,29 @@
             <table id="bootstrap-table" data-mobile-responsive="true"></table>
         </div>
     </div>
+
+    <!--弹框-->
+    <div class="modal fade bs-example-modal-sm" id="selectRole" tabindex="-1" role="dialog" aria-labelledby="selectRoleLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="selectRoleLabel">分配角色</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="boxRoleForm">
+                        <div class="zTreeDemoBackground left">
+                            <ul id="treeDemo" class="ztree"></ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/弹框-->
 </div>
 <script th:inline="javascript">
 
@@ -139,27 +162,20 @@
     });
     /*用户管理-分配角色*/
     function rule(id) {
-       /* var url = ctx + "role/rule";
-        $.modal.open("分配资源", url);*/
-       alert(1)
-        console.log("分配权限");
+        console.log("分配角色");
         var $this = $(this);
         var userId = id;
         $.ajax({
             async: false,
             type: "POST",
-            data: {uid: userId},
+            data: {userId: userId},
             url: '/user/rolesWithSelected',
             dataType: 'json',
             success: function (json) {
                 var data = json.data;
                 console.log(data);
                 var setting = {
-                    check: {
-                        enable: true,
-                        chkboxType: {"Y": "ps", "N": "ps"},
-                        chkStyle: "radio"
-                    },
+                    check: { enable: true, nocheckInherit: true, chkboxType: { "Y": "ps", "N": "ps" } },
                     data: {
                         simpleData: {
                             enable: true
@@ -175,10 +191,8 @@
                                 //获取选中节点的值
                                 ids.push(nodes[i].id);
                             }
-                            console.log(ids);
-                            console.log(userId);
-                            $.post(options.saveRolesUrl, {"userId": userId, "roleIds": ids.join(",")}, function (obj) {
-                            }, 'json');
+                            //保存
+                            $.post(ctx + "user/saveUserRoles", {"userId": userId, "roleIds": ids.join(",")});
                         }
                     }
                 };

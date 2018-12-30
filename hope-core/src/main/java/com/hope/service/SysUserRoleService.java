@@ -11,4 +11,10 @@ import com.hope.mybatis.service.BaseService;
  * @create:2018-10-16 15:11
  **/
 public interface SysUserRoleService extends BaseService<SysUserRole>{
+    /***
+     * 添加用户角色
+     * @param userId
+     * @param roleIds
+     */
+    void addUserRole(Integer userId, String roleIds);
 }

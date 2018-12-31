@@ -12,6 +12,7 @@ import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
 import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,11 +46,13 @@ public class RoleController {
     private SysUserService sysUserService;
 
     /**角色列表**/
+    @RequiresPermissions("roles")
     @GetMapping("/role")
     public ModelAndView role(){
         return ResultHopeUtil.view("admin/role/role");
     }
 
+    @RequiresPermissions("role:list")
     @PostMapping("/list")
     @ResponseBody
     public PageResultVo list(RoleConditionVo vo){
@@ -67,6 +70,7 @@ public class RoleController {
         return ResultHopeUtil.view("admin/role/add");
     }
 
+    @RequiresPermissions("role:add")
     @PostMapping("/add")
     @ResponseBody
     public ResponseVo add(SysRole sysRoleForm){
@@ -97,6 +101,7 @@ public class RoleController {
         return ResultHopeUtil.view("admin/role/edit");
     }
 
+    @RequiresPermissions("role:edit")
     @PostMapping("/edit")
     @ResponseBody
     public ResponseVo edit(SysRole sysRole){
@@ -121,6 +126,7 @@ public class RoleController {
         return ResultHopeUtil.view("admin/role/rule");
     }
 
+    @RequiresPermissions("role:assign")
     @PostMapping("/assign")
     @ResponseBody
     public ResponseVo assign(String id, String[] menuIds){
@@ -140,6 +146,7 @@ public class RoleController {
      * @param id
      * @return
      */
+    @RequiresPermissions("role:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
     public ResponseVo delete(@PathVariable("id") Integer id){

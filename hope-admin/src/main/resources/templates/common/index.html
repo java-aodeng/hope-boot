@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="zh" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head th:include="common/include :: header"></head>
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
     <div id="wrapper">
@@ -15,7 +17,12 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                <span class="block m-t-xs"><strong class="font-bold">Hope-plus</strong></span>
-                                <span class="text-muted text-xs block">超级管理员<b class="caret"></b></span>
+                                    <span class="text-muted text-xs block">
+                                        <shiro:user>
+                                            欢迎【<font color="yellow"><shiro:principal property="username"/></font>】登录
+                                        </shiro:user>
+                                        <b class="caret"></b>
+                                    </span>
                                 </span>
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
@@ -77,7 +84,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a class="J_menuItem" th:href="@{/hope/hope-plus}" data-index="0">在线用户</a>
+                                <a class="J_menuItem" th:href="@{/onlineusers}" data-index="0">在线用户</a>
                             </li>
                         </ul>
                     </li>

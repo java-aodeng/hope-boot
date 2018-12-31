@@ -8,6 +8,7 @@ import com.hope.object.ResponseVo;
 import com.hope.service.SysResourceService;
 import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,11 +38,13 @@ public class ResourceController {
      * 资源列表
      * @return
      */
+    @RequiresPermissions("resources")
     @GetMapping("/resource")
     public ModelAndView resource(){
         return ResultHopeUtil.view("admin/resource/resource");
     }
 
+    @RequiresPermissions("resource:list")
     @GetMapping("/list")
     @ResponseBody
     public List<SysResource> list(SysResource sysResource){
@@ -79,6 +82,7 @@ public class ResourceController {
         return ResultHopeUtil.view("admin/resource/add");
     }
 
+    @RequiresPermissions("resource:add")
     @PostMapping("/add")
     @ResponseBody
     public ResponseVo add(SysResource sysResource){
@@ -124,6 +128,7 @@ public class ResourceController {
         return ResultHopeUtil.view("admin/resource/edit");
     }
 
+    @RequiresPermissions("resource:edit")
     @PostMapping("/edit")
     @ResponseBody
     public ResponseVo edit(SysResource sysResource){
@@ -141,6 +146,7 @@ public class ResourceController {
      * @param id
      * @return
      */
+    @RequiresPermissions("resource:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
     public ResponseVo delete(@PathVariable("id") Integer id){

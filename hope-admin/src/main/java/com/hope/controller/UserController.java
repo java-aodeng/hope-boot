@@ -52,13 +52,13 @@ public class UserController {
     private HopeShiroRealm hopeShiroRealm;
 
     /**用户列表**/
-    @RequiresPermissions("user:user:view")
+    @RequiresPermissions("user:user:view")//默认查看权限开启
     @GetMapping("/user")
     public ModelAndView user(){
         return ResultHopeUtil.view("admin/user/user");
     }
 
-    //@RequiresPermissions("user:list")
+    @RequiresPermissions("user:list")
     @PostMapping("/list")
     @ResponseBody
     public PageResultVo list(UserConditionVo vo){
@@ -75,6 +75,7 @@ public class UserController {
         return ResultHopeUtil.view("admin/user/add");
     }
 
+    @RequiresPermissions("user:add")
     @PostMapping("/add")
     @ResponseBody
     public ResponseVo add(SysUser sysUserFrom,String password2){
@@ -112,6 +113,7 @@ public class UserController {
         return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(userId));
     }
 
+    @RequiresPermissions("user:saveUserRoles")
     @PostMapping("/saveUserRoles")
     @ResponseBody
     public ResponseVo<List<SysRole>> saveUserRoles(Integer userId, String roleIds) {
@@ -130,6 +132,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @RequiresPermissions("user:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
     public ResponseVo delete(@PathVariable("id") Integer id){
@@ -149,6 +152,7 @@ public class UserController {
         return ResultHopeUtil.view("admin/user/edit");
     }
 
+    @RequiresPermissions("user:edit")
     @PostMapping("/edit")
     @ResponseBody
     public ResponseVo edit(SysUser sysUserFrom){

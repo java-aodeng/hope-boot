@@ -6,12 +6,14 @@ import com.hope.enums.ResponseStatusEnum;
 import com.hope.exception.HopeException;
 import com.hope.object.ResponseVo;
 import com.hope.utils.ResultHopeUtil;
+import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.UndeclaredThrowableException;
 
 /**全局统一异常处理
@@ -47,5 +49,11 @@ public class ExceptionHandleController {
         }
 
         return ResultHopeUtil.error(CommonConst.DEFAULT_ERROR_CODE,ResponseStatusEnum.ERROR.getMessage());
+    }
+
+    @ExceptionHandler(AuthorizationException.class)
+    public String handleAuth(HttpServletRequest request) {
+        request.setAttribute("javax.servlet.error.status_code",ResponseStatusEnum.FORBIDDEN.getCode());
+        return "forward:/error1";
     }
 }

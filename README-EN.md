@@ -63,7 +63,7 @@ Hope-plus was born out of the following projects（Open Source, Open Source for 
 
 ## Donation
 
-**Ask the author to eat a meat bun :) Author blog：https://aodeng.cc（We don't change the world, we change with the world.）Wechat Public Number：低调小熊猫**
+**Ask the author to eat a meat bun :) Author blog：[https://aodeng.cc](https://aodeng.cc)（We don't change the world, we change with the world.）Wechat Public Number：低调小熊猫**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 

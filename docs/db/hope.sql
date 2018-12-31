@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-12-30 22:23:31
+Date: 2018-12-31 15:21:50
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `sys_resource` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1033 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1032 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_resource
@@ -55,13 +55,13 @@ INSERT INTO `sys_resource` VALUES ('1000', '1000', '用户查询', '用户列表
 INSERT INTO `sys_resource` VALUES ('1001', '1001', '用户新增', '用户新增', '/user/add', 'user:add', '102', '2', '0', null, '1', '2018-11-18 15:06:50', '2018-11-18 15:09:24');
 INSERT INTO `sys_resource` VALUES ('1002', '1002', '用户编辑', '用户编辑', '/user/edit', 'user:edit', '102', '2', '0', null, '1', '2018-11-18 15:08:03', '2018-11-18 15:09:24');
 INSERT INTO `sys_resource` VALUES ('1003', '1003', '用户删除', '用户删除', '/user/delete', 'user:delete', '102', '2', '0', null, '1', '2018-11-18 15:08:42', '2018-11-18 15:09:24');
-INSERT INTO `sys_resource` VALUES ('1004', '1004', '用户导出', '用户导出', '/user/export', 'user:export', '102', '2', '0', '', '1', '2018-07-11 01:53:09', '2018-11-18 15:09:24');
+INSERT INTO `sys_resource` VALUES ('1004', '1004', '用户分配角色', '用户分配角色', '/user/saveUserRoles', 'user:saveUserRoles', '102', '2', '0', '', '1', '2018-07-11 01:53:09', '2018-11-18 15:09:24');
 INSERT INTO `sys_resource` VALUES ('1005', '1005', '重置密码', '重置密码', '/user/resetPwd', 'user:resetPwd', '102', '2', '0', null, '1', '2018-11-18 15:09:24', '2018-11-18 15:09:24');
 INSERT INTO `sys_resource` VALUES ('1006', '1006', '角色查询', '角色列表查询', '/role/list', 'role:list', '103', '2', '0', null, '1', '2018-11-18 15:31:36', '2018-11-18 10:53:14');
 INSERT INTO `sys_resource` VALUES ('1007', '1007', '角色新增', '新增角色', '/role/add', 'role:add', '103', '2', '0', null, '1', '2018-11-18 14:39:46', '2018-11-18 10:53:14');
 INSERT INTO `sys_resource` VALUES ('1008', '1008', '角色编辑', '编辑角色', '/role/edit', 'role:edit', '103', '2', '0', null, '1', '2018-11-18 14:40:15', '2018-11-18 10:53:14');
 INSERT INTO `sys_resource` VALUES ('1009', '1009', '角色删除', '删除角色', '/role/delete', 'role:delete', '103', '2', '0', null, '1', '2018-11-18 14:40:57', '2018-11-18 10:53:14');
-INSERT INTO `sys_resource` VALUES ('1010', '1010', '角色导出', '批量删除角色', '/role/export', 'role:export', '103', '2', '0', '', '1', '2018-11-18 22:20:43', '2018-11-18 22:20:43');
+INSERT INTO `sys_resource` VALUES ('1010', '1010', '角色分配资源', '角色分配资源', '/role/assign', 'role:assign', '103', '2', '0', '', '1', '2018-11-18 22:20:43', '2018-11-18 22:20:43');
 INSERT INTO `sys_resource` VALUES ('1011', '1011', '资源查询', '资源查询', '/resource/list', 'resource:list', '104', '2', '0', null, '1', '2018-11-18 16:25:28', '2018-11-18 16:25:33');
 INSERT INTO `sys_resource` VALUES ('1012', '1012', '资源新增', '资源新增', '/resource/add', 'resource:add', '104', '2', '0', null, '1', '2018-11-18 08:06:58', '2018-11-18 10:53:14');
 INSERT INTO `sys_resource` VALUES ('1013', '1013', '资源编辑', '资源编辑', '/resource/edit', 'resource:edit', '104', '2', '0', null, '1', '2018-11-18 21:29:04', '2018-11-18 10:53:14');
@@ -92,7 +92,6 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 INSERT INTO `sys_role` VALUES ('1', '1', '超级管理员', '超级管理员', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02');
 INSERT INTO `sys_role` VALUES ('37', 'b3e9e9b', '测试角色', '用来测试的角色', '1', null, '2018-12-27 21:20:32');
-INSERT INTO `sys_role` VALUES ('38', 'c52f2a8', '1', '1', '1', '2018-12-30 18:23:50', '2018-12-30 18:23:50');
 
 -- ----------------------------
 -- Table structure for sys_role_resource
@@ -103,7 +102,7 @@ CREATE TABLE `sys_role_resource` (
   `roleId` varchar(20) NOT NULL COMMENT '角色id',
   `resourceId` varchar(20) NOT NULL COMMENT '资源id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=368 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=395 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role_resource
@@ -170,8 +169,20 @@ INSERT INTO `sys_role_resource` VALUES ('362', '14', '1017');
 INSERT INTO `sys_role_resource` VALUES ('363', '14', '4');
 INSERT INTO `sys_role_resource` VALUES ('364', '14', '106');
 INSERT INTO `sys_role_resource` VALUES ('365', '14', '107');
-INSERT INTO `sys_role_resource` VALUES ('366', '37', '1027');
-INSERT INTO `sys_role_resource` VALUES ('367', '37', '1031');
+INSERT INTO `sys_role_resource` VALUES ('381', '37', '2');
+INSERT INTO `sys_role_resource` VALUES ('382', '37', '102');
+INSERT INTO `sys_role_resource` VALUES ('383', '37', '1000');
+INSERT INTO `sys_role_resource` VALUES ('384', '37', '103');
+INSERT INTO `sys_role_resource` VALUES ('385', '37', '1006');
+INSERT INTO `sys_role_resource` VALUES ('386', '37', '104');
+INSERT INTO `sys_role_resource` VALUES ('387', '37', '1011');
+INSERT INTO `sys_role_resource` VALUES ('388', '37', '3');
+INSERT INTO `sys_role_resource` VALUES ('389', '37', '105');
+INSERT INTO `sys_role_resource` VALUES ('390', '37', '1015');
+INSERT INTO `sys_role_resource` VALUES ('391', '37', '4');
+INSERT INTO `sys_role_resource` VALUES ('392', '37', '106');
+INSERT INTO `sys_role_resource` VALUES ('393', '37', '1027');
+INSERT INTO `sys_role_resource` VALUES ('394', '37', '1031');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -192,16 +203,13 @@ CREATE TABLE `sys_user` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   `last_login_time` datetime DEFAULT NULL COMMENT '最后登陆时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2018-12-30 21:24:35');
-INSERT INTO `sys_user` VALUES ('2', '2', 'admin2', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2018-09-18 14:00:02');
-INSERT INTO `sys_user` VALUES ('3', 'de6d4fb', 'test1', 'eedqXGyUJwa/dFCLOZ+IYg==', null, '', '', null, null, '1', '2018-12-19 20:22:17', '2018-12-19 20:22:18', null);
-INSERT INTO `sys_user` VALUES ('4', 'a2950d4', 'test2', 'eedqXGyUJwa/dFCLOZ+IYg==', null, 'java@aodeng.cc', '12312312312', null, '20', '1', '2018-12-19 20:28:47', '2018-12-19 20:28:47', null);
-INSERT INTO `sys_user` VALUES ('5', '1dc38c2', 'test3', 'H2OfGItuZGl+WDP9qU8fzA==', null, 'java@aodeng.cc', '12312312312', null, '22', '1', '2018-12-19 20:33:32', '2018-12-19 20:33:32', null);
+INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2018-12-31 15:14:24');
+INSERT INTO `sys_user` VALUES ('2', '2', '女测试', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '5231794143@qq.com', '1878888999913', '0', '233', '1', '2018-09-18 14:00:02', '2018-12-31 13:33:01', '2018-12-31 15:14:01');
 
 -- ----------------------------
 -- Table structure for sys_user_role
@@ -212,11 +220,11 @@ CREATE TABLE `sys_user_role` (
   `userId` varchar(20) NOT NULL COMMENT '用户id',
   `roleId` varchar(20) NOT NULL COMMENT '角色id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
 INSERT INTO `sys_user_role` VALUES ('1', '1', '1');
-INSERT INTO `sys_user_role` VALUES ('15', '2', '37');
-INSERT INTO `sys_user_role` VALUES ('16', '2', '38');
+INSERT INTO `sys_user_role` VALUES ('17', '2', '37');
+INSERT INTO `sys_user_role` VALUES ('22', '3', '');

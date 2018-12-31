@@ -16,6 +16,7 @@
 
 >基于Springboot2开发，整合使用mybatis+shiro+redis+thymeleaf+maven等实用技术。页面模板使用了界面美观的h+，内置诸多的强大的可以重新组合的UI组件，jQuery插件等。可以用于所有的Web应用程序，如网站管理系统后台，CMS，CRM，OA等等。当然，您也可以进行深度定制，做出更强的系统。
 
+>如果觉得不错，给个Star支持一下吧！你的Star，我的开源动力！
 #### 模块划分
 
 | 模块         | 释义                      |    
@@ -23,6 +24,17 @@
 | hope-admin  | 后台管理模块 |      
 | hope-core  | 核心业务类模块 |    
 | hope-framework | 框架模块,提供数据操作、工具处理等 |
+
+#### 使用说明
+1.使用命令：git clone https://github.com/java-aodeng/hope-plus.git 拉取代码
+2.使用IDEA导入本项目
+3.新建数据库create database hope; 导入数据库docs/db/hope.sql
+4.修改(hope-admin/resources/application.yaml)配置文件
+    a.数据库链接属性(可搜索datasource或定位到L.17)
+    b.redis配置(可搜索redis或定位到L.29,注：该项目必须安装redis服务才能启动)
+5.运行项目(方式很多，推荐最简单的一种)
+    a.直接运行hope-admin目录下的HopeAdminApplication.java
+6.浏览器访问 http://127.0.0.1:8886
 
 ### 感谢：
 Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：

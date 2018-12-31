@@ -16,6 +16,7 @@
 
 >Based on Springboot2 development, integrated use of mybatis + Shiro + redis + thymeleaf + Maven and other practical technologies. Page template uses h+, which has beautiful interface, many powerful UI components that can be reconfigured, jQuery plug-ins and so on. It can be used in all Web applications, such as the background of website management system, CMS, CRM, OA and so on. Of course, you can also customize in depth to make a stronger system.
 
+>If you think it's good, give Star support! Your Star, my Open Source Power!
 #### Module partition
 
 | Modular         | Interpretation                      |    

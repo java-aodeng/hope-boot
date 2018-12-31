@@ -61,6 +61,10 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [kaptcha](https://github.com/penggle/kaptcha)：Google验证码
 - [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
 
+## 捐赠
+**请作者吃个肉夹馍 :)**
+![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
+
 ## 界面展示
 
 ![](https://i.loli.net/2018/12/31/5c29cfa636b7a.png)
@@ -72,6 +76,6 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 ![](https://i.loli.net/2018/12/31/5c29d188daba1.png)
 ![](https://i.loli.net/2018/12/31/5c29d1ce428a5.png)
 ![](https://i.loli.net/2018/12/31/5c29d1ce60893.png)
-![](https://i.loli.net/2018/12/31/5c29d1ce66275.png)
 ![](https://i.loli.net/2018/12/31/5c29d1ce68318.png)
+![](https://i.loli.net/2018/12/31/5c29d1ce66275.png)
 ![](https://i.loli.net/2018/12/31/5c29d1ce86b5e.png)

@@ -23,7 +23,22 @@
 | ---------- | ----------------------- |
 | hope-admin  | Background management module |      
 | hope-core  | Core Business Class Module |    
-| hope-framework | Framework module, providing data manipulation, tool processing, etc. |
+| hope-framework | Framework module, providing data operation, tool processing, general Mapper, general service, etc. |
+
+#### Instructions
+```bash
+# 1.Use command pull substitution code：
+git clone https://github.com/java-aodeng/hope-plus.git 
+# 2.Import this project using IDEA
+# 3.New database create database hope; Import database files docs/db/hope.sql
+# 4.modify(hope-admin/resources/application.yaml)configuration file
+    a.Database Configuration(Searchable data source or location toL.17)
+    b.redis Configuration(Searchable redis or location to L.29, Note: The project must install redis service to start)
+# 5.Running projects (in many ways, the simplest is recommended)
+    a.Run the hope-admin directory directlyHopeAdminApplication.java
+# 6.Browser access:
+http://127.0.0.1:8886
+```
 
 ### Thank：
 Hope-plus was born out of the following projects（Open Source, Open Source for Use）：
@@ -46,4 +61,23 @@ Hope-plus was born out of the following projects（Open Source, Open Source for 
 - [kaptcha](https://github.com/penggle/kaptcha)：Google Verification Code
 - [jrebel](https://zeroturnaround.com/software/jrebel/)：Thermal deployment
 
-Efforts are being made to load...
+## Donation
+
+**Ask the author to eat a meat bun :) Author blog：https://aodeng.cc（We don't change the world, we change with the world.）Wechat Public Number：低调小熊猫**
+
+![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
+
+## Interface display
+
+![](https://i.loli.net/2018/12/31/5c29cfa636b7a.png)
+![](https://i.loli.net/2018/12/31/5c29cfe24ef3c.png)
+![](https://i.loli.net/2018/12/31/5c29d0f3e7f89.png)
+![](https://i.loli.net/2018/12/31/5c29d08c40128.png)
+![](https://i.loli.net/2018/12/31/5c29d08c4b71f.png)
+![](https://i.loli.net/2018/12/31/5c29d188d68fe.png)
+![](https://i.loli.net/2018/12/31/5c29d188daba1.png)
+![](https://i.loli.net/2018/12/31/5c29d1ce428a5.png)
+![](https://i.loli.net/2018/12/31/5c29d1ce60893.png)
+![](https://i.loli.net/2018/12/31/5c29d1ce68318.png)
+![](https://i.loli.net/2018/12/31/5c29d1ce66275.png)
+![](https://i.loli.net/2018/12/31/5c29d1ce86b5e.png)

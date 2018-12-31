@@ -32,10 +32,10 @@ git clone https://github.com/java-aodeng/hope-plus.git
 # 2.使用IDEA导入本项目
 # 3.新建数据库create database hope; 导入数据库文件docs/db/hope.sql
 # 4.修改(hope-admin/resources/application.yaml)配置文件
-    #a.数据库配置(可搜索datasource或定位到L.17)
-    #b.redis配置(可搜索redis或定位到L.29,注：该项目必须安装redis服务才能启动)
+#    a.数据库配置(可搜索datasource或定位到L.17)
+#    b.redis配置(可搜索redis或定位到L.29,注：该项目必须安装redis服务才能启动)
 # 5.运行项目(方式很多，推荐最简单的一种)
-    a.直接运行hope-admin目录下的HopeAdminApplication.java
+#    a.直接运行hope-admin目录下的HopeAdminApplication.java
 # 6.浏览器访问：
 http://127.0.0.1:8886
 ```

@@ -26,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
  **/
 @Controller
 public class HopeController {
+
     private static final Logger log= LoggerFactory.getLogger(HopeController.class);
 
     /***
@@ -78,6 +79,7 @@ public class HopeController {
      */
     @GetMapping("/logout")
     public ModelAndView logout() {
+        // http://www.oschina.net/question/99751_91561  此处有坑，这里其实可用使用shiro自带的退出，不用你实现任何东西
         log.info("[退出登录成功]-[{}]",DateUtil.date());
         return ResultHopeUtil.redirect("login");
     }
@@ -102,11 +104,10 @@ public class HopeController {
         log.info("[hope-index_v2-page]-[{}]","测试140");
         return ResultHopeUtil.view("admin/onlineusers/onlineuser");
     }
-/*
+    /*
     @Autowired private RedisCacheManager redisCacheManager;
     @RequestMapping("/logout2")
     public ModelAndView logout2() {
-        // http://www.oschina.net/question/99751_91561  这里其实可用使用shiro自带的退出，不用你实现任何东西
         //自定义退出，清空缓存
         Subject subject=SecurityUtils.getSubject();
         if (ObjectUtil.isNotNull(subject)){

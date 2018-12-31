@@ -36,6 +36,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/role")
 public class RoleController {
+
     private static final Logger log= LoggerFactory.getLogger(RoleController.class);
 
     @Autowired

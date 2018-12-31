@@ -251,8 +251,17 @@ public class ShiroConfig {
         return new ShiroDialect();
     }
 
+    /***
+     * 凭证匹配器
+     * @return
+     */
+    @Bean(name = "credentialsMatcher")
+    public RetryLimitCredentialsMatcher credentialsMatcher(){
+        return new RetryLimitCredentialsMatcher();
+    }
+
     /**=====================================================hope-plus ShiroConfig end=======================================**/
-    /**可以不要以下方法**/
+    /**扩展**/
     /*@Bean
     public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){
         MethodInvokingFactoryBean factoryBean=new MethodInvokingFactoryBean();
@@ -268,15 +277,6 @@ public class ShiroConfig {
         defaultAdvisorAutoProxyCreator.setProxyTargetClass(true);
         return defaultAdvisorAutoProxyCreator;
     }*/
-
-    /***
-     * 凭证匹配器
-     * @return
-     */
-    @Bean(name = "credentialsMatcher")
-    public RetryLimitCredentialsMatcher credentialsMatcher(){
-        return new RetryLimitCredentialsMatcher();
-    }
 
     /***
      * 自定义拦截器，重写shiro登录成功重定向

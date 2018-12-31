@@ -27,10 +27,10 @@
 
 #### 使用说明
 
+1.* 使用命令拉取代码：
 ```bash
-1.使用命令拉取代码：
 git clone https://github.com/java-aodeng/hope-plus.git 
-
+```
 2.使用IDEA导入本项目
 
 3.新建数据库create database hope; 导入数据库文件docs/db/hope.sql
@@ -43,6 +43,7 @@ git clone https://github.com/java-aodeng/hope-plus.git
     a.直接运行hope-admin目录下的HopeAdminApplication.java
 
 6.浏览器访问：
+```bash
 http://127.0.0.1:8886
 ```
 

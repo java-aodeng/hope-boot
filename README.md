@@ -26,7 +26,8 @@
 | hope-framework | 框架模块,提供数据操作、工具处理等 |
 
 #### 使用说明
-1.使用命令：git clone https://github.com/java-aodeng/hope-plus.git 拉取代码
+
+1. 使用命令：git clone https://github.com/java-aodeng/hope-plus.git 拉取代码
 2.使用IDEA导入本项目
 3.新建数据库create database hope; 导入数据库docs/db/hope.sql
 4.修改(hope-admin/resources/application.yaml)配置文件

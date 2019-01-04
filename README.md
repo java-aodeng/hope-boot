@@ -39,7 +39,10 @@ git clone https://github.com/java-aodeng/hope-plus.git
 # 6.浏览器访问：
 http://127.0.0.1:8886
 ```
+#### 账号
+后台登录：账号：admin 密码：123456
 
+资源监控：账号：hope-druid 密码：hope-druid
 ### 感谢：
 Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：
 

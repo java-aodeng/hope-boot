@@ -39,7 +39,10 @@ git clone https://github.com/java-aodeng/hope-plus.git
 # 6.Browser access:
 http://127.0.0.1:8886
 ```
+#### Account number
+Backstage login：Account number：admin password：123456
 
+Resource monitoring：Account number：hope-druid password：hope-druid
 ### Thank：
 Hope-plus was born out of the following projects（Open Source, Open Source for Use）：
 

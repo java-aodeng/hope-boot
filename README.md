@@ -12,7 +12,7 @@
 
 ## 简介：
 
->Hope-plus是一款nice的权限管理系统
+>Hope-plus是一款nice的权限管理系统 https://github.com/java-aodeng/hope-plus
 
 >基于Springboot2开发，整合使用mybatis+shiro+redis+thymeleaf+maven等实用技术。页面模板使用了界面美观的h+，内置诸多的强大的可以重新组合的UI组件，jQuery插件等。可以用于所有的Web应用程序，如网站管理系统后台，CMS，CRM，OA等等。当然，您也可以进行深度定制，做出更强的系统。
 

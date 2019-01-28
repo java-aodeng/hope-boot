@@ -45,7 +45,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
 
     @Override
     public PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo) {
-        PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
+        PageHelper.startPage(vo.getPageStart(),vo.getPageSize());
         List<SysUser> sysUsers=sysUserMapper.findPageBreakByCondition(vo);
         if (CollectionUtils.isEmpty(sysUsers)){
             return null;

@@ -17,6 +17,8 @@ import com.hope.service.SysUserService;
 import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.utils.ResultHopeUtil;
 import com.hope.utils.UsingAesHopeUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +38,7 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-12-10 20:13
  **/
+@Api(value = "用户",description = "用户管理")
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -52,6 +55,7 @@ public class UserController {
     private HopeShiroRealm hopeShiroRealm;
 
     /**用户列表**/
+    @ApiOperation(value = "用户列表", notes = "用户列表")
     @RequiresPermissions("user:user:view")//默认查看权限开启
     @GetMapping("/user")
     public ModelAndView user(){
@@ -70,6 +74,7 @@ public class UserController {
      * 添加用户
      * @return
      */
+    @ApiOperation(value = "添加用户", notes = "添加用户")
     @GetMapping("/add")
     public ModelAndView add(){
         return ResultHopeUtil.view("admin/user/add");
@@ -107,6 +112,7 @@ public class UserController {
     /***
      * 用户分配角色
      */
+    @ApiOperation(value = "用户分配角色", notes = "用户分配角色")
     @PostMapping("/rolesWithSelected")
     @ResponseBody
     public ResponseVo<List<SysRole>> rolesWithSelected(Integer userId) {
@@ -132,6 +138,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "删除用户", notes = "删除用户")
     @RequiresPermissions("user:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
@@ -146,6 +153,7 @@ public class UserController {
     /***
      * 编辑用户
      */
+    @ApiOperation(value = "编辑用户", notes = "编辑用户")
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Integer id,ModelMap map){
         map.addAttribute("user",sysUserService.selectById(id));

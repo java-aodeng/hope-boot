@@ -12,6 +12,8 @@ import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
 import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,7 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-24 14:56
  **/
+@Api(value = "角色",description = "角色管理")
 @Controller
 @RequestMapping("/role")
 public class RoleController {
@@ -47,6 +50,7 @@ public class RoleController {
     private SysUserService sysUserService;
 
     /**角色列表**/
+    @ApiOperation(value = "资源列表", notes = "资源列表")
     @RequiresPermissions("roles")
     @GetMapping("/role")
     public ModelAndView role(){
@@ -65,6 +69,7 @@ public class RoleController {
      * 添加角色
      * @return
      */
+    @ApiOperation(value = "添加角色", notes = "添加角色")
     @GetMapping("/add")
     public ModelAndView add(){
         log.info("[role-add-page]-[{}]","测试210");
@@ -96,6 +101,7 @@ public class RoleController {
      * @param map
      * @return
      */
+    @ApiOperation(value = "编辑角色", notes = "编辑角色")
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Integer id, ModelMap map){
         map.addAttribute("role",sysRoleService.selectById(id));
@@ -121,6 +127,7 @@ public class RoleController {
      * @param model
      * @return
      */
+    @ApiOperation(value = "角色分配资源", notes = "角色分配资源")
     @GetMapping("/rule/{id}")
     public ModelAndView rule(@PathVariable("id") Integer id, Model model){
         model.addAttribute("id",id);
@@ -147,6 +154,7 @@ public class RoleController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "删除角色", notes = "删除角色")
     @RequiresPermissions("role:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody

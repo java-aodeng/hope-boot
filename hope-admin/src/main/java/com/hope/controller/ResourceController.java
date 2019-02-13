@@ -8,6 +8,8 @@ import com.hope.object.ResponseVo;
 import com.hope.service.SysResourceService;
 import com.hope.shiro.service.ShiroService;
 import com.hope.utils.ResultHopeUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,7 @@ import java.util.Map;
  * @微信公众号:低调小熊猫
  * @create:2018-12-03 22:22
  **/
+@Api(value = "资源",description = "资源管理")
 @Controller
 @RequestMapping("/resource")
 public class ResourceController {
@@ -38,6 +41,7 @@ public class ResourceController {
      * 资源列表
      * @return
      */
+    @ApiOperation(value = "资源列表", notes = "资源列表")
     @RequiresPermissions("resources")
     @GetMapping("/resource")
     public ModelAndView resource(){
@@ -57,6 +61,7 @@ public class ResourceController {
      * @param sysRole
      * @return
      */
+    @ApiOperation(value = "加载角色资源列表树", notes = "加载角色资源列表树")
     @GetMapping("/roleResourceTreeData")
     @ResponseBody
     public List<Map<String,Object>> roleResourceTreeData(SysRole sysRole){
@@ -68,6 +73,7 @@ public class ResourceController {
      * 新增资源
      * @return
      */
+    @ApiOperation(value = "新增资源", notes = "新增资源")
     @GetMapping("/add/{id}")
     public ModelAndView add(@PathVariable("id") Integer id,ModelMap map){
         SysResource resource=null;
@@ -101,6 +107,7 @@ public class ResourceController {
      * 根据资源id获取资源数据
      * @return
      */
+    @ApiOperation(value = "根据资源id获取资源数据", notes = "根据资源id获取资源数据")
     @GetMapping("/selectResourceById/{resourceId}")
     public ModelAndView selectResourceById(@PathVariable("resourceId") Integer resourceId, ModelMap map){
         map.put("resource",sysResourceService.selectResourceById(resourceId));
@@ -111,6 +118,7 @@ public class ResourceController {
      * 获取资源数据
      * @return
      */
+    @ApiOperation(value = "获取资源数据", notes = "获取资源数据")
     @GetMapping("/resourceTreeAll")
     @ResponseBody
     public List<Map<String,Object>> resourceTreeAll(){
@@ -122,6 +130,7 @@ public class ResourceController {
      * 修改资源
      * @return
      */
+    @ApiOperation(value = "修改资源", notes = "修改资源")
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Integer id,ModelMap map){
         map.put("resource",sysResourceService.selectResourceById(id));
@@ -146,6 +155,7 @@ public class ResourceController {
      * @param id
      * @return
      */
+    @ApiOperation(value = "删除资源", notes = "删除资源")
     @RequiresPermissions("resource:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody

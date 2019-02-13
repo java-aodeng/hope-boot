@@ -6,6 +6,7 @@ import com.hope.enums.ResponseStatusEnum;
 import com.hope.exception.HopeException;
 import com.hope.object.ResponseVo;
 import com.hope.utils.ResultHopeUtil;
+import io.swagger.annotations.Api;
 import org.apache.shiro.authz.AuthorizationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ import java.lang.reflect.UndeclaredThrowableException;
  * @微信公众号:低调小熊猫
  * @create:2018-12-18 15:46
  **/
+@Api(value = "异常",description = "全局异常处理")
 @ControllerAdvice  //@RestControllerAdvice 该注解将异常以json格式输出
 public class ExceptionHandleController {
 

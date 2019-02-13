@@ -2,6 +2,8 @@ package com.hope.controller;
 
 import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,7 @@ import java.io.IOException;
  * @微信公众号:低调小熊猫
  * @create:2018-10-30 15:05
  **/
+@Api(value = "验证码",description = "验证码处理")
 @Controller
 public class KaptchaController {
     private static final Logger log = LoggerFactory.getLogger(KaptchaController.class);
@@ -45,6 +48,7 @@ public class KaptchaController {
      * @return the captcha code
      * @throws IOException the io exception
      */
+    @ApiOperation(value = "获取验证码图片", notes = "获取验证码图片")
     @RequestMapping("/verificationCode")
     public ModelAndView getCaptchaCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();

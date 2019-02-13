@@ -79,3 +79,4 @@ hope:
         allowIps[0]:
         # 黑名单(非必填)， list
         denyIps[0]:
+#swagger入口： http://localhost:8886/swagger-ui.html#/

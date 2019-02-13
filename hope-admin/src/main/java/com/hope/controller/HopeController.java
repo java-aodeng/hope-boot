@@ -4,6 +4,8 @@ import cn.hutool.core.date.DateUtil;
 import com.google.code.kaptcha.Constants;
 import com.hope.object.ResponseVo;
 import com.hope.utils.ResultHopeUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -24,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
  * @微信公众号:低调小熊猫
  * @create:2018-10-22 17:13
  **/
+@Api(value = "hope页面入口",description = "hope页面入口管理")
 @Controller
 public class HopeController {
 
@@ -33,6 +36,7 @@ public class HopeController {
      * 首页
      * @return
      */
+    @ApiOperation(value = "首页", notes = "首页")
     @GetMapping(value = {"/","/common/index", "/index"})
     public String index(){
         return "common/index";
@@ -42,6 +46,7 @@ public class HopeController {
      * 登录
      * @return
      */
+    @ApiOperation(value = "登录", notes = "登录")
     @GetMapping("/login")
     public String login() {
         return "common/login";
@@ -77,6 +82,7 @@ public class HopeController {
      * 退出登录
      * @return
      */
+    @ApiOperation(value = "退出登录", notes = "退出登录")
     @GetMapping("/logout")
     public ModelAndView logout() {
         // http://www.oschina.net/question/99751_91561  此处有坑，这里其实可用使用shiro自带的退出，不用你实现任何东西
@@ -89,6 +95,7 @@ public class HopeController {
      * @param model
      * @return
      */
+    @ApiOperation(value = "hope-plus", notes = "hope-plus")
     @RequestMapping("/hope-plus")
     public ModelAndView index_v1(Model model){
         return ResultHopeUtil.view("common/hope-plus");
@@ -99,6 +106,7 @@ public class HopeController {
      * @param model
      * @return
      */
+    @ApiOperation(value = "测试", notes = "测试")
     @RequestMapping("//onlineusers")
     public ModelAndView index_v2(Model model){
         log.info("[hope-index_v2-page]-[{}]","测试140");

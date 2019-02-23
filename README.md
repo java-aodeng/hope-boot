@@ -44,7 +44,7 @@ http://127.0.0.1:8886
 
 资源监控：账号：hope-druid 密码：hope-druid
 
-API地址：localhost:8886/swagger-ui.html#/
+API地址：localhost:8886/swagger-ui.html
 ### 感谢：
 Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：
 

@@ -8,7 +8,10 @@
 [![JDK](https://img.shields.io/badge/JDK-1.8-orange.svg)](https://github.com/java-aodeng/hope-plus)
 [![license](https://img.shields.io/badge/license-GPL--3.0-red.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
 [![QQ群](https://img.shields.io/badge/chat-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%ABQQ%E7%BE%A4-yellow.svg)](https://jq.qq.com/?_wv=1027&k=574chhz)
+[![Telegram群组](https://img.shields.io/badge/telegram-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB--%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD-orange.svg)](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 [![发行版本](https://img.shields.io/badge/release-0.2.0-green.svg)](https://github.com/java-aodeng/hope-plus/releases)
+
+
 
 ## 简介：
 
@@ -70,7 +73,6 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 ## 捐赠
 
 **请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
-**[telegram群组：https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 

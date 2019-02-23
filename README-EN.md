@@ -44,7 +44,7 @@ Backstage login：Account number：admin password：123456
 
 Resource monitoring：Account number：hope-druid password：hope-druid
 
-API address: localhost:8886/swagger-ui.html#/
+API address: localhost:8886/swagger-ui.html
 ### Thank：
 Hope-plus was born out of the following projects（Open Source, Open Source for Use）：
 

@@ -90,3 +90,7 @@ Hope-plus was born out of the following projects（Open Source, Open Source for 
 ![](https://i.loli.net/2018/12/31/5c29d1ce66275.png)
 ![](https://i.loli.net/2018/12/31/5c29d1ce86b5e.png)
 ![](https://i.loli.net/2019/02/13/5c63cd02c39e2.png)
+
+## Last
+
+In order to prevent the world from being destroyed, in order to love and justice, it is recommended to look at the wisdom of asking questions. http://doc.zengrong.net/smart-questions/cn.html

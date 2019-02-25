@@ -19,7 +19,9 @@
  */
 package com.hope.consts;
 
-/**hope公用常量类
+/**
+ * hope公用常量类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -30,18 +32,18 @@ public class CommonConst {
     /***
      *uuid盐,hope专用
      */
-    public static final String ZYD_SECURITY_KEY="929123f8f17944e8b0a531045453e1f1";
+    public static final String ZYD_SECURITY_KEY = "929123f8f17944e8b0a531045453e1f1";
     /***
      *程序错误状态码
      */
-    public static final int DEFAULT_ERROR_CODE=500;
+    public static final int DEFAULT_ERROR_CODE = 500;
     /***
      * 程序成功状态码
      */
-    public static final int DEFAULT_SUCCESS_CODE=200;
+    public static final int DEFAULT_SUCCESS_CODE = 200;
 
     /***
      * session key
      */
-    public static final String USER_SESSION_KEY="user_session_key";
+    public static final String USER_SESSION_KEY = "user_session_key";
 }

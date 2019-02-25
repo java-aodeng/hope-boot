@@ -8,7 +8,9 @@ import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
-/**druidProperties类
+/**
+ * druidProperties类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -23,8 +25,8 @@ import java.util.List;
 public class DruidProperties {
     private String username;
     private String password;
-    private String servletPath="/druid/*";
-    private Boolean resetEnable=false;
+    private String servletPath = "/druid/*";
+    private Boolean resetEnable = false;
     private List<String> allowIps;
     private List<String> denyIps;
 }

@@ -38,12 +38,12 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-12-10 20:13
  **/
-@Api(value = "用户",description = "用户管理")
+@Api(value = "用户", description = "用户管理")
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-    private static final Logger log= LoggerFactory.getLogger(UserController.class);
+    private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private SysUserService sysUserService;
@@ -54,19 +54,21 @@ public class UserController {
     @Autowired
     private HopeShiroRealm hopeShiroRealm;
 
-    /**用户列表**/
+    /**
+     * 用户列表
+     **/
     @ApiOperation(value = "用户列表", notes = "用户列表")
     @RequiresPermissions("user:user:view")//默认查看权限开启
     @GetMapping("/user")
-    public ModelAndView user(){
+    public ModelAndView user() {
         return ResultHopeUtil.view("admin/user/user");
     }
 
     @RequiresPermissions("user:list")
     @PostMapping("/list")
     @ResponseBody
-    public PageResultVo list(UserConditionVo vo){
-        PageInfo<SysUser> pageInfo=sysUserService.findPageBreakByCondition(vo);
+    public PageResultVo list(UserConditionVo vo) {
+        PageInfo<SysUser> pageInfo = sysUserService.findPageBreakByCondition(vo);
         return ResultHopeUtil.tablePage(pageInfo);
     }
 
@@ -76,14 +78,14 @@ public class UserController {
      */
     @ApiOperation(value = "添加用户", notes = "添加用户")
     @GetMapping("/add")
-    public ModelAndView add(){
+    public ModelAndView add() {
         return ResultHopeUtil.view("admin/user/add");
     }
 
     @RequiresPermissions("user:add")
     @PostMapping("/add")
     @ResponseBody
-    public ResponseVo add(SysUser sysUserFrom,String password2){
+    public ResponseVo add(SysUser sysUserFrom, String password2) {
         SysUser user = sysUserService.getByUserName(sysUserFrom.getUsername());
         if (ObjectUtil.isNotNull(user)) {
             return ResultHopeUtil.error("该用户名[" + user.getUsername() + "]已存在！请更改用户名");
@@ -92,19 +94,19 @@ public class UserController {
             return ResultHopeUtil.error("两次密码不相同！");
         }
         try {
-            sysUserFrom.setPassword(UsingAesHopeUtil.encrypt(sysUserFrom.getPassword(),sysUserFrom.getUsername()));
+            sysUserFrom.setPassword(UsingAesHopeUtil.encrypt(sysUserFrom.getPassword(), sysUserFrom.getUsername()));
             sysUserFrom.setCreatetime(DateUtil.date());
             sysUserFrom.setUpdatetime(DateUtil.date());
-            sysUserFrom.setUserId(RandomUtil.randomUUID().substring(0,7).toString());
-            if (ObjectUtil.isNull(sysUserFrom.getStatus())){
+            sysUserFrom.setUserId(RandomUtil.randomUUID().substring(0, 7).toString());
+            if (ObjectUtil.isNull(sysUserFrom.getStatus())) {
                 sysUserFrom.setStatus(SysUserStatusEnum.NORMAL.getCode());
             }
-            if(!sysUserService.insert(sysUserFrom)){
+            if (!sysUserService.insert(sysUserFrom)) {
                 return ResultHopeUtil.error("用户添加失败！");
             }
             return ResultHopeUtil.success("用户添加成功！");
-        }catch (Exception e){
-            log.info("[用户添加失败]-[{}]",e.getMessage());
+        } catch (Exception e) {
+            log.info("[用户添加失败]-[{}]", e.getMessage());
             return ResultHopeUtil.error("用户添加失败！");
         }
     }
@@ -123,12 +125,12 @@ public class UserController {
     @PostMapping("/saveUserRoles")
     @ResponseBody
     public ResponseVo<List<SysRole>> saveUserRoles(Integer userId, String roleIds) {
-        log.info("[用户id-[{}]，角色id-[{}]",userId,roleIds);
+        log.info("[用户id-[{}]，角色id-[{}]", userId, roleIds);
         //添加
-        sysUserRoleService.addUserRole(userId,roleIds);
+        sysUserRoleService.addUserRole(userId, roleIds);
         //更新当前登录的用户的权限缓存
-        List<String> userIds=new ArrayList<>();
-        userIds.add(Convert.convert(String.class,userId));
+        List<String> userIds = new ArrayList<>();
+        userIds.add(Convert.convert(String.class, userId));
         hopeShiroRealm.clearAuthorizationByUserId(userIds);
         return ResultHopeUtil.success("操作成功");
     }
@@ -142,10 +144,10 @@ public class UserController {
     @RequiresPermissions("user:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
-    public ResponseVo delete(@PathVariable("id") Integer id){
-        if (sysUserService.deleteById(id)){
+    public ResponseVo delete(@PathVariable("id") Integer id) {
+        if (sysUserService.deleteById(id)) {
             return ResultHopeUtil.success("用户删除成功！");
-        }else {
+        } else {
             return ResultHopeUtil.error("用户删除失败！");
         }
     }
@@ -155,19 +157,19 @@ public class UserController {
      */
     @ApiOperation(value = "编辑用户", notes = "编辑用户")
     @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable("id") Integer id,ModelMap map){
-        map.addAttribute("user",sysUserService.selectById(id));
+    public ModelAndView edit(@PathVariable("id") Integer id, ModelMap map) {
+        map.addAttribute("user", sysUserService.selectById(id));
         return ResultHopeUtil.view("admin/user/edit");
     }
 
     @RequiresPermissions("user:edit")
     @PostMapping("/edit")
     @ResponseBody
-    public ResponseVo edit(SysUser sysUserFrom){
-        int a=sysUserService.updateByUserId(sysUserFrom);
-        if (a>0){
+    public ResponseVo edit(SysUser sysUserFrom) {
+        int a = sysUserService.updateByUserId(sysUserFrom);
+        if (a > 0) {
             return ResultHopeUtil.success("用户修改成功！");
-        }else {
+        } else {
             return ResultHopeUtil.error("用户修改失败！");
         }
     }

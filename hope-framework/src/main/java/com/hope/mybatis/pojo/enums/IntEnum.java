@@ -12,6 +12,7 @@ public interface IntEnum<T> {
      * @return 值
      */
     int value();
+
     /**
      * 枚举类型描述
      *

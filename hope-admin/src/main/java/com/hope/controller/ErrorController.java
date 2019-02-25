@@ -21,10 +21,11 @@ import javax.servlet.http.HttpServletResponse;
  * @微信公众号:低调小熊猫
  * @create:2018-12-31 13:59
  **/
-@Api(value = "错误",description = "错误页面处理")
+@Api(value = "错误", description = "错误页面处理")
 @Controller
 public class ErrorController {
-    private static final Logger log= LoggerFactory.getLogger(HopeController.class);
+    private static final Logger log = LoggerFactory.getLogger(HopeController.class);
+
     /***
      * 错误页面
      * @param model
@@ -33,11 +34,11 @@ public class ErrorController {
     @ApiOperation(
             value = "错误页面",
             notes = "错误页面",
-            produces="application/json, application/xml",
-            consumes="application/json, application/xml")
+            produces = "application/json, application/xml",
+            consumes = "application/json, application/xml")
     @RequestMapping("/error1")
-    public ModelAndView error1(Model model, HttpServletResponse response, HttpServletRequest request){
-        log.info("[hope-error1-page]-[{}]","错误页面");
+    public ModelAndView error1(Model model, HttpServletResponse response, HttpServletRequest request) {
+        log.info("[hope-error1-page]-[{}]", "错误页面");
         response.setStatus(HttpStatus.FORBIDDEN.value());
         return ResultHopeUtil.view("common/error/010");
     }

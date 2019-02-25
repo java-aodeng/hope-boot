@@ -26,7 +26,7 @@ import java.io.IOException;
  * @微信公众号:低调小熊猫
  * @create:2018-10-30 15:05
  **/
-@Api(value = "验证码",description = "验证码处理")
+@Api(value = "验证码", description = "验证码处理")
 @Controller
 public class KaptchaController {
     private static final Logger log = LoggerFactory.getLogger(KaptchaController.class);
@@ -39,7 +39,6 @@ public class KaptchaController {
     }
 
     /**
-     *
      * 获取验证码图片
      * Gets captcha code.
      *
@@ -60,7 +59,7 @@ public class KaptchaController {
         //生成验证码文本
         String capText = captchaProducer.createText();
         session.setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
-        log.info("[google验证码生成成功]-[{}]",capText);
+        log.info("[google验证码生成成功]-[{}]", capText);
         //利用生成的字符串构建图片
         BufferedImage bi = captchaProducer.createImage(capText);
         ServletOutputStream out = response.getOutputStream();

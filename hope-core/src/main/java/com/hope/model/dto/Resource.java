@@ -5,7 +5,9 @@ import com.hope.model.beans.SysResource;
 
 import java.util.Date;
 
-/**资源业务对象类
+/**
+ * 资源业务对象类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -13,7 +15,9 @@ import java.util.Date;
  * @create:2018-10-16 11:18
  **/
 public class Resource {
-    /**---------------业务对象---------------**/
+    /**
+     * ---------------业务对象---------------
+     **/
     private SysResource sysResource;
 
     public Resource() {

@@ -10,5 +10,5 @@ import com.hope.mybatis.service.BaseService;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysRoleResourceService extends BaseService<SysRoleResource>{
+public interface SysRoleResourceService extends BaseService<SysRoleResource> {
 }

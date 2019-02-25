@@ -6,9 +6,10 @@ import tk.mybatis.mapper.common.MySqlMapper;
 
 /**
  * 通用mapper
+ *
  * @program:hope-plus
  * @author:aodeng
  * @create:2018-10-15 13:15
  **/
-public interface BaseMapper<T> extends Mapper<T>,MySqlMapper<T>,ConditionMapper<T>{
+public interface BaseMapper<T> extends Mapper<T>, MySqlMapper<T>, ConditionMapper<T> {
 }

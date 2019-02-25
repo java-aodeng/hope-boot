@@ -5,7 +5,9 @@ import com.hope.model.beans.SysRole;
 
 import java.util.Date;
 
-/**角色业务对象类
+/**
+ * 角色业务对象类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -13,14 +15,16 @@ import java.util.Date;
  * @create:2018-10-16 11:18
  **/
 public class Role {
-    /**---------------业务对象---------------**/
+    /**
+     * ---------------业务对象---------------
+     **/
     private SysRole sysRole;
 
-    public Role(){
+    public Role() {
         this.sysRole = new SysRole();
     }
 
-    public Role(SysRole sysRole){
+    public Role(SysRole sysRole) {
         this.sysRole = sysRole;
     }
 

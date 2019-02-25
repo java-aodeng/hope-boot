@@ -14,6 +14,6 @@ import lombok.EqualsAndHashCode;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class RoleConditionVo extends BaseConditionVo{
+public class RoleConditionVo extends BaseConditionVo {
     private SysRole role;
 }

@@ -17,7 +17,7 @@ import java.util.Set;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysRoleService extends BaseService<SysRole>{
+public interface SysRoleService extends BaseService<SysRole> {
     /***
      * 根据用户id查询角色列表
      * @param userId
@@ -34,12 +34,13 @@ public interface SysRoleService extends BaseService<SysRole>{
 
     /**
      * 根据用户id查询角色集合
+     *
      * @param userId
      * @return set
      */
     Set<String> findRoleByUserId(Integer userId);
 
-    ResponseVo addAssignResourceById(String roleId,List<String> resourceIds);
+    ResponseVo addAssignResourceById(String roleId, List<String> resourceIds);
 
     /***
      * 根据用户id获取角色及选中的角色

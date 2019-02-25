@@ -23,7 +23,7 @@
             from sys_role sr
     </sql>
     <select id="findPageBreakByCondition" parameterType="com.hope.model.vo.RoleConditionVo" resultMap="roleMap">
-      <include refid="roleSql"/>
+        <include refid="roleSql"/>
         WHERE 1=1
     </select>
     <select id="findRoleByUserId" parameterType="java.lang.Integer" resultMap="roleMap">

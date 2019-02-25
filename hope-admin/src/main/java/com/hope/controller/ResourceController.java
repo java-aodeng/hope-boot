@@ -27,7 +27,7 @@ import java.util.Map;
  * @微信公众号:低调小熊猫
  * @create:2018-12-03 22:22
  **/
-@Api(value = "资源",description = "资源管理")
+@Api(value = "资源", description = "资源管理")
 @Controller
 @RequestMapping("/resource")
 public class ResourceController {
@@ -44,28 +44,29 @@ public class ResourceController {
     @ApiOperation(value = "资源列表", notes = "资源列表")
     @RequiresPermissions("resources")
     @GetMapping("/resource")
-    public ModelAndView resource(){
+    public ModelAndView resource() {
         return ResultHopeUtil.view("admin/resource/resource");
     }
 
     @RequiresPermissions("resource:list")
     @GetMapping("/list")
     @ResponseBody
-    public List<SysResource> list(SysResource sysResource){
-        List<SysResource> resourceList=sysResourceService.selectResourceList(sysResource);
-        return  resourceList;
+    public List<SysResource> list(SysResource sysResource) {
+        List<SysResource> resourceList = sysResourceService.selectResourceList(sysResource);
+        return resourceList;
     }
 
     /**
      * 加载角色资源列表树
+     *
      * @param sysRole
      * @return
      */
     @ApiOperation(value = "加载角色资源列表树", notes = "加载角色资源列表树")
     @GetMapping("/roleResourceTreeData")
     @ResponseBody
-    public List<Map<String,Object>> roleResourceTreeData(SysRole sysRole){
-        List<Map<String,Object>> trees=sysResourceService.roleResourceTreeData(sysRole);
+    public List<Map<String, Object>> roleResourceTreeData(SysRole sysRole) {
+        List<Map<String, Object>> trees = sysResourceService.roleResourceTreeData(sysRole);
         return trees;
     }
 
@@ -75,30 +76,30 @@ public class ResourceController {
      */
     @ApiOperation(value = "新增资源", notes = "新增资源")
     @GetMapping("/add/{id}")
-    public ModelAndView add(@PathVariable("id") Integer id,ModelMap map){
-        SysResource resource=null;
-        if(id>0){
-            resource=sysResourceService.selectResourceById(id);
-        }else {
-            resource=new SysResource();
+    public ModelAndView add(@PathVariable("id") Integer id, ModelMap map) {
+        SysResource resource = null;
+        if (id > 0) {
+            resource = sysResourceService.selectResourceById(id);
+        } else {
+            resource = new SysResource();
             resource.setId(0);
             resource.setName("主目录");
         }
-        map.put("resource",resource);
+        map.put("resource", resource);
         return ResultHopeUtil.view("admin/resource/add");
     }
 
     @RequiresPermissions("resource:add")
     @PostMapping("/add")
     @ResponseBody
-    public ResponseVo add(SysResource sysResource){
+    public ResponseVo add(SysResource sysResource) {
         sysResource.setCreatetime(DateUtil.date());
         sysResource.setUpdatetime(DateUtil.date());
-        sysResource.setResourceId(RandomUtil.randomUUID().substring(0,7).toString());
-        if (sysResourceService.insert(sysResource)){
+        sysResource.setResourceId(RandomUtil.randomUUID().substring(0, 7).toString());
+        if (sysResourceService.insert(sysResource)) {
             shiroService.updatePermission();
             return ResultHopeUtil.success("添加资源成功");
-        }else{
+        } else {
             return ResultHopeUtil.error("添加资源失败");
         }
     }
@@ -109,8 +110,8 @@ public class ResourceController {
      */
     @ApiOperation(value = "根据资源id获取资源数据", notes = "根据资源id获取资源数据")
     @GetMapping("/selectResourceById/{resourceId}")
-    public ModelAndView selectResourceById(@PathVariable("resourceId") Integer resourceId, ModelMap map){
-        map.put("resource",sysResourceService.selectResourceById(resourceId));
+    public ModelAndView selectResourceById(@PathVariable("resourceId") Integer resourceId, ModelMap map) {
+        map.put("resource", sysResourceService.selectResourceById(resourceId));
         return ResultHopeUtil.view("admin/resource/tree");
     }
 
@@ -121,8 +122,8 @@ public class ResourceController {
     @ApiOperation(value = "获取资源数据", notes = "获取资源数据")
     @GetMapping("/resourceTreeAll")
     @ResponseBody
-    public List<Map<String,Object>> resourceTreeAll(){
-        List<Map<String,Object>> trees=sysResourceService.resourceTreeAll();
+    public List<Map<String, Object>> resourceTreeAll() {
+        List<Map<String, Object>> trees = sysResourceService.resourceTreeAll();
         return trees;
     }
 
@@ -132,20 +133,20 @@ public class ResourceController {
      */
     @ApiOperation(value = "修改资源", notes = "修改资源")
     @GetMapping("/edit/{id}")
-    public ModelAndView edit(@PathVariable("id") Integer id,ModelMap map){
-        map.put("resource",sysResourceService.selectResourceById(id));
+    public ModelAndView edit(@PathVariable("id") Integer id, ModelMap map) {
+        map.put("resource", sysResourceService.selectResourceById(id));
         return ResultHopeUtil.view("admin/resource/edit");
     }
 
     @RequiresPermissions("resource:edit")
     @PostMapping("/edit")
     @ResponseBody
-    public ResponseVo edit(SysResource sysResource){
+    public ResponseVo edit(SysResource sysResource) {
         sysResource.setUpdatetime(DateUtil.date());
-        if (sysResourceService.updateById(sysResource)){
+        if (sysResourceService.updateById(sysResource)) {
             shiroService.updatePermission();
             return ResultHopeUtil.success("修改资源成功");
-        }else{
+        } else {
             return ResultHopeUtil.error("修改资源失败");
         }
     }
@@ -159,16 +160,16 @@ public class ResourceController {
     @RequiresPermissions("resource:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
-    public ResponseVo delete(@PathVariable("id") Integer id){
-        if (id<=1017) {
+    public ResponseVo delete(@PathVariable("id") Integer id) {
+        if (id <= 1017) {
             return ResultHopeUtil.error("系统资源，请不要删除！");
         }
-        if (sysResourceService.selectSubPermsById(id)>0){
+        if (sysResourceService.selectSubPermsById(id) > 0) {
             return ResultHopeUtil.error("当前资源存在下级资源，无法删除！");
         }
-        if (sysResourceService.deleteById(id)){
+        if (sysResourceService.deleteById(id)) {
             return ResultHopeUtil.success("删除资源成功");
-        }else{
+        } else {
             return ResultHopeUtil.error("删除资源失败");
         }
     }

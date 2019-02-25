@@ -5,7 +5,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
-/**这个类可以直接获取spring 配置文件中 所有引用（注入）到的bean对象
+/**
+ * 这个类可以直接获取spring 配置文件中 所有引用（注入）到的bean对象
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -15,14 +17,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class SpringContextHolder implements ApplicationContextAware {
 
-    private static ApplicationContext applicationContextHope=null;
+    private static ApplicationContext applicationContextHope = null;
 
     /***
      * 根据name获取bean
      * @param name
      * @return
      */
-    public static Object getBean(String name){
+    public static Object getBean(String name) {
         return applicationContextHope.getBean(name);
     }
 
@@ -32,7 +34,7 @@ public class SpringContextHolder implements ApplicationContextAware {
      * @param <T>
      * @return
      */
-    public static <T> T getBean(Class<T> tClass){
+    public static <T> T getBean(Class<T> tClass) {
         return applicationContextHope.getBean(tClass);
     }
 
@@ -43,8 +45,8 @@ public class SpringContextHolder implements ApplicationContextAware {
      * @param <T>
      * @return
      */
-    public static <T> T getBean(String name,Class<T> tClass){
-        return applicationContextHope.getBean(name,tClass);
+    public static <T> T getBean(String name, Class<T> tClass) {
+        return applicationContextHope.getBean(name, tClass);
     }
 
     /***
@@ -54,8 +56,8 @@ public class SpringContextHolder implements ApplicationContextAware {
      */
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if(applicationContextHope == null){
-            applicationContextHope =applicationContext;
+        if (applicationContextHope == null) {
+            applicationContextHope = applicationContext;
         }
     }
 }

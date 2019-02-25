@@ -26,7 +26,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**Shiro-实现类(加强版)
+/**
+ * Shiro-实现类(加强版)
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -34,9 +36,9 @@ import java.util.Map;
  * @create:2018-10-17 13:35
  **/
 @Service
-public class ShiroServiceImpl implements ShiroService{
+public class ShiroServiceImpl implements ShiroService {
 
-    private static final Logger log= LoggerFactory.getLogger(ShiroServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(ShiroServiceImpl.class);
 
     @Autowired
     private SysResourceService sysResourceService;
@@ -55,22 +57,22 @@ public class ShiroServiceImpl implements ShiroService{
          * authc: 需要认证才能进行访问（此处指所有非匿名的路径都需要登陆才能访问），支付等,建议使用authc权限
          * user:配置记住我或认证通过可以访问
          */
-        Map<String,String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
 
         //开放资源文件
-        filterChainDefinitionMap.put("/css/**","anon");
-        filterChainDefinitionMap.put("/docs/**","anon");
-        filterChainDefinitionMap.put("/fonts/**","anon");
-        filterChainDefinitionMap.put("/img/**","anon");
-        filterChainDefinitionMap.put("/js/**","anon");
-        filterChainDefinitionMap.put("/plugins/**","anon");
+        filterChainDefinitionMap.put("/css/**", "anon");
+        filterChainDefinitionMap.put("/docs/**", "anon");
+        filterChainDefinitionMap.put("/fonts/**", "anon");
+        filterChainDefinitionMap.put("/img/**", "anon");
+        filterChainDefinitionMap.put("/js/**", "anon");
+        filterChainDefinitionMap.put("/plugins/**", "anon");
         filterChainDefinitionMap.put("/favicon.ico", "anon");
         filterChainDefinitionMap.put("/verificationCode", "anon");
 
         //配置过滤器
-        filterChainDefinitionMap.put("/logout","logout");
-        filterChainDefinitionMap.put("/login","anon");
-        filterChainDefinitionMap.put("/error1","anon");
+        filterChainDefinitionMap.put("/logout", "logout");
+        filterChainDefinitionMap.put("/login", "anon");
+        filterChainDefinitionMap.put("/error1", "anon");
         filterChainDefinitionMap.put("/kickout", "anon");
 
         //开发环境开放
@@ -82,23 +84,23 @@ public class ShiroServiceImpl implements ShiroService{
         filterChainDefinitionMap.put("/resource/**","anon");*/
 
         //druid,hope默认开放
-        filterChainDefinitionMap.put("/druid/**","anon");
+        filterChainDefinitionMap.put("/druid/**", "anon");
 
         //加载数据库中配置的资源权限列表
-        List<SysResource> resourcesList=sysResourceService.listUrlAndPermission();
+        List<SysResource> resourcesList = sysResourceService.listUrlAndPermission();
         int a = 0;
-        for(SysResource resource:resourcesList){
-            if(StrUtil.isNotBlank(resource.getUrl()) && StrUtil.isNotBlank(resource.getPermission())){
-                String permission ="perms["+resource.getPermission()+"]";
-                filterChainDefinitionMap.put(resource.getUrl(),permission);
-                a+=1;
+        for (SysResource resource : resourcesList) {
+            if (StrUtil.isNotBlank(resource.getUrl()) && StrUtil.isNotBlank(resource.getPermission())) {
+                String permission = "perms[" + resource.getPermission() + "]";
+                filterChainDefinitionMap.put(resource.getUrl(), permission);
+                a += 1;
             }
         }
 
         //authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc
-        filterChainDefinitionMap.put("/**","user");
+        filterChainDefinitionMap.put("/**", "user");
 
-        log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}],初始化数据库资源条数-[{}]",resourcesList.size(),a);
+        log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}],初始化数据库资源条数-[{}]", resourcesList.size(), a);
         return filterChainDefinitionMap;
     }
 
@@ -107,26 +109,26 @@ public class ShiroServiceImpl implements ShiroService{
      */
     @Override
     public void updatePermission() {
-        ShiroFilterFactoryBean shiroFilterFactoryBean= SpringContextHolder.getBean(ShiroFilterFactoryBean.class);
-        synchronized (shiroFilterFactoryBean){
-            AbstractShiroFilter abstractShiroFilter =null;
-            try{
-                abstractShiroFilter =(AbstractShiroFilter) shiroFilterFactoryBean.getObject();
-            }catch (Exception e) {
+        ShiroFilterFactoryBean shiroFilterFactoryBean = SpringContextHolder.getBean(ShiroFilterFactoryBean.class);
+        synchronized (shiroFilterFactoryBean) {
+            AbstractShiroFilter abstractShiroFilter = null;
+            try {
+                abstractShiroFilter = (AbstractShiroFilter) shiroFilterFactoryBean.getObject();
+            } catch (Exception e) {
                 throw new RuntimeException("Get AbstractShiroFilter error");
             }
-            PathMatchingFilterChainResolver pathMatchingFilterChainResolver=(PathMatchingFilterChainResolver)abstractShiroFilter.getFilterChainResolver();
-            DefaultFilterChainManager defaultFilterChainManager=(DefaultFilterChainManager)pathMatchingFilterChainResolver.getFilterChainManager();
+            PathMatchingFilterChainResolver pathMatchingFilterChainResolver = (PathMatchingFilterChainResolver) abstractShiroFilter.getFilterChainResolver();
+            DefaultFilterChainManager defaultFilterChainManager = (DefaultFilterChainManager) pathMatchingFilterChainResolver.getFilterChainManager();
             //清空老的权限控制
             defaultFilterChainManager.getFilterChains().clear();
             shiroFilterFactoryBean.getFilterChainDefinitionMap().clear();
             shiroFilterFactoryBean.setFilterChainDefinitionMap(loadFilterChainDefinitions());
             //重新构建生成
-            Map<String,String> map=shiroFilterFactoryBean.getFilterChainDefinitionMap();
-            for(Map.Entry<String,String> stringEntry:map.entrySet()){
-                String url=stringEntry.getKey();
-                String chainDefinition=stringEntry.getValue().trim().replace(" ","");
-                defaultFilterChainManager.createChain(url,chainDefinition);
+            Map<String, String> map = shiroFilterFactoryBean.getFilterChainDefinitionMap();
+            for (Map.Entry<String, String> stringEntry : map.entrySet()) {
+                String url = stringEntry.getKey();
+                String chainDefinition = stringEntry.getValue().trim().replace(" ", "");
+                defaultFilterChainManager.createChain(url, chainDefinition);
             }
         }
         log.info("[hope权限重新加载成功,低调小熊猫博客：https://aodeng.cc]");
@@ -138,15 +140,15 @@ public class ShiroServiceImpl implements ShiroService{
      */
     @Override
     public void reloadAuthorizingByUserId(SysUser user) {
-        RealmSecurityManager realmSecurityManager=(RealmSecurityManager) SecurityUtils.getSecurityManager();
-        HopeShiroRealm hopeShiroReam=(HopeShiroRealm)realmSecurityManager.getRealms().iterator().next();
-        Subject subject=SecurityUtils.getSubject();
-        String realmName=subject.getPrincipals().getRealmNames().iterator().next();
-        SimplePrincipalCollection simplePrincipalCollection=new SimplePrincipalCollection(user,realmName);
+        RealmSecurityManager realmSecurityManager = (RealmSecurityManager) SecurityUtils.getSecurityManager();
+        HopeShiroRealm hopeShiroReam = (HopeShiroRealm) realmSecurityManager.getRealms().iterator().next();
+        Subject subject = SecurityUtils.getSubject();
+        String realmName = subject.getPrincipals().getRealmNames().iterator().next();
+        SimplePrincipalCollection simplePrincipalCollection = new SimplePrincipalCollection(user, realmName);
         subject.runAs(simplePrincipalCollection);
         hopeShiroReam.getAuthorizationCache().remove(subject.getPrincipals());
         subject.releaseRunAs();
-        log.info("[以下用户权限更新成功！]-[{}]",user.getUsername());
+        log.info("[以下用户权限更新成功！]-[{}]", user.getUsername());
     }
 
     /***
@@ -155,11 +157,11 @@ public class ShiroServiceImpl implements ShiroService{
      */
     @Override
     public void reloadAuthorizingByRoleId(Integer roleId) {
-        List<SysUser> userList=sysUserService.listUsersByRoleId(roleId);
-        if (CollectionUtils.isEmpty(userList)){
+        List<SysUser> userList = sysUserService.listUsersByRoleId(roleId);
+        if (CollectionUtils.isEmpty(userList)) {
             return;
         }
-        for (SysUser user:userList){
+        for (SysUser user : userList) {
             reloadAuthorizingByUserId(user);
         }
     }

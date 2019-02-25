@@ -22,13 +22,14 @@ public enum ResponseStatusEnum {
     private Integer code;
     private String message;
 
-    ResponseStatusEnum(Integer code,String message){
-        this.code=code;
-        this.message=message;
+    ResponseStatusEnum(Integer code, String message) {
+        this.code = code;
+        this.message = message;
     }
-    public static ResponseStatusEnum get(String message){
-        for (ResponseStatusEnum responseStatusEnum:ResponseStatusEnum.values()){
-            if (responseStatusEnum.getMessage() == message){
+
+    public static ResponseStatusEnum get(String message) {
+        for (ResponseStatusEnum responseStatusEnum : ResponseStatusEnum.values()) {
+            if (responseStatusEnum.getMessage() == message) {
                 return responseStatusEnum;
             }
         }

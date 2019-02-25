@@ -6,7 +6,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-/**基础转换 其实分页工具会自动计算，只需要num和size即可
+/**
+ * 基础转换 其实分页工具会自动计算，只需要num和size即可
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -17,10 +19,10 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = false)
 public class BaseConditionVo {
 
-    public final static int DEFAULT_PAGE_SIZE=10;
-    private int pageNum=1;
-    private int pageSize=0;
-    private int pageStart=0;
+    public final static int DEFAULT_PAGE_SIZE = 10;
+    private int pageNum = 1;
+    private int pageSize = 0;
+    private int pageStart = 0;
     private String orderField;
     private String orderDirection;
     private String keywords;
@@ -30,10 +32,10 @@ public class BaseConditionVo {
     private Date endDate;
 
     public int getPageSize() {
-        return pageSize >0 ? pageSize:DEFAULT_PAGE_SIZE;
+        return pageSize > 0 ? pageSize : DEFAULT_PAGE_SIZE;
     }
 
     public int getPageStart() {
-        return pageNum> 0 ?(pageNum-1) *pageSize:0;
+        return pageNum > 0 ? (pageNum - 1) * pageSize : 0;
     }
 }

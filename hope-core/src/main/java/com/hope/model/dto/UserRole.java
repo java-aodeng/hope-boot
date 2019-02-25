@@ -13,15 +13,17 @@ import java.util.Date;
  * @create:2018-10-16 11:19
  **/
 public class UserRole {
-    /**---------------业务对象---------------**/
+    /**
+     * ---------------业务对象---------------
+     **/
     private SysUserRole sysUserRole;
 
-    public UserRole(){
-        this.sysUserRole=new SysUserRole();
+    public UserRole() {
+        this.sysUserRole = new SysUserRole();
     }
 
-    public UserRole(SysUserRole sysUserRole){
-        this.sysUserRole=sysUserRole;
+    public UserRole(SysUserRole sysUserRole) {
+        this.sysUserRole = sysUserRole;
     }
 
     /***
@@ -48,6 +50,7 @@ public class UserRole {
     public void setRoleId(String roleId) {
         this.sysUserRole.setRoleId(roleId);
     }
+
     public Integer getId() {
         return this.sysUserRole.getId();
     }

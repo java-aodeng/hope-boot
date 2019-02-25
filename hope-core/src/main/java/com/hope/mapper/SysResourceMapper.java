@@ -15,7 +15,7 @@ import java.util.Set;
  **/
 @Mapper
 @Repository
-public interface SysResourceMapper extends BaseMapper<SysResource>{
+public interface SysResourceMapper extends BaseMapper<SysResource> {
 
     List<SysResource> selectResourceList(SysResource sysResource);
 
@@ -24,8 +24,10 @@ public interface SysResourceMapper extends BaseMapper<SysResource>{
     List<SysResource> listUrlAndPermission();
 
     List<SysResource> listResourcesByUserId();
+
     /**
      * 根据用户id查询资源集合
+     *
      * @param userId 状态
      * @return set
      */

@@ -9,15 +9,15 @@ package com.hope.exception;
  **/
 public class HopeException extends RuntimeException {
 
-    public HopeException(){
+    public HopeException() {
         super();
     }
 
-    public HopeException(String message){
+    public HopeException(String message) {
         super(message);
     }
 
-    public HopeException(String message,Throwable cause){
-        super(message,cause);
+    public HopeException(String message, Throwable cause) {
+        super(message, cause);
     }
 }

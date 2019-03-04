@@ -95,4 +95,4 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 
 ## 最后
 
-为了防止世界被破坏，为了爱与正义，推荐看看提问的智慧 http://doc.zengrong.net/smart-questions/cn.html
+为了防止世界被破坏，为了爱与正义，请看看提问的智慧 http://doc.zengrong.net/smart-questions/cn.html

@@ -6,7 +6,9 @@ import lombok.*;
 import javax.persistence.Column;
 import javax.persistence.Transient;
 
-/**角色数据对象类
+/**
+ * 角色数据对象类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -15,17 +17,27 @@ import javax.persistence.Transient;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysRole extends CommonEntity{
-    /**装逼的id**/
+public class SysRole extends CommonEntity {
+    /**
+     * 装逼的id
+     **/
     @Column(name = "roleId")
     private String roleId;
-    /**角色名称**/
+    /**
+     * 角色名称
+     **/
     private String role;
-    /**角色描述**/
+    /**
+     * 角色描述
+     **/
     private String description;
-    /**是否可用：1有效2删除**/
+    /**
+     * 是否可用：1有效2删除
+     **/
     private Integer status;
-    /**是否选中**/
+    /**
+     * 是否选中
+     **/
     @Transient
     private Integer selected;
 }

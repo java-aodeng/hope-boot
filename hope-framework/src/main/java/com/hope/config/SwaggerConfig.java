@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConfig {
 
     @Bean
-    public Docket api(){
+    public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -34,14 +34,15 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build();
     }
-    private ApiInfo apiInfo(){
+
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("hope-plus权限管理系统API操作文档")
                 .description("后台管理中心 API 1.0 操作文档")
                 //服务条款网址
                 .termsOfServiceUrl("https://aodeng.cc")
                 .version("1.0")
-                .contact(new Contact("低调小熊猫","https://aodeng.cc","java@aodeng.cc"))
+                .contact(new Contact("低调小熊猫", "https://aodeng.cc", "java@aodeng.cc"))
                 .build();
     }
 }

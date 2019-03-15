@@ -13,19 +13,21 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+
 import java.util.concurrent.TimeUnit;
 
 /**
  * Shiro-密码验证管理-登录错误计数,（闲麻烦也可以使用HashedCredentialsMatcher也行，配置中我已经加好了代码)
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
  * @create:2018-10-21 13:19
  **/
-public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
+public class RetryLimitCredentialsMatcher extends CredentialsMatcher {
 
-    private static final Logger log=LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
+    private static final Logger log = LoggerFactory.getLogger(RetryLimitCredentialsMatcher.class);
 
     /**
      * 用户登录次数计数  redisKey 前缀
@@ -44,38 +46,38 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
     @Override
     public boolean doCredentialsMatch(AuthenticationToken token, AuthenticationInfo info) {
 
-        SysUser sysUser=(SysUser) info.getPrincipals().getPrimaryPrincipal();
+        SysUser sysUser = (SysUser) info.getPrincipals().getPrimaryPrincipal();
 
-        String username=sysUser.getUsername();
+        String username = sysUser.getUsername();
 
         //访问计数
-        ValueOperations<String,String> valueOperations=redisTemplate.opsForValue();
+        ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
         String loginCountKey = SHIRO_LOGIN_COUNT + username;
         String isLockKey = SHIRO_IS_LOCK + username;
-        valueOperations.increment(loginCountKey,1);
+        valueOperations.increment(loginCountKey, 1);
 
         //如果禁止登陆，提示
-        if (redisTemplate.hasKey(isLockKey)){
-            throw new ExcessiveAttemptsException("sorry，账号【"+username+"】已被禁止1小时内登陆！");
+        if (redisTemplate.hasKey(isLockKey)) {
+            throw new ExcessiveAttemptsException("sorry，账号【" + username + "】已被禁止1小时内登陆！");
         }
 
         //根据计数锁定用户
-        String logcounts=String.valueOf(valueOperations.get(loginCountKey));
-        int i=(5-Integer.parseInt(logcounts));
+        String logcounts = String.valueOf(valueOperations.get(loginCountKey));
+        int i = (5 - Integer.parseInt(logcounts));
 
         //如果超过5次，就禁止一个小时
-        if (i<=0){
-            valueOperations.set(isLockKey,"LOCK");
-            redisTemplate.expire(isLockKey,1, TimeUnit.HOURS);
-            redisTemplate.expire(loginCountKey,1, TimeUnit.HOURS);
-            throw new ExcessiveAttemptsException("sorry,密码输出错误次数太多，账号【"+username+"】已被禁止登录！");
+        if (i <= 0) {
+            valueOperations.set(isLockKey, "LOCK");
+            redisTemplate.expire(isLockKey, 1, TimeUnit.HOURS);
+            redisTemplate.expire(loginCountKey, 1, TimeUnit.HOURS);
+            throw new ExcessiveAttemptsException("sorry,密码输出错误次数太多，账号【" + username + "】已被禁止登录！");
         }
 
         //添加提示信息
-        Boolean aBoolean=super.doCredentialsMatch(token,info);
-        if (!aBoolean){
-            String message=i<=0?"你的账号禁止1小时内登陆":"你还剩【"+i+"】次重试的机会！";
-            throw new AccountException("账号或密码不正确！"+message);
+        Boolean aBoolean = super.doCredentialsMatch(token, info);
+        if (!aBoolean) {
+            String message = i <= 0 ? "你的账号禁止1小时内登陆" : "你还剩【" + i + "】次重试的机会！";
+            throw new AccountException("账号或密码不正确！" + message);
         }
 
         //初始化登录计数
@@ -84,13 +86,13 @@ public class RetryLimitCredentialsMatcher extends CredentialsMatcher{
         //更新用户最后一次登录状态
         try {
             sysUserService.updateUserLastLoginInfo(sysUser);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         //但验证全部通过之后，将用户信息存在session里面
-        SecurityUtils.getSubject().getSession().setAttribute(CommonConst.USER_SESSION_KEY,sysUser);
-        log.info("[用户验证通过，用户名:]-[{}]",sysUser.getUsername());
+        SecurityUtils.getSubject().getSession().setAttribute(CommonConst.USER_SESSION_KEY, sysUser);
+        log.info("[用户验证通过，用户名:]-[{}]", sysUser.getUsername());
         return true;
     }
 }

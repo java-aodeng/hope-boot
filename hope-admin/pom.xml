@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.hope</groupId>
-	<artifactId>hope-admin</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+    <groupId>com.hope</groupId>
+    <artifactId>hope-admin</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-	<name>hope-admin</name>
-	<description>
-		低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
-		后台管理
-	</description>
-	<!--继承父模板-->
-	<parent>
-		<groupId>com.hope</groupId>
-		<artifactId>hope-plus</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+    <name>hope-admin</name>
+    <description>
+        低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
+        后台管理
+    </description>
+    <!--继承父模板-->
+    <parent>
+        <groupId>com.hope</groupId>
+        <artifactId>hope-plus</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 
-	<dependencies>
-		<!--依赖core模板-->
-		<dependency>
-			<groupId>com.hope</groupId>
-			<artifactId>hope-core</artifactId>
-		</dependency>
-	</dependencies>
+    <dependencies>
+        <!--依赖core模板-->
+        <dependency>
+            <groupId>com.hope</groupId>
+            <artifactId>hope-core</artifactId>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<!--集成打包，指定入口，指定打包文件类型-->
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<mainClass>com.hope.HopeAdminApplication</mainClass>
-					<layout>JAR</layout>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <!--集成打包，指定入口，指定打包文件类型-->
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.hope.HopeAdminApplication</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

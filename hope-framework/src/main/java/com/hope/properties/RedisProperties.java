@@ -8,7 +8,9 @@ import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
-/**redisProperties类
+/**
+ * redisProperties类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -26,9 +28,13 @@ public class RedisProperties {
     private String host;
     private Integer port;
     private String password;
-    /**链接超时(毫秒)**/
+    /**
+     * 链接超时(毫秒)
+     **/
     private Integer timeout;
-    /**数据过期时间，默认30天**/
-    private Integer expire=2592000;
+    /**
+     * 数据过期时间，默认30天
+     **/
+    private Integer expire = 2592000;
 
 }

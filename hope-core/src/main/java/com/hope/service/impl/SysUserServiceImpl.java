@@ -22,7 +22,7 @@ import java.util.List;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysUserService{
+public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysUserService {
 
     @Autowired
     private SysUserMapper sysUserMapper;
@@ -42,17 +42,17 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
         }
         return userList;
     }*/
-
     @Override
     public PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo) {
-        PageHelper.startPage(vo.getPageNum(),vo.getPageSize());
-        List<SysUser> sysUsers=sysUserMapper.findPageBreakByCondition(vo);
-        if (CollectionUtils.isEmpty(sysUsers)){
+        PageHelper.startPage(vo.getPageNum(), vo.getPageSize());
+        List<SysUser> sysUsers = sysUserMapper.findPageBreakByCondition(vo);
+        if (CollectionUtils.isEmpty(sysUsers)) {
             return null;
         }
-        PageInfo list=new PageInfo<>(sysUsers);
+        PageInfo list = new PageInfo<>(sysUsers);
         return list;
     }
+
     /***
      * 根据用户名查询
      * @param username
@@ -60,10 +60,10 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysU
      */
     @Override
     public SysUser getByUserName(String username) {
-        SysUser sysuser=new SysUser();
+        SysUser sysuser = new SysUser();
         sysuser.setUsername(username);
         Assert.notNull(sysuser, "User不可为空！");
-        SysUser sysUser=selectOne(sysuser);
+        SysUser sysUser = selectOne(sysuser);
         return null == sysUser ? null : sysUser;
     }
 

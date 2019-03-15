@@ -14,12 +14,15 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-10-16 15:10
  **/
-public interface SysUserService extends BaseService<SysUser>{
-    /** 分页查询，使用分页插件
+public interface SysUserService extends BaseService<SysUser> {
+    /**
+     * 分页查询，使用分页插件
+     *
      * @param vo
      * @return
      */
     PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo);
+
     /***
      * 根据用户名查询
      * @param username

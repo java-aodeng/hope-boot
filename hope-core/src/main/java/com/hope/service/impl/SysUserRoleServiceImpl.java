@@ -26,7 +26,7 @@ import java.util.List;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> implements SysUserRoleService{
+public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> implements SysUserRoleService {
 
     @Autowired
     private SysUserRoleMapper sysUserRoleMapper;
@@ -36,12 +36,12 @@ public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> impleme
      * @param sysUserRoles
      * @return
      */
-    private List<UserRole> getUserRoles(List<SysUserRole> sysUserRoles){
-        if (CollectionUtils.isEmpty(sysUserRoles)){
+    private List<UserRole> getUserRoles(List<SysUserRole> sysUserRoles) {
+        if (CollectionUtils.isEmpty(sysUserRoles)) {
             return null;
         }
-        List<UserRole> userRoleList=new ArrayList<>();
-        for (SysUserRole sysUserRole:sysUserRoles){
+        List<UserRole> userRoleList = new ArrayList<>();
+        for (SysUserRole sysUserRole : sysUserRoles) {
             userRoleList.add(new UserRole(sysUserRole));
         }
         return userRoleList;
@@ -52,15 +52,15 @@ public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> impleme
     public void addUserRole(Integer userId, String roleIds) {
         //参考代码https://github.com/coder-yqj/springboot-shiro/blob/master/src/main/java/com/study/service/impl/UserRoleServiceImpl.java
         //删除
-        Example example =new Example(SysUserRole.class);
-        Example.Criteria criteria=example.createCriteria();
-        criteria.andEqualTo("userId",userId);
+        Example example = new Example(SysUserRole.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("userId", userId);
         sysUserRoleMapper.deleteByExample(example);
         //添加
-        String[] roleIdss=roleIds.split(",");
-        for (String roleId:roleIdss){
-            SysUserRole userRole=new SysUserRole();
-            userRole.setUserId(Convert.convert(String.class,userId));
+        String[] roleIdss = roleIds.split(",");
+        for (String roleId : roleIdss) {
+            SysUserRole userRole = new SysUserRole();
+            userRole.setUserId(Convert.convert(String.class, userId));
             userRole.setRoleId(roleId);
             sysUserRoleMapper.insert(userRole);
         }

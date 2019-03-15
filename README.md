@@ -6,7 +6,7 @@
 
 [![author](https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg)](https://aodeng.cc)
 [![JDK](https://img.shields.io/badge/JDK-1.8-orange.svg)](https://github.com/java-aodeng/hope-plus)
-[![license](https://img.shields.io/badge/license-GPL--3.0-red.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
+[![license](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
 [![QQ群](https://img.shields.io/badge/chat-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%ABQQ%E7%BE%A4-yellow.svg)](https://jq.qq.com/?_wv=1027&k=574chhz)
 [![Telegram群组](https://img.shields.io/badge/telegram-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB--%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD-orange.svg)](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 [![star](https://img.shields.io/github/stars/java-aodeng/hope-plus.svg?label=Stars&style=social)](https://github.com/java-aodeng/hope-plus)
@@ -92,3 +92,9 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 ![](https://i.loli.net/2018/12/31/5c29d1ce66275.png)
 ![](https://i.loli.net/2018/12/31/5c29d1ce86b5e.png)
 ![](https://i.loli.net/2019/02/13/5c63cd02c39e2.png)
+
+## 最后
+
+为了防止世界被破坏，为了爱与正义，请看看提问的智慧 http://doc.zengrong.net/smart-questions/cn.html
+
+项目重构中......

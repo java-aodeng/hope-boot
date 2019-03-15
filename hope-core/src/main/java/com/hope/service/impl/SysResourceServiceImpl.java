@@ -20,7 +20,7 @@ import java.util.*;
  * @create:2018-10-16 15:21
  **/
 @Service
-public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> implements SysResourceService{
+public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> implements SysResourceService {
 
     @Autowired
     SysResourceMapper sysResourceMapper;
@@ -30,12 +30,12 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
      * @param sysResources
      * @return
      */
-    private List<Resource> getResources(List<SysResource> sysResources){
-        if (CollectionUtils.isEmpty(sysResources)){
+    private List<Resource> getResources(List<SysResource> sysResources) {
+        if (CollectionUtils.isEmpty(sysResources)) {
             return null;
         }
-        List<Resource> resourceList=new ArrayList<>();
-        for (SysResource sysResource:sysResources){
+        List<Resource> resourceList = new ArrayList<>();
+        for (SysResource sysResource : sysResources) {
             resourceList.add(new Resource(sysResource));
         }
         return resourceList;
@@ -63,15 +63,15 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
 
     @Override
     public List<Map<String, Object>> roleResourceTreeData(SysRole sysRole) {
-        Integer roleId=sysRole.getId();
-        List<Map<String,Object>> trees=new ArrayList<Map<String, Object>>();
-        List<SysResource> resourceList=sysResourceMapper.selectAlls();
-        if(null != roleId){
+        Integer roleId = sysRole.getId();
+        List<Map<String, Object>> trees = new ArrayList<Map<String, Object>>();
+        List<SysResource> resourceList = sysResourceMapper.selectAlls();
+        if (null != roleId) {
             //根据角色id查询
-            List<String> roleResourceList=sysResourceMapper.selectResourceTree(roleId);
-            trees=getTrees(resourceList,true,roleResourceList,true);
-        }else {
-            trees=getTrees(resourceList,false,null,true);
+            List<String> roleResourceList = sysResourceMapper.selectResourceTree(roleId);
+            trees = getTrees(resourceList, true, roleResourceList, true);
+        } else {
+            trees = getTrees(resourceList, false, null, true);
         }
         return trees;
     }
@@ -84,18 +84,18 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
      * @param permsFlag 是否显示权限标识符
      * @return
      */
-    public List<Map<String,Object>>  getTrees(List<SysResource> resourceList,boolean isCheck,List<String> roleResourceList,boolean permsFlag){
-        List<Map<String,Object>> trees = new ArrayList<Map<String, Object>>();
-        for (SysResource resource:resourceList) {
+    public List<Map<String, Object>> getTrees(List<SysResource> resourceList, boolean isCheck, List<String> roleResourceList, boolean permsFlag) {
+        List<Map<String, Object>> trees = new ArrayList<Map<String, Object>>();
+        for (SysResource resource : resourceList) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("id", resource.getId());
             map.put("pId", resource.getParentId());
             map.put("name", MenuName(resource, roleResourceList, permsFlag));
-            map.put("title",resource.getName());
-            if (isCheck){
-                map.put("checked",roleResourceList.contains(resource.getId() + resource.getPermission()));
-            }else{
-                map.put("checked",false);
+            map.put("title", resource.getName());
+            if (isCheck) {
+                map.put("checked", roleResourceList.contains(resource.getId() + resource.getPermission()));
+            } else {
+                map.put("checked", false);
             }
             trees.add(map);
         }
@@ -109,10 +109,10 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
      * @param permsFlag
      * @return
      */
-    public String MenuName(SysResource resource,List<String> roleMenuList,boolean permsFlag){
+    public String MenuName(SysResource resource, List<String> roleMenuList, boolean permsFlag) {
         StringBuilder sb = new StringBuilder();
         sb.append(resource.getName());
-        if(permsFlag){
+        if (permsFlag) {
             sb.append("<font color=\"#888\">&nbsp;&nbsp;&nbsp;" + resource.getPermission() + "</font>");
         }
         return sb.toString();
@@ -130,9 +130,9 @@ public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> impleme
 
     @Override
     public List<Map<String, Object>> resourceTreeAll() {
-        List<Map<String,Object>> trees=new ArrayList<Map<String,Object>>();
-        List<SysResource> resourceList=sysResourceMapper.selectAll();
-        trees=getTrees(resourceList,false,null,false);
+        List<Map<String, Object>> trees = new ArrayList<Map<String, Object>>();
+        List<SysResource> resourceList = sysResourceMapper.selectAll();
+        trees = getTrees(resourceList, false, null, false);
         return trees;
     }
 

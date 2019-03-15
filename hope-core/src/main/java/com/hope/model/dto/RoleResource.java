@@ -13,15 +13,17 @@ import java.util.Date;
  * @create:2018-10-16 11:18
  **/
 public class RoleResource {
-    /**---------------业务对象---------------**/
+    /**
+     * ---------------业务对象---------------
+     **/
     private SysRoleResource sysRoleResource;
 
     public RoleResource() {
-         this.sysRoleResource=new SysRoleResource();
+        this.sysRoleResource = new SysRoleResource();
     }
 
-    public RoleResource(SysRoleResource sysRoleResource){
-        this.sysRoleResource=sysRoleResource;
+    public RoleResource(SysRoleResource sysRoleResource) {
+        this.sysRoleResource = sysRoleResource;
     }
 
     /***

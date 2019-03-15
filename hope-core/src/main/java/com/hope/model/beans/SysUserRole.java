@@ -17,17 +17,23 @@ import javax.persistence.Id;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class SysUserRole{
+public class SysUserRole {
 
     private static final long serialVersionUID = 2133462812918890038L;
-    /**编号，主键，资源表**/
+    /**
+     * 编号，主键，资源表
+     **/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    /**用户id**/
+    /**
+     * 用户id
+     **/
     @Column(name = "userId")
     private String userId;
-    /**角色id**/
+    /**
+     * 角色id
+     **/
     @Column(name = "roleId")
     private String roleId;
 

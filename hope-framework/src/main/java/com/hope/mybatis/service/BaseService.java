@@ -4,7 +4,9 @@ import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
-/**通用接口
+/**
+ * 通用接口
+ *
  * @program:hope-plus
  * @author:aodeng
  * @create:2018-10-15 14:33

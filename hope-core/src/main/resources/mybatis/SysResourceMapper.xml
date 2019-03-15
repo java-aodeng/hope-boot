@@ -36,17 +36,17 @@
 			from sys_resource sr
     </sql>
     <select id="selectResourceList" parameterType="com.hope.model.beans.SysResource" resultMap="resourceMap">
-      <include refid="resourceSql"/>
+        <include refid="resourceSql"/>
         WHERE 1=1
         <if test="null != name and '' != name">
-            and  sr.name like concat('%', #{name}, '%')
+            and sr.name like concat('%', #{name}, '%')
         </if>
         <if test="null != status and '' != status">
-            and  sr.`status` = #{status}
+            and sr.`status` = #{status}
         </if>
     </select>
     <select id="selectAlls" resultMap="resourceMap">
-      <include refid="resourceSql"/>
+        <include refid="resourceSql"/>
     </select>
     <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
         select

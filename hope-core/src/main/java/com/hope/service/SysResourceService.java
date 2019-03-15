@@ -36,6 +36,7 @@ public interface SysResourceService extends BaseService<SysResource> {
 
     /**
      * 根据用户id查询资源集合
+     *
      * @param userId
      * @return set
      */
@@ -46,7 +47,7 @@ public interface SysResourceService extends BaseService<SysResource> {
      * @param sysRole
      * @return
      */
-    List<Map<String,Object>> roleResourceTreeData(SysRole sysRole);
+    List<Map<String, Object>> roleResourceTreeData(SysRole sysRole);
 
     /***
      * 获取系统资源列表
@@ -66,7 +67,7 @@ public interface SysResourceService extends BaseService<SysResource> {
      * 获取所有资源数据
      * @return
      */
-    List<Map<String,Object>> resourceTreeAll();
+    List<Map<String, Object>> resourceTreeAll();
 
     /***
      * 根据id查看是否存在子级数据

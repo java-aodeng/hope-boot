@@ -3,7 +3,9 @@ package com.hope.shiro.perm;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Component;
 
-/**js调用 thymeleaf 实现按钮权限
+/**
+ * js调用 thymeleaf 实现按钮权限
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component("perms")
 public class Perms {
     //代码参考：https://gitee.com/supperzh/zb-shiro/blob/master/src/main/java/com/nbclass/shiro/PermsService.java
-    public boolean hasPerm(String permission){
+    public boolean hasPerm(String permission) {
         return SecurityUtils.getSubject().isPermitted(permission);
     }
 }

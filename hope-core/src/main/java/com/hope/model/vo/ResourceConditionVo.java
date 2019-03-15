@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class ResourceConditionVo extends BaseConditionVo{
+public class ResourceConditionVo extends BaseConditionVo {
     private SysResource resource;
     private String type;
 }

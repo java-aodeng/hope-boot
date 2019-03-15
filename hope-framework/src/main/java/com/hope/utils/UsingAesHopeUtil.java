@@ -2,7 +2,9 @@ package com.hope.utils;
 
 import com.hope.consts.CommonConst;
 
-/**UsingAesHope工具类
+/**
+ * UsingAesHope工具类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -17,8 +19,8 @@ public class UsingAesHopeUtil {
      * @return
      * @throws Exception
      */
-    public static String encrypt(String password,String salt)throws Exception{
-        return AesHopeUtil.encrypt(Md5HopeUtil.MD5Util(CommonConst.ZYD_SECURITY_KEY,salt),password);
+    public static String encrypt(String password, String salt) throws Exception {
+        return AesHopeUtil.encrypt(Md5HopeUtil.MD5Util(CommonConst.ZYD_SECURITY_KEY, salt), password);
     }
 
     /***
@@ -28,7 +30,7 @@ public class UsingAesHopeUtil {
      * @return
      * @throws Exception
      */
-    public static String decrypt(String encryptPassword,String salt)throws Exception{
-        return AesHopeUtil.decryt(Md5HopeUtil.MD5Util(CommonConst.ZYD_SECURITY_KEY,salt),encryptPassword);
+    public static String decrypt(String encryptPassword, String salt) throws Exception {
+        return AesHopeUtil.decryt(Md5HopeUtil.MD5Util(CommonConst.ZYD_SECURITY_KEY, salt), encryptPassword);
     }
 }

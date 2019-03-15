@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 
 import java.security.MessageDigest;
 
-/**Md5Hope工具类
+/**
+ * Md5Hope工具类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -13,7 +15,7 @@ import java.security.MessageDigest;
  * @create:2018-10-18 10:53
  **/
 public class Md5HopeUtil {
-    private static final Logger log= LoggerFactory.getLogger(Md5HopeUtil.class);
+    private static final Logger log = LoggerFactory.getLogger(Md5HopeUtil.class);
 
     /***
      * MD5加盐加密
@@ -21,7 +23,7 @@ public class Md5HopeUtil {
      * @param salt
      * @return
      */
-    public static String MD5Util(String string,String salt){
+    public static String MD5Util(String string, String salt) {
         return MD5Util(string + salt);
     }
 
@@ -30,16 +32,16 @@ public class Md5HopeUtil {
      * @param src
      * @return
      */
-    public static String getMD5_32(String src){
+    public static String getMD5_32(String src) {
         try {
-            StringBuffer stringBuffer=new StringBuffer();
-            char[] chars={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-            MessageDigest md=MessageDigest.getInstance("MD5");
-            byte[] data=md.digest(src.getBytes());
+            StringBuffer stringBuffer = new StringBuffer();
+            char[] chars = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] data = md.digest(src.getBytes());
             //遍历字节数组，取出高四位和低四位对应的字符,最终会得到长度为32的字符串
-            for(byte b:data){
+            for (byte b : data) {
                 //高4位
-                stringBuffer.append(chars[(b>>4) & 0x0F]);
+                stringBuffer.append(chars[(b >> 4) & 0x0F]);
                 //低4位
                 stringBuffer.append(chars[b & 0x0F]);
             }
@@ -67,10 +69,12 @@ public class Md5HopeUtil {
             StringBuffer buf = new StringBuffer("");
             for (int offset = 0; offset < b.length; offset++) {
                 i = b[offset];
-                if (i < 0)
+                if (i < 0) {
                     i += 256;
-                if (i < 16)
+                }
+                if (i < 16) {
                     buf.append("0");
+                }
                 buf.append(Integer.toHexString(i));
             }
             str = buf.toString();
@@ -86,22 +90,22 @@ public class Md5HopeUtil {
      * @param s
      * @return
      */
-    public static String MD5Util(String s){
-        char[] hope={'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-        try{
-            byte[] bytes=s.getBytes();
-            MessageDigest messageDigest=MessageDigest.getInstance("MD5");
+    public static String MD5Util(String s) {
+        char[] hope = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        try {
+            byte[] bytes = s.getBytes();
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
             messageDigest.update(bytes);
-            byte[] bytes1=messageDigest.digest();
-            int i=bytes1.length;
-            char[] chars=new char[i * 2];
-            int i1=0;
-            for(byte b:bytes1){
-                chars[i1++]=hope[b >>> 4 & 0xf];
-                chars[i1++]=hope[b & 0xf];
+            byte[] bytes1 = messageDigest.digest();
+            int i = bytes1.length;
+            char[] chars = new char[i * 2];
+            int i1 = 0;
+            for (byte b : bytes1) {
+                chars[i1++] = hope[b >>> 4 & 0xf];
+                chars[i1++] = hope[b & 0xf];
             }
             return new String(hope);
-        }catch (Exception e){
+        } catch (Exception e) {
             log.info("[MD5Util生成error]");
             return null;
         }

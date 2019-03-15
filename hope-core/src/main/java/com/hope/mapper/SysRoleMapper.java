@@ -16,11 +16,14 @@ import java.util.Set;
  **/
 @Mapper
 @Repository
-public interface SysRoleMapper extends BaseMapper<SysRole>{
+public interface SysRoleMapper extends BaseMapper<SysRole> {
     List<SysRole> listRolesByUserId(Integer userId);
+
     List<SysRole> findPageBreakByCondition(RoleConditionVo vo);
+
     /**
      * 根据用户id查询角色集合
+     *
      * @param userId 用户id
      * @return set
      */

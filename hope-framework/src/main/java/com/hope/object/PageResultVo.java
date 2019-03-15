@@ -5,7 +5,9 @@ import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
-/**用于bootstrap table返回json格式
+/**
+ * 用于bootstrap table返回json格式
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

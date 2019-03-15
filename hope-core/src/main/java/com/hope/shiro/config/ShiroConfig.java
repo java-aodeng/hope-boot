@@ -28,7 +28,9 @@ import javax.servlet.Filter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-/**Shiro-配置类
+/**
+ * Shiro-配置类
+ *
  * @program:hope-plus
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -53,7 +55,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor(){
+    public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
 
@@ -61,9 +63,9 @@ public class ShiroConfig {
      * 创建SecurityManager
      * @return
      */
-    @Bean(name="securityManager")
-    public SecurityManager securityManager(){
-        DefaultWebSecurityManager defaultWebSecurityManager=new DefaultWebSecurityManager();
+    @Bean(name = "securityManager")
+    public SecurityManager securityManager() {
+        DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
         //设置realm
         defaultWebSecurityManager.setRealm(hopeShiroReam());
         //注入记住我的管理器
@@ -80,8 +82,8 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public HopeShiroRealm hopeShiroReam(){
-        HopeShiroRealm hopeShiroReam=new HopeShiroRealm();
+    public HopeShiroRealm hopeShiroReam() {
+        HopeShiroRealm hopeShiroReam = new HopeShiroRealm();
         //匹配器，credentialsMatcher使用RetryLimitCredentialsMatcher
         //hashedCredentialsMatcher使用HashedCredentialsMatcher
         //这里简洁可以使用hashedCredentialsMatcher
@@ -93,10 +95,11 @@ public class ShiroConfig {
     /**
      * 凭证匹配器
      * ）
+     *
      * @return
      */
     @Bean
-    public HashedCredentialsMatcher hashedCredentialsMatcher(){
+    public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
         hashedCredentialsMatcher.setHashAlgorithmName("md5");
         hashedCredentialsMatcher.setHashIterations(2);
@@ -109,8 +112,8 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public RedisSessionDAO redisSessionDAO(){
-        RedisSessionDAO redisSessionDAO=new RedisSessionDAO();
+    public RedisSessionDAO redisSessionDAO() {
+        RedisSessionDAO redisSessionDAO = new RedisSessionDAO();
         redisSessionDAO.setRedisManager(redisManager());
         return redisSessionDAO;
     }
@@ -118,10 +121,11 @@ public class ShiroConfig {
     /**
      * 配置shiro redisManager
      * 使用的是shiro-redis开源插件
+     *
      * @return
      */
     public RedisManager redisManager() {
-        RedisManager redisManager =new RedisManager();
+        RedisManager redisManager = new RedisManager();
         //配置地址，端口
         redisManager.setHost(redisProperties.getHost());
         redisManager.setPort(redisProperties.getPort());
@@ -141,8 +145,8 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public DefaultWebSessionManager sessionManager(){
-        DefaultWebSessionManager sessionManager=new DefaultWebSessionManager();
+    public DefaultWebSessionManager sessionManager() {
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setSessionDAO(redisSessionDAO());
         return sessionManager;
     }
@@ -153,8 +157,8 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public RedisCacheManager redisCacheManager(){
-        RedisCacheManager redisCacheManager=new RedisCacheManager();
+    public RedisCacheManager redisCacheManager() {
+        RedisCacheManager redisCacheManager = new RedisCacheManager();
         redisCacheManager.setRedisManager(redisManager());
         return redisCacheManager;
     }
@@ -163,8 +167,8 @@ public class ShiroConfig {
      * cookid管理对象，记住我功能
      * @return
      */
-    public CookieRememberMeManager rememberMeManager(){
-        CookieRememberMeManager cookieRememberMeManager=new CookieRememberMeManager();
+    public CookieRememberMeManager rememberMeManager() {
+        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
         cookieRememberMeManager.setCookie(simpleCookie());
         //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
         cookieRememberMeManager.setCipherKey(Base64.decode("1QWLxg+NYmxraMoxAXu/Iw=="));
@@ -175,9 +179,9 @@ public class ShiroConfig {
      * Cookid对象
      * @return
      */
-    public SimpleCookie simpleCookie(){
+    public SimpleCookie simpleCookie() {
         //这个参数是cookie的名称，对应前端的checkbox的name=rememberMe
-        SimpleCookie simpleCookie=new SimpleCookie("rememberMe");
+        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
         //cookie生效时间30天，单位秒，注释，默认永久不过期
         simpleCookie.setMaxAge(redisProperties.getExpire());
         return simpleCookie;
@@ -186,6 +190,7 @@ public class ShiroConfig {
     /**
      * 开启shiro aop注解支持.
      * 使用代理方式;所以需要开启代码支持;
+     *
      * @param securityManager
      * @return
      */
@@ -206,7 +211,7 @@ public class ShiroConfig {
      * 3、部分过滤器可指定参数，如perms，roles
      */
     @Bean(name = "shiroFilter")
-    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         //设置securityManager
         shiroFilterFactoryBean.setSecurityManager(securityManager);
@@ -217,12 +222,12 @@ public class ShiroConfig {
         //未授权的界面
         shiroFilterFactoryBean.setUnauthorizedUrl("/error1");
         //自定义拦截器
-        Map<String,Filter> filterMap=new LinkedHashMap<String,Filter>();
+        Map<String, Filter> filterMap = new LinkedHashMap<String, Filter>();
         //限制同一个账号同时在线的个数
-        filterMap.put("kickout",kickoutSessionControlFilter());
+        filterMap.put("kickout", kickoutSessionControlFilter());
         shiroFilterFactoryBean.setFilters(filterMap);
         //配置数据库中的resource
-        Map<String,String> filterChainDefinitionMap=shiroService.loadFilterChainDefinitions();
+        Map<String, String> filterChainDefinitionMap = shiroService.loadFilterChainDefinitions();
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;
     }
@@ -231,8 +236,8 @@ public class ShiroConfig {
      * 限制同一账号，登录人数的控制
      * @return
      */
-    public KickoutSessionControlFilter kickoutSessionControlFilter(){
-        KickoutSessionControlFilter kickoutSessionControlFilter=new KickoutSessionControlFilter();
+    public KickoutSessionControlFilter kickoutSessionControlFilter() {
+        KickoutSessionControlFilter kickoutSessionControlFilter = new KickoutSessionControlFilter();
         kickoutSessionControlFilter.setCacheManager(redisCacheManager());
         kickoutSessionControlFilter.setSessionManager(sessionManager());
         kickoutSessionControlFilter.setKickoutAfter(false);
@@ -247,7 +252,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean
-    public ShiroDialect shiroDialect(){
+    public ShiroDialect shiroDialect() {
         return new ShiroDialect();
     }
 
@@ -256,7 +261,7 @@ public class ShiroConfig {
      * @return
      */
     @Bean(name = "credentialsMatcher")
-    public RetryLimitCredentialsMatcher credentialsMatcher(){
+    public RetryLimitCredentialsMatcher credentialsMatcher() {
         return new RetryLimitCredentialsMatcher();
     }
 

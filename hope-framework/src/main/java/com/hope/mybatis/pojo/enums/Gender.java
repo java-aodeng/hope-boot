@@ -11,6 +11,7 @@ public enum Gender implements IntEnum<Gender> {
     ALL(3, "其他");
     private Integer value;
     private String desc;
+
     Gender(Integer value, String desc) {
         this.value = value;
         this.desc = desc;

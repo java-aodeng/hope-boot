@@ -6,9 +6,11 @@ import com.hope.object.ResponseVo;
 import com.hope.utils.ResultHopeUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,11 +28,10 @@ import javax.servlet.http.HttpServletRequest;
  * @微信公众号:低调小熊猫
  * @create:2018-10-22 17:13
  **/
-@Api(value = "hope页面入口", description = "hope页面入口管理")
+@Api(value = "页面跳转", description = "页面跳转管理api", position = 5, produces = "http")
 @Controller
+@Slf4j
 public class HopeController {
-
-    private static final Logger log = LoggerFactory.getLogger(HopeController.class);
 
     /***
      * 首页
@@ -52,88 +53,73 @@ public class HopeController {
         return "common/login";
     }
 
-    @PostMapping("/login")
-    @ResponseBody
-    public ResponseVo login(HttpServletRequest request, String username, String password, String verification,
-                            @RequestParam(name = "rememberme", defaultValue = "false") Boolean rememberme) {
-        log.info("[进入登录方法....]");
-        //判断验证码
-        String rightCode = (String) request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        if (StringUtils.isNotBlank(verification) && StringUtils.isNotBlank(rightCode) && verification.equals(rightCode)) {
-            log.info("[验证码通过]");
-        } else {
-            return ResultHopeUtil.error("验证码错误！");
-        }
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberme);
-        try {
-            Subject subject = SecurityUtils.getSubject();
-            //登录验证
-            subject.login(token);
-        } catch (Exception e) {
-            token.clear();
-            log.info("[登录内部错误！请联系管理员检查！]-[{}]", DateUtil.date());
-            return ResultHopeUtil.error(e.getMessage());
-        }
-        log.info("[登录成功]-[{}]", DateUtil.date());
-        return ResultHopeUtil.success("登录成功！");
-    }
-
-    /**
-     * 退出登录
-     *
-     * @return
-     */
-    @ApiOperation(value = "退出登录", notes = "退出登录")
-    @GetMapping("/logout")
-    public ModelAndView logout() {
-        // http://www.oschina.net/question/99751_91561  此处有坑，这里其实可用使用shiro自带的退出，不用你实现任何东西
-        log.info("[退出登录成功]-[{}]", DateUtil.date());
-        return ResultHopeUtil.redirect("login");
-    }
-
     /***
      * hope-plus
      * @param model
      * @return
      */
     @ApiOperation(value = "hope-plus", notes = "hope-plus")
-    @RequestMapping("/hope-plus")
+    @GetMapping("/hope-plus")
     public ModelAndView index_v1(Model model) {
         return ResultHopeUtil.view("common/hope-plus");
     }
 
     /***
-     * 测试
-     * @param model
+     * 资源列表
      * @return
      */
-    @ApiOperation(value = "测试", notes = "测试")
-    @RequestMapping("//onlineusers")
-    public ModelAndView index_v2(Model model) {
-        log.info("[hope-index_v2-page]-[{}]", "测试140");
-        return ResultHopeUtil.view("admin/onlineusers/onlineuser");
+    @ApiOperation(value = "资源列表", notes = "资源列表")
+    @RequiresPermissions("resources")
+    @GetMapping("/resource/resource")
+    public ModelAndView resource() {
+        return ResultHopeUtil.view("admin/resource/resource");
     }
-    /*
-    @Autowired private RedisCacheManager redisCacheManager;
-    @RequestMapping("/logout2")
-    public ModelAndView logout2() {
-        //自定义退出，清空缓存
-        Subject subject=SecurityUtils.getSubject();
-        if (ObjectUtil.isNotNull(subject)){
-            String username=((SysUser)SecurityUtils.getSubject().getPrincipal()).getUsername();
-            Serializable sessionId=SecurityUtils.getSubject().getSession().getId();
-            Cache<String,Deque<Serializable>> cache=redisCacheManager.getCache(redisCacheManager.getKeyPrefix()+username);
-            Deque<Serializable> deques=cache.get(username);
-            for (Serializable deque:deques){
-                if (sessionId.equals(deque)){
-                    deques.remove(deque);
-                    break;
-                }
-            }
-            cache.put(username,deques);
-        }
-        subject.logout();
-        log.info("[退出登录成功]-[{}]",DateUtil.date());
-        return ResultHopeUtil.redirect("login");
-    }*/
+
+    /**
+     * @Description: 打开角色列表
+     * @Param: []
+     * @return: []
+     * @Author: aodeng
+     * @Date: 19-3-17
+     */
+    @ApiOperation(value = "角色列表", notes = "角色列表")
+    @RequiresPermissions("roles")
+    @GetMapping("/role/role")
+    public ModelAndView role() {
+        return ResultHopeUtil.view("admin/role/role");
+    }
+
+    /**
+     * @Description: 打开添加角色
+     * @Param: []
+     * @return: []
+     * @Author: aodeng
+     * @Date: 19-3-17
+     */
+    @ApiOperation(value = "打开添加角色", notes = "打开添加角色")
+    @GetMapping("/role/add")
+    public ModelAndView add() {
+        log.info("[role-add-page]-[{}]", "测试210");
+        return ResultHopeUtil.view("admin/role/add");
+    }
+
+    /**
+     * 用户列表 //默认查看权限开启
+     **/
+    @ApiOperation(value = "用户列表", notes = "用户列表")
+    @RequiresPermissions("user:user:view")
+    @GetMapping("/user/user")
+    public ModelAndView user() {
+        return ResultHopeUtil.view("admin/user/user");
+    }
+
+    /***
+     * 添加用户
+     * @return
+     */
+    @ApiOperation(value = "添加用户", notes = "添加用户")
+    @GetMapping("/user/add")
+    public ModelAndView userAdd() {
+        return ResultHopeUtil.view("admin/user/add");
+    }
 }

@@ -1,5 +1,7 @@
 package com.hope.config;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import java.util.List;
  * @Description: 加解密的配置类，配置项目定义
  * @Version 1.0
  **/
+@Data
 public class EncryptionConfig {
 
     /**

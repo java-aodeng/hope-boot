@@ -1,5 +1,7 @@
 package com.hope.mybatis.pojo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,6 +21,7 @@ import java.util.Date;
  **/
 @Data
 @EqualsAndHashCode(callSuper = false)
+@ApiModel(description = "通用实体类")
 public abstract class CommonEntity implements Serializable {
 
     private static final long serialVersionUID = 767754740035356753L;
@@ -27,16 +30,19 @@ public abstract class CommonEntity implements Serializable {
      **/
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(value = "编号，主键，资源表", name = "id")
     private Integer id;
     /**
      * 创建时间
      **/
     @Column(name = "create_time")
+    @ApiModelProperty(value = "创建时间", name = "createtime")
     private Date createtime;
     /**
      * 修改时间
      **/
     @Column(name = "update_time")
+    @ApiModelProperty(value = "修改时间", name = "updatetime")
     private Date updatetime;
 
 }

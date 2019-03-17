@@ -38,10 +38,10 @@ public class SwaggerConfig {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("hope-plus权限管理系统API操作文档")
-                .description("后台管理中心 API 1.0 操作文档")
+                .description("后台管理中心 API 2.0 操作文档")
                 //服务条款网址
                 .termsOfServiceUrl("https://aodeng.cc")
-                .version("1.0")
+                .version("2.0")
                 .contact(new Contact("低调小熊猫", "https://aodeng.cc", "java@aodeng.cc"))
                 .build();
     }

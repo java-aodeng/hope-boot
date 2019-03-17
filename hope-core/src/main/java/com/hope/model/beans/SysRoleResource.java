@@ -1,6 +1,7 @@
 package com.hope.model.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.Column;

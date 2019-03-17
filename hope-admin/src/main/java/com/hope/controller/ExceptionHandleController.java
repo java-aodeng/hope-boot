@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.UndeclaredThrowableException;
@@ -26,14 +27,13 @@ import java.lang.reflect.UndeclaredThrowableException;
  * @微信公众号:低调小熊猫
  * @create:2018-12-18 15:46
  **/
-@Api(value = "异常", description = "全局异常处理")
-@ControllerAdvice  //@RestControllerAdvice 该注解将异常以json格式输出
+@Api(value = "全局异常", description = "全局异常管理api", position = 60, produces = "http")
+@RestControllerAdvice
 public class ExceptionHandleController {
 
     private static final Logger log = LoggerFactory.getLogger(ExceptionHandleController.class);
 
     @ExceptionHandler(value = Exception.class)
-    @ResponseBody
     public ResponseVo handleHope(Throwable e) {
 
         if (e instanceof HopeException) {

@@ -17,8 +17,7 @@ import com.hope.service.SysUserService;
 import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.utils.ResultHopeUtil;
 import com.hope.utils.UsingAesHopeUtil;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,8 +37,8 @@ import java.util.List;
  * @微信公众号:低调小熊猫
  * @create:2018-12-10 20:13
  **/
-@Api(value = "用户", description = "用户管理")
-@Controller
+@Api(value = "用户", description = "用户管理api", position = 30, produces = "http")
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
@@ -47,23 +46,29 @@ public class UserController {
 
     @Autowired
     private SysUserService sysUserService;
+
     @Autowired
     private SysRoleService sysRoleService;
+
     @Autowired
     private SysUserRoleService sysUserRoleService;
+
     @Autowired
     private HopeShiroRealm hopeShiroRealm;
 
-    /**
-     * 用户列表
-     **/
-    @ApiOperation(value = "用户列表", notes = "用户列表")
-    @RequiresPermissions("user:user:view")//默认查看权限开启
-    @GetMapping("/user")
-    public ModelAndView user() {
-        return ResultHopeUtil.view("admin/user/user");
-    }
 
+    /** 
+    * @Description: 用户列表
+    * @Param: [vo]
+    * @return: [vo]
+    * @Author: aodeng
+    * @Date: 19-3-17
+    */
+    @ApiOperation(value = "用户列表", notes = "用户列表，传入参数只需要pageNum和pageSize",produces="application/json, application/xml", consumes="application/json, application/xml",response = SysUser.class)
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "第几页", required = true, dataType = "String", paramType = "query"),
+            @ApiImplicitParam(name = "pageSize", value = "数据条数", required = true, dataType = "String", paramType = "query")
+    })
     @RequiresPermissions("user:list")
     @PostMapping("/list")
     @ResponseBody
@@ -72,16 +77,21 @@ public class UserController {
         return ResultHopeUtil.tablePage(pageInfo);
     }
 
-    /***
-     * 添加用户
-     * @return
-     */
-    @ApiOperation(value = "添加用户", notes = "添加用户")
-    @GetMapping("/add")
-    public ModelAndView add() {
-        return ResultHopeUtil.view("admin/user/add");
-    }
-
+    /** 
+    * @Description: 保存添加用户
+    * @Param: [sysUserFrom, password2]
+    * @return: [sysUserFrom, password2]
+    * @Author: aodeng
+    * @Date: 19-3-17
+    */
+    @ApiOperation(value = "保存添加用户", notes = "保存添加用户",produces="application/json, application/xml", consumes="application/json, application/xml")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "password2", value = "第二次密码", required = true, dataType = "String", paramType = "query")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "操作成功"),
+            @ApiResponse(code = 500, message = "操作失败，返回错误原因"),
+    })
     @RequiresPermissions("user:add")
     @PostMapping("/add")
     @ResponseBody
@@ -112,7 +122,7 @@ public class UserController {
     }
 
     /***
-     * 用户分配角色
+     * 打开用户分配角色
      */
     @ApiOperation(value = "用户分配角色", notes = "用户分配角色")
     @PostMapping("/rolesWithSelected")
@@ -121,6 +131,19 @@ public class UserController {
         return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(userId));
     }
 
+
+    /** 
+    * @Description: 保存用户分配角色
+    * @Param: [userId, roleIds]
+    * @return: [userId, roleIds]
+    * @Author: aodeng
+    * @Date: 19-3-17
+    */
+    @ApiOperation(value = "保存用户分配角色", notes = "保存用户分配角色")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "userId", value = "用户userId", required = true, dataType = "Integer", paramType = "query"),
+            @ApiImplicitParam(name = "roleIds", value = "角色id字符串，用，分割", required = true, dataType = "Integer", paramType = "query")
+    })
     @RequiresPermissions("user:saveUserRoles")
     @PostMapping("/saveUserRoles")
     @ResponseBody
@@ -141,6 +164,13 @@ public class UserController {
      * @return
      */
     @ApiOperation(value = "删除用户", notes = "删除用户")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "id", value = "用户id", required = true, dataType = "Integer", paramType = "query")
+    })
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "操作成功"),
+            @ApiResponse(code = 500, message = "操作失败，返回错误原因"),
+    })
     @RequiresPermissions("user:delete")
     @PostMapping("/delete/{id}")
     @ResponseBody
@@ -153,15 +183,30 @@ public class UserController {
     }
 
     /***
-     * 编辑用户
+     * 打开编辑用户
      */
-    @ApiOperation(value = "编辑用户", notes = "编辑用户")
+    @ApiOperation(value = "打开编辑用户", notes = "打开编辑用户")
+    @ApiImplicitParams(
+            @ApiImplicitParam(name = "id", value = "用户主键id", required = true, dataType = "Integer", paramType = "query")
+    )
     @GetMapping("/edit/{id}")
     public ModelAndView edit(@PathVariable("id") Integer id, ModelMap map) {
         map.addAttribute("user", sysUserService.selectById(id));
         return ResultHopeUtil.view("admin/user/edit");
     }
 
+    /** 
+    * @Description: 保存编辑用户
+    * @Param: [sysUserFrom]
+    * @return: [sysUserFrom]
+    * @Author: aodeng
+    * @Date: 19-3-17
+    */
+    @ApiOperation(value = "保存编辑用户", notes = "保存编辑用户",produces="application/json, application/xml", consumes="application/json, application/xml")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "操作成功"),
+            @ApiResponse(code = 500, message = "操作失败，返回错误原因"),
+    })
     @RequiresPermissions("user:edit")
     @PostMapping("/edit")
     @ResponseBody

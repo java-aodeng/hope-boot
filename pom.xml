@@ -193,5 +193,17 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.8.0</version>
         </dependency>
+        <!--api-->
+        <dependency>
+            <groupId>com.github.yinjihuan</groupId>
+            <artifactId>monkey-api-encrypt</artifactId>
+            <version>1.1.2</version>
+        </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 </project>

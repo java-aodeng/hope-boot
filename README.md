@@ -10,7 +10,7 @@
 [![QQ群](https://img.shields.io/badge/chat-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%ABQQ%E7%BE%A4-yellow.svg)](https://jq.qq.com/?_wv=1027&k=574chhz)
 [![Telegram群组](https://img.shields.io/badge/telegram-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB--%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD-orange.svg)](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 [![star](https://img.shields.io/github/stars/java-aodeng/hope-plus.svg?label=Stars&style=social)](https://github.com/java-aodeng/hope-plus)
-[![发行版本](https://img.shields.io/badge/release-0.2.0-green.svg)](https://github.com/java-aodeng/hope-plus/releases)
+[![发行版本](https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg)](https://github.com/java-aodeng/hope-plus/releases)
 
 
 

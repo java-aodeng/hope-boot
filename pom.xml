@@ -11,6 +11,7 @@
         <module>hope-admin</module>
         <module>hope-core</module>
         <module>hope-framework</module>
+        <module>hope-quartz</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -48,6 +49,11 @@
             <dependency>
                 <groupId>com.hope</groupId>
                 <artifactId>hope-admin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hope</groupId>
+                <artifactId>hope-quartz</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>

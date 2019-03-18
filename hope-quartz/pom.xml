@@ -2,15 +2,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>hope-plus</artifactId>
-        <groupId>com.hope</groupId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.hope</groupId>
     <artifactId>hope-quartz</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>hope-quartz</name>
+    <description>
+        低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
+        核心代码
+    </description>
+    <!--继承父模板-->
+    <parent>
+        <groupId>com.hope</groupId>
+        <artifactId>hope-plus</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
     <dependencies>
+        <!--依赖framework模板-->
+        <dependency>
+            <groupId>com.hope</groupId>
+            <artifactId>hope-framework</artifactId>
+        </dependency>
         <!-- 定时任务 -->
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
@@ -21,12 +37,12 @@
                     <artifactId>c3p0</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <!-- excel工具 -->
+        </dependency><!--
+        &lt;!&ndash; excel工具 &ndash;&gt;
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 
 </project>

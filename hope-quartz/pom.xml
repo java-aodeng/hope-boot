@@ -37,12 +37,6 @@
                     <artifactId>c3p0</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency><!--
-        &lt;!&ndash; excel工具 &ndash;&gt;
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-        </dependency>-->
+        </dependency>
     </dependencies>
-
 </project>

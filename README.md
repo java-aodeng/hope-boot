@@ -1,6 +1,6 @@
 [![log](https://i.loli.net/2018/12/30/5c28d022c657d.png)](https://github.com/java-aodeng/hope-plus)
 
-<h1><a href="#">Hope-plus 0.4.1</a></h1>
+<h1><a href="#">Hope-plus 0.4.2</a></h1>
 
 🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
 

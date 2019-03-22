@@ -71,7 +71,6 @@ public class UserController {
     })
     @RequiresPermissions("user:list")
     @PostMapping("/list")
-    @ResponseBody
     public PageResultVo list(UserConditionVo vo) {
         PageInfo<SysUser> pageInfo = sysUserService.findPageBreakByCondition(vo);
         return ResultHopeUtil.tablePage(pageInfo);
@@ -94,7 +93,6 @@ public class UserController {
     })
     @RequiresPermissions("user:add")
     @PostMapping("/add")
-    @ResponseBody
     public ResponseVo add(SysUser sysUserFrom, String password2) {
         SysUser user = sysUserService.getByUserName(sysUserFrom.getUsername());
         if (ObjectUtil.isNotNull(user)) {
@@ -126,7 +124,6 @@ public class UserController {
      */
     @ApiOperation(value = "用户分配角色", notes = "用户分配角色")
     @PostMapping("/rolesWithSelected")
-    @ResponseBody
     public ResponseVo<List<SysRole>> rolesWithSelected(Integer userId) {
         return ResultHopeUtil.success(null, sysRoleService.RoleListWithSelected(userId));
     }
@@ -146,7 +143,6 @@ public class UserController {
     })
     @RequiresPermissions("user:saveUserRoles")
     @PostMapping("/saveUserRoles")
-    @ResponseBody
     public ResponseVo<List<SysRole>> saveUserRoles(Integer userId, String roleIds) {
         log.info("[用户id-[{}]，角色id-[{}]", userId, roleIds);
         //添加
@@ -173,7 +169,6 @@ public class UserController {
     })
     @RequiresPermissions("user:delete")
     @PostMapping("/delete/{id}")
-    @ResponseBody
     public ResponseVo delete(@PathVariable("id") Integer id) {
         if (sysUserService.deleteById(id)) {
             return ResultHopeUtil.success("用户删除成功！");
@@ -209,7 +204,6 @@ public class UserController {
     })
     @RequiresPermissions("user:edit")
     @PostMapping("/edit")
-    @ResponseBody
     public ResponseVo edit(SysUser sysUserFrom) {
         int a = sysUserService.updateByUserId(sysUserFrom);
         if (a > 0) {

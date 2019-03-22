@@ -6,8 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+//@EnableEncrypt//注解开启加解密操作
 @SpringBootApplication
-@EnableEncrypt//注解开启加解密操作
 public class HopeAdminApplication {
     /** logger */
     private static final Logger LOGGER = LoggerFactory.getLogger(HopeAdminApplication.class);

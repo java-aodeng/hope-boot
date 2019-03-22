@@ -50,7 +50,7 @@ spring:
       #加密key，必须是16位
       key: abcdef0123456789
       #是否开启调试模式,默认为false,如果为true则不启用加解密操作
-      debug: false
+      debug: true
 mybatis:
     type-aliases-package: com.hope.model.beans
     mapper-locations: classpath:/mybatis/*.xml

@@ -83,8 +83,14 @@ public class ShiroServiceImpl implements ShiroService {
         //filterChainDefinitionMap.put("/user/**","anon");
         filterChainDefinitionMap.put("/resource/**","anon");*/
 
-        //druid,hope默认开放
+        //开放druid
         filterChainDefinitionMap.put("/druid/**", "anon");
+
+        //开放swagger
+        filterChainDefinitionMap.put("/swagger-resources/**","anon");
+        filterChainDefinitionMap.put("/webjars/**","anon");
+        filterChainDefinitionMap.put("/v2/**","anon");
+        filterChainDefinitionMap.put("/swagger-ui.html/**","anon");
 
         //加载数据库中配置的资源权限列表
         List<SysResource> resourcesList = sysResourceService.listUrlAndPermission();

@@ -71,11 +71,23 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
 - [swagger](https://github.com/swagger-api/swagger-ui)：Swagger（丝袜哥）是世界上最流行的 API 表达工具。
 
+## 后续功能
+
+- [x] 完成 **整合swagger接口管理** 功能
+- [ ] 完成 **整合单点登录** 功能
+- [ ] 完成 **整合数据权限分离** 功能
+- [ ] 完成 **整合支付模块** 功能
+- [ ] 完成 **整合定时服务** 功能
+- [ ] 完成 **整合第三方授权登录** 功能
+- [ ] 完成 **整合java二级缓存** 功能
+- [ ] 完成 **项目重构成微服务架构**
+
 ## 捐赠
 
 **请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
+
 
 ## 界面展示
 
@@ -96,5 +108,3 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 ## 最后
 
 为了防止世界被破坏，为了爱与正义，请看看提问的智慧 http://doc.zengrong.net/smart-questions/cn.html
-
-项目重构中......

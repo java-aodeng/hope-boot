@@ -49,6 +49,18 @@ http://127.0.0.1:8886
 资源监控：账号：hope-druid 密码：hope-druid
 
 API地址：localhost:8886/swagger-ui.html
+
+## 后续功能
+
+- [x] 整合 **swagger接口管理** 功能
+- [ ] 整合 **单点登录** 功能
+- [ ] 整合 **数据权限分离** 功能
+- [ ] 整合 **支付模块** 功能
+- [ ] 整合 **定时服务** 功能
+- [ ] 整合 **第三方授权登录** 功能
+- [ ] 整合 **java二级缓存** 功能
+- [ ] 重构 **项目重构成微服务架构**
+
 ### 感谢：
 Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：
 
@@ -70,17 +82,6 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [kaptcha](https://github.com/penggle/kaptcha)：Google验证码
 - [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
 - [swagger](https://github.com/swagger-api/swagger-ui)：Swagger（丝袜哥）是世界上最流行的 API 表达工具。
-
-## 后续功能
-
-- [x] 完成 **整合swagger接口管理** 功能
-- [ ] 完成 **整合单点登录** 功能
-- [ ] 完成 **整合数据权限分离** 功能
-- [ ] 完成 **整合支付模块** 功能
-- [ ] 完成 **整合定时服务** 功能
-- [ ] 完成 **整合第三方授权登录** 功能
-- [ ] 完成 **整合java二级缓存** 功能
-- [ ] 完成 **项目重构成微服务架构**
 
 ## 捐赠
 

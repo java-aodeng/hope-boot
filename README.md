@@ -13,7 +13,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | [版本:label:0.4.5](https://github.com/java-aodeng/hope-plus)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.4.5](https://github.com/java-aodeng/hope-plus)
 
 ## 简介：
 

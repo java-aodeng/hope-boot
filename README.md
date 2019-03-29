@@ -2,6 +2,8 @@
 
 <h1><a href="https://github.com/java-aodeng/hope-plus">Hope-plus 0.4.5</a></h1>
 
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
+
 [![author](https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg)](https://aodeng.cc)
 [![JDK](https://img.shields.io/badge/JDK-1.8-orange.svg)](https://github.com/java-aodeng/hope-plus)
 [![license](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
@@ -11,8 +13,6 @@
 [![发行版本](https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg)](https://github.com/java-aodeng/hope-plus/releases)
 
 ------------------------------
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
-
 ## 简介：
 
 >Hope-plus是一款权限管理系统 https://github.com/java-aodeng/hope-plus

@@ -1,6 +1,6 @@
 [![log](https://i.loli.net/2018/12/30/5c28d022c657d.png)](https://github.com/java-aodeng/hope-plus)
 
-<h1><a href="#">Hope-plus 0.4.3</a></h1>
+<h1><a href="https://github.com/java-aodeng/hope-plus">Hope-plus 0.4.5</a></h1>
 
 🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
 
@@ -16,20 +16,20 @@
 
 ## 简介：
 
->Hope-plus是一款nice的权限管理系统 https://github.com/java-aodeng/hope-plus
+>Hope-plus是一款权限管理系统 https://github.com/java-aodeng/hope-plus
 
->基于Springboot2开发，整合使用mybatis+shiro+redis+thymeleaf+maven等实用技术。页面模板使用了界面美观的h+，内置诸多的强大的可以重新组合的UI组件，jQuery插件等。可以用于所有的Web应用程序，如网站管理系统后台，CMS，CRM，OA等等。当然，您也可以进行深度定制，做出更强的系统。
+>基于Springboot2开发，整合mybatis+shiro+redis+thymeleaf+maven+swagger等实用技术。内置UI组件，jQuery插件。可用于所有的Web应用程序，CMS，CRM，OA等。适合学习，或者二开。
 
->如果觉得不错，给个Star支持一下吧！你的Star，我的动力！
-#### 模块划分
+## 模块划分
 
 | 模块         | 释义                      |    
 | ---------- | ----------------------- |
 | hope-admin  | 后台管理模块 |      
 | hope-core  | 核心业务类模块 |    
-| hope-framework | 框架模块,提供数据操作,工具处理,通用Mapper,通用Service等 |
+| hope-framework | 框架模块 |
 
-#### 使用说明
+## 使用说明
+
 ```bash
 # 1.使用命令拉取代码：
 git clone https://github.com/java-aodeng/hope-plus.git 
@@ -43,25 +43,31 @@ git clone https://github.com/java-aodeng/hope-plus.git
 # 6.浏览器访问：
 http://127.0.0.1:8886
 ```
-#### 账号
+
+## 账号
+
 后台登录：账号：admin 密码：123456
 
 资源监控：账号：hope-druid 密码：hope-druid
 
-API地址：localhost:8886/swagger-ui.html
+后端API管理：localhost:8886/swagger-ui.html
 
 ## 后续功能
 
-- [x] 整合 **swagger接口管理** 功能
-- [ ] 整合 **单点登录** 功能
-- [ ] 整合 **数据权限分离** 功能
-- [ ] 整合 **支付模块** 功能
-- [ ] 整合 **定时服务** 功能
-- [ ] 整合 **第三方授权登录** 功能
-- [ ] 整合 **java二级缓存** 功能
-- [ ] 重构 **项目重构成微服务架构**
+- [x] 整合 **RESTful APIs 构建成前后端分离项目**
+- [x] 整合 **Swagger接口管理**
+- [ ] 整合 **sso单点登录**
+- [ ] 整合 **数据权限分离**
+- [ ] 整合 **支付模块**
+- [ ] 整合 **定时服务**
+- [ ] 整合 **授权登录**
+- [ ] 整合 **J2Cache缓存**
+- [ ] 整合 **国际化I18N**
+- [ ] 重构 **前端暂定Vue**
+- [ ] 重构 **项目使用微服务架构**
 
-### 感谢：
+## 感谢：
+
 Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：
 
 - [Spring Boot](https://github.com/spring-projects/spring-boot)：核心框架
@@ -88,7 +94,6 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 **请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
-
 
 ## 界面展示
 

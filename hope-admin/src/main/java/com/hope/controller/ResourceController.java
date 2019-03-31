@@ -60,7 +60,7 @@ public class ResourceController {
     * @Date: 19-3-17
     */ 
     @ApiOperation(value = "加载角色资源列表树", notes = "加载角色资源列表树",produces="application/json, application/xml", consumes="application/json, application/xml",response = List.class)
-    @PostMapping("/roleResourceTreeData")
+    @RequestMapping("/roleResourceTreeData")
     public List<Map<String, Object>> roleResourceTreeData(SysRole sysRole) {
         List<Map<String, Object>> trees = sysResourceService.roleResourceTreeData(sysRole);
         return trees;

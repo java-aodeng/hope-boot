@@ -12,6 +12,7 @@
         <module>hope-core</module>
         <module>hope-framework</module>
         <module>hope-sso-server</module>
+        <module>hope-sso-core</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -32,6 +33,15 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <jedis.version>3.0.0</jedis.version>
+
+        <spring-boot.version>1.5.18.RELEASE</spring-boot.version>
+        <spring.version>4.3.21.RELEASE</spring.version>
+
     </properties>
     <!--统一模板版本管理-->
     <dependencyManagement>
@@ -54,6 +64,11 @@
             <dependency>
                 <groupId>com.hope</groupId>
                 <artifactId>hope-sso-server</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hope</groupId>
+                <artifactId>hope-sso-core</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>

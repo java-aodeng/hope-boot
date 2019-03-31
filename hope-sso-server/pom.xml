@@ -19,19 +19,22 @@
 	</properties>
 
 	<dependencies>
+		<!--依赖framework模板-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
+			<groupId>com.hope</groupId>
+			<artifactId>hope-framework</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-
+		<!-- freemarker -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
+		<!--maven-plugin-->
+		<finalName>hope-sso-server</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

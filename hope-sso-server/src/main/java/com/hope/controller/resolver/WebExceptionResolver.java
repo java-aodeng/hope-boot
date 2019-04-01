@@ -18,6 +18,7 @@ import java.io.IOException;
  * 1、@ControllerAdvice：扫描所有Controller；
  * 2、@ControllerAdvice(annotations=RestController.class)：扫描指定注解类型的Controller；
  * 3、@ControllerAdvice(basePackages={"com.aaa","com.bbb"})：扫描指定package下的Controller
+ *
  * @program:hope-plus
  * @ClassName:WebExceptionResolver
  * @author:aodeng
@@ -40,7 +41,7 @@ public class WebExceptionResolver implements HandlerExceptionResolver {
 
         // if json
         boolean isJson = false;
-        HandlerMethod method = (HandlerMethod)handler;
+        HandlerMethod method = (HandlerMethod) handler;
         ResponseBody responseBody = method.getMethodAnnotation(ResponseBody.class);
         if (responseBody != null) {
             isJson = true;
@@ -59,7 +60,7 @@ public class WebExceptionResolver implements HandlerExceptionResolver {
         if (isJson) {
             try {
                 response.setContentType("application/json;charset=utf-8");
-                response.getWriter().print("{\"code\":"+errorResult.getCode()+", \"msg\":\""+ errorResult.getMsg() +"\"}");
+                response.getWriter().print("{\"code\":" + errorResult.getCode() + ", \"msg\":\"" + errorResult.getMsg() + "\"}");
             } catch (IOException e) {
                 logger.error(e.getMessage(), e);
             }

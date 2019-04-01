@@ -12,7 +12,6 @@
         <module>hope-core</module>
         <module>hope-framework</module>
         <module>hope-sso-server</module>
-        <module>hope-sso-core</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -60,11 +59,6 @@
             <dependency>
                 <groupId>com.hope</groupId>
                 <artifactId>hope-sso-server</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-sso-core</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>
@@ -215,6 +209,12 @@
             <groupId>com.github.yinjihuan</groupId>
             <artifactId>monkey-api-encrypt</artifactId>
             <version>1.1.2</version>
+        </dependency>
+        <!--xxl-sso-core-->
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-sso-core</artifactId>
+            <version>1.1.0</version>
         </dependency>
     </dependencies>
     <repositories>

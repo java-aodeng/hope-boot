@@ -1,7 +1,5 @@
 package com.hope.model.beans;
 
-import lombok.Data;
-
 /**
  * @program:hope-plus
  * @ClassName:UserInfo
@@ -11,10 +9,33 @@ import lombok.Data;
  * @Description: TODO
  * @Version 1.0
  **/
-@Data
 public class UserInfo {
 
-    private int userId;
-    private String userName;
-    private String passWord;
+    private int userid;
+    private String username;
+    private String password;
+
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

@@ -47,8 +47,8 @@ public class AppController {
 
         // 1、make xxl-sso user
         XxlSsoUser xxlUser = new XxlSsoUser();
-        xxlUser.setUserid(String.valueOf(result.getData().getUserId()));
-        xxlUser.setUsername(result.getData().getUserName());
+        xxlUser.setUserid(String.valueOf(result.getData().getUserid()));
+        xxlUser.setUsername(result.getData().getUsername());
         xxlUser.setVersion(UUID.randomUUID().toString().replaceAll("-", ""));
         xxlUser.setExpireMinite(SsoLoginStore.getRedisExpireMinite());
         xxlUser.setExpireFreshTime(System.currentTimeMillis());

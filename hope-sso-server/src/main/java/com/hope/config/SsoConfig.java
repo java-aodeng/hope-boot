@@ -1,5 +1,7 @@
 package com.hope.config;
 
+import com.xxl.sso.core.store.SsoLoginStore;
+import com.xxl.sso.core.util.JedisUtil;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,11 +27,12 @@ public class SsoConfig implements InitializingBean,DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-
+        SsoLoginStore.setRedisExpireMinite(redisExpireMinite);
+        JedisUtil.init(redisAddress);
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-
+        JedisUtil.close();
     }
 }

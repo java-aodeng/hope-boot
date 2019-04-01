@@ -5,6 +5,9 @@ import com.hope.model.result.ReturnT;
 import com.hope.service.UserService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @program:hope-plus
  * @ClassName:UserServiceImpl
@@ -16,6 +19,17 @@ import org.springframework.stereotype.Service;
  **/
 @Service
 public class UserServiceImpl implements UserService {
+    private static List<UserInfo> mockUserList = new ArrayList<>();
+    static {
+        for (int i = 0; i <5; i++) {
+            UserInfo userInfo = new UserInfo();
+            userInfo.setUserid(1000+i);
+            userInfo.setUsername("user" + (i>0?String.valueOf(i):""));
+            userInfo.setPassword("123456");
+            mockUserList.add(userInfo);
+        }
+    }
+
     @Override
     public ReturnT<UserInfo> findUser(String username, String password) {
 
@@ -27,7 +41,12 @@ public class UserServiceImpl implements UserService {
         }
 
         //根据密码，账号查询用户，返回用户信息
-
+        // mock user
+        for (UserInfo mockUser: mockUserList) {
+            if (mockUser.getUsername().equals(username) && mockUser.getPassword().equals(password)) {
+                return new ReturnT<UserInfo>(mockUser);
+            }
+        }
 
         return new ReturnT<UserInfo>(new UserInfo());
     }

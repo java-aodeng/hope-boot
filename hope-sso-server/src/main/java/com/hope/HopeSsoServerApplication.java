@@ -15,7 +15,7 @@ public class HopeSsoServerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HopeSsoServerApplication.class, args);
-		LOGGER.info("Hope-Sso-Server启动成功！温馨提示：代码千万行，注释第一行，命名不规范，同事泪两行");
+		LOGGER.info("hope-sso-server服务启动成功！温馨提示：代码千万行，注释第一行，命名不规范，同事泪两行");
 	}
 
 }

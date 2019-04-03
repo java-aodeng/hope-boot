@@ -8,7 +8,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>hope-sso-server</name>
-	<description>hope 单点登陆 认证中心</description>
+	<description>
+		低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
+		hope 单点登陆 认证中心
+	</description>
 	<!--继承父模板-->
 	<parent>
 		<groupId>com.hope</groupId>

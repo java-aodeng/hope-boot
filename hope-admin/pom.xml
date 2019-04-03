@@ -20,12 +20,16 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <properties>
+        <hope.core.version>0.0.1-SNAPSHOT</hope.core.version>
+    </properties>
+
     <dependencies>
         <!--依赖core模板-->
         <dependency>
             <groupId>com.hope</groupId>
             <artifactId>hope-core</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${hope.core.version}</version>
         </dependency>
     </dependencies>
 

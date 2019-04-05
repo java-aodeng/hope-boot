@@ -2,29 +2,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.1.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+
 	<groupId>com.hope</groupId>
 	<artifactId>hope-sso-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hope-sso-server</name>
-	<description>hope 单点登陆 认证中心</description>
 
-	<properties>
-		<java.version>1.8</java.version>
-	</properties>
+	<name>hope-sso-server</name>
+	<description>
+		低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
+		hope 单点登陆 认证中心
+	</description>
+	<!--继承父模板-->
+	<parent>
+		<groupId>com.hope</groupId>
+		<artifactId>hope-plus</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
 
 	<dependencies>
 		<!--依赖framework模板-->
-		<dependency>
+<!--		<dependency>
 			<groupId>com.hope</groupId>
 			<artifactId>hope-framework</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 		<!-- freemarker -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -33,7 +34,6 @@
 	</dependencies>
 
 	<build>
-		<!--maven-plugin-->
 		<finalName>hope-sso-server</finalName>
 		<plugins>
 			<plugin>

@@ -14,7 +14,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.4.5](https://github.com/java-aodeng/hope-plus)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.5.0](https://github.com/java-aodeng/hope-plus)
 
 ## 简介：
 
@@ -29,6 +29,7 @@
 | hope-admin  | 后台管理模块 |      
 | hope-core  | 核心业务类模块 |    
 | hope-framework | 框架模块,提供数据操作,工具处理,通用Mapper,通用Service等 |
+| hope-sso-server | 单点登录-认证中心模块 |
 
 ## 使用说明
 

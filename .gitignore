@@ -2,6 +2,7 @@
 /logs/
 /hope-admin/logs/
 !.mvn/wrapper/maven-wrapper.jar
+/src/resources/rebel.xml
 
 ### STS ###
 .apt_generated

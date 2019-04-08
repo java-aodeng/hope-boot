@@ -33,4 +33,13 @@ public class UsingAesHopeUtil {
     public static String decrypt(String encryptPassword, String salt) throws Exception {
         return AesHopeUtil.decryt(Md5HopeUtil.MD5Util(CommonConst.ZYD_SECURITY_KEY, salt), encryptPassword);
     }
+
+    public static void main(String[] args) {
+        try {
+            String temp= Md5HopeUtil.MD5Util("123456","aodeng");
+            System.out.printf(temp);
+        }catch (Exception e){
+        }
+
+    }
 }

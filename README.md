@@ -29,7 +29,7 @@
 | hope-admin  | 后台管理模块 |      
 | hope-core  | 核心业务类模块 |    
 | hope-framework | 框架模块,提供数据操作,工具处理,通用Mapper,通用Service等 |
-| hope-sso-server | 单点登录-认证中心模块 |
+| hope-sso-server | 单点登录-认证中心模块，支持集群 |
 
 ## 使用说明
 

@@ -33,10 +33,6 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
 
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <jedis.version>3.0.0</jedis.version>
-        <slf4j-api.version>1.7.25</slf4j-api.version>
-
         <mybatis.spring.boot.starter.version>1.3.1</mybatis.spring.boot.starter.version>
         <mapper.spring.boot.starter.version>1.1.4</mapper.spring.boot.starter.version>
         <pagehelper.spring.boot.starter.version>1.2.3</pagehelper.spring.boot.starter.version>

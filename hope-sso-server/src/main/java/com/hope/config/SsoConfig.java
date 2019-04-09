@@ -6,6 +6,7 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 /**
  * @program:hope-plus
@@ -17,6 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * @Version 1.0
  **/
 @Configuration
+@Order(-1)
 public class SsoConfig implements InitializingBean,DisposableBean {
 
     @Value("${sso.redis.address}")
@@ -27,12 +29,12 @@ public class SsoConfig implements InitializingBean,DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-        SsoLoginStore.setRedisExpireMinite(redisExpireMinite);
-        JedisUtil.init(redisAddress);
+        JedisUtil.close();
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        JedisUtil.close();
+        SsoLoginStore.setRedisExpireMinite(redisExpireMinite);
+        JedisUtil.init(redisAddress);
     }
 }

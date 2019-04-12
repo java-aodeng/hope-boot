@@ -10,6 +10,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -92,6 +95,7 @@ public class TTOInterceptor implements HandlerInterceptor {
         }
 
         LOGGER.info("Params	: " + getParamString(request.getParameterMap()));
+        LOGGER.info("JSONParams : " + getJsonParamString(request));
 
     }
 
@@ -113,5 +117,31 @@ public class TTOInterceptor implements HandlerInterceptor {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * 输出Json参数
+     * @param request
+     * @return
+     */
+    private String getJsonParamString(HttpServletRequest request) {
+        StringBuilder stringBuilder = new StringBuilder();
+        BufferedReader bufferedReader;
+        try {
+            InputStream inputStream = request.getInputStream();
+            if (inputStream != null) {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                char[] charBuffer = new char[128];
+                int bytesRead = -1;
+                while ((bytesRead = bufferedReader.read(charBuffer)) > 0) {
+                    stringBuilder.append(charBuffer, 0, bytesRead);
+                }
+            } else {
+                stringBuilder.append("");
+            }
+        } catch (Exception e) {
+            LOGGER.error("获取JsonParams错误 : ",e);
+        }
+        return stringBuilder.toString();
     }
 }

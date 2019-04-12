@@ -36,7 +36,7 @@ public class UsingAesHopeUtil {
 
     public static void main(String[] args) {
         try {
-            String temp= Md5HopeUtil.MD5Util("123456","aodeng");
+            String temp= UsingAesHopeUtil.encrypt("123456","admin");
             System.out.printf(temp);
         }catch (Exception e){
         }

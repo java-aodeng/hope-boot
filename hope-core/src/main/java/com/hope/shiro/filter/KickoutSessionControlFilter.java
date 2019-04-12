@@ -21,7 +21,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * 自定义拦截器
+ * 自定义过滤器
  *
  * @program:hope-plus
  * @author:aodeng

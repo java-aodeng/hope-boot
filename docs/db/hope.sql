@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50717
+Source Server Version : 50643
 Source Host           : localhost:3306
 Source Database       : hope
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50643
 File Encoding         : 65001
 
-Date: 2018-12-31 15:21:50
+Date: 2019-04-12 15:33:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -85,7 +85,7 @@ CREATE TABLE `sys_role` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role
@@ -203,12 +203,12 @@ CREATE TABLE `sys_user` (
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   `last_login_time` datetime DEFAULT NULL COMMENT '最后登陆时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2018-12-31 15:14:24');
+INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'TeRARkF3rak6MokqdtwS5g==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2019-04-12 15:32:36');
 INSERT INTO `sys_user` VALUES ('2', '2', '女测试', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '5231794143@qq.com', '1878888999913', '0', '233', '1', '2018-09-18 14:00:02', '2018-12-31 13:33:01', '2018-12-31 15:14:01');
 
 -- ----------------------------

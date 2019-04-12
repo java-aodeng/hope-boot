@@ -49,8 +49,7 @@ public class TTOInterceptor implements HandlerInterceptor {
 
         if (object instanceof HandlerMethod) {
             StringBuilder sb = new StringBuilder(1000);
-            sb.append("\n");
-            sb.append("---------execution time: ").append(executeTime).append("ms").append("\n");
+            sb.append("execution time: ").append(executeTime).append("ms").append("\n");
             LOGGER.info(sb.toString());
         }
     }

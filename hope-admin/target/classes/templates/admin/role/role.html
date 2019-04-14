@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="common/include :: header"></head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-12 search-collapse">
+            <form id="role-form">
+                <div class="select-list">
+                    <ul>
+                        <li>
+                            角色名称：<input type="text" name="roleName"/>
+                        </li>
+                        <li>
+                            权限字符：<input type="text" name="roleKey"/>
+                        </li>
+                        <li>
+                            角色状态：<select name="status" >
+                            <option value="">所有</option>
+                            <option ></option>
+                        </select>
+                        </li>
+                        <li class="select-time">
+                            <label>创建时间： </label>
+                            <input type="text" class="time-input form-control layer-date" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
+                            <span>-</span>
+                            <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
+                        </li>
+                        <li>
+                            <a class="btn btn-primary btn-rounded btn-sm" onclick=""><i class="fa fa-search"></i>&nbsp;搜索</a>
+                            <a class="btn btn-warning btn-rounded btn-sm" onclick=""><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <div class="btn-group-sm hidden-xs" id="toolbar" role="group">
+            <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="role:add">
+                <i class="fa fa-plus"></i> 新增
+            </a>
+            <a class="btn btn-primary btn-edit disabled" onclick="$.operate.edit()" shiro:hasPermission="role:edit">
+                <i class="fa fa-edit"></i> 修改
+            </a>
+            <!--<a class="btn btn-danger btn-del disabled" onclick="$.operate.removeAll()" shiro:hasPermission="role:delete">
+                <i class="fa fa-remove"></i> 删除
+            </a>-->
+            <a class="btn btn-warning" onclick="$.table.exportExcel()">
+                <i class="fa fa-download"></i> 导出
+            </a>
+        </div>
+
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table" data-mobile-responsive="true"></table>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    var editFlag = "[[${@perms.hasPerm('role:edit')}]]";
+    var deleteFlag = "[[${@perms.hasPerm('role:delete')}]]";
+    var assign="[[${@perms.hasPerm('role:assign')}]]";
+    $(function() {
+        var options = {
+            url:ctx + "role/list",
+            createUrl:ctx + "role/add",
+            updateUrl: ctx + "role/edit/{id}",
+            sortName: "id",
+            modalName: "角色",
+            search: false,
+            showExport: false,
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field: 'id',
+                    title: '角色编号'
+                },
+                {
+                    field: 'roleUuid',
+                    title: 'uuid'
+                },
+                {
+                    field: 'role',
+                    title: '角色名称'
+                },
+                {
+                    field: 'description',
+                    title: '角色描述'
+                },
+                {
+                    field: 'status',
+                    title: '角色状态',
+                    formatter: function(value, row, index) {
+                        switch (row.status){
+                            case 1 : return '<span class="badge badge-info">有效</span>';
+                            case 2 : return '<span class="badge badge-info"><font style="color: red">无效</font></span>';
+                        }
+                    }
+                },
+                {
+                    field: 'createtime',
+                    title: '创建时间'
+                },
+                {
+                    field: 'updatetime',
+                    title: '修改时间'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push(editFlag=='true'?'<a class="btn btn-success btn-xs " href="#" onclick="$.operate.edit(\'' + row.id + '\')"><i class="fa fa-check-square-o"></i>编辑</a> ':'');
+                        actions.push(assign=='true'?'<a class="btn btn-primary btn-xs " href="#"  onclick="rule('+row.id+')"><i class="fa fa-check-square-o"></i>分配资源</a> ':'');
+                        actions.push(deleteFlag=='true'?'<a class="btn btn-danger btn-xs " href="#"  onclick="deleteBy(' + row.id + ')" ><i class="fa fa-remove"></i>删除</a>':'');
+                        return actions.join('');
+                    }
+                }]
+        };
+        $.table.init(options);
+    });
+    /*角色管理-分配资源*/
+    function rule(id) {
+        var url = ctx + "role/rule/"+id;
+        $.modal.open("分配资源", url);
+    }
+    /**删除**/
+    function deleteBy(id) {
+        $.modal.confirm("确定删除该条" + $.table._option.modalName + "信息吗？", function () {
+            $.ajax({
+                type: 'post',
+                url: ctx + "role/delete/" + id,
+                success : function(result) {
+                    if (result.status == web_status.SUCCESS) {
+                        $.modal.alertSuccess(result.message);
+                        $.table.refresh();
+                    } else {
+                        $.modal.alertError(result.message);
+                    }
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

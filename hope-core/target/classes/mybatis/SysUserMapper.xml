@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hope.mapper.SysUserMapper">
+    <!--低调小熊猫专用-->
+    <resultMap id="userMap" type="com.hope.model.beans.SysUser">
+        <id property="id" column="id"></id>
+        <result property="userId" column="userId"></result>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="salt" column="salt"></result>
+        <result property="email" column="email"></result>
+        <result property="phone" column="phone"></result>
+        <result property="sex" column="sex"></result>
+        <result property="age" column="age"></result>
+        <result property="status" column="status"></result>
+        <result property="createtime" column="create_time"></result>
+        <result property="updatetime" column="update_time"></result>
+        <result property="lastLoginTime" column="last_login_time"></result>
+    </resultMap>
+    <sql id="userSql">
+        select
+            su.id,
+            su.userId,
+            su.username,
+            su.`password`,
+            su.salt,
+            su.email,
+            su.phone,
+            su.sex,
+            su.age,
+            su.`status`,
+            su.create_time,
+            su.update_time,
+            su.last_login_time
+            from sys_user su
+    </sql>
+    <select id="selectUserByName" resultMap="userMap" parameterType="java.lang.String">
+        <include refid="userSql"/>
+        where su.username=#{userName}
+    </select>
+    <select id="findPageBreakByCondition" parameterType="com.hope.model.vo.UserConditionVo" resultMap="userMap">
+        <include refid="userSql"/>
+        where 1=1
+    </select>
+    <update id="updateLastLoginTime" parameterType="com.hope.model.beans.SysUser">
+        UPDATE sys_user SET last_login_time = now() WHERE id=#{id}
+    </update>
+    <select id="listUsersByRoleId" parameterType="java.lang.Integer" resultMap="userMap">
+        select
+            su.id,
+            su.username
+            from sys_user su
+            INNER JOIN sys_user_role sur on sur.userId=su.id
+            where 1=1 and sur.roleId=#{roleId}
+    </select>
+    <select id="findByRoleId" parameterType="java.lang.Integer" resultMap="userMap">
+        <include refid="userSql"/>
+        INNER JOIN sys_user_role sur on su.id =sur.userId
+        where 1=1 and sur.roleId=#{roleId}
+    </select>
+    <update id="updateByUserId" parameterType="com.hope.model.beans.SysUser">
+        update sys_user
+		  set username=#{username},email=#{email},phone=#{phone},sex=#{sex},age=#{age},status=#{status},update_time = now()
+		  WHERE id=#{id}
+    </update>
+</mapper>

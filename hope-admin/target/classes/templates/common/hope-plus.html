@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="common/include :: header"></head>
+<body class="gray-bg">
+    <div class="row  border-bottom white-bg dashboard-header">
+        <div class="col-sm-12">
+            <blockquote class="text-warning" style="font-size:14px">
+                <br>您是否一直在苦苦寻找一款适合自己的后台系统…
+                <br>您是否想做一款自己的应用程序…
+                <br>…………
+                <h4 class="text-danger">那么，现在Hope-plus来了</h4>
+            </blockquote>
+
+            <hr>
+        </div>
+        <div class="col-sm-3">
+            <h3>微信公众号：低调小熊猫</h3>
+            <small>任意搜索引擎搜索：低调小熊猫 就能找到我了</small>
+            <br>
+            <br>
+            <img th:src="@{/img/a1.jpg}" width="100%" style="max-width:264px;">
+            <br>
+        </div>
+        <div class="col-sm-5">
+            <h2>
+                Hope-plus
+            </h2>
+            <p>Hope-plus是一款nice的系统，基于Springboot2.0.5最新版本框架开发的后台系统，她采用了主流的Springboot框架，使用了mybatis+shiro+reids+thymeleaf等行业流行技术，模板使用了h+，她提供了诸多的强大的可以重新组合的UI组件，并集成了最新的jQuery版本(v2.1.4)，当然，也集成了很多功能强大，用途广泛的jQuery插件，她可以用于所有的Web应用程序，如<b>网站管理系统后台</b>，<b>CMS</b>，<b>CRM</b>，<b>OA</b>等等，当然，您也可以对她进行深度定制，以做出更强系统。</p>
+            <p>
+                <b>当前版本：</b>v0.1.8
+            </p>
+            <p>
+                <b>定价：</b><span class="label label-warning">&yen;0（开源项目，终身免费）</span>
+            </p>
+            <br>
+            <p>
+                <a class="btn btn-success btn-outline" href="https://jq.qq.com/?_wv=1027&k=5rwpGXz" target="_blank">
+                    <i class="fa fa-qq"> </i> 进入qq群
+                </a>
+                <a class="btn btn-success btn-outline" href="https://github.com/java-aodeng" target="_blank">
+                    <i class="fa fa-cloud"> </i> 访问GitHub
+                </a>
+                <a class="btn btn-success btn-outline" href="https://gitee.com/java-aodeng" target="_blank">
+                    <i class="fa fa-cloud"> </i> 访问码云
+                </a>
+                <a class="btn btn-success btn-outline" href="https://aodeng.cc" target="_blank">
+                    <i class="fa fa-cloud"></i> 访问博客
+                </a>
+            </p>
+        </div>
+        <div class="col-sm-4">
+            <h4>Hope-plus具有以下特点：</h4>
+            <ol>
+                <li>Springboot核心框架</li>
+                <li>Mybatis持久层框架数据操作</li>
+                <li>Shiro权限安全框架</li>
+                <li>Redis缓存</li>
+                <li>Thymelead流行模板引擎</li>
+                <li>Druid数据库连接池</li>
+                <li>Fastjson阿里工具</li>
+                <li>hutool最好的java工具包</li>
+                <li>完全响应式布局（支持电脑、平板、手机等所有主流设备）</li>
+                <li>提供3套不同风格的皮肤</li>
+                <li>提供盒型、全宽、响应式视图模式</li>
+                <li>拥有良好的代码结构</li>
+                <li>更多……</li>
+            </ol>
+        </div>
+
+    </div>
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>联系信息</h5>
+
+                    </div>
+                    <div class="ibox-content">
+                        <p><i class="fa fa-send-o"></i> 博客：<a href="https://aodeng.cc" target="_blank">https://aodeng.cc</a>
+                        </p>
+                        <p><i class="fa fa-qq"></i> QQ：<a href="javascript:" target="_blank">2696284032</a>
+                        </p>
+                        <p><i class="fa fa-weixin"></i> 微信：<a href="javascript:;">18281714982</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>更新日志</h5>
+                    </div>
+                    <div class="ibox-content no-padding">
+                        <div class="panel-body">
+                            <div class="panel-group" id="version">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#version" href="#v13">v0.1.0</a><code class="pull-right">2018.12.13</code>
+                                        </h4>
+                                    </div>
+                                    <div id="v13" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ol>
+                                                <li>开源版本0.1.0</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#version" href="#v12">v0.0.3</a><code class="pull-right">2018.12.13</code>
+                                        </h4>
+                                    </div>
+                                    <div id="v12" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ol>
+                                                <li>添加用户管理</li>
+                                                <li>添加角色管理</li>
+                                                <li>添加资源管理</li>
+                                                <li>11月停工了一个月，12月争取搞完</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#version" href="#v11">v0.0.2</a><code class="pull-right">2018.10.24</code>
+                                            </h4>
+                                    </div>
+                                    <div id="v11" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ol>
+                                                <li>开始整体框架搭建。</li>
+                                                <li>整理模板。</li>
+                                                <li>配置信息。</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#version" href="#v10">v0.0.1</a><code class="pull-right">2018.10.17</code>
+                                            </h4>
+                                    </div>
+                                    <div id="v10" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <ol>
+                                                <li>Hope-plus正式开发。</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>捐赠</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <p>请我吃个肉夹馍</p>
+                        <p id="pay-qrcode">
+                            <a href="javascript:;"><img th:src="@{/img/zsm.jpg}" width="100%" alt="请使用手机微信扫码支付">
+                            </a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

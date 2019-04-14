@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="common/include :: header"></head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-12 search-collapse">
+            <form id="menu-form">
+                <div class="select-list">
+                    <ul>
+                        <li>
+                            菜单名称：<input type="text" name="menuName"/>
+                        </li>
+                       <!-- <li>
+                            菜单状态：<select name="visible" th:with="type=${@dict.getType('sys_show_hide')}">
+                            <option value="">所有</option>
+                            <option th:each="dict : ${type}" th:text="${dict.dictLabel}" th:value="${dict.dictValue}"></option>
+                        </select>
+                        </li>-->
+                        <li>
+                            <a class="btn btn-primary btn-rounded btn-sm" onclick="$.treeTable.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                            <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <div class="btn-group-sm hidden-xs" id="toolbar" role="group">
+            <a class="btn btn-success" onclick="$.operate.add(0)" shiro:hasPermission="resource:add">
+                <i class="fa fa-plus"></i> 新增
+            </a>
+            <a class="btn btn-primary" onclick="$.operate.editTree()" shiro:hasPermission="resource:edit">
+                <i class="fa fa-edit"></i> 修改
+            </a>
+        </div>
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table" data-mobile-responsive="true"></table>
+        </div>
+    </div>
+</div>
+<script th:inline="javascript">
+    var editFlag = "[[${@perms.hasPerm('resource:edit')}]]";
+    var deleteFlag = "[[${@perms.hasPerm('resource:delete')}]]";
+    var addFlag="[[${@perms.hasPerm('resource:add')}]]";
+    $(function() {
+        var options = {
+            url:ctx + "resource/list",
+            code:"id",
+            parentCode:"parentId",
+            uniqueId:"id",
+            createUrl:ctx + "resource/add/{id}",
+            updateUrl: ctx + "resource/edit/{id}",
+            removeUrl: ctx + "resource/delete/{id}",
+            sortName: "id",
+            modalName: "资源",
+            expandAll:false,
+            expandFirst:false,
+            columns: [{
+                field: 'selectItem',
+                radio: true
+                },
+                {
+                    field: 'name',
+                    title: '菜单名称',
+                    width: '20%',
+                    formatter: function(value, row, index) {
+                        if ($.common.isEmpty(row.icon)) {
+                            return row.name;
+                        } else {
+                            return '<i class="' + row.icon + '"></i> <span class="nav-label">' + row.name + '</span>';
+                        }
+                    }
+                },
+                {
+                    field: 'priority',
+                    title: '排序',
+                    width: '10%',
+                    align: "left"
+                },
+                {
+                    field: 'url',
+                    title: '请求地址',
+                    width: '15%',
+                    align: "left"
+                },
+                {
+                    field: 'type',
+                    title: '类型',
+                    width: '10%',
+                    align: "left",
+                    formatter: function(value, item, index) {
+                        switch (item.type){
+                            case 0 :  return '<span class="label label-success">目录</span>';
+                            case 1 :  return '<span class="label label-primary">菜单</span>';
+                            case 2 :  return '<span class="label label-warning">按钮</span>';
+                        }
+                    }
+                },
+                {
+                    field: 'status',
+                    title: '状态',
+                    width: '10%',
+                    align: "left",
+                    formatter: function(value, row, index) {
+                        switch (row.status){
+                            case 1 : return '<span class="badge badge-info">有效</span>';
+                            case 2 : return '<span class="badge badge-info"><font style="color: red">无效</font></span>';
+                        }
+                    }
+                },
+                {
+                    field: 'permission',
+                    title: '权限标识',
+                    width: '15%',
+                    align: "left",
+                },
+                {
+                    title: '操作',
+                    width: '20%',
+                    align: "left",
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push(editFlag=='true'?'<a class="btn btn-success btn-xs" href="#" onclick="$.operate.edit('+row.id+')"><i class="fa fa-edit"></i>编辑</a> ':'');
+                        actions.push(addFlag=='true'?'<a class="btn btn-info btn-xs"  href="#" onclick="$.operate.add('+row.id+')"><i class="fa fa-plus"></i>新增</a> ':'');
+                        actions.push(deleteFlag=='true'?'<a class="btn btn-danger btn-xs" href="#" onclick="deleteBy('+row.id+')"><i class="fa fa-remove"></i>删除</a>':'');
+                        return actions.join('');
+                    }
+                }]
+        };
+        $.treeTable.init(options);
+    });
+    /*角色管理-分配资源*/
+    function rule() {
+        var url = ctx + "role/rule";
+        $.modal.open("分配资源", url);
+    }
+    /**删除**/
+    function deleteBy(id) {
+        $.modal.confirm("确定删除该条" + $.table._option.modalName + "信息吗？", function() {
+            $.ajax({
+                type : 'post',
+                url: ctx + "resource/delete/" + id,
+                success : function(result) {
+                    if (result.status == web_status.SUCCESS) {
+                        $.modal.alertSuccess(result.message);
+                        $.treeTable.refresh();
+                    } else {
+                        $.modal.alertError(result.message);
+                    }
+                }
+            });
+        });
+    }
+</script>
+</body>
+</html>

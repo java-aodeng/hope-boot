@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title>Hope-plus 后台- 登录</title>
+    <meta name="keywords" content="个人博客：https://aodeng.cc">
+    <meta name="description" content="微信公众号：低调小熊猫">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/font-awesome.css?v=4.4.0}" rel="stylesheet">
+    <link th:href="@{/css/animate.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <link th:href="@{/js/plugins/iCheck/custom.css}" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <style>
+        .code{
+            background: #fff no-repeat 95% center;
+            color: #333;
+            margin: 0 0 15px 0;
+        }
+    </style>
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b" style="margin-top: -20px;opacity: 0.9">
+                        <h1><img src="/img/image3 (7).jpg"/></h1>
+                    </div>
+                    <div class="m-b"></div>
+                    <h4>欢迎登陆 <strong>"Hope-plus"</strong></h4>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> SpringBoot</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Mybatis</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Shiro</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Redis</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Thymeleaf</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Bootstrap</li>
+                    </ul>
+                    <strong>还没有账号？ <a th:href="@{/#}">立即注册&raquo;</a></strong>
+                </div>
+            </div>
+            <div class="col-sm-5"><!--action="" method="post"-->
+                <form  id="HopeLogin" class="login-form">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">我们不改变世界，我们跟着世界改变</p>
+                    <input type="text"  class="form-control uname" placeholder="用户名" name="username" />
+                    <input type="password" class="form-control pword m-b" placeholder="密码" name="password"/>
+                    <div class="row">
+                        <div class="col-xs-6" style="margin-top: -15px">
+                            <input id="bg" type="text" name="verification" class="form-control code" placeholder="验证码" maxlength="6">
+                        </div>
+                        <div class="col-xs-6">
+                            <a href="javascript:void(0);" title="点击更换验证码">
+                                <img src="/verificationCode" class="imgcode"  width="85%"/>
+                            </a>
+                        </div>
+                    </div>
+                    <input class="i-checks" type="checkbox" name="rememberme" id="rememberme"/>&nbsp;&nbsp;记住我
+                    <input class="btn btn-success btn-block" id="loginBtn" type="button" value="登录"/>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2018 All Rights Reserved. <a href="https://aodeng.cc">低调小熊猫Blog</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script th:src="@{/js/jquery.min.js?v=2.1.4}"></script>
+<script th:src="@{/js/bootstrap.min.js?v=3.3.6}"></script>
+<script th:src="@{/js/plugins/layer/layer.min.js}"></script>
+<!-- jquery-validate 表单验证插件 -->
+<script th:src="@{/js/plugins/validate/jquery.validate.min.js}"></script>
+<script th:src="@{/js/plugins/validate/messages_zh.min.js}"></script>
+<script th:src="@{/js/plugins/hope/validate/jquery.validate.extend.js}"></script>
+<script th:src="@{/js/plugins/iCheck/icheck.min.js}"></script>
+<script th:inline="javascript"> var ctx = [[@{/}]]; </script>
+</html>
+<script>
+    $(function () {
+        validateLogin();
+        $("#loginBtn").click(function () {
+        login()
+        });
+        $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green-login"});
+    });
+
+    function validateLogin() {
+        $("#HopeLogin").validate({
+            rules:{
+                username:{required:true},
+                password:{required:true}
+            },
+            messages:{
+                username:{required:"<i class='fa fa-times-circle'></i>请输入你的用户名！"},
+                password:{required:"<i class='fa fa-times-circle'></i>请输入你的密码！"}
+            }
+        })
+    }
+
+    function login() {
+        $.ajax({
+            type:"POST",
+            url:"",
+            data: $(".login-form").serialize(),
+            dataType: "json",
+            //cache:false,
+            success: function(data) {
+                layer.msg("templates.common.login");
+                if (data.status == 200) {
+                    layer.msg("<em style='color:green'>"+data.message+"</em>", {
+                        icon: 2,
+                        offset: '30%',
+                        time: 800
+                    });
+                    window.location.href="/common/index";
+                }else{
+                    layer.msg("<em style='color:red'>"+data.message+"</em>", {
+                        icon: 2,
+                        offset: '30%',
+                        time: 2000
+                    });
+                    $(".imgcode").click();
+                }
+            }
+        });
+    }
+
+    $.validator.setDefaults({
+        submitHandler: function() {
+            login();
+        }
+    });
+
+    $(".imgcode").on('click', function () {
+        $(this).attr('src', '/verificationCode?' + Math.floor(Math.random() * 100));
+    });
+
+</script>

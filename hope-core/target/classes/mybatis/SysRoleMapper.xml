@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hope.mapper.SysRoleMapper">
+    <!--低调小熊猫专用-->
+    <resultMap id="roleMap" type="com.hope.model.beans.SysRole">
+        <id property="id" column="id"></id>
+        <result property="roleId" column="roleId"/>
+        <result property="role" column="role"/>
+        <result property="description" column="description"/>
+        <result property="status" column="status"/>
+        <result property="createtime" column="create_time"/>
+        <result property="updatetime" column="update_time"/>
+    </resultMap>
+    <sql id="roleSql">
+        select
+            sr.id,
+            sr.roleId,
+            sr.role,
+            sr.description,
+            sr.`status`,
+            sr.create_time,
+            sr.update_time
+            from sys_role sr
+    </sql>
+    <select id="findPageBreakByCondition" parameterType="com.hope.model.vo.RoleConditionVo" resultMap="roleMap">
+        <include refid="roleSql"/>
+        WHERE 1=1
+    </select>
+    <select id="findRoleByUserId" parameterType="java.lang.Integer" resultMap="roleMap">
+        select
+            r.id,
+            r.role,
+            r.description
+            from sys_role r
+			LEFT JOIN sys_user_role ur on r.id = ur.roleId
+			where ur.userId=#{userId}
+    </select>
+    <select id="RoleListWithSelected" parameterType="java.lang.Integer" resultMap="roleMap">
+        select
+            sr.id,
+            sr.role,
+            sr.description,
+                (
+                    CASE WHEN
+                    (
+                        select sur.roleId from sys_user_role sur where sur.userId=#{userId} AND sur.roleId=sr.id
+                    )
+                    THEN 1
+                    end
+                ) as selected
+            from sys_role sr
+            where sr.status=1
+    </select>
+</mapper>

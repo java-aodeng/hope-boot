@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="common/include :: header"></head>
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span><img alt="image" class="img-circle" style="width: 60px;height: 60px;" th:src="@{/img/image3 (7).jpg}" /></span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                               <span class="block m-t-xs"><strong class="font-bold">Hope-plus</strong></span>
+                                    <span class="text-muted text-xs block">
+                                        <shiro:user>
+                                            欢迎【<font color="yellow"><shiro:principal property="username"/></font>】登录
+                                        </shiro:user>
+                                        <b class="caret"></b>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a class="J_menuItem" href="form_avatar.html">修改头像</a>
+                                </li>
+                                <li><a class="J_menuItem" href="profile.html">个人资料</a>
+                                </li>
+                                <li><a class="J_menuItem" href="contacts.html">联系我们</a>
+                                </li>
+                                <li><a class="J_menuItem" href="mailbox.html">信箱</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li><a th:href="@{/logout}">安全退出</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">H+
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">主页</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" th:href="@{/hope-plus}" data-index="0">hope-plus</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="https://aodeng.cc" data-index="0">低调小熊猫</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-object-ungroup"></i>
+                            <span class="nav-label">权限管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" th:href="@{/user/user}" data-index="0">用户管理</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" th:href="@{/role/role}">角色管理</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" th:href="@{/resource/resource}">资源管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-firefox"></i>
+                            <span class="nav-label">系统管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" th:href="@{/onlineusers}" data-index="0">在线用户</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i>
+                            <span class="nav-label">系统工具</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a class="J_menuItem" th:href="@{/druid}" data-index="0">数据监控</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="https://github.com/java-aodeng/hope-plus">
+                            <i class="fa fa-bars"> star</i>
+                        </a>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted">欢迎来到Hope-plus管理后台</span>
+                        </li>
+                        <li><a id="fullScreen"><i class="fa fa-arrows-alt"></i>全屏</a></li>
+                        <li class="dropdown hidden-xs">
+                            <a class="right-sidebar-toggle" aria-expanded="false">
+                                <i class="fa fa-tasks"></i> 主题
+                            </a>
+                        </li>
+                        <li><a th:href="@{/logout}"><i class="fa fa-sign-out"></i>退出</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row content-tabs">
+                <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+                </button>
+                <nav class="page-tabs J_menuTabs">
+                    <div class="page-tabs-content">
+                        <a href="javascript:;" class="active J_menuTab" data-id="hope-plus.html">首页</a>
+                    </div>
+                </nav>
+                <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+                </button>
+                <div class="btn-group roll-nav roll-right">
+                    <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+
+                    </button>
+                    <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                        <li class="J_tabCloseAll"><a>关闭全部</a>
+                        </li>
+                        <li class="J_tabCloseOther"><a>关闭其他</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="#" class="roll-nav roll-right J_tabExit tabReload"><i class="fa fa fa-refresh"></i>刷新</a>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe class="J_iframe" name="iframe0" width="100%" height="100%" th:src="@{/hope-plus}" frameborder="0" data-id="hope-plus.html" seamless></iframe>
+            </div>
+            <div class="footer">
+                <div class="pull-right">&copy; 2019 <a href="https://aodeng.cc" target="_blank">低调小熊猫</a>
+                </div>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+        <!--右侧边栏开始-->
+        <div id="right-sidebar">
+            <div class="sidebar-container">
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="skin-setttings">
+                            <div class="title">主题设置</div>
+                            <div class="setings-item">
+                                <span>收起左侧菜单</span>
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="collapsemenu">
+                                        <label class="onoffswitch-label" for="collapsemenu">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setings-item">
+                                <span>固定顶部</span>
+
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox" id="fixednavbar">
+                                        <label class="onoffswitch-label" for="fixednavbar">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setings-item">
+                                <span>固定宽度</span>
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox" id="boxedlayout">
+                                        <label class="onoffswitch-label" for="boxedlayout">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="title">皮肤选择</div>
+                            <div class="setings-item default-skin nb">
+                                <span class="skin-name ">
+                                     <a href="#" class="s-skin-0">
+                                         默认皮肤
+                                     </a>
+                                </span>
+                            </div>
+                            <div class="setings-item blue-skin nb">
+                                <span class="skin-name ">
+                                    <a href="#" class="s-skin-1">
+                                        蓝色主题
+                                    </a>
+                                </span>
+                            </div>
+                            <div class="setings-item yellow-skin nb">
+                                <span class="skin-name ">
+                                    <a href="#" class="s-skin-3">
+                                        黄色/紫色主题
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--右侧边栏结束-->
+    </div>
+</body>
+</html>

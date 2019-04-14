@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hope.mapper.SysResourceMapper">
+    <!--低调小熊猫专用-->
+    <resultMap id="resourceMap" type="com.hope.model.beans.SysResource">
+        <id property="id" column="id"/>
+        <result property="resourceId" column="resourceId"/>
+        <result property="name" column="name"/>
+        <result property="description" column="description"/>
+        <result property="url" column="url"/>
+        <result property="permission" column="permission"/>
+        <result property="parentId" column="parentId"/>
+        <result property="type" column="type"/>
+        <result property="priority" column="priority"/>
+        <result property="icon" column="icon"/>
+        <result property="status" column="status"/>
+        <result property="createtime" column="create_time"/>
+        <result property="updatetime" column="update_time"/>
+        <result property="parentname" column="parentname"/>
+    </resultMap>
+    <sql id="resourceSql">
+        select
+			sr.id,
+			sr.resourceId,
+			sr.`name`,
+			sr.description,
+			sr.url,
+			sr.permission,
+			sr.parentId,
+			sr.type,
+			sr.priority,
+			sr.icon,
+			sr.`status`,
+			sr.create_time,
+			sr.update_time
+			from sys_resource sr
+    </sql>
+    <select id="selectResourceList" parameterType="com.hope.model.beans.SysResource" resultMap="resourceMap">
+        <include refid="resourceSql"/>
+        WHERE 1=1
+        <if test="null != name and '' != name">
+            and sr.name like concat('%', #{name}, '%')
+        </if>
+        <if test="null != status and '' != status">
+            and sr.`status` = #{status}
+        </if>
+    </select>
+    <select id="selectAlls" resultMap="resourceMap">
+        <include refid="resourceSql"/>
+    </select>
+    <select id="listUrlAndPermission" resultType="com.hope.model.beans.SysResource">
+        select
+            url,
+            permission
+            from sys_resource
+            where 1=1 and url is not null ORDER by priority ASC
+    </select>
+    <select id="findPermsByUserId" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select
+            DISTINCT r.permission
+            from sys_resource r
+            LEFT JOIN sys_role_resource rr ON r.id=rr.resourceId
+            LEFT JOIN sys_user_role ur on rr.roleId = ur.roleId
+            WHERE 1=1 AND ur.userId=#{userId} and r.permission is not null and r.permission!='' and r.status=1
+    </select>
+    <select id="selectResourceTree" parameterType="int" resultType="String">
+        select
+			CONCAT(sr.id,sr.permission) as permission
+			FROM sys_resource sr
+			LEFT JOIN sys_role_resource srr on sr.id = srr.resourceId
+			where 1=1 and srr.roleId =#{roleId}
+			ORDER BY sr.parentId,sr.priority
+    </select>
+    <select id="selectResourceById" parameterType="java.lang.Integer" resultMap="resourceMap">
+        select
+            sr1.* ,
+            sr2.name as parentname
+            from sys_resource sr1
+            LEFT join sys_resource sr2 on sr2.id=sr1.parentId
+            where sr1.id =#{id}
+    </select>
+    <select id="selectSubPermsById" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select
+            count(sr2.id)
+            from sys_resource sr1
+            LEFT JOIN sys_resource sr2 ON sr1.id=sr2.parentId and sr2.status=1
+            where sr1.id=#{id}
+    </select>
+</mapper>

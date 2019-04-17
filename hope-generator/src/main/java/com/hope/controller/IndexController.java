@@ -17,10 +17,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * sso server (for web)
- *
- * @author xuxueli 2017-08-01 21:39:47
- */
+ * @program:hope-plus
+ * @ClassName:tetst
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @create:2019-04-17 09:44
+ * @Description: TODO
+ * @Version 1.0
+ **/
 @Controller
 public class IndexController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);

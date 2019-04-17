@@ -7,10 +7,14 @@ import com.hope.core.util.TableParseUtil;
 import java.io.IOException;
 
 /**
- * code generate tool
- *
- * @author xuxueli 2018-04-25 16:29:58
- */
+ * @program:hope-plus
+ * @ClassName:tetst
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @create:2019-04-17 09:44
+ * @Description: TODO
+ * @Version 1.0
+ **/
 public class CodeGeneratorTool {
 
 	/**

@@ -1,10 +1,14 @@
 package com.hope.core.model;
 
 /**
- * field info
- *
- * @author xuxueli 2018-05-02 20:11:05
- */
+ * @program:hope-plus
+ * @ClassName:tetst
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @create:2019-04-17 09:44
+ * @Description: TODO
+ * @Version 1.0
+ **/
 public class FieldInfo {
 
     private String columnName;

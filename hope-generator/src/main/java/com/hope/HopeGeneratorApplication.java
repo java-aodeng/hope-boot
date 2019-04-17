@@ -4,6 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
+/**
+ * @program:hope-plus
+ * @ClassName:tetst
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @create:2019-04-17 09:44
+ * @Description: TODO
+ * @Version 1.0
+ **/
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class HopeGeneratorApplication {
 

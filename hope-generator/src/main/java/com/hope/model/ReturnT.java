@@ -3,9 +3,14 @@ package com.hope.model;
 import java.io.Serializable;
 
 /**
- * common return
- * @author xuxueli 2015-12-4 16:32:31
- */
+ * @program:hope-plus
+ * @ClassName:tetst
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @create:2019-04-17 09:44
+ * @Description: TODO
+ * @Version 1.0
+ **/
 public class ReturnT<T> implements Serializable {
 	public static final long serialVersionUID = 42L;
 

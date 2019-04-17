@@ -14,10 +14,14 @@ import java.io.StringWriter;
 import java.util.Map;
 
 /**
- * freemarker tool
- *
- * @author xuxueli 2018-05-02 19:56:00
- */
+ * @program:hope-plus
+ * @ClassName:tetst
+ * @author:aodeng
+ * @blog:低调小熊猫(https://aodeng.cc)
+ * @create:2019-04-17 09:44
+ * @Description: TODO
+ * @Version 1.0
+ **/
 @Component
 public class FreemarkerTool {
     private static final Logger logger = LoggerFactory.getLogger(CodeGeneratorTool.class);

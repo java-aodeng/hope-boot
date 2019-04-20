@@ -1,6 +1,6 @@
 [![log](https://github.com/java-aodeng/hope-plus/blob/master/docs/img/logo.png)](https://github.com/java-aodeng/hope-plus)
 
-<h1><a href="#">Hope-plus 0.2.0</a></h1>
+<h1><a href="#">Hope-plus 0.6.1</a></h1>
 
 🇨🇳[简体中文](./README.md) | 🇺🇸English | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
 

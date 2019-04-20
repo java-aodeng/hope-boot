@@ -7,7 +7,10 @@
     <artifactId>hope-generator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hope-generator</name>
-    <description>代码生成平台</description>
+    <description>
+        低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
+        代码生成平台 参考 http://www.xuxueli.com/xxl-code-generator/#/
+    </description>
 
     <!--继承父模板-->
     <parent>

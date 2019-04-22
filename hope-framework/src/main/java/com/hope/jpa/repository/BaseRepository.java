@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * BaseRepository
  * @program:hope-plus
+ * @author johnniang 借鉴https://github.com/halo-dev/halo/blob/v1/src/main/java/run/halo/app/repository/base/BaseRepository.java
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

@@ -20,6 +20,7 @@ import java.util.Optional;
 /**
  * @program:hope-plus
  * @ClassName:AbstractCrudService
+ * @author johnniang 借鉴https://github.com/halo-dev/halo/blob/v1/src/main/java/run/halo/app/service/base/AbstractCrudService.java
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @create:2019-03-05 21:33

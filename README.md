@@ -14,7 +14,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.6.1](https://github.com/java-aodeng/hope-plus)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.7.0](https://github.com/java-aodeng/hope-plus)
 
 ## 简介：
 
@@ -31,24 +31,35 @@
 | hope-framework | 框架模块,提供数据操作,工具处理,通用Mapper,通用Service等 |
 | hope-sso-server | 单点登录-认证中心模块，支持集群 |
 | hope-generator | 代码生成模块-提供sql生成代码 |
+| hope-flyway | 数据库版本管理工具模块 |
 
-## 使用说明
+## 使用说明(请仔细看,看不懂也不要来问我哦！！！)
 
 ```bash
 # 1.使用命令拉取代码：
-git clone https://github.com/java-aodeng/hope-plus.git 
-# 2.使用IDEA导入本项目
-# 3.新建数据库create database hope; 导入数据库文件docs/db/hope.sql
-# 4.修改(hope-admin/resources/application.yaml)配置文件
-    a.数据库配置(可搜索datasource或定位到L.17)
-    b.redis配置(可搜索redis或定位到L.29,注：该项目必须安装redis服务才能启动)
-# 5.运行项目(后台管理模块)
+    git clone https://github.com/java-aodeng/hope-plus.git 
+# 2.创建数据库（取名）：hope， 字符集：utf8mb4;（注意：只需要你创建数据库即可，字符集不是utf8，而是utf8mb4）
+# 3.使用IDEA导入该项目
+# 4.修改配置
+    A.打开hope-flyway模块，配置数据库连接:
+        spring:
+          datasource:
+              url: 你的数据库地址
+              username: 你的数据库用户名
+              password: 你的数据库密码
+    B.打开hope-admin模块，配置数据库连接和redis连接:
+        a.数据库配置(可搜索datasource或定位到L.17)
+        b.redis配置(可搜索redis或定位到L.29,注：该项目必须安装redis服务才能启动)
+# 5.运行项目(数据库管理模块)    
+    a.直接运行hope-flyway目录下的HopeFlywayApplication.java
+    b.查看数据库是否自动生成表和初始化的数据
+# 6.运行项目(后台管理模块)
     a.直接运行hope-admin目录下的HopeAdminApplication.java
     b.浏览器访问：http://127.0.0.1:8886
-# 6.运行项目(单点登录模块)
+# 7.运行项目(单点登录模块)
     a.直接运行hope-sso-server目录下的HopeSsoServerApplication.java
     b.浏览器访问：http://127.0.0.1:8887
-# 6.运行项目(代码生成模块)
+# 8.运行项目(代码生成模块)
     a.直接运行hope-generator目录下的HopeGeneratorApplication.java
     b.浏览器访问：http://127.0.0.1:8888
 ```

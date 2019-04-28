@@ -1,0 +1,10 @@
+spring:
+  datasource:
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/hope?useUnicode=true&characterEncoding=UTF-8&useSSL=false&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=GMT
+      username: root
+      password: 123456
+  flyway:
+      baseline-on-migrate: true
+server:
+  port: 8090

@@ -13,6 +13,7 @@
         <module>hope-framework</module>
         <module>hope-sso-server</module>
         <module>hope-generator</module>
+        <module>hope-flyway</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -77,6 +78,11 @@
             <dependency>
                 <groupId>com.hope</groupId>
                 <artifactId>hope-generator</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.hope</groupId>
+                <artifactId>hope-flyway</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
         </dependencies>

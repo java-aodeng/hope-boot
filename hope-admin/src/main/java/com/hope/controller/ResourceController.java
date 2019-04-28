@@ -46,7 +46,7 @@ public class ResourceController {
     */ 
     @ApiOperation(value = "资源列表", notes = "资源列表",position = 11,produces="application/json, application/xml", consumes="application/json, application/xml",response = SysResource.class)
     @RequiresPermissions("resource:list")
-    @PostMapping("/list")
+    @RequestMapping("/list")
     public List<SysResource> list(SysResource sysResource) {
         List<SysResource> resourceList = sysResourceService.selectResourceList(sysResource);
         return resourceList;

@@ -166,7 +166,7 @@ CREATE TABLE `sys_user` (
   `last_login_time` datetime DEFAULT NULL COMMENT '最后登陆时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2019-03-22 18:35:10');
+INSERT INTO `sys_user` VALUES ('1', '1', 'admin', 'TeRARkF3rak6MokqdtwS5g==', '8cd50474d2a3c1e88298e91df8bf6f1c', '523179414@qq.com', '187888899991', '1', '22', '1', '2018-09-18 14:00:02', '2018-09-18 14:00:02', '2019-03-22 18:35:10');
 INSERT INTO `sys_user` VALUES ('2', '2', '女测试', 'eedqXGyUJwa/dFCLOZ+IYg==', '8cd50474d2a3c1e88298e91df8bf6f1c', '5231794143@qq.com', '1878888999913', '0', '233', '1', '2018-09-18 14:00:02', '2018-12-31 13:33:01', '2018-12-31 15:14:01');
 #用户角色关联表
 DROP TABLE IF EXISTS `sys_user_role`;

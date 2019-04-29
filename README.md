@@ -14,7 +14,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.7.0](https://github.com/java-aodeng/hope-plus)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.7.1](https://github.com/java-aodeng/hope-plus)
 
 ## 简介：
 
@@ -81,6 +81,7 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [Redis](https://github.com/antirez/redis)：缓存框架
 - [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：模板引擎
 - [MyBatis](https://github.com/mybatis/mybatis-3)：用于Java的MyBatis SQL Mapper框架
+- [jpa](https://github.com/spring-projects/spring-data-jpa)：我也不知道为什么要把这个加上
 - [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：分页插件
 - [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper
 - [alibaba/druid](https://github.com/alibaba/druid)：数据库连接池
@@ -94,6 +95,9 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [kaptcha](https://github.com/penggle/kaptcha)：Google验证码
 - [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
 - [swagger](https://github.com/swagger-api/swagger-ui)：Swagger（丝袜哥）是世界上最流行的 API 表达工具。
+- [flyway](https://github.com/flyway/flyway)：Flyway by Boxfuse • Database Migrations Made Easy.
+- [xxl-sso](https://github.com/xuxueli/xxl-sso/)：A distributed single-sign-on framework.
+- [xxl-code](https://github.com/xuxueli/xxl-code-generator/)：A code generator for "controller/service/dao/mybatis/model" layer.
 
 ## 捐赠
 
@@ -106,6 +110,7 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [x] 整合 **RESTful APIs 构建成前后端分离项目**
 - [x] 整合 **Swagger接口管理**
 - [X] 整合 **sso单点登录**
+- [ ] 整合 **shiro-JWT实现token鉴权**
 - [ ] 整合 **数据权限分离**
 - [ ] 整合 **支付模块**
 - [ ] 整合 **定时服务系统**
@@ -117,6 +122,8 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [ ] 重构 **项目使用微服务架构（待定）**
 
 ## 界面展示
+
+前端页面借鉴[若依](https://gitee.com/y_project)，已获得作者同意，感谢开源，不想写页面！主要是怕自己写一个最牛逼的页面出来，哈
 
 ![](https://i.loli.net/2018/12/31/5c29cfa636b7a.png)
 ![](https://i.loli.net/2018/12/31/5c29cfe24ef3c.png)

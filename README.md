@@ -18,7 +18,7 @@
 
 ## 简介：
 
-**Hope-plus**是我学习过程中诞生的，算我学习的结晶吧。主语言[java]
+**Hope-plus**是我学习过程中诞生的，随性开发。主语言[java]
 
 >项目地址： https://github.com/java-aodeng/hope-plus
 

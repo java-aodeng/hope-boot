@@ -1,7 +1,7 @@
 package com.hope.model.beans;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:UserInfo
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

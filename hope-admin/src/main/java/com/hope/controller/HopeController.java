@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -54,14 +54,14 @@ public class HopeController {
     }
 
     /***
-     * hope-plus
+     * hope-boot
      * @param model
      * @return
      */
-    @ApiOperation(value = "hope-plus", notes = "hope-plus")
-    @GetMapping("/hope-plus")
+    @ApiOperation(value = "hope-boot", notes = "hope-boot")
+    @GetMapping("/hope-boot")
     public ModelAndView index_v1(Model model) {
-        return ResultHopeUtil.view("common/hope-plus");
+        return ResultHopeUtil.view("common/hope-boot");
     }
 
     /***

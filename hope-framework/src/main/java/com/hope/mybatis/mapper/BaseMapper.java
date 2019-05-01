@@ -7,7 +7,7 @@ import tk.mybatis.mapper.common.MySqlMapper;
 /**
  * 通用mapper
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @create:2018-10-15 13:15
  **/

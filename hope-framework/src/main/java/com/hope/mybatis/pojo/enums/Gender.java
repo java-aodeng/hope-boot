@@ -1,7 +1,7 @@
 package com.hope.mybatis.pojo.enums;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @create:2018-10-15 13:24
  **/

@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * 基础转换 其实分页工具会自动计算，只需要num和size即可
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

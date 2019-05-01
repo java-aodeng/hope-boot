@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:SsoConfig
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

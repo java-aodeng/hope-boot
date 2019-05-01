@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:AbstractCrudService
  * @author johnniang 借鉴https://github.com/halo-dev/halo/blob/v1/src/main/java/run/halo/app/service/base/AbstractCrudService.java
  * @author:aodeng

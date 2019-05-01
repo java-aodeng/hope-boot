@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:MyWebMvcConfigurer
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

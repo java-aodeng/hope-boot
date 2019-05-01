@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:AppController
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

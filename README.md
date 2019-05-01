@@ -1,28 +1,26 @@
-[![log](https://i.loli.net/2018/12/30/5c28d022c657d.png)](https://github.com/java-aodeng/hope-plus)
-
-> Hope-plus是一款权限管理系统。
+<h1><a href="https://github.com/hope-for/hope-boot">Hope-Boot</a></h1>
 
 <p align="center">
 <a href="https://aodeng.cc"><img alt="Author" src="https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg"/></a>
-<a href="https://github.com/java-aodeng/hope-plus"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-orange.svg"/></a>
-<a href="https://github.com/java-aodeng/hope-plus/blob/master/LICENSE"><img alt="license" src="https://img.shields.io/badge/license-MIT-red.svg"/></a>
+<a href="https://github.com/hope-for/hope-boot"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-orange.svg"/></a>
+<a href="https://github.com/hope-for/hope-boot/blob/master/LICENSE"><img alt="license" src="https://img.shields.io/github/license/java-aodeng/hope.svg?style=flat-square"/></a>
 <a href="https://jq.qq.com/?_wv=1027&k=574chhz"><img alt="QQ群" src="https://img.shields.io/badge/chat-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%ABQQ%E7%BE%A4-yellow.svg"/></a>
-<a href="https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ"><img alt="Telegram群组" src="https://img.shields.io/badge/telegram-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB--%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD-orange.svg"/></a>
-<a href="https://github.com/java-aodeng/hope-plus"><img alt="star" src="https://img.shields.io/github/stars/java-aodeng/hope-plus.svg?label=Stars&style=social"/></a>
-<a href="https://github.com/java-aodeng/hope-plus/releases"><img alt="发行版本" src="https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg"/></a>
+<a href="https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ"><img alt="Telegram" src="https://img.shields.io/badge/telegram-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB--%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD-orange.svg"/></a>
+<a href="https://github.com/hope-for/hope-boot"><img alt="star" src="https://img.shields.io/github/stars/hope-for/hope-boot.svg?label=Stars&style=social"/></a>
+<a href="https://github.com/hope-for/hope-boot/releases"><img alt="发行版本" src="https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg"/></a>
 </p>
+
+# 简介
+
+>您是否一直在苦苦寻找一款适合自己的后台系统... 那么，现在Hope-boot来了。我也不知道为什么要做这样一个项目，或许是为了学习，或许是我一直没发现一款完美的系统。欢迎大家提问题，好让我一直完善下去
+
+> 基于Spring Boot 2.x开发 整合：Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf 动态权限管理 AES+MD5+盐加解密 代码生成 日志记录 Google验证码登录 单点登录 项目地址：https://github.com/hope-for/hope-boot 主语言[java]
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master) | 版本:label:[0.7.1](https://github.com/java-aodeng/hope-plus)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-boot/commits/master) | 当前版本:label:[0.0.1](https://github.com/java-aodeng/hope-boot)
 
-## 简介：
-
-**Hope-plus**是我学习过程中诞生的，随性开发。主语言[java]
-
->项目地址： https://github.com/java-aodeng/hope-plus
-
-## 模块划分
+# 模块划分
 
 | 模块         | 释义                      |    
 | ---------- | ----------------------- |
@@ -33,11 +31,11 @@
 | hope-generator | 代码生成模块-提供sql生成代码 |
 | hope-flyway | 数据库版本管理工具模块 |
 
-## 使用说明(请仔细看,看不懂也不要来问我哦！！！)
+# 使用说明
 
 ```bash
 # 1.使用命令拉取代码：
-    git clone https://github.com/java-aodeng/hope-plus.git 
+    git clone https://github.com/hope-for/hope-boot.git 
 # 2.创建数据库（取名）：hope， 字符集：utf8mb4;（注意：只需要你创建数据库即可，字符集不是utf8，而是utf8mb4）
 # 3.使用IDEA导入该项目
 # 4.修改配置
@@ -64,17 +62,17 @@
     b.浏览器访问：http://127.0.0.1:8888
 ```
 
-## 账号
+# 账号
 
 后台登录：账号：admin 密码：123456
 
 资源监控：账号：hope-druid 密码：hope-druid
 
-后端API管理：localhost:8886/swagger-ui.html
+后端API文档：http://localhost:8886/swagger-ui.html
 
-## 感谢：
+# 感谢
 
-Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）：
+Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）：
 
 - [Spring Boot](https://github.com/spring-projects/spring-boot)：核心框架
 - [Apache Shiro](https://github.com/apache/shiro)：权限框架
@@ -86,6 +84,7 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper
 - [alibaba/druid](https://github.com/alibaba/druid)：数据库连接池
 - [alibaba/fastjson](https://github.com/alibaba/fastjson)：用于Java的快速JSON解析器/生成器
+- [Apache Maven](https://maven.apache.org/):依赖管理
 - [shiro-redis](https://github.com/alexxiyang/shiro-redis)：一个可以由shiro使用的redis缓存工具
 - [Lombok](https://www.projectlombok.org/)：让代码更简洁
 - [Hutool](https://github.com/looly/hutool)：一个Java工具包，也只是一个工具包，它帮助我们简化每一行代码，减少每一个方法，让Java语言也可以“甜甜的”
@@ -99,42 +98,49 @@ Hope-plus的诞生离不开下面这些项目（取之开源，用之开源）�
 - [xxl-sso](https://github.com/xuxueli/xxl-sso/)：A distributed single-sign-on framework.
 - [xxl-code](https://github.com/xuxueli/xxl-code-generator/)：A code generator for "controller/service/dao/mybatis/model" layer.
 
-## 捐赠
+# 捐赠
 
 **请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 
-## 后续功能
+# 后续功能
 
-- [x] 整合 **RESTful APIs 构建成前后端分离项目**
-- [x] 整合 **Swagger接口管理**
-- [X] 整合 **sso单点登录**
-- [ ] 整合 **shiro-JWT实现token鉴权**
-- [ ] 整合 **数据权限分离**
-- [ ] 整合 **支付模块**
-- [ ] 整合 **定时服务系统**
-- [ ] 整合 **授权登录系统**
-- [ ] 整合 **J2Cache缓存**
-- [X] 整合 **代码生成**
-- [ ] 整合 **国际化I18N**
-- [ ] 重构 **前端暂定Vue**
-- [ ] 重构 **项目使用微服务架构（待定）**
+- [x] **RESTful APIs 构建成前后端分离项目**
+- [x] **Swagger接口管理**
+- [X] **sso单点登录**
+- [ ] **shiro-JWT实现token鉴权**
+- [ ] **数据权限分离**
+- [ ] **支付模块**
+- [ ] **定时服务**
+- [ ] **第三方授权登录**
+- [ ] **J2Cache缓存**
+- [X] **代码生成**
+- [ ] **前端使用[Ant](https://ant.design/)重构**
 
-## 界面展示
+# 界面展示
 
-前端页面借鉴[若依](https://gitee.com/y_project)，已获得作者同意，感谢开源，不想写页面！主要是怕自己写一个最牛逼的页面出来，哈
+前端页面暂时借鉴[若依](https://gitee.com/y_project)，已获得作者同意，感谢开源。后面会抽时间采用[Ant](https://ant.design/)重构
 
-![](https://i.loli.net/2018/12/31/5c29cfa636b7a.png)
-![](https://i.loli.net/2018/12/31/5c29cfe24ef3c.png)
-![](https://i.loli.net/2018/12/31/5c29d0f3e7f89.png)
-![](https://i.loli.net/2018/12/31/5c29d08c40128.png)
-![](https://i.loli.net/2018/12/31/5c29d08c4b71f.png)
-![](https://i.loli.net/2018/12/31/5c29d188d68fe.png)
-![](https://i.loli.net/2018/12/31/5c29d188daba1.png)
-![](https://i.loli.net/2018/12/31/5c29d1ce428a5.png)
-![](https://i.loli.net/2018/12/31/5c29d1ce60893.png)
-![](https://i.loli.net/2018/12/31/5c29d1ce68318.png)
-![](https://i.loli.net/2018/12/31/5c29d1ce66275.png)
-![](https://i.loli.net/2018/12/31/5c29d1ce86b5e.png)
-![](https://i.loli.net/2019/03/17/5c8e0bd37267a.png)
+## 后台登录
+
+![](https://i.loli.net/2019/05/01/5cc930100d298.png)
+
+## 首页
+
+![](https://i.loli.net/2019/05/01/5cc9300612ca5.png)
+
+## 权限管理 -用户 -角色 -资源
+
+![](https://i.loli.net/2019/05/01/5cc9300d45a92.png)
+![](https://i.loli.net/2019/05/01/5cc9300d62006.png)
+![](https://i.loli.net/2019/05/01/5cc9300d8fb70.png)
+
+## 系统工具 -资源监控
+
+![](https://i.loli.net/2019/05/01/5cc9300bc316d.png)
+![](https://i.loli.net/2019/05/01/5cc93003ef3d6.png)
+
+## 文档
+
+![](https://i.loli.net/2019/05/01/5cc932128cc07.png)

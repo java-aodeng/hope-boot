@@ -15,7 +15,7 @@ import java.util.Date;
 /**
  * 用户数据对象类
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

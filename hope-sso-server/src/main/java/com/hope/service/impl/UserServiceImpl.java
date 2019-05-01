@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:UserServiceImpl
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

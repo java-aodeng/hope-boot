@@ -15,7 +15,7 @@ import java.util.Date;
 /**
  * 通用实体类
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @create:2018-10-15 13:48
  **/

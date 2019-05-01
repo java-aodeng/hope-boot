@@ -1,12 +1,10 @@
 package com.hope;
 
-import com.cxytiandi.encrypt.springboot.annotation.EnableEncrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@EnableEncrypt//注解开启加解密操作
 @SpringBootApplication
 public class HopeAdminApplication {
     /** logger */

@@ -3,7 +3,7 @@ package com.hope.model.result;
 import java.io.Serializable;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:ReturnT
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

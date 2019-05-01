@@ -22,7 +22,7 @@ INSERT INTO `sys_resource` VALUES ('1', '1', '主页', '主页', ':请', ':权',
 INSERT INTO `sys_resource` VALUES ('2', '2', '权限管理', '权限管理', ':求', ':限', '0', '0', '2', 'fa fa-object-ungroup', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
 INSERT INTO `sys_resource` VALUES ('3', '3', '系统管理', '系统管理', ':路', ':标', '0', '0', '3', 'fa fa-firefox', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
 INSERT INTO `sys_resource` VALUES ('4', '4', '系统工具', '系统工具', ':径', ':识', '0', '0', '4', 'fa fa-cogs', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
-INSERT INTO `sys_resource` VALUES ('100', '100', 'hope-plus', 'hope-plus', '/index', 'index', '1', '1', '1', '', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
+INSERT INTO `sys_resource` VALUES ('100', '100', 'hope-boot', 'hope-boot', '/index', 'index', '1', '1', '1', '', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
 INSERT INTO `sys_resource` VALUES ('101', '101', '低调小熊猫', '低调小熊猫博客', '/https://aodeng.cc', 'blogs', '1', '1', '1', '', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
 INSERT INTO `sys_resource` VALUES ('102', '102', '用户管理', '用户管理', '/user/user', 'user:user:view', '2', '1', '1', '', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');
 INSERT INTO `sys_resource` VALUES ('103', '103', '角色管理', '角色管理', '/roles', 'roles', '2', '1', '2', '', '1', '2018-11-18 15:39:00', '2018-11-18 15:39:00');

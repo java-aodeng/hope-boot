@@ -3,7 +3,7 @@ package com.hope.exception;
 import org.springframework.http.HttpStatus;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:NotFoundException
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

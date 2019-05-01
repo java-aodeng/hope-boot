@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 通用实现类
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @create:2018-10-15 14:42
  **/

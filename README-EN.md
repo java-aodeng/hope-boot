@@ -1,20 +1,20 @@
-[![log](https://github.com/java-aodeng/hope-plus/blob/master/docs/img/logo.png)](https://github.com/java-aodeng/hope-plus)
+[![log](https://github.com/java-aodeng/hope-boot/blob/master/docs/img/logo.png)](https://github.com/java-aodeng/hope-boot)
 
 <h1><a href="#">Hope-plus 0.6.1</a></h1>
 
-🇨🇳[简体中文](./README.md) | 🇺🇸English | [更新日志](https://github.com/java-aodeng/hope-plus/commits/master)
+🇨🇳[简体中文](./README.md) | 🇺🇸English | [更新日志](https://github.com/java-aodeng/hope-boot/commits/master)
 
 [![author](https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg)](https://aodeng.cc)
-[![JDK](https://img.shields.io/badge/JDK-1.8-orange.svg)](https://github.com/java-aodeng/hope-plus)
-[![license](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/java-aodeng/hope-plus/blob/master/LICENSE)
+[![JDK](https://img.shields.io/badge/JDK-1.8-orange.svg)](https://github.com/java-aodeng/hope-boot)
+[![license](https://img.shields.io/badge/license-MIT-red.svg)](https://github.com/java-aodeng/hope-boot/blob/master/LICENSE)
 [![QQ群](https://img.shields.io/badge/chat-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%ABQQ%E7%BE%A4-yellow.svg)](https://jq.qq.com/?_wv=1027&k=574chhz)
 [![Telegram群组](https://img.shields.io/badge/telegram-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB--%E5%AE%98%E6%96%B9%E9%83%A8%E8%90%BD-orange.svg)](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
-[![star](https://img.shields.io/github/stars/java-aodeng/hope-plus.svg?label=Stars&style=social)](https://github.com/java-aodeng/hope-plus)
-[![发行版本](https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg)](https://github.com/java-aodeng/hope-plus/releases)
+[![star](https://img.shields.io/github/stars/java-aodeng/hope-boot.svg?label=Stars&style=social)](https://github.com/java-aodeng/hope-boot)
+[![发行版本](https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg)](https://github.com/java-aodeng/hope-boot/releases)
 
 ## brief introduction：
 
->Hope-plus is a nice privilege management system https://github.com/java-aodeng/hope-plus
+>Hope-plus is a nice privilege management system https://github.com/java-aodeng/hope-boot
 
 >Based on Springboot2 development, integrated use of mybatis + Shiro + redis + thymeleaf + Maven and other practical technologies. Page template uses h+, which has beautiful interface, many powerful UI components that can be reconfigured, jQuery plug-ins and so on. It can be used in all Web applications, such as the background of website management system, CMS, CRM, OA and so on. Of course, you can also customize in depth to make a stronger system.
 
@@ -30,7 +30,7 @@
 #### Instructions
 ```bash
 # 1.Use command pull substitution code：
-git clone https://github.com/java-aodeng/hope-plus.git 
+git clone https://github.com/java-aodeng/hope-boot.git 
 # 2.Import this project using IDEA
 # 3.New database create database hope; Import database files docs/db/hope.sql
 # 4.modify(hope-admin/resources/application.yaml)configuration file

@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:LoginController
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

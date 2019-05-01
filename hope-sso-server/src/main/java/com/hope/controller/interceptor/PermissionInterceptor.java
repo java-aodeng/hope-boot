@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:PermissionInterceptor
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

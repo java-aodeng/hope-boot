@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:WebController
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

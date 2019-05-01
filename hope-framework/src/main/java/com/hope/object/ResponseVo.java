@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * 使用阿里的fastjson
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

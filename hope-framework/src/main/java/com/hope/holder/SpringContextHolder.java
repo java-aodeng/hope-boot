@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * 这个类可以直接获取spring 配置文件中 所有引用（注入）到的bean对象
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

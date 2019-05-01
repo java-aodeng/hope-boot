@@ -1,12 +1,17 @@
 package com.hope.interceptor;
 
 import cn.hutool.core.date.DateUtil;
-import com.puppycrawl.tools.checkstyle.utils.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.MethodParameter;
+import org.springframework.http.MediaType;
+import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +19,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:TTOInterceptor
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -24,7 +29,9 @@ import java.util.Map;
  **/
 public class TTOInterceptor implements HandlerInterceptor {
 
-    /** logger */
+    /**
+     * logger
+     */
     private static final Logger LOGGER = LoggerFactory.getLogger(TTOInterceptor.class);
 
     @Override
@@ -77,7 +84,7 @@ public class TTOInterceptor implements HandlerInterceptor {
         long startTime = System.currentTimeMillis();
         request.setAttribute("startTime", startTime);
 
-        LOGGER.info("------------------------------------ 低调小熊猫 专用 超级日志 "+DateUtil.date()+"------------------------------------");
+        LOGGER.info("------------------------------------ 低调小熊猫 专用 超级日志 " + DateUtil.date() + "------------------------------------");
         LOGGER.info("URI	: " + request.getRequestURI().toString());
 
         try {
@@ -86,7 +93,7 @@ public class TTOInterceptor implements HandlerInterceptor {
             LOGGER.info("Controller : " + controller + ".(" + controller.substring(controller.lastIndexOf(".") + 1)
                     + ".java:1)");
             LOGGER.info("Method	: " + handlerMethod.getMethod().getName());
-        }catch (Exception e){
+        } catch (Exception e) {
             LOGGER.info("Controller : ");
             LOGGER.info("Method	: ");
         }
@@ -114,4 +121,21 @@ public class TTOInterceptor implements HandlerInterceptor {
         }
         return sb.toString();
     }
+}
+
+@ControllerAdvice
+class ResponseBodyAdviceImp implements ResponseBodyAdvice {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TTOInterceptor.class);
+
+    @Override
+    public boolean supports(MethodParameter returnType, Class converterType) {
+        return true;
+    }
+
+    @Override
+    public Object beforeBodyWrite(Object body, MethodParameter arg1, MediaType arg2, Class arg3, ServerHttpRequest arg4, ServerHttpResponse arg5) {
+        LOGGER.info("Result : " + body.toString());
+        return body;
+    }
+
 }

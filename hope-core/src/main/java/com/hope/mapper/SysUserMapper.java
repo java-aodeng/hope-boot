@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @create:2018-10-16 13:59
  **/

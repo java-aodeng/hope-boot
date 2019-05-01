@@ -19,7 +19,7 @@ import java.io.IOException;
  * 2、@ControllerAdvice(annotations=RestController.class)：扫描指定注解类型的Controller；
  * 3、@ControllerAdvice(basePackages={"com.aaa","com.bbb"})：扫描指定package下的Controller
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:WebExceptionResolver
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)

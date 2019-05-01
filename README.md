@@ -18,7 +18,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/java-aodeng/hope-boot/commits/master) | 当前版本:label:[0.0.1](https://github.com/java-aodeng/hope-boot)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.1](https://github.com/java-aodeng/hope-boot)
 
 # 模块划分
 

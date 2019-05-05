@@ -61,7 +61,7 @@
     a.直接运行hope-generator目录下的HopeGeneratorApplication.java
     b.浏览器访问：http://127.0.0.1:8888 
 # 9.打包注意
-    a.打包直接在hope-boot目录下打包即可，生成的jar包在对于的tager目录下，运行即可
+    a.打包直接在hope-boot目录下：mvn clean install 即可，生成的jar包在各自模块下的target目录下。运行：java -jar 包名
     b.flyway模块没有提供打包插件，该模板主要用于开发人员使用，不需要部署
 ```
 

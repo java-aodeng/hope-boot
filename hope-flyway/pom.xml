@@ -7,7 +7,7 @@
 	<artifactId>hope-flyway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>hope-flyway</name>
+	<name>${project.artifactId}</name>
 	<description>
 		低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
 		数据库版本管理

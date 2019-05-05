@@ -17,24 +17,34 @@
     </modules>
     <packaging>pom</packaging>
 
-    <name>hope-boot</name>
+    <name>${project.artifactId}</name>
+
+    <!-- 虽然Hope-Boot使用了宽松的GPL协议，但开发不易，希望您可以保留一下版权声明。笔芯~ -->
     <description>
         低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
         父模板
     </description>
 
+    <developers>
+        <developer>
+            <id>aodeng</id>
+            <name>低调小熊猫</name>
+            <email>java@aodeng.cc</email>
+            <url>https://aodeng.cc</url>
+        </developer>
+    </developers>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.5.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-
         <mybatis.spring.boot.starter.version>1.3.1</mybatis.spring.boot.starter.version>
         <mapper.spring.boot.starter.version>1.1.4</mapper.spring.boot.starter.version>
         <pagehelper.spring.boot.starter.version>1.2.3</pagehelper.spring.boot.starter.version>
@@ -48,10 +58,10 @@
         <hutool.all.version>4.1.7</hutool.all.version>
         <kaptcha.version>2.3.2</kaptcha.version>
         <springfox.swagger2.version>2.8.0</springfox.swagger2.version>
-        <monkey.api.encrypt.version>1.1.2</monkey.api.encrypt.version>
         <springfox.swagger.ui.version>2.8.0</springfox.swagger.ui.version>
         <xxl.sso.core.version>1.1.0</xxl.sso.core.version>
     </properties>
+
     <!--统一模板版本管理-->
     <dependencyManagement>
         <dependencies>
@@ -87,6 +97,8 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <!--依赖-->
     <dependencies>
         <!--web-->
         <dependency>
@@ -228,12 +240,6 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${springfox.swagger.ui.version}</version>
         </dependency>
-        <!--api-->
-        <dependency>
-            <groupId>com.github.yinjihuan</groupId>
-            <artifactId>monkey-api-encrypt</artifactId>
-            <version>${monkey.api.encrypt.version}</version>
-        </dependency>
         <!--xxl-sso-core-->
         <dependency>
             <groupId>com.xuxueli</groupId>
@@ -241,19 +247,4 @@
             <version>${xxl.sso.core.version}</version>
         </dependency>
     </dependencies>
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-        <!--注意： 解决各种依赖问题 -->
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 </project>

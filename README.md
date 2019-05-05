@@ -18,7 +18,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.1](https://github.com/hope-for/hope-boot)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.2](https://github.com/hope-for/hope-boot)
 
 # 模块划分
 
@@ -59,7 +59,10 @@
     b.浏览器访问：http://127.0.0.1:8887
 # 8.运行项目(代码生成模块)
     a.直接运行hope-generator目录下的HopeGeneratorApplication.java
-    b.浏览器访问：http://127.0.0.1:8888
+    b.浏览器访问：http://127.0.0.1:8888 
+# 9.打包注意
+    a.打包直接在hope-boot目录下打包即可，生成的jar包在对于的tager目录下，运行即可
+    b.flyway模块没有提供打包插件，该模板主要用于开发人员使用，不需要部署
 ```
 
 # 账号

@@ -84,7 +84,6 @@ public class TTOInterceptor implements HandlerInterceptor {
         long startTime = System.currentTimeMillis();
         request.setAttribute("startTime", startTime);
 
-        LOGGER.info("------------------------------------ 低调小熊猫 专用 超级日志 " + DateUtil.date() + "------------------------------------");
         LOGGER.info("URI	: " + request.getRequestURI().toString());
 
         try {

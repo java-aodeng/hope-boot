@@ -7,7 +7,7 @@
 	<artifactId>hope-sso-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<name>hope-sso-server</name>
+	<name>${project.artifactId}</name>
 	<description>
 		低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
 		hope 单点登陆 认证中心 参考 http://www.xuxueli.com/xxl-sso/#/
@@ -25,13 +25,13 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
 	<dependencies>
 		<!-- freemarker -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
-
 		<!--xxl-sso-core-->
 		<dependency>
 			<groupId>com.xuxueli</groupId>
@@ -41,7 +41,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>hope-sso-server</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -8,7 +8,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>hope-admin</name>
+    <name>${project.artifactId}</name>
     <description>
         低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
         后台管理
@@ -34,18 +34,12 @@
     </dependencies>
 
     <build>
-        <!--集成打包，指定入口，指定打包文件类型-->
-        <finalName>hope-admin</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-<!--                <configuration>
-                    <mainClass>com.hope.HopeAdminApplication</mainClass>
-                    <layout>JAR</layout>
-                </configuration>-->
             </plugin>
         </plugins>
     </build>
-
 </project>

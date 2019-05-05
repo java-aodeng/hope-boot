@@ -45,12 +45,6 @@ spring:
     active: dev
   application:
       name: hope-admin
-  #增加加密的key配置：响应数据需要加密的话，就在Controller的方法上加@Encrypt注解即可。需要解密的操作我们加上@Decrypt注解即可。
-  encrypt:
-      #加密key，必须是16位
-      key: abcdef0123456789
-      #是否开启调试模式,默认为false,如果为true则不启用加解密操作
-      debug: true
 mybatis:
     type-aliases-package: com.hope.model.beans
     mapper-locations: classpath:/mybatis/*.xml

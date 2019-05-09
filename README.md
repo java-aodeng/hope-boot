@@ -147,3 +147,15 @@ Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）�
 ## 文档
 
 ![](https://i.loli.net/2019/05/01/5cc932128cc07.png)
+
+## 我的链接：
+
+- [我的个人博客](https://aodeng.cc)
+- [我的微信公众号(低调小熊猫)](https://mp.weixin.qq.com/s/l5t8WSCG_-shiD4BPpLYiw) 
+- [hope-boot使用GPL-v3.0协议开源](https://github.com/hope-for/hope-boot/blob/master/LICENSE)
+- [低调小熊猫QQ群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
+- [低调小熊猫Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
+- [我的Gitee链接](https://gitee.com/java-aodeng/hope)
+- [我的Github链接](https://github.com/java-aodeng/hope)
+- [我的开源组织(欢迎志同道合的朋友加入)](https://github.com/hope-for)
+- 联系我的邮箱：java@aodeng.cc 申请加入hope-for组织也是发送到该邮箱哦，记得带上你的GitHub账号

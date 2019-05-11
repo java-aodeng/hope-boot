@@ -13,16 +13,13 @@
         低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
         后台管理
     </description>
+
     <!--继承父模板-->
     <parent>
         <groupId>com.hope</groupId>
         <artifactId>hope-boot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <properties>
-        <hope.core.version>0.0.1-SNAPSHOT</hope.core.version>
-    </properties>
 
     <dependencies>
         <!--依赖core模板-->

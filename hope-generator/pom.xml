@@ -19,22 +19,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
-        <!-- spring-webmvc(spring-boot-starter = spring + autoconfigure + logback + yaml) + tomcat -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <!-- junit + spring-test + mockito -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- freemarker -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -53,7 +38,6 @@
             <optional>true</optional>
             <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -65,5 +49,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

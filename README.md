@@ -14,7 +14,7 @@
 
 >您是否一直在苦苦寻找一款适合自己的后台系统... 那么，现在Hope-boot来了。我也不知道为什么要做这样一个项目，或许是为了学习，或许是我一直没发现一款完美的系统。欢迎大家提问题，好让我一直完善下去
 
-> 基于Spring Boot 2.x开发 整合：Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf 动态权限管理 AES+MD5+盐加解密 代码生成 日志记录 Google验证码登录 单点登录 项目地址：https://github.com/hope-for/hope-boot 主语言[java]
+> 基于Spring Boot 2.x开发 整合：Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf 动态权限管理 AES+MD5+盐加解密 代码生成 日志记录 Google验证码登录 单点登录 定时任务 项目地址：https://github.com/hope-for/hope-boot 主语言[java]
 
 ------------------------------
 
@@ -104,6 +104,7 @@ Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）�
 - [flyway](https://github.com/flyway/flyway)：Flyway by Boxfuse • Database Migrations Made Easy.
 - [xxl-sso](https://github.com/xuxueli/xxl-sso/)：A distributed single-sign-on framework.
 - [xxl-code](https://github.com/xuxueli/xxl-code-generator/)：A code generator for "controller/service/dao/mybatis/model" layer.
+- [quartz](http://www.quartz-scheduler.org/)：定时任务
 
 # 捐赠
 

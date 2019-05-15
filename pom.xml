@@ -91,6 +91,11 @@
                 <artifactId>hope-generator</artifactId>
                 <version>0.0.1-SNAPSHOT</version>
             </dependency>
+            <dependency>
+                <groupId>com.hope</groupId>
+                <artifactId>hope-quartz</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

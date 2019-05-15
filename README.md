@@ -18,7 +18,7 @@
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.3](https://github.com/hope-for/hope-boot)
+🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.4](https://github.com/hope-for/hope-boot)
 
 # 模块划分
 
@@ -30,6 +30,7 @@
 | hope-sso-server | 单点登录-认证中心模块，支持集群 |
 | hope-generator | 代码生成模块-提供sql生成代码 |
 | hope-flyway | 数据库版本管理工具模块 |
+| hope-quartz | 定时任务模块 |
 
 # 使用说明
 
@@ -60,7 +61,10 @@
 # 8.运行项目(代码生成模块)
     a.直接运行hope-generator目录下的HopeGeneratorApplication.java
     b.浏览器访问：http://127.0.0.1:8888 
-# 9.打包注意
+# 9.运行项目(定时任务模块)
+    a.直接运行hope-quartz目录下的HopeQuartzApplication.java
+    b.端口：8889
+# 10.打包注意
     a.打包直接在hope-boot目录下：mvn clean install 即可，生成的jar包在各自模块下的target目录下。运行：java -jar 包名
     b.flyway模块没有提供打包插件，该模板主要用于开发人员使用，不需要部署
 ```
@@ -112,10 +116,9 @@ Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）�
 - [x] **RESTful APIs 构建成前后端分离项目**
 - [x] **Swagger接口管理**
 - [X] **sso单点登录**
-- [ ] **shiro-JWT实现token鉴权**
 - [ ] **数据权限分离**
 - [ ] **支付模块**
-- [ ] **定时服务**
+- [X] **定时服务**
 - [ ] **第三方授权登录**
 - [ ] **J2Cache缓存**
 - [X] **代码生成**

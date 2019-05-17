@@ -1,4 +1,4 @@
-package com.hope.controller;
+package com.hope.controller.base;
 
 import cn.hutool.core.util.ObjectUtil;
 import com.hope.consts.CommonConst;

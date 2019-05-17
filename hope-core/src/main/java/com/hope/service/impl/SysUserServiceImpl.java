@@ -24,24 +24,12 @@ import java.util.List;
 @Service
 public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements SysUserService {
 
-    @Autowired
-    private SysUserMapper sysUserMapper;
+    private final SysUserMapper sysUserMapper;
 
-    /***
-     * 数据类型转换为业务类型
-     * @param //sysUsers
-     * @return
-     */
-/*    private List<User> getUsers(List<SysUser> sysUsers){
-        if (CollectionUtils.isEmpty(sysUsers)){
-            return null;
-        }
-        List<User> userList=new ArrayList<>();
-        for(SysUser sysUser:sysUsers){
-            userList.add(new User(sysUser));
-        }
-        return userList;
-    }*/
+    public SysUserServiceImpl(SysUserMapper sysUserMapper) {
+        this.sysUserMapper = sysUserMapper;
+    }
+
     @Override
     public PageInfo<SysUser> findPageBreakByCondition(UserConditionVo vo) {
         PageHelper.startPage(vo.getPageNum(), vo.getPageSize());

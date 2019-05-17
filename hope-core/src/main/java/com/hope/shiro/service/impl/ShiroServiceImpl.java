@@ -8,6 +8,7 @@ import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
 import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.shiro.service.ShiroService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -36,14 +37,16 @@ import java.util.Map;
  * @create:2018-10-17 13:35
  **/
 @Service
+@Slf4j
 public class ShiroServiceImpl implements ShiroService {
 
-    private static final Logger log = LoggerFactory.getLogger(ShiroServiceImpl.class);
+    private final SysResourceService sysResourceService;
+    private final SysUserService sysUserService;
 
-    @Autowired
-    private SysResourceService sysResourceService;
-    @Autowired
-    private SysUserService sysUserService;
+    public ShiroServiceImpl(SysResourceService sysResourceService, SysUserService sysUserService) {
+        this.sysResourceService = sysResourceService;
+        this.sysUserService = sysUserService;
+    }
 
     /***
      * 初始化权限
@@ -75,22 +78,14 @@ public class ShiroServiceImpl implements ShiroService {
         filterChainDefinitionMap.put("/error1", "anon");
         filterChainDefinitionMap.put("/kickout", "anon");
 
-        //开发环境开放
-/*        filterChainDefinitionMap.put("/login2","anon");
-        filterChainDefinitionMap.put("/index","anon");
-        filterChainDefinitionMap.put("/hope/**","anon");
-        filterChainDefinitionMap.put("/role/**","anon");
-        //filterChainDefinitionMap.put("/user/**","anon");
-        filterChainDefinitionMap.put("/resource/**","anon");*/
-
         //开放druid
         filterChainDefinitionMap.put("/druid/**", "anon");
 
         //开放swagger
-        filterChainDefinitionMap.put("/swagger-resources/**","anon");
-        filterChainDefinitionMap.put("/webjars/**","anon");
-        filterChainDefinitionMap.put("/v2/**","anon");
-        filterChainDefinitionMap.put("/swagger-ui.html/**","anon");
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/webjars/**", "anon");
+        filterChainDefinitionMap.put("/v2/**", "anon");
+        filterChainDefinitionMap.put("/swagger-ui.html/**", "anon");
 
         //加载数据库中配置的资源权限列表
         List<SysResource> resourcesList = sysResourceService.listUrlAndPermission();

@@ -22,8 +22,11 @@ import java.util.*;
 @Service
 public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> implements SysResourceService {
 
-    @Autowired
-    SysResourceMapper sysResourceMapper;
+    private final SysResourceMapper sysResourceMapper;
+
+    public SysResourceServiceImpl(SysResourceMapper sysResourceMapper){
+        this.sysResourceMapper=sysResourceMapper;
+    }
 
     /***
      * 数据类型转换

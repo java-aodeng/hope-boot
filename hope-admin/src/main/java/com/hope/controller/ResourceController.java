@@ -30,11 +30,13 @@ import java.util.Map;
 @RequestMapping("/resource")
 public class ResourceController {
 
-    @Autowired
-    private SysResourceService sysResourceService;
+    private final SysResourceService sysResourceService;
+    private final ShiroService shiroService;
 
-    @Autowired
-    private ShiroService shiroService;
+    public ResourceController(SysResourceService sysResourceService,ShiroService shiroService){
+        this.sysResourceService=sysResourceService;
+        this.shiroService=shiroService;
+    }
     
     /** 
     * @Description: 资源列表

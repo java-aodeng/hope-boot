@@ -38,14 +38,15 @@ import java.util.List;
 @RequestMapping("/role")
 public class RoleController {
 
-    @Autowired
-    private SysRoleService sysRoleService;
+    private final SysRoleService sysRoleService;
+    private final ShiroService shiroService;
+    private final SysUserService sysUserService;
 
-    @Autowired
-    private ShiroService shiroService;
-
-    @Autowired
-    private SysUserService sysUserService;
+    public RoleController(SysRoleService sysRoleService,ShiroService shiroService,SysUserService sysUserService){
+        this.sysRoleService=sysRoleService;
+        this.shiroService=shiroService;
+        this.sysUserService=sysUserService;
+    }
 
     /** 
     * @Description: 角色列表

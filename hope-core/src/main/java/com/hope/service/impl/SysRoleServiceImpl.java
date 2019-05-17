@@ -29,10 +29,13 @@ import java.util.*;
 @Service
 public class SysRoleServiceImpl extends BaseServiceImpl<SysRole> implements SysRoleService {
 
-    @Autowired
-    private SysRoleMapper sysRoleMapper;
-    @Autowired
-    private SysRoleResourceMapper roleResourceMapper;
+    private final SysRoleMapper sysRoleMapper;
+    private final SysRoleResourceMapper roleResourceMapper;
+
+    public SysRoleServiceImpl(SysRoleMapper sysRoleMapper, SysRoleResourceMapper roleResourceMapper) {
+        this.sysRoleMapper = sysRoleMapper;
+        this.roleResourceMapper = roleResourceMapper;
+    }
 
     /***
      * 数据类型转换

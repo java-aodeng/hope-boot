@@ -18,6 +18,7 @@ import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.utils.ResultHopeUtil;
 import com.hope.utils.UsingAesHopeUtil;
 import io.swagger.annotations.*;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,22 +40,20 @@ import java.util.List;
 @Api(value = "用户", description = "用户管理api", position = 30, produces = "http")
 @RestController
 @RequestMapping("/user")
+@Slf4j
 public class UserController {
 
-    private static final Logger log = LoggerFactory.getLogger(UserController.class);
+    private final SysUserService sysUserService;
+    private final SysRoleService sysRoleService;
+    private final SysUserRoleService sysUserRoleService;
+    private final HopeShiroRealm hopeShiroRealm;
 
-    @Autowired
-    private SysUserService sysUserService;
-
-    @Autowired
-    private SysRoleService sysRoleService;
-
-    @Autowired
-    private SysUserRoleService sysUserRoleService;
-
-    @Autowired
-    private HopeShiroRealm hopeShiroRealm;
-
+    public UserController(SysUserService sysUserService,SysRoleService sysRoleService,SysUserRoleService sysUserRoleService,HopeShiroRealm hopeShiroRealm){
+        this.sysUserService=sysUserService;
+        this.sysRoleService=sysRoleService;
+        this.sysUserRoleService=sysUserRoleService;
+        this.hopeShiroRealm=hopeShiroRealm;
+    }
 
     /** 
     * @Description: 用户列表

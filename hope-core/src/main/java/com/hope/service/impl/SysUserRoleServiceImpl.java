@@ -28,8 +28,11 @@ import java.util.List;
 @Service
 public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> implements SysUserRoleService {
 
-    @Autowired
-    private SysUserRoleMapper sysUserRoleMapper;
+    private final SysUserRoleMapper sysUserRoleMapper;
+
+    public SysUserRoleServiceImpl(SysUserRoleMapper sysUserRoleMapper) {
+        this.sysUserRoleMapper = sysUserRoleMapper;
+    }
 
     /***
      * 数据类型转换

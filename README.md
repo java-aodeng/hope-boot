@@ -1,4 +1,4 @@
-<h1><a href="https://github.com/hope-for/hope-boot">Hope-Boot</a></h1>
+<h1 align="center"><a href="https://github.com/hope-for" target="_blank">Hope-Boot</a></h1>
 
 <p align="center">
 <a href="https://aodeng.cc"><img alt="Author" src="https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg"/></a>

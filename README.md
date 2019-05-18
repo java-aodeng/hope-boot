@@ -10,156 +10,156 @@
 <a href="https://github.com/hope-for/hope-boot/releases"><img alt="发行版本" src="https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg"/></a>
 </p>
 
-# 简介
+# Introduction
 
->您是否一直在苦苦寻找一款适合自己的后台系统... 那么，现在Hope-boot来了。我也不知道为什么要做这样一个项目，或许是为了学习，或许是我一直没发现一款完美的系统。欢迎大家提问题，好让我一直完善下去
+>Have you been looking for a back-end system that suits you... So, Hope-boot is here now. I don't know why I want to do such a project, perhaps for learning, maybe I have never found a perfect system. Welcome everyone to ask questions, so that I can continue to improve
 
-> 基于Spring Boot 2.x开发 整合：Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf 动态权限管理 AES+MD5+盐加解密 代码生成 日志记录 Google验证码登录 单点登录 定时任务 项目地址：https://github.com/hope-for/hope-boot 主语言[java]
+> Based on Spring Boot 2.x development integration: Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf Dynamic Rights Management AES+MD5+ Salt encryption and decryption Code generation log record Google verification code login single sign-on timed task project address: https://github.com/hope-for/hope-boot main language [java]
 
 ------------------------------
 
-🇨🇳简体中文 | 🇺🇸[English](./README-EN.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.4](https://github.com/hope-for/hope-boot)
+🇸English | 🇨🇳[简体中文](./README-EN.md) | [Update log](https://github.com/hope-for/hope-boot/commits/master) | current version:label:[0.0.4](https://github.com/hope-for/hope-boot)
 
-# 模块划分
+# Module division
 
-| 模块         | 释义                      |    
+| Module         | Interpretation                      |    
 | ---------- | ----------------------- |
-| hope-admin  | 后台管理模块 |      
-| hope-core  | 核心业务类模块 |    
-| hope-framework | 框架模块,提供数据操作,工具处理,通用Mapper,通用Service等 |
-| hope-sso-server | 单点登录-认证中心模块，支持集群 |
-| hope-generator | 代码生成模块-提供sql生成代码 |
-| hope-flyway | 数据库版本管理工具模块 |
-| hope-quartz | 定时任务模块 |
+| hope-admin  | Background management module |      
+| hope-core  | Core business class module |    
+| hope-framework | Framework module, providing data manipulation, tool processing, generic Mapper, general service, etc. |
+| hope-sso-server | Single sign-on-certification center module, support cluster |
+| hope-generator | Code generation module - provides sql generated code |
+| hope-flyway | Database version management tool module |
+| hope-quartz | Timed task module |
 
-# 使用说明
+# Instructions for use
 
 ```bash
-# 1.使用命令拉取代码：
+# 1.Use the command to pull the code：
     git clone https://github.com/hope-for/hope-boot.git 
-# 2.创建数据库（取名）：hope， 字符集：utf8mb4;（注意：只需要你创建数据库即可，字符集不是utf8，而是utf8mb4）
-# 3.使用IDEA导入该项目
-# 4.修改配置
-    A.打开hope-flyway模块，配置数据库连接:
+# 2.Create a database (name)：hope， character set：utf8mb4;(Note: you only need to create the database, the character set is not utf8, but utf8mb4)
+# 3.Import the project using IDEA
+# 4.Change setting
+    A.Open the hope-flyway module and configure the database connection:
         spring:
           datasource:
-              url: 你的数据库地址
-              username: 你的数据库用户名
-              password: 你的数据库密码
-    B.打开hope-admin模块，配置数据库连接和redis连接:
-        a.数据库配置(可搜索datasource或定位到L.17)
-        b.redis配置(可搜索redis或定位到L.29,注：该项目必须安装redis服务才能启动)
-# 5.运行项目(数据库管理模块)    
-    a.直接运行hope-flyway目录下的HopeFlywayApplication.java
-    b.查看数据库是否自动生成表和初始化的数据
-# 6.运行项目(后台管理模块)
-    a.直接运行hope-admin目录下的HopeAdminApplication.java
-    b.浏览器访问：http://127.0.0.1:8886
-# 7.运行项目(单点登录模块)
-    a.直接运行hope-sso-server目录下的HopeSsoServerApplication.java
-    b.浏览器访问：http://127.0.0.1:8887
-# 8.运行项目(代码生成模块)
-    a.直接运行hope-generator目录下的HopeGeneratorApplication.java
-    b.浏览器访问：http://127.0.0.1:8888 
-# 9.运行项目(定时任务模块)
-    a.直接运行hope-quartz目录下的HopeQuartzApplication.java
-    b.端口：8889
-# 10.打包注意
-    a.打包直接在hope-boot目录下：mvn clean install 即可，生成的jar包在各自模块下的target目录下。运行：java -jar 包名
-    b.flyway模块没有提供打包插件，该模板主要用于开发人员使用，不需要部署
+              url: Your database address
+              username: Your database username
+              password: Your database password
+    B.Open the hope-admin module, configure the database connection and redis connection:
+        a.Database configuration (searchable datasource or locate to L.17)
+        b.Redis configuration (search for redis or locate L.29, note: the project must be installed with redis service to start)
+# 5.Running the project (database management module)    
+    a.Run directly under the hope-flyway directory HopeFlywayApplication.java
+    b.Check if the database automatically generates tables and initialized data
+# 6.Running project (background management module)
+    a.Run directly under the hope-admin directoryHopeAdminApplication.java
+    b.Browser access：http://127.0.0.1:8886
+# 7.Run the project (single sign-on module)
+    a.Run directly under the hope-sso-server directory HopeSsoServerApplication.java
+    b.Browser access：http://127.0.0.1:8887
+# 8.Running project (code generation module)
+    a.Run directly under the hope-generator directory HopeGeneratorApplication.java
+    b.Browser access：http://127.0.0.1:8888 
+# 9.Running project (timed task module)
+    a.Run directly under the hope-quartz directory HopeQuartzApplication.java
+    b.port：8889
+# 10.Package attention
+    a.Packaged directly in the hope-boot directory：mvn clean install That is, the generated jar package is in the target directory under the respective module. run：java -jar Package names
+    b.The flyway module does not provide a package plugin, which is mainly used by developers and does not require deployment.
 ```
 
-# 账号
+# account number
 
-后台登录：账号：admin 密码：123456
+Login in the background: Account: admin Password: 123456
 
-资源监控：账号：hope-druid 密码：hope-druid
+Resource Monitoring: Account: hope-druid Password: hope-druid
 
-后端API文档：http://localhost:8886/swagger-ui.html
+Backend API documentation：http://localhost:8886/swagger-ui.html
 
-# 感谢
+# thank
 
-Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）：
+The birth of Hope-boot is inseparable from the following projects (open source, open source):
 
-- [Spring Boot](https://github.com/spring-projects/spring-boot)：核心框架
-- [Apache Shiro](https://github.com/apache/shiro)：权限框架
-- [Redis](https://github.com/antirez/redis)：缓存框架
-- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：模板引擎
-- [MyBatis](https://github.com/mybatis/mybatis-3)：用于Java的MyBatis SQL Mapper框架
-- [jpa](https://github.com/spring-projects/spring-data-jpa)：我也不知道为什么要把这个加上
-- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：分页插件
-- [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper
-- [alibaba/druid](https://github.com/alibaba/druid)：数据库连接池
-- [alibaba/fastjson](https://github.com/alibaba/fastjson)：用于Java的快速JSON解析器/生成器
-- [Apache Maven](https://maven.apache.org/):依赖管理
-- [shiro-redis](https://github.com/alexxiyang/shiro-redis)：一个可以由shiro使用的redis缓存工具
-- [Lombok](https://www.projectlombok.org/)：让代码更简洁
-- [Hutool](https://github.com/looly/hutool)：一个Java工具包，也只是一个工具包，它帮助我们简化每一行代码，减少每一个方法，让Java语言也可以“甜甜的”
-- [Bootstrap](https://github.com/twbs/bootstrap.git)：使用最广泛的前端 ui 框架
-- [JQuery](https://github.com/jquery/jquery.git)：使用最广泛的 JavaScript 框架
-- [Layer](https://github.com/sentsin/layer.git)：弹出层组件
-- [kaptcha](https://github.com/penggle/kaptcha)：Google验证码
-- [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
-- [swagger](https://github.com/swagger-api/swagger-ui)：Swagger（丝袜哥）是世界上最流行的 API 表达工具。
+- [Spring Boot](https://github.com/spring-projects/spring-boot)：Core framework
+- [Apache Shiro](https://github.com/apache/shiro)：Permission framework
+- [Redis](https://github.com/antirez/redis)：Cache framework
+- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：Template engine
+- [MyBatis](https://github.com/mybatis/mybatis-3)：MyBatis SQL Mapper framework for Java
+- [jpa](https://github.com/spring-projects/spring-data-jpa)：I don't know why I want to add this.
+- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：Paging plugin
+- [tk.mybatis](https://github.com/abel533/Mapper)：Generic Mapper
+- [alibaba/druid](https://github.com/alibaba/druid)：Database connection pool
+- [alibaba/fastjson](https://github.com/alibaba/fastjson)：Fast JSON parser/generator for Java
+- [Apache Maven](https://maven.apache.org/):Dependency management
+- [shiro-redis](https://github.com/alexxiyang/shiro-redis)：A redis caching tool that can be used by shiro
+- [Lombok](https://www.projectlombok.org/)：Make the code simpler
+- [Hutool](https://github.com/looly/hutool)：A Java toolkit is just a toolkit that helps us simplify every line of code, reduce every method, and make the Java language "sweet"
+- [Bootstrap](https://github.com/twbs/bootstrap.git)：The most widely used front-end ui framework
+- [JQuery](https://github.com/jquery/jquery.git)：The most widely used JavaScript framework
+- [Layer](https://github.com/sentsin/layer.git)：Popup layer component
+- [kaptcha](https://github.com/penggle/kaptcha)：Google verification code
+- [jrebel](https://zeroturnaround.com/software/jrebel/)：Hot deployment
+- [swagger](https://github.com/swagger-api/swagger-ui)：Swagger is the world's most popular API expression tool.
 - [flyway](https://github.com/flyway/flyway)：Flyway by Boxfuse • Database Migrations Made Easy.
 - [xxl-sso](https://github.com/xuxueli/xxl-sso/)：A distributed single-sign-on framework.
 - [xxl-code](https://github.com/xuxueli/xxl-code-generator/)：A code generator for "controller/service/dao/mybatis/model" layer.
-- [quartz](http://www.quartz-scheduler.org/)：定时任务
+- [quartz](http://www.quartz-scheduler.org/)：Timed task
 
-# 捐赠
+# Donation
 
-**请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
+**Please author to eat a meat folder :) Author blog：[https://aodeng.cc](https://aodeng.cc)（We don't change the world, we change with the world）WeChat public number: low-key little panda**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 
-# 后续功能
+# Follow-up function
 
-- [x] **RESTful APIs 构建成前后端分离项目**
-- [x] **Swagger接口管理**
-- [X] **sso单点登录**
-- [ ] **数据权限分离**
-- [ ] **支付模块**
-- [X] **定时服务**
-- [ ] **第三方授权登录**
-- [ ] **J2Cache缓存**
-- [X] **代码生成**
-- [ ] **前端使用[Ant](https://ant.design/)重构**
+- [x] **RESTful APIs Constructed as a front-end separation project**
+- [x] **Swagger Interface management**
+- [X] **sso sign in**
+- [ ] **Data permission separation**
+- [ ] **Payment module**
+- [X] **Timing service**
+- [ ] **Third party authorized login**
+- [ ] **J2Cache Cache**
+- [X] **Code generation**
+- [ ] **Front end use [Ant](https://ant.design/)Refactoring**
 
-# 界面展示
+# Interface display
 
-前端页面暂时借鉴[RuoYi]，已获得作者同意，感谢开源。后面会抽时间采用[Ant]重构
+The front-end page is temporarily borrowed from [Ruyi], and has obtained the author's consent, thanks to open source. Later, I will take time to reconstruct with [Ant]
 
-## 后台登录
+## Background login
 
 ![](https://i.loli.net/2019/05/01/5cc930100d298.png)
 
-## 首页
+## Home
 
 ![](https://i.loli.net/2019/05/01/5cc9300612ca5.png)
 
-## 权限管理 -用户 -角色 -资源
+## Rights Management - User - Role - Resources
 
 ![](https://i.loli.net/2019/05/01/5cc9300d45a92.png)
 ![](https://i.loli.net/2019/05/01/5cc9300d62006.png)
 ![](https://i.loli.net/2019/05/01/5cc9300d8fb70.png)
 
-## 系统工具 -资源监控
+## System Tools - Resource Monitoring
 
 ![](https://i.loli.net/2019/05/01/5cc9300bc316d.png)
 ![](https://i.loli.net/2019/05/01/5cc93003ef3d6.png)
 
-## 文档
+## Document
 
 ![](https://i.loli.net/2019/05/01/5cc932128cc07.png)
 
-## 我的链接：
+## My link：
 
-- [我的个人博客](https://aodeng.cc)
-- [我的微信公众号(低调小熊猫)](https://mp.weixin.qq.com/s/l5t8WSCG_-shiD4BPpLYiw) 
-- [hope-boot使用GPL-v3.0协议开源](https://github.com/hope-for/hope-boot/blob/master/LICENSE)
-- [低调小熊猫QQ群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
-- [低调小熊猫Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
-- [我的Gitee链接](https://gitee.com/java-aodeng)
-- [我的Github链接](https://github.com/java-aodeng)
-- [我的开源组织(欢迎志同道合的朋友加入)](https://github.com/hope-for)
-- 联系我的邮箱：java@aodeng.cc 申请加入hope-for组织也是发送到该邮箱哦，记得带上你的GitHub账号
+- [My personal blog](https://aodeng.cc)
+- [My WeChat public number (low-key panda)](https://mp.weixin.qq.com/s/l5t8WSCG_-shiD4BPpLYiw) 
+- [Hope-boot uses the GPL-v3.0 protocol to open source](https://github.com/hope-for/hope-boot/blob/master/LICENSE)
+- [Low-key little panda QQ group](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
+- [Low-key red panda Telegram group](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
+- [My Gitee link](https://gitee.com/java-aodeng)
+- [My Github link](https://github.com/java-aodeng)
+- [My open source organization (welcome like-minded friends to join)](https://github.com/hope-for)
+- Contact me: java@aodeng.cc Apply to join the hope-for organization and send it to this email. Remember to bring your GitHub account.

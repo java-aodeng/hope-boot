@@ -13,6 +13,7 @@
         <module>hope-framework</module>
         <module>hope-sso-server</module>
         <module>hope-generator</module>
+        <module>hope-quartz</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -38,17 +38,14 @@ import java.util.*;
 @Slf4j
 public class HopeShiroRealm extends AuthorizingRealm {
 
-    private final SysUserService sysUserService;
-    private final SysResourceService sysResourceService;
-    private final SysRoleService sysRoleService;
-    private final RedisSessionDAO redisSessionDAO;
-
-    public HopeShiroRealm(SysUserService sysUserService, SysResourceService sysResourceService, SysRoleService sysRoleService, RedisSessionDAO redisSessionDAO) {
-        this.sysUserService = sysUserService;
-        this.sysResourceService = sysResourceService;
-        this.sysRoleService = sysRoleService;
-        this.redisSessionDAO = redisSessionDAO;
-    }
+    @Autowired
+    private SysUserService sysUserService;
+    @Autowired
+    private SysResourceService sysResourceService;
+    @Autowired
+    private SysRoleService sysRoleService;
+    @Autowired
+    private RedisSessionDAO redisSessionDAO;
 
     /**
      * @Description: 认证

@@ -16,6 +16,7 @@
 
 > Based on Spring Boot 2.x development integration: Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf Dynamic Rights Management AES+MD5+ Salt encryption and decryption Code generation log record Google verification code login single sign-on timed task project address: https://github.com/hope-for/hope-boot main language [java]
 
+> This is my first open source work, welcome to star. Second open source address：https://github.com/hope-for/hope-cloud
 ------------------------------
 
 🇸English | 🇨🇳[简体中文](./README-EN.md) | [Update log](https://github.com/hope-for/hope-boot/commits/master) | current version:label:[0.0.4](https://github.com/hope-for/hope-boot)

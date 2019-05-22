@@ -41,6 +41,7 @@
         <relativePath/>
     </parent>
 
+    <!--统一全局版本管理-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -64,43 +65,7 @@
         <hope.framework.version>0.0.1-SNAPSHOT</hope.framework.version>
     </properties>
 
-    <!--统一模板版本管理-->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-framework</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-core</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-admin</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-sso-server</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-generator</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-            <dependency>
-                <groupId>com.hope</groupId>
-                <artifactId>hope-quartz</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <!--公共依赖-->
+    <!--全局公共依赖-->
     <dependencies>
         <!--web-->
         <dependency>

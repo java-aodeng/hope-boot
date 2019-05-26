@@ -12,7 +12,7 @@
 
 # Introduction
 
->Have you been looking for a back-end system that suits you... So, Hope-boot is here now. I don't know why I want to do such a project, perhaps for learning, maybe I have never found a perfect system. Welcome everyone to ask questions, so that I can continue to improve
+>Have you ever been looking for a back-end system that suits you?... Hope-boot is here now. Feel free to ask questions, so that we can continue to improve
 
 > Based on Spring Boot 2.x development integration: Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf Dynamic Rights Management AES+MD5+ Salt encryption and decryption Code generation log record Google verification code login single sign-on timed task project address: https://github.com/hope-for/hope-boot main language [java]
 
@@ -21,12 +21,12 @@
 
 🇸English | 🇨🇳[简体中文](./README-EN.md) | [Update log](https://github.com/hope-for/hope-boot/commits/master) | current version:label:[0.0.4](https://github.com/hope-for/hope-boot)
 
-# Module division
+# Structure
 
 | Module         | Interpretation                      |    
 | ---------- | ----------------------- |
 | hope-admin  | Background management module |      
-| hope-core  | Core business class module |    
+| hope-core  | Core business module |    
 | hope-framework | Framework module, providing data manipulation, tool processing, generic Mapper, general service, etc. |
 | hope-sso-server | Single sign-on-certification center module, support cluster |
 | hope-generator | Code generation module - provides sql generated code |
@@ -70,7 +70,7 @@
     b.The flyway module does not provide a package plugin, which is mainly used by developers and does not require deployment.
 ```
 
-# account number
+# Developer Guidance
 
 Login in the background: Account: admin Password: 123456
 
@@ -78,7 +78,7 @@ Resource Monitoring: Account: hope-druid Password: hope-druid
 
 Backend API documentation：http://localhost:8886/swagger-ui.html
 
-# thank
+# Contributors and Dependencies
 
 The birth of Hope-boot is inseparable from the following projects (open source, open source):
 
@@ -109,11 +109,11 @@ The birth of Hope-boot is inseparable from the following projects (open source, 
 
 # Donation
 
-**Please author to eat a meat folder :) Author blog：[https://aodeng.cc](https://aodeng.cc)（We don't change the world, we change with the world）WeChat public number: low-key little panda**
+**Buy me a lunch if you wish :) Author blog：[https://aodeng.cc](https://aodeng.cc)（We don't change the world, we change with the world）WeChat public number: low-key little panda**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 
-# Follow-up function
+# TODO
 
 - [x] **RESTful APIs Constructed as a front-end separation project**
 - [x] **Swagger Interface management**
@@ -126,15 +126,15 @@ The birth of Hope-boot is inseparable from the following projects (open source, 
 - [X] **Code generation**
 - [ ] **Front end use [Ant](https://ant.design/)Refactoring**
 
-# Interface display
+# Frontend
 
 The front-end page is temporarily borrowed from [Ruyi], and has obtained the author's consent, thanks to open source. Later, I will take time to reconstruct with [Ant]
 
-## Background login
+## Login Page
 
 ![](https://i.loli.net/2019/05/01/5cc930100d298.png)
 
-## Home
+## Home Page
 
 ![](https://i.loli.net/2019/05/01/5cc9300612ca5.png)
 
@@ -149,11 +149,11 @@ The front-end page is temporarily borrowed from [Ruyi], and has obtained the aut
 ![](https://i.loli.net/2019/05/01/5cc9300bc316d.png)
 ![](https://i.loli.net/2019/05/01/5cc93003ef3d6.png)
 
-## Document
+## Documents
 
 ![](https://i.loli.net/2019/05/01/5cc932128cc07.png)
 
-## My link：
+## My links：
 
 - [My personal blog](https://aodeng.cc)
 - [My WeChat public number (low-key panda)](https://mp.weixin.qq.com/s/l5t8WSCG_-shiD4BPpLYiw) 

@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Shiro-密码验证管理-登录错误计数,（闲麻烦也可以使用HashedCredentialsMatcher也行，配置中我已经加好了代码)
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

@@ -5,7 +5,7 @@ import com.hope.consts.CommonConst;
 /**
  * UsingAesHope工具类
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -32,5 +32,14 @@ public class UsingAesHopeUtil {
      */
     public static String decrypt(String encryptPassword, String salt) throws Exception {
         return AesHopeUtil.decryt(Md5HopeUtil.MD5Util(CommonConst.ZYD_SECURITY_KEY, salt), encryptPassword);
+    }
+
+    public static void main(String[] args) {
+        try {
+            String temp= UsingAesHopeUtil.encrypt("123456","admin");
+            System.out.printf(temp);
+        }catch (Exception e){
+        }
+
     }
 }

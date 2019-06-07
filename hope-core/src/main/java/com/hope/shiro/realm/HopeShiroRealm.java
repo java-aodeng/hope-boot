@@ -6,6 +6,7 @@ import com.hope.model.beans.SysUser;
 import com.hope.service.SysResourceService;
 import com.hope.service.SysRoleService;
 import com.hope.service.SysUserService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationException;
@@ -28,15 +29,14 @@ import java.util.*;
 /**
  * Hope自定义Ream(加强版)
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
  * @create:2018-10-29 13:14
  **/
+@Slf4j
 public class HopeShiroRealm extends AuthorizingRealm {
-
-    private static final Logger log = LoggerFactory.getLogger(HopeShiroRealm.class);
 
     @Autowired
     private SysUserService sysUserService;
@@ -47,11 +47,10 @@ public class HopeShiroRealm extends AuthorizingRealm {
     @Autowired
     private RedisSessionDAO redisSessionDAO;
 
-    /***
-     * 认证，提供账户信息，返回认证用户的角色信息
-     * @param token
-     * @return
-     * @throws AuthenticationException
+    /**
+     * @Description: 认证
+     * @Author: aodeng
+     * @Date: 19-5-17
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
@@ -78,10 +77,10 @@ public class HopeShiroRealm extends AuthorizingRealm {
         );
     }
 
-    /***
-     * 授权，为当前登陆的用户授予权限
-     * @param principalCollection
-     * @return
+    /**
+     * @Description: 授权
+     * @Author: aodeng
+     * @Date: 19-5-17
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
@@ -90,21 +89,16 @@ public class HopeShiroRealm extends AuthorizingRealm {
             throw new AuthorizationException("principals should not be null");
         }
 
-        //权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-
-        Set<String> roles = new HashSet<String>();
-        Set<String> resources = new HashSet<String>();
-
         //根据用户id获取角色，资源
         SysUser sysUser = (SysUser) principalCollection.getPrimaryPrincipal();
+        Set<String> roles = sysRoleService.findRoleByUserId(sysUser.getId());
+        Set<String> resources = sysResourceService.findPermsByUserId(sysUser.getId());
 
-        roles = sysRoleService.findRoleByUserId(sysUser.getId());
-        resources = sysResourceService.findPermsByUserId(sysUser.getId());
-
-        //将角色，权限添加到SimpleAuthorizationInfo认证对象中
+        //存放查出的用户的所有的角色（role）及权限（permission）
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.setRoles(roles);
         info.setStringPermissions(resources);
+
         log.info("[当前登录用户授权完成,用户id]-[{}]", sysUser.getId());
         return info;
     }

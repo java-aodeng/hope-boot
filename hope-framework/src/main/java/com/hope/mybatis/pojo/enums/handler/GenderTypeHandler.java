@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @create:2018-10-15 13:22
  **/

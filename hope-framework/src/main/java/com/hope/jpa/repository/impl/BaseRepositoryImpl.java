@@ -17,8 +17,9 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:BaseRepositoryImpl
+ * @author johnniang 借鉴https://github.com/halo-dev/halo/blob/v1/src/main/java/run/halo/app/repository/base/BaseRepositoryImpl.java
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @create:2019-03-05 18:17

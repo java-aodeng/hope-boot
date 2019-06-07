@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Shiro-配置类
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -48,7 +48,7 @@ public class ShiroConfig {
     @Autowired
     private RedisProperties redisProperties;
 
-    /**=====================================================hope-plus ShiroConfig star=======================================**/
+    /**=====================================================hope-boot ShiroConfig star=======================================**/
 
     /***
      * 管理shirobean生命周期
@@ -265,7 +265,7 @@ public class ShiroConfig {
         return new RetryLimitCredentialsMatcher();
     }
 
-    /**=====================================================hope-plus ShiroConfig end=======================================**/
+    /**=====================================================hope-boot ShiroConfig end=======================================**/
     /**扩展**/
     /*@Bean
     public MethodInvokingFactoryBean methodInvokingFactoryBean(SecurityManager securityManager){

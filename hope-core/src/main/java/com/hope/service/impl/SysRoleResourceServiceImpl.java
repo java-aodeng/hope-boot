@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -19,20 +19,4 @@ import java.util.List;
  **/
 @Service
 public class SysRoleResourceServiceImpl extends BaseServiceImpl<SysRoleResource> implements SysRoleResourceService {
-
-    /***
-     * 数据类型转换
-     * @param sysRoleResources
-     * @return
-     */
-    private List<RoleResource> getRoleResources(List<SysRoleResource> sysRoleResources) {
-        if (CollectionUtils.isEmpty(sysRoleResources)) {
-            return null;
-        }
-        List<RoleResource> roleResourceList = new ArrayList<>();
-        for (SysRoleResource sysRoleResource : sysRoleResources) {
-            roleResourceList.add(new RoleResource(sysRoleResource));
-        }
-        return roleResourceList;
-    }
 }

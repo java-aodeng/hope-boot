@@ -13,7 +13,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.*;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -22,8 +22,11 @@ import java.util.*;
 @Service
 public class SysResourceServiceImpl extends BaseServiceImpl<SysResource> implements SysResourceService {
 
-    @Autowired
-    SysResourceMapper sysResourceMapper;
+    private final SysResourceMapper sysResourceMapper;
+
+    public SysResourceServiceImpl(SysResourceMapper sysResourceMapper){
+        this.sysResourceMapper=sysResourceMapper;
+    }
 
     /***
      * 数据类型转换

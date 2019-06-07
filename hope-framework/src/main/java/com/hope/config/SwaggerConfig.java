@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @ClassName:SwaggerConfig
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
@@ -37,11 +37,11 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("hope-plus权限管理系统API操作文档")
-                .description("后台管理中心 API 1.0 操作文档")
+                .title("hope-boot权限管理系统API操作文档")
+                .description("后台管理中心 API 2.0 操作文档")
                 //服务条款网址
                 .termsOfServiceUrl("https://aodeng.cc")
-                .version("1.0")
+                .version("2.0")
                 .contact(new Contact("低调小熊猫", "https://aodeng.cc", "java@aodeng.cc"))
                 .build();
     }

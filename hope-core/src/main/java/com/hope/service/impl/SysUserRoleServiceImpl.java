@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -28,8 +28,11 @@ import java.util.List;
 @Service
 public class SysUserRoleServiceImpl extends BaseServiceImpl<SysUserRole> implements SysUserRoleService {
 
-    @Autowired
-    private SysUserRoleMapper sysUserRoleMapper;
+    private final SysUserRoleMapper sysUserRoleMapper;
+
+    public SysUserRoleServiceImpl(SysUserRoleMapper sysUserRoleMapper) {
+        this.sysUserRoleMapper = sysUserRoleMapper;
+    }
 
     /***
      * 数据类型转换

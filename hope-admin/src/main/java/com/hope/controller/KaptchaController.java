@@ -4,11 +4,10 @@ import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
@@ -20,16 +19,16 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
  * @create:2018-10-30 15:05
  **/
-@Api(value = "验证码", description = "验证码处理")
+@Api(value = "获取验证码图片", description = "获取验证码图片api", position = 50, produces = "http")
 @Controller
+@Slf4j
 public class KaptchaController {
-    private static final Logger log = LoggerFactory.getLogger(KaptchaController.class);
 
     private Producer captchaProducer = null;
 
@@ -47,8 +46,8 @@ public class KaptchaController {
      * @return the captcha code
      * @throws IOException the io exception
      */
-    @ApiOperation(value = "获取验证码图片", notes = "获取验证码图片")
-    @RequestMapping("/verificationCode")
+    @ApiOperation(value = "获取验证码图片", notes = "获取验证码图片",produces="application/json, application/xml", consumes="application/json, application/xml")
+    @GetMapping("/verificationCode")
     public ModelAndView getCaptchaCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         response.setDateHeader("Expires", 0);

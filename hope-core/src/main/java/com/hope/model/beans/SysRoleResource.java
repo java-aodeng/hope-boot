@@ -1,6 +1,7 @@
 package com.hope.model.beans;
 
 import com.hope.mybatis.pojo.CommonEntity;
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -9,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫

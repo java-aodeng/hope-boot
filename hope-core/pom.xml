@@ -8,29 +8,25 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>hope-core</name>
+    <name>${project.artifactId}</name>
     <description>
-        低调小熊猫开源作品hope-plus 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
+        低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
         核心代码
     </description>
+
     <!--继承父模板-->
     <parent>
         <groupId>com.hope</groupId>
-        <artifactId>hope-plus</artifactId>
+        <artifactId>hope-boot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-    </properties>
 
     <dependencies>
         <!--依赖framework模板-->
         <dependency>
             <groupId>com.hope</groupId>
             <artifactId>hope-framework</artifactId>
+            <version>${hope.framework.version}</version>
         </dependency>
     </dependencies>
 </project>

@@ -8,6 +8,7 @@ import com.hope.service.SysResourceService;
 import com.hope.service.SysUserService;
 import com.hope.shiro.realm.HopeShiroRealm;
 import com.hope.shiro.service.ShiroService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.RealmSecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
@@ -29,21 +30,23 @@ import java.util.Map;
 /**
  * Shiro-实现类(加强版)
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
  * @create:2018-10-17 13:35
  **/
 @Service
+@Slf4j
 public class ShiroServiceImpl implements ShiroService {
 
-    private static final Logger log = LoggerFactory.getLogger(ShiroServiceImpl.class);
+    private final SysResourceService sysResourceService;
+    private final SysUserService sysUserService;
 
-    @Autowired
-    private SysResourceService sysResourceService;
-    @Autowired
-    private SysUserService sysUserService;
+    public ShiroServiceImpl(SysResourceService sysResourceService, SysUserService sysUserService) {
+        this.sysResourceService = sysResourceService;
+        this.sysUserService = sysUserService;
+    }
 
     /***
      * 初始化权限
@@ -75,16 +78,14 @@ public class ShiroServiceImpl implements ShiroService {
         filterChainDefinitionMap.put("/error1", "anon");
         filterChainDefinitionMap.put("/kickout", "anon");
 
-        //开发环境开放
-/*        filterChainDefinitionMap.put("/login2","anon");
-        filterChainDefinitionMap.put("/index","anon");
-        filterChainDefinitionMap.put("/hope/**","anon");
-        filterChainDefinitionMap.put("/role/**","anon");
-        //filterChainDefinitionMap.put("/user/**","anon");
-        filterChainDefinitionMap.put("/resource/**","anon");*/
-
-        //druid,hope默认开放
+        //开放druid
         filterChainDefinitionMap.put("/druid/**", "anon");
+
+        //开放swagger
+        filterChainDefinitionMap.put("/swagger-resources/**", "anon");
+        filterChainDefinitionMap.put("/webjars/**", "anon");
+        filterChainDefinitionMap.put("/v2/**", "anon");
+        filterChainDefinitionMap.put("/swagger-ui.html/**", "anon");
 
         //加载数据库中配置的资源权限列表
         List<SysResource> resourcesList = sysResourceService.listUrlAndPermission();
@@ -100,7 +101,7 @@ public class ShiroServiceImpl implements ShiroService {
         //authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问,这里我使用user操作即可，如果安全要求比较高，建议使用authc
         filterChainDefinitionMap.put("/**", "user");
 
-        log.info("[hope-plus初始化资源成功,数据库资源条数]-[{}],初始化数据库资源条数-[{}]", resourcesList.size(), a);
+        log.info("[hope-boot初始化资源成功,数据库资源条数]-[{}],初始化数据库资源条数-[{}]", resourcesList.size(), a);
         return filterChainDefinitionMap;
     }
 

@@ -64,7 +64,7 @@ logging:
       com.hope: DEBUG
       tk.mybatis: DEBUG
       org.springframework: WARN
-################################### hope-plus自定义配置 ###################################
+################################### hope-boot自定义配置 ###################################
 hope:
     druid:
         # druid访问用户名（默认：hope-druid）

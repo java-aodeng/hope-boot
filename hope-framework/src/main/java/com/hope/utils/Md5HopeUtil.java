@@ -8,7 +8,7 @@ import java.security.MessageDigest;
 /**
  * Md5Hope工具类
  *
- * @program:hope-plus
+ * @program:hope-boot
  * @author:aodeng
  * @blog:低调小熊猫(https://aodeng.cc)
  * @微信公众号:低调小熊猫
@@ -24,7 +24,7 @@ public class Md5HopeUtil {
      * @return
      */
     public static String MD5Util(String string, String salt) {
-        return MD5Util(string + salt);
+        return getMD5_32(string + salt);
     }
 
     /***
@@ -83,31 +83,5 @@ public class Md5HopeUtil {
 
         }
         return str;
-    }
-
-    /***
-     * 获取加盐字符串加密
-     * @param s
-     * @return
-     */
-    public static String MD5Util(String s) {
-        char[] hope = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-        try {
-            byte[] bytes = s.getBytes();
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(bytes);
-            byte[] bytes1 = messageDigest.digest();
-            int i = bytes1.length;
-            char[] chars = new char[i * 2];
-            int i1 = 0;
-            for (byte b : bytes1) {
-                chars[i1++] = hope[b >>> 4 & 0xf];
-                chars[i1++] = hope[b & 0xf];
-            }
-            return new String(hope);
-        } catch (Exception e) {
-            log.info("[MD5Util生成error]");
-            return null;
-        }
     }
 }

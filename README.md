@@ -12,7 +12,7 @@
 
 # 简介
 
->:pencil2:基于𝓢𝓹𝓻𝓲𝓷𝓰 𝓑𝓸𝓸𝓽开发的一款现代化后台管理系统
+> 基于𝓢𝓹𝓻𝓲𝓷𝓰 𝓑𝓸𝓸𝓽开发的一款现代化后台管理系统
 
 > 基于Spring Boot 2.x开发 整合：Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf 动态权限管理 AES+MD5+盐加解密 代码生成 日志记录 Google验证码登录 单点登录 定时任务 项目地址：https://github.com/hope-for/hope-boot 主语言[java]
 
@@ -21,58 +21,13 @@
 
 🇨🇳简体中文 | 🇺🇸[English](./README-2.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.4](https://github.com/hope-for/hope-boot)
 
-# 模块划分
-
-| 模块         | 释义                      |    
-| ---------- | ----------------------- |
-| hope-admin  | 后台管理模块 |      
-| hope-core  | 核心业务类模块 |    
-| hope-framework | 框架模块,提供数据操作,工具处理,通用Mapper,通用Service等 |
-| hope-sso-server | 单点登录-认证中心模块，支持集群 |
-| hope-generator | 代码生成模块-提供sql生成代码 |
-| hope-flyway | 数据库版本管理工具模块 |
-| hope-quartz | 定时任务模块 |
-
 # 使用说明
 
-[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki)
-
-# 账号
-
-后台登录：账号：admin 密码：123456
-
-资源监控：账号：hope-druid 密码：hope-druid
-
-后端API文档：http://localhost:8886/swagger-ui.html
+[https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E](https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
 # 感谢
 
-Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）：
-
-- [Spring Boot](https://github.com/spring-projects/spring-boot)：核心框架
-- [Apache Shiro](https://github.com/apache/shiro)：权限框架
-- [Redis](https://github.com/antirez/redis)：缓存框架
-- [Thymeleaf](https://github.com/thymeleaf/thymeleaf)：模板引擎
-- [MyBatis](https://github.com/mybatis/mybatis-3)：用于Java的MyBatis SQL Mapper框架
-- [jpa](https://github.com/spring-projects/spring-data-jpa)：我也不知道为什么要把这个加上
-- [PageHelper](https://github.com/pagehelper/Mybatis-PageHelper)：分页插件
-- [tk.mybatis](https://github.com/abel533/Mapper)：通用Mapper
-- [alibaba/druid](https://github.com/alibaba/druid)：数据库连接池
-- [alibaba/fastjson](https://github.com/alibaba/fastjson)：用于Java的快速JSON解析器/生成器
-- [Apache Maven](https://maven.apache.org/):依赖管理
-- [shiro-redis](https://github.com/alexxiyang/shiro-redis)：一个可以由shiro使用的redis缓存工具
-- [Lombok](https://www.projectlombok.org/)：让代码更简洁
-- [Hutool](https://github.com/looly/hutool)：一个Java工具包，也只是一个工具包，它帮助我们简化每一行代码，减少每一个方法，让Java语言也可以“甜甜的”
-- [Bootstrap](https://github.com/twbs/bootstrap.git)：使用最广泛的前端 ui 框架
-- [JQuery](https://github.com/jquery/jquery.git)：使用最广泛的 JavaScript 框架
-- [Layer](https://github.com/sentsin/layer.git)：弹出层组件
-- [kaptcha](https://github.com/penggle/kaptcha)：Google验证码
-- [jrebel](https://zeroturnaround.com/software/jrebel/)：热部署
-- [swagger](https://github.com/swagger-api/swagger-ui)：Swagger（丝袜哥）是世界上最流行的 API 表达工具。
-- [flyway](https://github.com/flyway/flyway)：Flyway by Boxfuse • Database Migrations Made Easy.
-- [xxl-sso](https://github.com/xuxueli/xxl-sso/)：A distributed single-sign-on framework.
-- [xxl-code](https://github.com/xuxueli/xxl-code-generator/)：A code generator for "controller/service/dao/mybatis/model" layer.
-- [quartz](http://www.quartz-scheduler.org/)：定时任务
+[https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2](https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2)
 
 # 捐赠
 
@@ -82,28 +37,7 @@ Hope-boot的诞生离不开下面这些项目（取之开源，用之开源）�
 
 # 界面展示
 
-## 后台登录
-
-![](https://i.loli.net/2019/05/01/5cc930100d298.png)
-
-## 首页
-
-![](https://i.loli.net/2019/05/01/5cc9300612ca5.png)
-
-## 权限管理 -用户 -角色 -资源
-
-![](https://i.loli.net/2019/05/01/5cc9300d45a92.png)
-![](https://i.loli.net/2019/05/01/5cc9300d62006.png)
-![](https://i.loli.net/2019/05/01/5cc9300d8fb70.png)
-
-## 系统工具 -资源监控
-
-![](https://i.loli.net/2019/05/01/5cc9300bc316d.png)
-![](https://i.loli.net/2019/05/01/5cc93003ef3d6.png)
-
-## 文档
-
-![](https://i.loli.net/2019/05/01/5cc932128cc07.png)
+[https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA](https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA)
 
 ## 我的链接：
 

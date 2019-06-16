@@ -21,23 +21,19 @@
 
 🇨🇳简体中文 | 🇺🇸[English](./README-2.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.4](https://github.com/hope-for/hope-boot)
 
-# 使用说明
+使用说明：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
-[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+感谢：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2)
 
-# 感谢
+界面展示：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA)
 
-[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2)
+------------------------------
 
 # 捐赠
 
 **请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
-
-# 界面展示
-
-[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA)
 
 ## 我的链接：
 

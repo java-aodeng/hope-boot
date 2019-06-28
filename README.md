@@ -19,8 +19,6 @@
 
 ### 文档
 
-🇨🇳简体中文 | 🇺🇸[English](./README-2.md) | [更新日志](https://github.com/hope-for/hope-boot/commits/master) | 当前版本:label:[0.0.4](https://github.com/hope-for/hope-boot)
-
 使用说明：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
 感谢：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2)
@@ -29,18 +27,15 @@
 
 ### 捐赠
 
-**请作者吃个肉夹馍 :) 作者博客：[https://aodeng.cc](https://aodeng.cc)（我们不改变世界，我们跟着世界改变）微信公众号：低调小熊猫**
+>请作者吃个肉夹馍 :)
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 
-### 我的链接：
+### My link：
 
-- [我的个人博客](https://aodeng.cc)
-- [我的微信公众号(低调小熊猫)](https://mp.weixin.qq.com/s/l5t8WSCG_-shiD4BPpLYiw) 
-- [hope-boot使用GPL-v3.0协议开源](https://github.com/hope-for/hope-boot/blob/master/LICENSE)
+- [我的私人博客](https://aodeng.cc)
 - [低调小熊猫QQ群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
 - [低调小熊猫Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
-- [我的Gitee链接](https://gitee.com/java-aodeng)
 - [我的Github链接](https://github.com/java-aodeng)
-- [我的开源组织(欢迎志同道合的朋友加入)](https://github.com/hope-for)
-- 联系我的邮箱：java@aodeng.cc 申请加入hope-for组织也是发送到该邮箱哦，记得带上你的GitHub账号
+- [我的开源组织（欢迎加入）](https://github.com/hope-for)
+- 申请加入组织发送你的GitHub账号到该邮箱：java@aodeng.cc

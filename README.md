@@ -33,9 +33,9 @@
 
 ### My link：
 
-- [我的私人博客](https://aodeng.cc)
-- [低调小熊猫QQ群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
-- [低调小熊猫Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
-- [我的Github链接](https://github.com/java-aodeng)
-- [我的开源组织（欢迎加入）](https://github.com/hope-for)
+- [个人博客](https://aodeng.cc)
+- [QQ交流群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
+- [Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
+- [Github](https://github.com/java-aodeng)
+- [开源组织（欢迎加入）](https://github.com/hope-for)
 - 申请加入组织发送你的GitHub账号到该邮箱：java@aodeng.cc

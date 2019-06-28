@@ -12,11 +12,7 @@
 
 # 简介
 
-> 基于𝓢𝓹𝓻𝓲𝓷𝓰 𝓑𝓸𝓸𝓽开发的一款现代化后台管理系统
-
-> 基于Spring Boot 2.x开发 整合：Spring Boot 2.x/Apache Shiro+JWT/Spring Data JPA+Mybatis+Tk.Mybatis+PageHelper/Redis/Flyway/Swagger/SSO/Thymeleaf 动态权限管理 AES+MD5+盐加解密 代码生成 日志记录 Google验证码登录 单点登录 定时任务 项目地址：https://github.com/hope-for/hope-boot 主语言[java]
-
-> 这是我的第一个开源作品，欢迎star。第二个开源作品地址：https://github.com/hope-for/hope-cloud
+> 一款现代化的脚手架项目。企业开发？接外包？赚外快？还是学习？这都能满足你，居家必备，值得拥有:beers:地址：https://github.com/hope-for/hope-boot 主语言[java]
 ------------------------------
 
 # 文档

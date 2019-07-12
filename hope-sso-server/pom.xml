@@ -32,12 +32,6 @@
 			<artifactId>xxl-sso-core</artifactId>
 			<version>${xxl.sso.core.version}</version>
 		</dependency>
-		<!--xxl-sso-core-->
-		<dependency>
-			<groupId>com.xuxueli</groupId>
-			<artifactId>xxl-sso-core</artifactId>
-			<version>${xxl.sso.core.version}</version>
-		</dependency>
 	</dependencies>
 
 	<build>

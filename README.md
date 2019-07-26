@@ -25,6 +25,8 @@
 
 界面展示：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA)
 
+使用hope-boot遇到的问题与全宇宙最帅的人的解答：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki/5.%E4%BD%BF%E7%94%A8hope-boot%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E5%85%A8%E5%AE%87%E5%AE%99%E6%9C%80%E5%B8%85%E7%9A%84%E4%BA%BA%E7%9A%84%E8%A7%A3%E7%AD%94)
+
 # 捐赠
 
 >请作者吃个肉夹馍 :)

@@ -35,7 +35,7 @@
 
 # My link：
 
-- [个人博客](http://ilovey.live)
+- [个人博客-低调小熊猫-读万卷书，行万里路，赚很多钱🥚](http://ilovey.live)
 - [QQ交流群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
 - [Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 - [Github](https://github.com/java-aodeng)

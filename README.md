@@ -40,4 +40,4 @@
 - [Telegram 低调小熊猫-官方部落](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 - [Github](https://github.com/java-aodeng)
 - [开源组织](https://github.com/hope-for) 
-- [联系邮箱：](email：java@aodeng.cc)java@aodeng.cc
+- [联系邮箱：](java@aodeng.cc)java@aodeng.cc

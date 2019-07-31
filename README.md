@@ -39,5 +39,5 @@
 - [QQ交流群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
 - [Telegram 低调小熊猫-官方部落](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 - [Github](https://github.com/java-aodeng)
-- [开源组织（来者不拒）](https://github.com/hope-for)
-- 申请加入组织发送你的GitHub账号到该邮箱：java@aodeng.cc
+- [开源组织](https://github.com/hope-for) 
+- [联系邮箱：](email：java@aodeng.cc)java@aodeng.cc

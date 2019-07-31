@@ -38,6 +38,6 @@
 - [开发作者：低调小熊猫-#个人博客：读万卷书，行万里路，赚很多钱🥚](http://ilovey.live)
 - [QQ交流群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
 - [Telegram交流群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
-- [Github首页](https://github.com/java-aodeng)
+- [Github（follower me）](https://github.com/java-aodeng)
 - [Hope开源组织（来者不拒）](https://github.com/hope-for)
 - 申请加入组织发送你的GitHub账号到该邮箱：java@aodeng.cc

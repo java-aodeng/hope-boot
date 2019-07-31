@@ -19,13 +19,13 @@
 
 # 文档
 
-使用说明：[https://github.com/hope-for/hope-boot/wiki/1](https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
+使用说明：[https://github.com/hope-for/hope-boot/wiki#1.](https://github.com/hope-for/hope-boot/wiki/1.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E)
 
-感谢：[https://github.com/hope-for/hope-boot/wiki/2](https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2)
+感谢：[https://github.com/hope-for/hope-boot/wiki#2.](https://github.com/hope-for/hope-boot/wiki/2.%E6%84%9F%E8%B0%A2)
 
-界面展示：[https://github.com/hope-for/hope-boot/wiki/3](https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA)
+界面展示：[https://github.com/hope-for/hope-boot/wiki#4.](https://github.com/hope-for/hope-boot/wiki/4.%E7%95%8C%E9%9D%A2%E5%B1%95%E7%A4%BA)
 
-使用遇到的问题：[https://github.com/hope-for/hope-boot/wiki/4](https://github.com/hope-for/hope-boot/wiki/5.%E4%BD%BF%E7%94%A8hope-boot%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E5%85%A8%E5%AE%87%E5%AE%99%E6%9C%80%E5%B8%85%E7%9A%84%E4%BA%BA%E7%9A%84%E8%A7%A3%E7%AD%94)
+使用遇到的问题：[https://github.com/hope-for/hope-boot/wiki#5.](https://github.com/hope-for/hope-boot/wiki/5.%E4%BD%BF%E7%94%A8hope-boot%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E5%85%A8%E5%AE%87%E5%AE%99%E6%9C%80%E5%B8%85%E7%9A%84%E4%BA%BA%E7%9A%84%E8%A7%A3%E7%AD%94)
 
 # 捐赠
 
@@ -35,7 +35,7 @@
 
 # My link：
 
-- [开发作者：低调小熊猫-个人博客：读万卷书，行万里路，赚很多钱🥚](http://ilovey.live)
+- [开发作者：低调小熊猫-#个人博客：读万卷书，行万里路，赚很多钱🥚](http://ilovey.live)
 - [QQ交流群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
 - [Telegram群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 - [Github](https://github.com/java-aodeng)

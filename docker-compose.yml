@@ -1,0 +1,28 @@
+# mail@dongguochao.com
+
+version: '2.2'
+
+services:
+  redis:
+    container_name: hope-redis
+    image: redis:4.0.9
+    ports:
+      - 6379:6379
+
+  # disable this if you have your own mysql
+  mysql:
+    container_name: hope-mysql
+    image: mysql:5.7.22
+    # expose 33306 to client (navicat)
+    ports:
+       - 33313:3306
+    volumes:
+      # change './docker/mysql/volume' to your own path
+      # WARNING: without this line, your data will be lost.
+      - "./docker/volume:/var/lib/mysql"
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --init-connect='SET NAMES utf8mb4;' --innodb-flush-log-at-trx-commit=0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: "hope"
+      MYSQL_USER: "root"
+      MYSQL_PASSWORD: ""

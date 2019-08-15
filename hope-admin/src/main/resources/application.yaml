@@ -16,9 +16,9 @@ spring:
     mode: LEGACYHTML5
   datasource:
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/hope?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      url: jdbc:mysql://localhost:33313/hope?useUnicode=true&characterEncoding=UTF-8&useSSL=false
       username: root
-      password: 123456
+      password:
       type: com.alibaba.druid.pool.DruidDataSource
       initial-size: 1
       minIdle: 3
@@ -32,15 +32,16 @@ spring:
       port: 6379
       #密码默认为空，注释即可，要添加密码，去掉注释添加就行
       #password:
-      pool: #star
-        maxActive: 8
-        maxWait: -1
-        maxIdle: 8
-        minIdle: 0 #end
-      # 连接超时时间（毫秒）
+
+    # 连接超时时间（毫秒）
       timeout:  3000
       # 默认的数据过期时间，主要用于shiro权限管理
       expire: 2592000
+      jedis:
+        pool:
+          max-idle: 8
+          max-wait:
+          min-idle: 0
   profiles:
     active: dev
   application:
@@ -59,7 +60,7 @@ pagehelper:
     support-methods-arguments: true
     params: count=countSql
 logging:
-    file: ./logs/log.log
+    file: ./logs/admin.log
     level:
       com.hope: DEBUG
       tk.mybatis: DEBUG

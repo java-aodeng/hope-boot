@@ -34,13 +34,8 @@
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
 
 # My link：
-
-- [开发作者：低调小熊猫-#个人博客：读万卷书，行万里路，赚很多钱🥚](http://ilovey.live)
-- [QQ交流群](https://jq.qq.com/?_wv=1027&k=5y4H7Nz) 
-- [Telegram 低调小熊猫-官方部落](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
+- [CI/CD 流程以及原理说明](https://gitbook.cn/gitchat/activity/5daac87dd39d6a72d183b52c?utm_source=weixinNotification)
 - [Github](https://github.com/java-aodeng)
-- [开源组织](https://github.com/hope-for) 
-- [联系邮箱：](https://github.com/hope-for/hope-boot)java@aodeng.cc
 - [熊猫哥星球基地](https://t.zsxq.com/rn2jUbY)
 
 <p align="center">

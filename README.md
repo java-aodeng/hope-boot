@@ -37,7 +37,3 @@
 - [CI/CD 流程以及原理说明](https://gitbook.cn/gitchat/activity/5daac87dd39d6a72d183b52c?utm_source=weixinNotification)
 - [Github](https://github.com/java-aodeng)
 - [熊猫哥星球基地](https://t.zsxq.com/rn2jUbY)
-
-<p align="center">
-  <a href="https://t.zsxq.com/rn2jUbY"><img alt="Author" src="http://image.ilovey.live/image/ea62406ccc287ab3277672d1d73ea98a.png"/></a>
-</p>

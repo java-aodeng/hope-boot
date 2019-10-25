@@ -29,4 +29,4 @@
 - [CI/CD 流程以及原理说明](https://gitbook.cn/gitchat/activity/5daac87dd39d6a72d183b52c?utm_source=weixinNotification)
 - [Github](https://github.com/java-aodeng)
 - [熊猫哥星球基地](https://t.zsxq.com/rn2jUbY)
-- [《panda全家桶》-Java学习-只要￥9.98-打包回家](https://mianbaoduo.com/o/bread/mbd-aZeVlw== )
+- [学习-《panda全家桶》-只要￥9.98-打包回家](https://mianbaoduo.com/o/bread/mbd-aZeVlw== )

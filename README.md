@@ -29,4 +29,4 @@
 - [CI/CD 流程以及原理说明](https://gitbook.cn/gitchat/activity/5daac87dd39d6a72d183b52c?utm_source=weixinNotification)
 - [Github](https://github.com/java-aodeng)
 - [熊猫哥星球基地](https://t.zsxq.com/rn2jUbY)
-- [关注公众号【低调小熊猫】](https://mp.weixin.qq.com/s?__biz=MzUzNDY0MzcwNg==&mid=2247484258&idx=1&sn=02a060b8ee1e6a4baeb16cc4876da327&chksm=fa90d5f7cde75ce1705297f163944dca2e710019132f5bbf31d8d2f563473f9b3019af0df221&token=1164299938&lang=zh_CN#rd)
+- [欢迎关注公众号【低调小熊猫】](https://mp.weixin.qq.com/s?__biz=MzUzNDY0MzcwNg==&mid=2247484258&idx=1&sn=02a060b8ee1e6a4baeb16cc4876da327&chksm=fa90d5f7cde75ce1705297f163944dca2e710019132f5bbf31d8d2f563473f9b3019af0df221&token=1164299938&lang=zh_CN#rd)

@@ -8,8 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<name>${project.artifactId}</name>
+
 	<description>
-		低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
 		hope 单点登陆 认证中心 参考 http://www.xuxueli.com/xxl-sso/#/
 	</description>
 
@@ -30,7 +30,6 @@
 		<dependency>
 			<groupId>com.xuxueli</groupId>
 			<artifactId>xxl-sso-core</artifactId>
-			<version>${xxl.sso.core.version}</version>
 		</dependency>
 	</dependencies>
 

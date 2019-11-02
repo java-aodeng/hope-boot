@@ -4,7 +4,7 @@ package com.hope.exception;
  * @program:hope-boot
  * @ClassName:SsoExcepption
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-03-31 12:15
  * @Description: SsoExcepption
  * @Version 1.0

@@ -32,7 +32,7 @@ import java.util.Map;
  *
  * @program:hope-boot
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @微信公众号:低调小熊猫
  * @create:2018-10-17 13:35
  **/
@@ -132,7 +132,7 @@ public class ShiroServiceImpl implements ShiroService {
                 defaultFilterChainManager.createChain(url, chainDefinition);
             }
         }
-        log.info("[hope权限重新加载成功,低调小熊猫博客：https://aodeng.cc]");
+        log.info("[hope权限重新加载成功,低调小熊猫博客：http://ilovey.live]");
     }
 
     /***

@@ -1,4 +1,4 @@
-${AnsiColor.YELLOW}Hello,Welcome to hope-boot...${AnsiColor.RED}Sprin${AnsiColor.BRIGHT_YELLOW}gBoot的${AnsiColor.BRIGHT_GREEN}版本号:${AnsiColor.RED}${AnsiColor.MAGENTA} ${spring-boot.formatted-version} ${AnsiColor.BRIGHT_YELLOW}我的${AnsiColor.BRIGHT_GREEN}博客:${AnsiColor.RED}https://aodeng.cc ${AnsiColor.RED}微信${AnsiColor.BRIGHT_GREEN}公众号：低调小熊猫${AnsiColor.MAGENTA}
+${AnsiColor.YELLOW}Hello,Welcome to hope-boot...${AnsiColor.RED}Sprin${AnsiColor.BRIGHT_YELLOW}gBoot的${AnsiColor.BRIGHT_GREEN}版本号:${AnsiColor.RED}${AnsiColor.MAGENTA} ${spring-boot.formatted-version} ${AnsiColor.BRIGHT_YELLOW}我的${AnsiColor.BRIGHT_GREEN}博客:${AnsiColor.RED}http://ilovey.live ${AnsiColor.RED}微信${AnsiColor.BRIGHT_GREEN}公众号：低调小熊猫${AnsiColor.MAGENTA}
 
 
                                                        __    __    ______   .______    _______

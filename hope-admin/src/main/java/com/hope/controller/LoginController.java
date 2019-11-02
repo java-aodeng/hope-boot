@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  * @program:hope-boot
  * @ClassName:LoginController
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-03-17 14:01
  * @Description: TODO
  * @Version 1.0

@@ -6,7 +6,8 @@
     <groupId>com.hope</groupId>
     <artifactId>hope-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <!--统一管理模板-->
+
+    <!--统一管理子工程-->
     <modules>
         <module>hope-admin</module>
         <module>hope-core</module>
@@ -14,26 +15,29 @@
         <module>hope-sso-server</module>
         <module>hope-generator</module>
         <module>hope-quartz</module>
+        <module>hope-flyway</module>
     </modules>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
 
-    <!-- 虽然Hope-Boot使用了宽松的GPL协议，但开发不易，希望您可以保留一下版权声明。笔芯~ -->
     <description>
-        低调小熊猫开源作品hope-boot 个人博客:https://aodeng.cc 微信公众号:低调小熊猫
-        父模板
+        父工程
     </description>
 
+    <!--开发者信息-->
+    <!-- 虽然Hope-Boot使用了宽松的GPL协议，但开发不易，希望您可以保留一下版权声明。笔芯~ -->
+    <!--低调小熊猫开源作品hope-boot 个人博客:http://ilovey.live 微信公众号:低调小熊猫-->
     <developers>
         <developer>
             <id>aodeng</id>
             <name>低调小熊猫</name>
             <email>java@aodeng.cc</email>
-            <url>https://aodeng.cc</url>
+            <url>http://ilovey.live</url>
         </developer>
     </developers>
 
+    <!--统一继承spring-boot-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -41,10 +45,13 @@
         <relativePath/>
     </parent>
 
-    <!--统一全局版本管理-->
+    <!--统一管理全局变量-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <xxl.sso.core.version>1.1.0</xxl.sso.core.version>
+        <hope.core.version>0.0.1-SNAPSHOT</hope.core.version>
+        <hope.framework.version>0.0.1-SNAPSHOT</hope.framework.version>
         <java.version>1.8</java.version>
         <hutool.all.version>4.1.7</hutool.all.version>
         <mybatis.spring.boot.starter.version>1.3.1</mybatis.spring.boot.starter.version>
@@ -60,12 +67,129 @@
         <kaptcha.version>2.3.2</kaptcha.version>
         <springfox.swagger2.version>2.8.0</springfox.swagger2.version>
         <springfox.swagger.ui.version>2.8.0</springfox.swagger.ui.version>
-        <xxl.sso.core.version>1.1.0</xxl.sso.core.version>
-        <hope.core.version>0.0.1-SNAPSHOT</hope.core.version>
-        <hope.framework.version>0.0.1-SNAPSHOT</hope.framework.version>
+        <mybatis.spring.boot>1.3.2</mybatis.spring.boot>
     </properties>
 
-    <!--全局公共依赖-->
+    <!--统一管理子工程依赖版本-->
+    <dependencyManagement>
+        <dependencies>
+            <!--依赖core模板-->
+            <dependency>
+                <groupId>com.hope</groupId>
+                <artifactId>hope-core</artifactId>
+                <version>${hope.core.version}</version>
+            </dependency>
+            <!--依赖framework模板-->
+            <dependency>
+                <groupId>com.hope</groupId>
+                <artifactId>hope-framework</artifactId>
+                <version>${hope.framework.version}</version>
+            </dependency>
+            <!--xxl-sso-core-->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-sso-core</artifactId>
+                <version>${xxl.sso.core.version}</version>
+            </dependency>
+            <!--hutool-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.all.version}</version>
+            </dependency>
+            <!--mybatis-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.starter.version}</version>
+            </dependency>
+            <!--mapper-->
+            <dependency>
+                <groupId>tk.mybatis</groupId>
+                <artifactId>mapper-spring-boot-starter</artifactId>
+                <version>${mapper.spring.boot.starter.version}</version>
+            </dependency>
+            <!--pagehelper-->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.spring.boot.starter.version}</version>
+            </dependency>
+            <!--druid-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!--fastjson-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--shiro-->
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.spring.version}</version>
+            </dependency>
+            <!--shiro-redis-->
+            <dependency>
+                <groupId>org.crazycake</groupId>
+                <artifactId>shiro-redis</artifactId>
+                <version>${shiro.redis.version}</version>
+            </dependency>
+            <!--thymeleaf-extras-shiro-->
+            <dependency>
+                <groupId>com.github.theborakompanioni</groupId>
+                <artifactId>thymeleaf-extras-shiro</artifactId>
+                <version>${thymeleaf.extras.shiro.version}</version>
+            </dependency>
+            <!--nekohtml-->
+            <dependency>
+                <groupId>net.sourceforge.nekohtml</groupId>
+                <artifactId>nekohtml</artifactId>
+                <version>${nekohtml.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons.lang3.version}</version>
+            </dependency>
+            <!--kaptcha-->
+            <dependency>
+                <groupId>com.github.penggle</groupId>
+                <artifactId>kaptcha</artifactId>
+                <version>${kaptcha.version}</version>
+            </dependency>
+            <!--swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger.ui.version}</version>
+            </dependency>
+            <!-- commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <!--mybatis-spring-boot-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!--统一管理全局公共依赖-->
     <dependencies>
         <!--web-->
         <dependency>
@@ -82,7 +206,6 @@
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>${hutool.all.version}</version>
         </dependency>
     </dependencies>
 </project>

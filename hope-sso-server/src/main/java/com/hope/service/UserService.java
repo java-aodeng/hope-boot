@@ -6,7 +6,7 @@ import com.hope.model.result.ReturnT;
 /**
  * @program:hope-boot
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @微信公众号:低调小熊猫
  * @create:2019-04-01 13:12
  **/

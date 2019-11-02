@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author:aodeng(低调小熊猫)
- * @blog:（https://aodeng.cc)
+ * @blog:（http://ilovey.live)
  * @Description: 解决spring bean注入Job的问题
  * @Date: 19-5-16
  **/

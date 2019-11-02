@@ -12,7 +12,7 @@ import java.util.List;
  * @program:hope-boot
  * @ClassName:UserServiceImpl
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 13:13
  * @Description: TODO
  * @Version 1.0

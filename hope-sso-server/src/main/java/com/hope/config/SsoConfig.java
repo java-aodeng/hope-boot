@@ -12,7 +12,7 @@ import org.springframework.core.annotation.Order;
  * @program:hope-boot
  * @ClassName:SsoConfig
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-03-31 12:30
  * @Description: TODO
  * @Version 1.0

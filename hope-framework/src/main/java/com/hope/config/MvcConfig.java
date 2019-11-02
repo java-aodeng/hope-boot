@@ -17,7 +17,7 @@ import java.util.List;
  * @program:hope-boot
  * @ClassName:MvcConfig
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-12 12:02
  * @Description: 拦截器
  * @Version 1.0

@@ -4,7 +4,7 @@ package com.hope.core.exception;
  * @program:hope-boot
  * @ClassName:tetst
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-17 09:44
  * @Description: TODO
  * @Version 1.0

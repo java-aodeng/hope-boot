@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @program:hope-boot
  * @ClassName:ReturnT
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 13:09
  * @Description: TODO
  * @Version 1.0

@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @program:hope-boot
  * @ClassName:MyWebMvcConfigurer
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 11:42
  * @Description: web mvc config
  * @Version 1.0

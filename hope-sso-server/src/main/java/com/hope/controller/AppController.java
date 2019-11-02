@@ -17,7 +17,7 @@ import java.util.UUID;
  * @program:hope-boot
  * @ClassName:AppController
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 13:25
  * @Description: sso server (for app)
  * @Version 1.0

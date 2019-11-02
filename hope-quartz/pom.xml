@@ -6,8 +6,12 @@
     <groupId>com.hope</groupId>
     <artifactId>hope-quartz</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hope-quartz</name>
-    <description>定时任务quartz</description>
+
+    <name>${project.artifactId}</name>
+
+    <description>
+        定时任务quartz
+    </description>
 
     <!--继承父模板-->
     <parent>

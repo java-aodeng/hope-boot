@@ -35,6 +35,6 @@ layer.ready(function () {
         });
     }
 
-    console.log('欢迎使用Hope-plus-微信公众号（低调小熊猫）感谢您的支持。如果您在使用的过程中有碰到问题，可以联系我qq:2696284032 qq群:756796932 我的博客 https://aodeng.cc ');
+    console.log('欢迎使用Hope-plus-微信公众号（低调小熊猫）感谢您的支持。如果您在使用的过程中有碰到问题，可以联系我qq:2696284032 qq群:756796932 我的博客 http://ilovey.live ');
 
 });

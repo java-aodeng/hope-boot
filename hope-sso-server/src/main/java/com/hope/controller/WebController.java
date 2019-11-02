@@ -22,7 +22,7 @@ import java.util.UUID;
  * @program:hope-boot
  * @ClassName:WebController
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 13:47
  * @Description: sso server (for web)
  * @Version 1.0

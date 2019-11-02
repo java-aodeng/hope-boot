@@ -22,7 +22,7 @@ import java.io.IOException;
  * @program:hope-boot
  * @ClassName:WebExceptionResolver
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 13:05
  * @Description: 统一异常处理（Controller切面方式实现）
  * @Version 1.0

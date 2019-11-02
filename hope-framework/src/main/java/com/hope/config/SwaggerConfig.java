@@ -15,7 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * @program:hope-boot
  * @ClassName:SwaggerConfig
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-02-13 14:55
  * @Description: 丝袜哥 世界上最流行的 API 表达工具 使用 Swagger 2 构建 RESTful APIs
  * @Version 1.0
@@ -40,9 +40,9 @@ public class SwaggerConfig {
                 .title("hope-boot权限管理系统API操作文档")
                 .description("后台管理中心 API 2.0 操作文档")
                 //服务条款网址
-                .termsOfServiceUrl("https://aodeng.cc")
+                .termsOfServiceUrl("http://ilovey.live")
                 .version("2.0")
-                .contact(new Contact("低调小熊猫", "https://aodeng.cc", "java@aodeng.cc"))
+                .contact(new Contact("低调小熊猫", "http://ilovey.live", "java@aodeng.cc"))
                 .build();
     }
 }

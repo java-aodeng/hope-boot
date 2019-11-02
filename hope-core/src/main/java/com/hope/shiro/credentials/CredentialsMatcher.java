@@ -11,7 +11,7 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
  *
  * @program:hope-boot
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @微信公众号:低调小熊猫
  * @create:2018-10-21 13:28
  **/

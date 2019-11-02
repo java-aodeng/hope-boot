@@ -4,7 +4,7 @@ package com.hope.model.beans;
  * @program:hope-boot
  * @ClassName:UserInfo
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 13:08
  * @Description: TODO
  * @Version 1.0

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * @program:hope-boot
  * @ClassName:PermissionInterceptor
  * @author:aodeng
- * @blog:低调小熊猫(https://aodeng.cc)
+ * @blog:低调小熊猫(http://ilovey.live)
  * @create:2019-04-01 11:44
  * @Description: TODO
  * @Version 1.0

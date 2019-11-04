@@ -17,11 +17,11 @@
 
 ## 文档:
 
-| 版本     |    使用说明 |
+| 版本     |    文档 |
 | ---------- |-------------|
-| 丰富的基础版本：| [文档](https://github.com/hope-for/hope-boot/wiki) |
-| dubbo分布式版本： | 开发中 |
-| springcloud微服务版本： |开发中|
+| 基础版 | [使用说明](https://github.com/hope-for/hope-boot/wiki) |
+| dubbo分布式版 | 开发中 |
+| springcloud微服务版 |开发中|
 
 ## 捐赠:
 

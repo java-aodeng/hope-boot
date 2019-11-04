@@ -17,11 +17,11 @@
 
 ## 文档:
 
-| 版本     | 描述                      |  使用说明 |
-| ---------- | ----------------------- |-------------|
-| 基础版 | 整合Springboot2，单点登陆+tk.mybatis+shiro+redis+thymeleaf+maven+swagger前后端分离接口管理+代码生成+定时任务+数据库版本管理flyway+hutool工具包，等实用技术。 |[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki)|
-| dubbo分布式精简版 | 开发中 | 开发中|
-| springcloud微服务扩展版 | 开发中 |开发中|
+| 版本     |    使用说明 |
+| ---------- |-------------|
+| 丰富的基础版本：| [文档](https://github.com/hope-for/hope-boot/wiki) |
+| dubbo分布式版本： | 开发中 |
+| springcloud微服务版本： |开发中|
 
 ## 捐赠:
 

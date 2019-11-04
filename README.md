@@ -19,9 +19,9 @@
 
 | 版本     |    文档 |
 | ---------- |-------------|
-| 基础版 | [使用说明](https://github.com/hope-for/hope-boot/wiki) |
-| dubbo分布式版 | 开发中 |
-| springcloud微服务版 |开发中|
+| SpringBoot基础版 | [使用说明](https://github.com/hope-for/hope-boot/wiki) |
+| Dubbo分布式版 | 开发中 |
+| SpringCloud微服务版 |开发中|
 
 ## 捐赠:
 

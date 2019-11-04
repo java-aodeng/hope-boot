@@ -17,11 +17,11 @@
 
 ## 文档:
 
-**基础版：** 使用说明：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki)
+基础版： 使用说明：[https://github.com/hope-for/hope-boot/wiki](https://github.com/hope-for/hope-boot/wiki)
 
-**dubbo分布式精简版：** 开发中
+dubbo分布式精简版： 开发中
 
-**springcloud微服务扩展版：** 开发中
+springcloud微服务扩展版： 开发中
 
 ## 捐赠:
 

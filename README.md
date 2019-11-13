@@ -21,7 +21,6 @@
 | ---------- |-------------|--------|
 | SpringBoot基础版 | [开始使用](https://github.com/hope-for/hope-boot/wiki/1.SpringBoot%E5%9F%BA%E7%A1%80%E7%89%88.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E) |[master](https://github.com/hope-for/hope-boot/tree/master)|
 | Dubbo分布式精简版 | 开发中 |开发中|
-| SpringCloud微服务扩展版 |开发中|开发中|
 
 ## 捐赠:
 

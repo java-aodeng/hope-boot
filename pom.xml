@@ -12,10 +12,6 @@
         <module>hope-admin</module>
         <module>hope-core</module>
         <module>hope-framework</module>
-        <module>hope-sso-server</module>
-        <module>hope-generator</module>
-        <module>hope-quartz</module>
-        <module>hope-flyway</module>
     </modules>
     <packaging>pom</packaging>
 

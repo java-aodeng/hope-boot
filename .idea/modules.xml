@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hope-admin/hope-admin.iml" filepath="$PROJECT_DIR$/hope-admin/hope-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hope-boot.iml" filepath="$PROJECT_DIR$/hope-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hope-core/hope-core.iml" filepath="$PROJECT_DIR$/hope-core/hope-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hope-framework/hope-framework.iml" filepath="$PROJECT_DIR$/hope-framework/hope-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parent-pom/parent-pom.iml" filepath="$PROJECT_DIR$/parent-pom/parent-pom.iml" />
+    </modules>
+  </component>
+</project>

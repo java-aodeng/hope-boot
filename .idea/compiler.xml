@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="hope-admin" />
+        <module name="hope-core" />
+        <module name="hope-framework" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="hope-admin" target="1.8" />
+      <module name="hope-boot" target="1.8" />
+      <module name="hope-core" target="1.8" />
+      <module name="hope-dependencies-bom" target="1.8" />
+      <module name="hope-flyway" target="1.8" />
+      <module name="hope-framework" target="1.8" />
+      <module name="hope-generator" target="1.8" />
+      <module name="hope-plus" target="1.8" />
+      <module name="hope-quartz" target="1.8" />
+      <module name="hope-sso-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

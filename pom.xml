@@ -10,9 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>hope-admin</module>
-        <module>hope-core</module>
-        <module>hope-framework</module>
+        <module>back-web</module>
+        <module>base-service</module>
+        <module>common-framework</module>
     </modules>
 
     <parent>

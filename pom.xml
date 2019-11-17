@@ -4,10 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>parent-pom</artifactId>
+    <artifactId>hope-boot</artifactId>
     <groupId>com.hope</groupId>
     <version>2.0</version>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>hope-admin</module>
+        <module>hope-core</module>
+        <module>hope-framework</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -15,15 +21,6 @@
         <version>2.1.6.RELEASE</version>
         <relativePath />
     </parent>
-
-    <developers>
-        <developer>
-            <id>AoDeng</id>
-            <name>低调小熊猫</name>
-            <email>java@aodeng.cc</email>
-            <url>https://github.com/java-aodeng</url>
-        </developer>
-    </developers>
 
     <properties>
         <!--Common libs-->
@@ -165,4 +162,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <developers>
+        <developer>
+            <id>AoDeng</id>
+            <name>低调小熊猫</name>
+            <email>java@aodeng.cc</email>
+            <url>https://github.com/java-aodeng</url>
+        </developer>
+    </developers>
+    <!--最后欢迎公众号关注：低调小熊猫-->
 </project>

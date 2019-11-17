@@ -11,8 +11,9 @@
 
     <modules>
         <module>back-web</module>
-        <module>base-service</module>
+        <module>back-service</module>
         <module>common-framework</module>
+        <module>service-api</module>
     </modules>
 
     <parent>

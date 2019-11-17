@@ -26,7 +26,6 @@
         </developer>
     </developers>
 
-
     <properties>
         <!--Common libs-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

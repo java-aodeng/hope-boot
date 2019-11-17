@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d5436b1b-5545-4466-a291-bf0922ca15b0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/parent-pom/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/parent-pom/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/hope-admin/pom.xml" afterPath="$PROJECT_DIR$/hope-admin/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/hope-core/pom.xml" afterPath="$PROJECT_DIR$/hope-core/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/hope-dependencies-bom/pom.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hope-framework/pom.xml" afterPath="$PROJECT_DIR$/hope-framework/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="" />
+    <list default="true" id="d5436b1b-5545-4466-a291-bf0922ca15b0" name="Default" comment="参考dubbo架构重构依赖Bom">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/hope-framework/target/" />
     <ignored path="$PROJECT_DIR$/hope-admin/target/" />
@@ -34,21 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parent-pom/pom.xml">
+      <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitattributes">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/parent-pom/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -121,6 +105,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/parent-pom/pom.xml" />
         <option value="$PROJECT_DIR$/parent-pom/.gitignore" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -692,7 +677,7 @@
       <workItem from="1560651517803" duration="107000" />
       <workItem from="1560654814248" duration="1468000" />
       <workItem from="1573650397657" duration="3378000" />
-      <workItem from="1573973862848" duration="12853000" />
+      <workItem from="1573973862848" duration="13098000" />
     </task>
     <task id="LOCAL-00001" summary=":art: 精力有限，暂停更新hope-plus。准备开源hope-cloud中">
       <created>1555762160148</created>
@@ -901,7 +886,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49848000" />
+    <option name="totallyTimeSpent" value="50093000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1060" extended-state="6" />
@@ -973,7 +958,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hope-admin/src/main/resources/static/docs/index.html" />
     <entry file="file://$PROJECT_DIR$/hope-admin/src/main/resources/static/css/patterns/header-profile.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1241,14 +1225,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1276,6 +1252,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="27" column="12" lean-forward="false" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parent-pom/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="14" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/parent-pom/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -1284,10 +1276,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parent-pom/.gitignore">
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

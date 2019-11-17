@@ -16,14 +16,6 @@
 
     <name>${project.artifactId}</name>
     <description>后台管理</description>
-    <developers>
-        <developer>
-            <id>AoDeng</id>
-            <name>低调小熊猫</name>
-            <email>java@aodeng.cc</email>
-            <url>https://github.com/java-aodeng</url>
-        </developer>
-    </developers>
 
     <dependencies>
         <!--依赖core工程-->

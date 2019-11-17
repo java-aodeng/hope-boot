@@ -38,7 +38,7 @@
         <module>hope-dependencies-bom</module>
     </modules>
 
-    <!--统一管理子模块版本-->
+    <!--统一管理子模块依赖版本-->
     <dependencyManagement>
         <dependencies>
             <dependency>

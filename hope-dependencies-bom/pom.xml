@@ -17,14 +17,6 @@
 
     <name>${project.artifactId}</name>
     <description>Hope Dependencies Bom</description>
-    <developers>
-        <developer>
-            <id>AoDeng</id>
-            <name>低调小熊猫</name>
-            <email>java@aodeng.cc</email>
-            <url>https://github.com/java-aodeng</url>
-        </developer>
-    </developers>
 
     <properties>
         <!--Common libs-->

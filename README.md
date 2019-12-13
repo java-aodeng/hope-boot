@@ -27,7 +27,3 @@
 >请作者吃个肉夹馍 :)
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)
-
-## Links:
-- [个人博客](http://ilovey.live/)
-- [个人公众号](https://mp.weixin.qq.com/s?__biz=MzUzNDY0MzcwNg==&mid=2247484258&idx=1&sn=02a060b8ee1e6a4baeb16cc4876da327&chksm=fa90d5f7cde75ce1705297f163944dca2e710019132f5bbf31d8d2f563473f9b3019af0df221&token=1164299938&lang=zh_CN#rd)

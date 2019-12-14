@@ -1,5 +1,7 @@
 <h1 align="center"><a href="https://github.com/java-aodeng" target="_blank">Hope-Boot</a></h1>
 
+> 🌱 Hope-Boot 一款现代化的脚手架项目
+
 <p align="center">
 <a href="http://ilovey.live"><img alt="Author" src="https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg"/></a>
 <a href="https://github.com/hope-for/hope-boot"><img alt="JDK" src="https://img.shields.io/badge/JDK-1.8-orange.svg"/></a>
@@ -10,9 +12,7 @@
 <a href="https://github.com/hope-for/hope-boot/releases"><img alt="发行版本" src="https://img.shields.io/badge/release-%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-red.svg"/></a>
 </p>
 
-## 简介:
-
-> 🌱 Hope-Boot 一款现代化的脚手架项目
+------------------------------
 
 ## 文档:
 

@@ -21,9 +21,8 @@
 | SpringBoot基础版 | [开始使用](https://github.com/hope-for/hope-boot/wiki/1.SpringBoot%E5%9F%BA%E7%A1%80%E7%89%88.%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E) |[1.0.0-release](https://github.com/hope-for/hope-boot/tree/1.0.0-release)|
 | Dubbo分布式精简版 | 开发中 |开发中|
 
-## :
+## 捐赠:
 
-| 捐赠     |    公众号 | 
-| ---------- |-------------|
-| 请[作者](http://ilovey.live/)吃个肉夹馍 :) | |
-| ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png) | 开发中 |
+>请[作者](http://ilovey.live/)吃个肉夹馍 :)
+
+![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)

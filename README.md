@@ -1,6 +1,6 @@
 <h1 align="center"><a href="https://github.com/java-aodeng" target="_blank">Hope-Boot</a></h1>
 
-> 🌱 Hope-Boot 一款现代化的脚手架项目
+> 🌱 Hope-Boot 一款现代化的脚手架项目，给爱学习的同学多一个选择。
 
 <p align="center">
 <a href="http://ilovey.live"><img alt="Author" src="https://img.shields.io/badge/author-%E4%BD%8E%E8%B0%83%E5%B0%8F%E7%86%8A%E7%8C%AB-blue.svg"/></a>
@@ -13,6 +13,15 @@
 </p>
 
 ------------------------------
+
+## 简介
+
+**Hope** [ˈامید ہے]，意为希望。当然，你也可以理解为装逼。
+
+企业开发，技术学习，都能满足你，居家必备，值得拥有🍻🍻
+
+> [关于作者](http://ilovey.live/s/about) | [QQ 交流群](https://jq.qq.com/?_wv=1027&k=574chhz) | [Telegram 交流群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
+
 
 ## 文档:
 

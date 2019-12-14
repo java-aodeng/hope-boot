@@ -23,6 +23,6 @@
 
 ## 捐赠:
 
->请[作者](http://ilovey.live/)吃个肉夹馍 :)
+>如果 Hope-Boot 对你有帮助，可以请作者吃个肉夹馍 :)
 
 ![](https://i.loli.net/2018/12/31/5c29d3b18826d.png)

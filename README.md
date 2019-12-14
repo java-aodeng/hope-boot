@@ -22,8 +22,7 @@
 
 > [关于作者](http://ilovey.live/s/about) | [QQ 交流群](https://jq.qq.com/?_wv=1027&k=574chhz) | [Telegram 交流群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 
-
-## 文档:
+## 文档
 
 | 版本     |    文档 | Code Branches |
 | ---------- |-------------|--------|
@@ -36,7 +35,7 @@
 
 > Hope-Boot 使用 GPL-v3.0 协议开源，请尽量遵守开源协议，即便是在中国。
 
-## 捐赠:
+## 捐赠
 
 >如果 Hope-Boot 对你有帮助，可以请作者吃个肉夹馍 :)
 

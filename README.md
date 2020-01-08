@@ -20,7 +20,7 @@
 
 用于企业开发，技术学习等。🍻🍻
 
-> [关于作者](http://ilovey.live/s/about) | [QQ 交流群](https://jq.qq.com/?_wv=1027&k=574chhz) | [Telegram 交流群] (https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
+> [关于作者](http://ilovey.live/s/about) | [QQ 交流群](https://jq.qq.com/?_wv=1027&k=574chhz) | [Telegram 交流群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ)
 
 ## 文档
 

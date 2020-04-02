@@ -20,8 +20,16 @@
         <relativePath />
     </parent>
 
+    <developers>
+        <developer>
+            <id>AoDeng</id>
+            <name>低调小熊猫</name>
+            <email>java@aodeng.cc</email>
+            <url>https://github.com/java-aodeng</url>
+        </developer>
+    </developers>
+
     <properties>
-        <!--Common libs-->
         <spring_version>4.3.16.RELEASE</spring_version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -49,7 +57,6 @@
     </properties>
 
     <dependencyManagement>
-        <!--Common libs-->
         <dependencies>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -58,79 +65,66 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--hutool-->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.all.version}</version>
             </dependency>
-            <!--mybatis-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.starter.version}</version>
             </dependency>
-            <!--mapper-->
             <dependency>
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-spring-boot-starter</artifactId>
                 <version>${mapper.spring.boot.starter.version}</version>
             </dependency>
-            <!--pagehelper-->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper.spring.boot.starter.version}</version>
             </dependency>
-            <!--druid-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid</artifactId>
                 <version>${druid.version}</version>
             </dependency>
-            <!--fastjson-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-            <!--shiro-->
             <dependency>
                 <groupId>org.apache.shiro</groupId>
                 <artifactId>shiro-spring</artifactId>
                 <version>${shiro.spring.version}</version>
             </dependency>
-            <!--shiro-redis-->
             <dependency>
                 <groupId>org.crazycake</groupId>
                 <artifactId>shiro-redis</artifactId>
                 <version>${shiro.redis.version}</version>
             </dependency>
-            <!--thymeleaf-extras-shiro-->
             <dependency>
                 <groupId>com.github.theborakompanioni</groupId>
                 <artifactId>thymeleaf-extras-shiro</artifactId>
                 <version>${thymeleaf.extras.shiro.version}</version>
             </dependency>
-            <!--nekohtml-->
             <dependency>
                 <groupId>net.sourceforge.nekohtml</groupId>
                 <artifactId>nekohtml</artifactId>
                 <version>${nekohtml.version}</version>
             </dependency>
-            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang3.version}</version>
             </dependency>
-            <!--kaptcha-->
             <dependency>
                 <groupId>com.github.penggle</groupId>
                 <artifactId>kaptcha</artifactId>
                 <version>${kaptcha.version}</version>
             </dependency>
-            <!--swagger2-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>
@@ -141,13 +135,11 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox.swagger.ui.version}</version>
             </dependency>
-            <!-- commons-lang3 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
-            <!--mybatis-spring-boot-->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -161,12 +153,19 @@
         </dependencies>
     </dependencyManagement>
 
-    <developers>
-        <developer>
-            <id>AoDeng</id>
-            <name>低调小熊猫</name>
-            <email>java@aodeng.cc</email>
-            <url>https://github.com/java-aodeng</url>
-        </developer>
-    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+    </dependencies>
 </project>

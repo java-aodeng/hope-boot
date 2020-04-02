@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<cross-domain-policy>
-	<site-control permitted-cross-domain-policies="all" />
-    <allow-access-from domain="*" />
-    <allow-http-request-headers-from domain="*" headers="*"/>
-</cross-domain-policy>

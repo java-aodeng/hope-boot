@@ -27,3 +27,11 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+!/hope-core/
+!/hope-quartz/
+!/hope-framework/
+!/hope-flyway/
+!/hope-admin/
+!/service-api/
+!/hope-sso-server/
+!/hope-generator/

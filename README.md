@@ -21,8 +21,8 @@
 用于企业开发，技术学习等。🍻🍻
 
 > [关于作者](http://ilovey.live/s/about) | [QQ 交流群](https://jq.qq.com/?_wv=1027&k=574chhz) | [Telegram 交流群](https://t.me/joinchat/LSsyBxVKLGEkF5MtIhg6TQ) | [微博](https://weibo.com/aodeng520?is_all=1) | [公众号](http://image.ilovey.live/image/9c2edb9f57037c89f52d757e3cf79683.jpg) 
+微信：如果需要和我交流的话可以加我私人微信，有问题的话也可以问，我会尽量回答大家
 
-- 微信：如果需要和我交流的话可以加我私人微信，有问题的话也可以问，我会尽量回答大家
 ![微信图片_20200329114547](http://image.ilovey.live/image/0d6ff0bf2d7d51cc9839bd17c7c9b746.png)
 
 ## 文档

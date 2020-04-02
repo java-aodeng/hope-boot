@@ -10,10 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>back-web</module>
-        <module>back-service</module>
-        <module>common-framework</module>
-        <module>service-api</module>
+        <module>cache-service</module>
     </modules>
 
     <parent>
@@ -172,5 +169,4 @@
             <url>https://github.com/java-aodeng</url>
         </developer>
     </developers>
-    <!--最后欢迎公众号关注：低调小熊猫-->
 </project>

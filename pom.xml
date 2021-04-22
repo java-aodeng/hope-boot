@@ -59,7 +59,7 @@
         <pagehelper.spring.boot.starter.version>1.2.3</pagehelper.spring.boot.starter.version>
         <druid.version>0.2.26</druid.version>
         <fastjson.version>1.2.32</fastjson.version>
-        <shiro.spring.version>1.4.0</shiro.spring.version>
+        <shiro.spring.version>1.7.0</shiro.spring.version>
         <shiro.redis.version>3.1.0</shiro.redis.version>
         <thymeleaf.extras.shiro.version>2.0.0</thymeleaf.extras.shiro.version>
         <nekohtml.version>1.9.22</nekohtml.version>
